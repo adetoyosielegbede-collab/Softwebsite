@@ -1,0 +1,77 @@
+{
+  "seo": { "title": "Sentinel", "description": "Sentinel turns financial records into intelligence for complex investigations." },
+  "name": "Sentinel",
+  "hero": {
+    "eyebrow": "Softcom Product · Applied Intelligence",
+    "title": "Follow the money. See the connections.",
+    "text": "Turn financial records into intelligence for complex investigations. Sentinel connects transactions across accounts and parties, revealing money flows, relationships and patterns that warrant closer examination.",
+    "primaryLabel": "Request a demonstration",
+    "primaryHref": "/contact",
+    "secondaryLabel": "Explore Sentinel",
+    "secondaryHref": "#overview",
+    "backgroundImage": { "src": "", "alt": "" }
+  },
+  "overview": [],
+  "blocks": [
+    {
+      "number": "",
+      "title": "",
+      "text": "",
+      "points": [],
+      "figures": [
+        { "label": "Sentinel / 01", "title": "See the connections. Follow the money.", "caption": "A connected view of accounts, counterparties and transaction paths.", "image": { "src": "/media/sentinel/figure-01.png", "alt": "Network map of five entities with a circular flow highlighted" }, "source": "Concept illustration · Fictional data" }
+      ]
+    },
+    {
+      "number": "01",
+      "title": "An investigation spans more than one statement.",
+      "text": "A single investigation can involve multiple accounts, different banks and thousands of transactions. Sentinel brings those records together and automates analysis, helping investigators examine activity across the whole set.",
+      "points": [],
+      "figures": [
+        { "label": "Sentinel / 02", "title": "From financial records to intelligence.", "caption": "One connected path from source documents to an investigator’s view.", "image": { "src": "/media/sentinel/figure-02.png", "alt": "Four steps from records to connections, analysis and reporting" }, "source": "Concept illustration · Fictional data" }
+      ]
+    },
+    {
+      "number": "02",
+      "title": "Start with the records you have.",
+      "text": "Examine bank statements and accounting records in PDF, Excel and CSV formats, including scanned documents processed through OCR. Connect records from multiple accounts and parties to investigate them together.",
+      "points": [],
+      "figures": [
+        { "label": "Sentinel / 03", "title": "Bring the records together.", "caption": "Different source formats. Accounts and transactions examined together.", "image": { "src": "/media/sentinel/figure-03.png", "alt": "PDF, spreadsheet and scanned statements merged into connected transaction records" }, "source": "Concept illustration · Fictional data" }
+      ]
+    },
+    {
+      "number": "03",
+      "title": "Understand how the money moves.",
+      "text": "",
+      "points": [
+        { "title": "Trace the flow", "text": "Follow transfers between accounts and counterparties to understand where funds originate, how they move and where they arrive." },
+        { "title": "Reveal relationships", "text": "Identify shared counterparties and connections between parties through transaction analysis and network visualisation." },
+        { "title": "Examine patterns", "text": "Explore recurring transfers, concentrations and circular flows. Compare amounts and timing to identify activity that needs further investigation." }
+      ],
+      "figures": []
+    },
+    {
+      "number": "04",
+      "title": "Make the investigation clear.",
+      "text": "Bring transaction analysis into network maps, charts and investigative reports. Show the relationships, movements and patterns behind the findings, giving teams a clearer basis for review and further enquiry.",
+      "points": [],
+      "figures": [
+        { "label": "Sentinel / 04", "title": "Make the investigation visible.", "caption": "A financial overview alongside the transactions that warrant examination.", "image": { "src": "/media/sentinel/figure-04.png", "alt": "Money in and out chart beside a circular flow pattern for review" }, "source": "Concept illustration · Fictional data" }
+      ]
+    }
+  ],
+  "audience": {
+    "eyebrow": "Who it is for",
+    "title": "Built for those with a mandate to investigate.",
+    "text": "For financial investigators, law-enforcement teams, regulators, AML functions, public-sector oversight teams and audit firms examining financial activity."
+  },
+  "cta": {
+    "image": { "src": "/images/market-aerial.jpg", "alt": "Aerial view of a busy open-air market in Lagos" },
+    "title": "See Sentinel at work.",
+    "text": "Tell us about the records you examine and the questions you need to answer.",
+    "ctaLabel": "Request a demonstration",
+    "ctaHref": "/contact",
+    "layout": "split"
+  }
+}

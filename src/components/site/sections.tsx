@@ -1,0 +1,151 @@
+import Image from "next/image";
+import { CmsImage } from "@/components/cms/cms-image";
+import type { Cta, SiteContent } from "@/lib/content-types";
+import type { CmsImage as CmsImageValue } from "@/lib/cms/paths";
+import { cn } from "@/lib/utils";
+import { StarField } from "./dot-canvas";
+import { ArrowLink, PillLink } from "./links";
+
+type HeroProps = {
+  file: string;
+  path?: string;
+  eyebrow?: string;
+  title: string;
+  text?: string;
+  backgroundImage?: CmsImageValue;
+  actions?: { label: string; href: string; variant?: "pill" | "arrow" }[];
+};
+
+export function PageHero({ file, path = "hero", eyebrow, title, text, backgroundImage, actions = [] }: HeroProps) {
+  const hasImage = Boolean(backgroundImage?.src);
+  return (
+    <section className="relative flex min-h-[78vh] items-center overflow-hidden pt-28 pb-20 lg:min-h-[80vh]">
+      {hasImage ? (
+        <>
+          <CmsImage image={backgroundImage} file={file} path={`${path}.backgroundImage`} priority />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-paper" />
+        </>
+      ) : (
+        <>
+          <StarField />
+          <CmsImage
+            image={backgroundImage}
+            file={file}
+            path={`${path}.backgroundImage`}
+            emptyClassName="absolute top-24 right-6 z-10"
+          />
+        </>
+      )}
+      <div className="container-site relative text-center">
+        {eyebrow && (
+          <p className="eyebrow mb-6" data-reveal>
+            {eyebrow}
+          </p>
+        )}
+        <h1 className="display mx-auto max-w-4xl text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-7xl" data-reveal>
+          {title}
+        </h1>
+        {text && (
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-ink-soft sm:text-base" data-reveal>
+            {text}
+          </p>
+        )}
+        {actions.some((a) => a.label) && (
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-5" data-reveal>
+            {actions.map((a) =>
+              a.variant === "arrow" ? (
+                <ArrowLink key={a.label} href={a.href}>
+                  {a.label}
+                </ArrowLink>
+              ) : (
+                <PillLink key={a.label} href={a.href}>
+                  {a.label}
+                </PillLink>
+              ),
+            )}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+export function CtaBanner({ cta, file, path = "cta" }: { cta: Cta; file: string; path?: string }) {
+  const split = cta.layout === "split";
+  return (
+    <section className="container-site pt-24 pb-4 lg:pt-32">
+      <div
+        className="relative isolate flex min-h-[420px] items-center overflow-hidden rounded-3xl px-6 py-16 lg:min-h-[520px] lg:px-16"
+        data-reveal
+      >
+        <CmsImage image={cta.image} file={file} path={`${path}.image`} sizes="(min-width: 1440px) 1360px, 100vw" />
+        <div className="absolute inset-0 -z-0 bg-black/55" />
+        <div
+          className={cn(
+            "relative z-10 mx-auto flex w-full max-w-5xl flex-col gap-6",
+            split ? "lg:flex-row lg:items-center lg:justify-between" : "items-center text-center",
+          )}
+        >
+          <div className={cn("flex flex-col gap-6", split ? "max-w-md" : "items-center")}>
+            <span className="size-4 rounded-full bg-signal shadow-[0_0_30px_rgba(0,255,255,0.7)]" aria-hidden />
+            <h2 className="display text-4xl leading-tight sm:text-5xl">{cta.title}</h2>
+          </div>
+          <div className={cn("flex flex-col gap-6", split ? "max-w-sm" : "items-center")}>
+            {cta.text && <p className="max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">{cta.text}</p>}
+            <div>
+              <PillLink href={cta.ctaHref}>{cta.ctaLabel}</PillLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Stats({ stats }: { stats: SiteContent["stats"] }) {
+  return (
+    <dl className="grid grid-cols-2 gap-x-6 gap-y-10 border-t border-line pt-10 lg:grid-cols-4">
+      {stats.map((s, i) => (
+        <div key={s.label} data-reveal style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}>
+          <dt className="sr-only">{s.label}</dt>
+          <dd className="display text-5xl lg:text-6xl">{s.value}</dd>
+          <dd className="mt-2 text-xs text-ink-soft">{s.label}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+export function PartnerMarquee({ partners }: { partners: SiteContent["partners"] }) {
+  const row = (hidden: boolean) =>
+    partners.map((p, i) => (
+      <li key={`${p.name}-${hidden}`} aria-hidden={hidden || undefined} className="flex shrink-0 items-center">
+        {p.logo.src && (
+          <Image
+            src={p.logo.src}
+            alt={hidden ? "" : p.logo.alt || p.name}
+            title={p.name}
+            width={p.width}
+            height={p.height}
+            unoptimized={p.logo.src.endsWith(".svg")}
+            data-cms-file={hidden ? undefined : "site"}
+            data-cms-path={hidden ? undefined : `partners.${i}.logo`}
+            className="max-h-12 w-auto opacity-55 brightness-0 invert transition-opacity hover:opacity-100"
+            style={{ width: "auto", height: "auto" }}
+          />
+        )}
+      </li>
+    ));
+  return (
+    <div className="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
+      <ul className="flex w-max animate-marquee items-center gap-14 pr-14 hover:[animation-play-state:paused] lg:gap-20 lg:pr-20">
+        {row(false)}
+        {row(true)}
+      </ul>
+    </div>
+  );
+}
+
+export function SectionNumber({ children }: { children: React.ReactNode }) {
+  return <p className="font-mono text-xs text-ink-soft">{children}</p>;
+}

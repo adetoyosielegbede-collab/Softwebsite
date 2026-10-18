@@ -1,0 +1,77 @@
+{
+  "seo": { "title": "About", "description": "Softcom is a technology and innovation company with 19 years of experience building digital products, enterprise systems and large-scale initiatives." },
+  "hero": {
+    "eyebrow": "About Softcom",
+    "title": "Technology that matters.",
+    "text": "Softcom is a technology and innovation company with 19 years of experience building digital products, enterprise systems and large-scale initiatives for public institutions, private organisations and development enablers.",
+    "ctaLabel": "Meet our leadership",
+    "ctaHref": "#leadership",
+    "backgroundImage": { "src": "", "alt": "" }
+  },
+  "story": {
+    "title": "Built from a conviction about Africa’s potential.",
+    "paragraphs": [
+      "Softcom was founded in 2007 with a mission to give many people a path to growth, achievement and fulfilment.",
+      "When technology was largely associated with global giants, solving an everyday problem with software showed us what was possible. We took that same approach into enterprises: understand what they wanted to achieve and build the answers they needed.",
+      "Today, our mission remains the same: to help organisations, our people and the communities we reach achieve more. Their progress gives purpose to ours."
+    ],
+    "image": { "src": "", "alt": "" }
+  },
+  "journey": {
+    "eyebrow": "Milestones",
+    "title": "Our journey",
+    "range": "2007 — 2026",
+    "items": [
+      { "year": "2007", "title": "Pioneering electronic airtime purchases", "text": "Founded in 2007, Softcom was among the pioneers of electronic airtime purchasing in Nigeria. ReloadNG enabled people to purchase airtime online, through a text message or with a missed call, introducing new ways to access an everyday service.", "image": { "src": "", "alt": "" } },
+      { "year": "2010–2015", "title": "Enterprise systems and industry value chains", "text": "Softcom developed enterprise systems across FMCG (fast-moving consumer goods) and FSI (financial services industry). The work deepened the company’s understanding of industry value chains and how technology could support operations, distribution and service delivery.", "image": { "src": "", "alt": "" } },
+      { "year": "2015", "title": "Deepening our footprint in education", "text": "The Future Ready University conference brought Softcom together with university leaders, opening relationships that led to technology engagements across the education sector.", "image": { "src": "", "alt": "" } },
+      { "year": "2016", "title": "A landmark in national development", "text": "Working with the Bank of Industry (BOI), Softcom delivered technology supporting the recruitment, training, deployment, management and payment of more than 500,000 graduates. The work brought multiple stages of a national development initiative together, enabling delivery and coordination at scale.", "image": { "src": "", "alt": "" } },
+      { "year": "2017", "title": "Pioneering banking with a phone number", "text": "Softcom developed Eyowo, pioneering a way for consumers to bank using their existing phone numbers. Removing the leading zero turned the remaining ten digits into an account number, making a familiar identifier the gateway to banking. The platform went on to reach more than 4.5 million users banking through their phone numbers.", "image": { "src": "", "alt": "" } },
+      { "year": "2018", "title": "A landmark in development finance", "text": "Softcom’s technology enabled delivery of microloans to more than 1.2 million traders across Nigeria, most of whom were previously unbanked. It demonstrated how digital infrastructure could extend financial access to people operating beyond the reach of traditional banking.", "image": { "src": "", "alt": "" } },
+      { "year": "2021", "title": "Platforms enabling new services", "text": "Softcom launched platforms enabling services across data, stateless payments, retail and banking, giving organisations digital foundations through which to serve their customers and users.", "image": { "src": "", "alt": "" } },
+      { "year": "2025", "title": "Web3, AI and machine learning", "text": "Our work expanded into systems using Web3 technologies and intelligence solutions powered by artificial intelligence and machine learning, extending the company’s enterprise capabilities.", "image": { "src": "", "alt": "" } },
+      { "year": "2026", "title": "Nineteen years of technology and innovation", "text": "Softcom’s work spans Digital Infrastructure, Applied Intelligence and Powering Initiatives, bringing proprietary technology, partner platforms and delivery expertise to the ambitions of public institutions, private organisations and development enablers.", "image": { "src": "", "alt": "" } }
+    ]
+  },
+  "values": {
+    "title": "What guides our work",
+    "items": [
+      { "title": "Depth of thought", "text": "Our teams question assumptions, examine the context and consider the implications before settling on an answer." },
+      { "title": "Technical competence", "text": "Thoughtful design, disciplined engineering and attention to detail shape how our solutions are built and put into use." },
+      { "title": "Ownership", "text": "We make commitments carefully, raise issues openly and follow through on the work entrusted to us." },
+      { "title": "Collective strength", "text": "We bring different expertise and perspectives together. Sharing knowledge and working across disciplines makes us more capable as a team." }
+    ]
+  },
+  "leadership": {
+    "title": "Our leadership",
+    "grayscale": true,
+    "people": [
+      { "name": "Abayomi Adedeji", "role": "Founder", "photo": { "src": "/images/leader-abayomi-adedeji.png", "alt": "Abayomi Adedeji, Founder" } },
+      { "name": "Omoseindemi Olobayo", "role": "Chief Executive Officer", "photo": { "src": "/images/leader-omoseindemi-olobayo.png", "alt": "Omoseindemi Olobayo, Chief Executive Officer" } },
+      { "name": "Adetoyosi Elegbede", "role": "Chief Operating Officer", "photo": { "src": "/images/leader-adetoyosi-elegbede.png", "alt": "Adetoyosi Elegbede, Chief Operating Officer" } }
+    ]
+  },
+  "buildWithUs": {
+    "title": "Build with us.",
+    "text": "Bring original thinking, an innovator’s mindset and a strong sense of ownership. Work alongside exceptional peers whose expertise complements yours and expands what you can achieve.",
+    "primaryLabel": "Explore careers at Softcom",
+    "primaryHref": "/careers",
+    "secondaryLabel": "Explore our alumni community",
+    "secondaryHref": "/contact"
+  },
+  "news": {
+    "eyebrow": "News",
+    "title": "Latest news",
+    "text": "Updates from across Softcom.",
+    "ctaLabel": "View all news",
+    "ctaHref": "/insights"
+  },
+  "cta": {
+    "image": { "src": "/images/market-aerial.jpg", "alt": "Aerial view of a busy open-air market in Lagos" },
+    "title": "Proud partner of potential.",
+    "text": "What can we achieve together?",
+    "ctaLabel": "Start a conversation",
+    "ctaHref": "/contact",
+    "layout": "center"
+  }
+}

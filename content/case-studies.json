@@ -1,0 +1,77 @@
+{
+  "seo": { "title": "Case Studies", "description": "Real engagements. Measurable outcomes." },
+  "hero": {
+    "eyebrow": "Case Studies",
+    "title": "Real engagements. Measurable outcomes.",
+    "text": "A portfolio of real engagements — spanning government, financial services, consumer goods, and agriculture — each delivering measurable, lasting outcomes.",
+    "ctaLabel": "Start a conversation",
+    "ctaHref": "/contact",
+    "backgroundImage": { "src": "", "alt": "" }
+  },
+  "filters": ["Government", "Financial Inclusion", "FMCG", "Agriculture"],
+  "items": [
+    {
+      "title": "A National Digital Platform for 500,000 Young Nigerians",
+      "text": "Nigeria faced an acute youth unemployment crisis — nearly 50% of graduates were unemployed or unemployable. Past government interventions struggled with inefficiency, poor reach, and weak accountability. The challenge: recruit, train, deploy, and pay half a million young people fairly and on time, across all 36 states.",
+      "tag": "Government",
+      "metric": "500k",
+      "metricLabel": "Youth Engaged",
+      "client": "Federal Government of Nigeria",
+      "image": { "src": "", "alt": "" }
+    },
+    {
+      "title": "Connecting Directly with 12 Million Coca-Cola Consumers",
+      "text": "Millions of Nigerians drank Coca-Cola daily, yet the company had limited visibility into who those consumers were or how to reward loyalty beyond traditional retail channels. A direct consumer database was needed — built at scale, fast.",
+      "tag": "FMCG",
+      "metric": "12M",
+      "metricLabel": "Consumers Identified",
+      "client": "Coca-Cola Nigeria",
+      "image": { "src": "", "alt": "" }
+    },
+    {
+      "title": "Conditional Cash Transfers to Nigeria's Poorest Households",
+      "text": "Over 100 million Nigerians are classified as multidimensionally poor. The Federal Government needed to deliver targeted support to the poorest households — encouraging education, immunisation, and family planning — while reaching riverine and hard-to-access rural communities with full transparency.",
+      "tag": "Government",
+      "metric": "190k+",
+      "metricLabel": "Beneficiaries Reached",
+      "client": "National Cash Transfer Office / FGN",
+      "image": { "src": "", "alt": "" }
+    },
+    {
+      "title": "Digital Micro-Lending to 1.2 Million Nigerian Traders",
+      "text": "Millions of Nigerian informal traders had no credit history, no bank account, and no access to formal lending — making them invisible to the financial system. The Bank of Industry needed to reach them directly, at scale, with verifiable identity and instant disbursement.",
+      "tag": "Financial Inclusion",
+      "metric": "1.2M",
+      "metricLabel": "Traders Reached",
+      "client": "Bank of Industry / Federal Government of Nigeria",
+      "image": { "src": "", "alt": "" }
+    },
+    {
+      "title": "Digitising the Agricultural Value Chain for West Africa's Largest Tomato Processor",
+      "text": "GB Foods operates the largest tomato processing factory in West Africa in Kebbi State, sourcing from 1,500 hectares of farm and 5,000+ out-grower farmers. Before production could scale, they needed a reliable way to identify, verify, and profile thousands of smallholder farmers.",
+      "tag": "Agriculture",
+      "metric": "13k+",
+      "metricLabel": "Farmers Profiled",
+      "client": "GB Foods Nigeria",
+      "image": { "src": "", "alt": "" }
+    },
+    {
+      "title": "Building a Direct Consumer Relationship for Trophy Beer",
+      "text": "AB InBev needed to understand and directly engage their Trophy Beer consumer base in Nigeria's informal beer market — a largely anonymous audience transacting through informal distribution channels with no direct brand-to-consumer connection.",
+      "tag": "FMCG",
+      "metric": "4M",
+      "metricLabel": "Consumers Engaged",
+      "client": "AB InBev Nigeria — Trophy Beer",
+      "image": { "src": "", "alt": "" }
+    }
+  ],
+  "band": { "src": "/images/pos-agent.jpg", "alt": "A point-of-sale agent serving a customer", "position": "50% 40%" },
+  "cta": {
+    "image": { "src": "/images/market-aerial.jpg", "alt": "Aerial view of a busy open-air market in Lagos" },
+    "title": "Build with us.",
+    "text": "Bring original thinking, an innovator’s mindset and a strong sense of ownership. Work alongside exceptional peers whose expertise complements yours and expands what you can achieve.",
+    "ctaLabel": "Explore careers at Softcom",
+    "ctaHref": "/careers",
+    "layout": "center"
+  }
+}

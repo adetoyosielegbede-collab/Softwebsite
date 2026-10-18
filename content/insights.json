@@ -1,0 +1,23 @@
+{
+  "seo": { "title": "Insights", "description": "Research, analysis, & perspectives from the field." },
+  "hero": {
+    "eyebrow": "News & Insights",
+    "title": "Research, analysis, & perspectives from the field.",
+    "text": "Thinking from Softcom's practice leads, on digital transformation, data strategy, government technology, and the forces shaping Africa's technology landscape.",
+    "ctaLabel": "Start a conversation",
+    "ctaHref": "/contact",
+    "backgroundImage": { "src": "", "alt": "" }
+  },
+  "categories": ["Digital Strategy", "Data", "Government Tech", "Leadership", "Strategy"],
+  "featuredTitle": "Featured Insight",
+  "moreTitle": "More insights",
+  "emptyText": "No insights in this category yet. Check back soon.",
+  "cta": {
+    "image": { "src": "/images/market-aerial.jpg", "alt": "Aerial view of a busy open-air market in Lagos" },
+    "title": "Build with us.",
+    "text": "Bring original thinking, an innovator’s mindset and a strong sense of ownership. Work alongside exceptional peers whose expertise complements yours and expands what you can achieve.",
+    "ctaLabel": "Explore careers at Softcom",
+    "ctaHref": "/careers",
+    "layout": "center"
+  }
+}

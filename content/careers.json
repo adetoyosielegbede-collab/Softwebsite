@@ -1,0 +1,38 @@
+{
+  "seo": { "title": "Careers", "description": "Original thinkers. Exceptional peers. Build your career at Softcom." },
+  "hero": {
+    "eyebrow": "Careers",
+    "title": "Original thinkers. Exceptional peers.",
+    "text": "Softcom is for people who question assumptions, see possibilities and take responsibility for turning ideas into working solutions.",
+    "ctaLabel": "See open roles",
+    "ctaHref": "#open-roles",
+    "backgroundImage": { "src": "", "alt": "" }
+  },
+  "intro": [
+    "Original thinking matters here. So does ownership: working through difficult problems, raising issues early and following through. We look for people who care enough about the outcome to act, learn and improve.",
+    "In return, expect exceptional peers—people with depth in their disciplines whose capabilities complement yours. Colleagues who challenge your thinking, contribute answers you would not reach alone and bring the same sense of ownership to the work."
+  ],
+  "image": { "src": "", "alt": "" },
+  "openRoles": {
+    "title": "Open roles",
+    "emptyText": "There are no open roles listed right now. If you would like to introduce yourself, we would be glad to hear from you.",
+    "ctaLabel": "Start a conversation",
+    "ctaHref": "/contact",
+    "roles": []
+  },
+  "work": {
+    "title": "The work you could help build.",
+    "paragraphs": [
+      "Digital infrastructure through which people access services, connect and transact. Intelligence systems that help organisations investigate complex information and make decisions. Initiatives that bring technology, people and processes together to reach intended beneficiaries.",
+      "Across these areas, the work calls for understanding the problem, developing an answer and taking responsibility for how it performs in practice."
+    ]
+  },
+  "cta": {
+    "image": { "src": "/images/market-aerial.jpg", "alt": "Aerial view of a busy open-air market in Lagos" },
+    "title": "Proud partner of potential.",
+    "text": "What can we achieve together?",
+    "ctaLabel": "Start a conversation",
+    "ctaHref": "/contact",
+    "layout": "center"
+  }
+}

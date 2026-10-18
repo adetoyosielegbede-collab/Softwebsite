@@ -1,0 +1,164 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { cn } from "@/lib/utils";
+
+type Draw = (ctx: CanvasRenderingContext2D, w: number, h: number, t: number) => void;
+
+function useCanvasLoop(draw: Draw, fps = 30) {
+  const ref = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = ref.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let w = 0;
+    let h = 0;
+    let raf = 0;
+    let last = 0;
+    let visible = true;
+    const start = performance.now();
+
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = rect.width;
+      h = rect.height;
+      canvas.width = Math.max(1, Math.round(w * dpr));
+      canvas.height = Math.max(1, Math.round(h * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      draw(ctx, w, h, (performance.now() - start) / 1000);
+    };
+
+    const loop = (now: number) => {
+      raf = requestAnimationFrame(loop);
+      if (!visible || now - last < 1000 / fps) return;
+      last = now;
+      draw(ctx, w, h, (now - start) / 1000);
+    };
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+    const io = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+    });
+    io.observe(canvas);
+    resize();
+    if (!reduced) raf = requestAnimationFrame(loop);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+      io.disconnect();
+    };
+  }, [draw, fps]);
+
+  return ref;
+}
+
+function hash(x: number, y: number) {
+  const s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453;
+  return s - Math.floor(s);
+}
+
+const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map((v) => (v + 0.5) / 16);
+const bayer = (i: number, j: number) => BAYER[(j & 3) * 4 + (i & 3)];
+
+const drawStarField: Draw = (ctx, w, h, t) => {
+  ctx.clearRect(0, 0, w, h);
+  const gap = 26;
+  for (let y = gap / 2; y < h; y += gap) {
+    for (let x = gap / 2; x < w; x += gap) {
+      const r = hash(x, y);
+      if (r > 0.42) continue;
+      const tw = 0.5 + 0.5 * Math.sin(t * (0.6 + r * 1.6) + r * 40);
+      const signal = r < 0.02;
+      const alpha = signal ? 0.35 + 0.5 * tw : 0.06 + 0.22 * tw * (r < 0.15 ? 1 : 0.5);
+      ctx.fillStyle = signal ? `rgba(0,255,255,${alpha})` : `rgba(255,255,255,${alpha})`;
+      const s = signal ? 2 : 1.4;
+      ctx.fillRect(x + (r - 0.2) * 8, y + (hash(y, x) - 0.5) * 8, s, s);
+    }
+  }
+  const fade = ctx.createLinearGradient(0, h * 0.55, 0, h);
+  fade.addColorStop(0, "rgba(10,10,10,0)");
+  fade.addColorStop(1, "rgba(10,10,10,1)");
+  ctx.fillStyle = fade;
+  ctx.fillRect(0, 0, w, h);
+};
+
+const drawHeroMatrix: Draw = (ctx, w, h, t) => {
+  ctx.fillStyle = "#000";
+  ctx.fillRect(0, 0, w, h);
+  const cell = w < 640 ? 6 : 8;
+  const size = cell * 0.62;
+  const cy = h * (w < 640 ? 0.32 : 0.34);
+  const r = Math.min(w * 0.11, h * 0.2) * (1 + 0.025 * Math.sin(t * 1.2));
+  const ax = w * 0.22;
+  const bx = w * 0.78;
+
+  for (let j = 0, y = cell / 2; y < h; j++, y += cell) {
+    for (let i = 0, x = cell / 2; x < w; i++, x += cell) {
+      const da = Math.hypot(x - ax, y - cy);
+      const db = Math.hypot(x - bx, y - cy);
+      const threshold = bayer(i, j);
+
+      if (da < r || db < r) {
+        const inA = da < r;
+        const d = (inA ? da : db) / r;
+        const shimmer = 0.08 * Math.sin(t * 2 + i * 0.35 + j * 0.2);
+        const v = 0.95 - d * d * 0.55 + shimmer;
+        if (v > threshold) {
+          ctx.fillStyle = inA ? (v > 0.75 ? "#1a5cff" : "#004bff") : v > 0.75 ? "#5ff" : "#0ff";
+          ctx.fillRect(x - size / 2, y - size / 2, size, size);
+        } else if (inA) {
+          ctx.fillStyle = "rgba(0,255,255,0.65)";
+          ctx.fillRect(x - size / 4, y - size / 4, size / 2, size / 2);
+        } else {
+          ctx.fillStyle = "rgba(0,75,255,0.8)";
+          ctx.fillRect(x - size / 4, y - size / 4, size / 2, size / 2);
+        }
+        continue;
+      }
+
+      const band = r * 0.42;
+      if (x > ax + r * 0.6 && x < bx - r * 0.6 && Math.abs(y - cy) < band) {
+        const flow = 0.5 + 0.5 * Math.sin(x * 0.045 - t * 2.4) * Math.cos(y * 0.09 + t * 0.7);
+        const edge = 1 - Math.abs(y - cy) / band;
+        const v = flow * 0.75 + edge * 0.35;
+        if (v > threshold) {
+          ctx.fillStyle = v > 0.85 ? "#bff" : "#0ff";
+          ctx.fillRect(x - size / 2, y - size / 2, size, size);
+        } else if (v > threshold * 0.6) {
+          ctx.fillStyle = "rgba(0,255,255,0.35)";
+          ctx.fillRect(x - size / 4, y - size / 4, size / 2, size / 2);
+        }
+        continue;
+      }
+
+      const halo = Math.min(da, db) / r;
+      if (halo < 3.2) {
+        const p = (1 - (halo - 1) / 2.2) * 0.9;
+        const n = hash(i, j);
+        if (n < p) {
+          const tw = 0.5 + 0.5 * Math.sin(t * 1.5 + n * 30);
+          ctx.fillStyle = `rgba(255,255,255,${0.08 + 0.22 * tw * p})`;
+          const s = size * 0.4;
+          ctx.fillRect(x - s / 2, y - s / 2, s, s);
+        }
+      }
+    }
+  }
+};
+
+export function StarField({ className }: { className?: string }) {
+  const ref = useCanvasLoop(drawStarField, 24);
+  return <canvas ref={ref} aria-hidden className={cn("pointer-events-none absolute inset-0 size-full", className)} />;
+}
+
+export function HeroMatrix({ className }: { className?: string }) {
+  const ref = useCanvasLoop(drawHeroMatrix, 30);
+  return <canvas ref={ref} aria-hidden className={cn("pointer-events-none absolute inset-0 size-full", className)} />;
+}

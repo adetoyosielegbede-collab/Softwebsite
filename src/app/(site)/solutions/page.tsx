@@ -1,0 +1,173 @@
+import type { Metadata } from "next";
+import { CmsImage } from "@/components/cms/cms-image";
+import { Carousel } from "@/components/site/carousel";
+import { PillLink } from "@/components/site/links";
+import { CtaBanner, PageHero, SectionNumber } from "@/components/site/sections";
+import { StickySteps } from "@/components/site/sticky-steps";
+import { getContent } from "@/lib/content";
+import { cn } from "@/lib/utils";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { seo } = await getContent("solutions");
+  return { title: seo.title, description: seo.description };
+}
+
+function SectionHeader({ id, number, title, lead }: { id: string; number: string; title: string; lead: string }) {
+  return (
+    <div id={id} className="grid scroll-mt-24 gap-4 border-t border-line pt-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]" data-reveal>
+      <SectionNumber>{number}</SectionNumber>
+      <div>
+        <h2 className="display text-4xl lg:text-5xl">{title}</h2>
+        <p className="mt-4 max-w-xl text-sm leading-relaxed text-signal">{lead}</p>
+      </div>
+    </div>
+  );
+}
+
+export default async function SolutionsPage() {
+  const s = await getContent("solutions");
+  const { hero, intro, infrastructure: infra, intelligence: intel, initiatives: init } = s;
+
+  return (
+    <>
+      <PageHero
+        file="solutions"
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        text={hero.text}
+        backgroundImage={hero.backgroundImage}
+        actions={[{ label: hero.ctaLabel, href: hero.ctaHref }]}
+      />
+
+      <section className="container-site pb-24 lg:pb-32">
+        <div className="max-w-4xl lg:ml-auto lg:w-2/3">
+          <span className="mb-6 inline-block rounded-full bg-signal px-2.5 py-1 text-[11px] font-medium text-black">{intro.badge}</span>
+          {intro.paragraphs.map((p, i) => (
+            <p key={p} className={cn("display text-2xl leading-snug sm:text-3xl", i > 0 && "mt-6 text-ink-soft")} data-reveal>
+              {p}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section className="container-site">
+        <SectionHeader id="digital-infrastructure" number={infra.number} title={infra.title} lead={infra.lead} />
+        <div className="mt-16 max-w-md" data-reveal>
+          <h3 className="text-xl">{infra.subTitle}</h3>
+          <p className="mt-3 text-[13px] leading-relaxed text-ink-soft">{infra.subText}</p>
+        </div>
+        <div className="mt-6">
+          <StickySteps steps={infra.steps} file="solutions" path="infrastructure.steps" />
+        </div>
+        <p className="display mx-auto mt-20 max-w-2xl text-center text-2xl leading-snug lg:text-3xl" data-reveal>
+          {infra.statement}
+        </p>
+        <div className="mt-12 grid gap-4 md:grid-cols-2">
+          {infra.cards.map((card) => (
+            <article
+              key={card.title}
+              className={cn("rounded-3xl p-8 lg:p-10", card.highlight ? "bg-brand text-white" : "bg-surface-raised")}
+              data-reveal
+            >
+              <p className={cn("eyebrow", card.highlight && "text-white/70")}>{card.eyebrow}</p>
+              <h3 className="display mt-16 text-3xl lg:mt-24 lg:text-4xl">{card.title}</h3>
+              <p className={cn("mt-5 text-[13px] leading-relaxed", card.highlight ? "text-white/85" : "text-ink-soft")}>{card.text}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <PillLink href={infra.ctaHref}>{infra.ctaLabel}</PillLink>
+        </div>
+      </section>
+
+      <section className="pt-28 lg:pt-40">
+        <div className="container-site">
+          <SectionHeader id="applied-intelligence" number={intel.number} title={intel.title} lead={intel.lead} />
+          <div className="mt-16 max-w-md" data-reveal>
+            <p className="eyebrow">{intel.eyebrow} →</p>
+            <p className="mt-4 text-[13px] leading-relaxed text-ink-soft">{intel.intro}</p>
+          </div>
+        </div>
+        <Carousel label={intel.eyebrow} className="mt-10">
+          {intel.items.map((item, i) => (
+            <article key={item.title} className="w-[80vw] shrink-0 snap-start overflow-hidden rounded-3xl bg-surface-raised sm:w-[392px]">
+              <div className="relative aspect-[4/3] bg-night">
+                <CmsImage image={item.image} file="solutions" path={`intelligence.items.${i}.image`} sizes="392px" emptyClassName="absolute inset-0" />
+              </div>
+              <div className="p-6 lg:p-8">
+                <p className="font-mono text-[11px] text-ink-faint">{String(i + 1).padStart(2, "0")}</p>
+                <h3 className="mt-3 text-xl">{item.title}</h3>
+                <p className="mt-3 text-[13px] leading-relaxed text-ink-soft">{item.text}</p>
+              </div>
+            </article>
+          ))}
+        </Carousel>
+        <div className="container-site mt-20 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+          <h3 className="display text-3xl lg:text-4xl" data-reveal>
+            {intel.shapedTitle}
+          </h3>
+          <div data-reveal>
+            <ol className="grid gap-6 border-t border-line pt-6 sm:grid-cols-3">
+              {intel.shapedItems.map((item, i) => (
+                <li key={item}>
+                  <p className="font-mono text-[11px] text-ink-faint">{String(i + 1).padStart(2, "0")}</p>
+                  <p className="mt-2 text-[15px]">{item}</p>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-10 max-w-lg text-[13px] leading-relaxed text-ink-soft">{intel.shapedText}</p>
+            <div className="mt-6">
+              <PillLink href={intel.ctaHref}>{intel.ctaLabel}</PillLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container-site pt-28 lg:pt-40">
+        <SectionHeader id="powering-initiatives" number={init.number} title={init.title} lead={init.lead} />
+        <figure className="relative mt-16 overflow-hidden rounded-3xl bg-night" data-reveal>
+          <figcaption className="eyebrow absolute top-5 right-6 z-10 text-signal/80">{init.figureLabel}</figcaption>
+          <div className="relative aspect-[1360/760]">
+            <CmsImage image={init.figure} file="solutions" path="initiatives.figure" sizes="(min-width: 1440px) 1360px, 100vw" emptyClassName="absolute inset-0" />
+          </div>
+        </figure>
+
+        <div className="mt-20 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+          <div data-reveal>
+            <h3 className="text-xl">{init.entrustTitle}</h3>
+            <p className="mt-3 max-w-sm text-[13px] leading-relaxed text-ink-soft">{init.entrustText}</p>
+          </div>
+          <ol className="border-t border-line">
+            {init.entrustItems.map((item, i) => (
+              <li key={item} className="flex items-baseline gap-6 border-b border-line py-4" data-reveal>
+                <span className="font-mono text-[11px] text-ink-faint">{String(i + 1).padStart(2, "0")}</span>
+                <span className="display text-2xl lg:text-3xl">{item}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <div className="mt-20 rounded-3xl bg-brand p-6 text-white sm:p-10" data-reveal>
+          <span className="inline-block rounded-full bg-white px-2.5 py-1 text-[11px] font-medium text-black">{init.phasesBadge}</span>
+          <h3 className="display mt-4 text-4xl">{init.phasesTitle}</h3>
+          <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {init.phases.map((phase, i) => (
+              <li key={phase.title} className="relative border-t border-white/40 pt-6">
+                <span className="absolute -top-[5px] left-0 size-2.5 rounded-full bg-white" aria-hidden />
+                <p className="display text-4xl">{String(i + 1).padStart(2, "0")}</p>
+                <h4 className="mt-3 text-sm font-medium">{phase.title}</h4>
+                <p className="mt-2 text-[13px] leading-relaxed text-white/80">{phase.text}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-12 flex flex-col gap-6 border-t border-white/25 pt-8 sm:flex-row sm:items-center sm:justify-between">
+            <p className="display max-w-xl text-2xl leading-snug">{init.closing}</p>
+            <PillLink href={init.ctaHref}>{init.ctaLabel}</PillLink>
+          </div>
+        </div>
+      </section>
+
+      <CtaBanner cta={s.cta} file="solutions" />
+    </>
+  );
+}

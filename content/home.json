@@ -1,0 +1,155 @@
+{
+  "hero": {
+    "titleLine1": "Technology for Organisations.",
+    "titleLine2": "Progress for Society.",
+    "backgroundImage": {
+      "src": "",
+      "alt": ""
+    }
+  },
+  "intro": {
+    "text": "Softcom is a technology and innovation company with {19 years} of experience building for public institutions, private organisations and development enablers. We help organisations think through what they want to achieve, then bring together the technology, people and processes to make it happen.",
+    "primaryLabel": "Explore our solutions",
+    "primaryHref": "/solutions",
+    "secondaryLabel": "Start a conversation",
+    "secondaryHref": "/contact"
+  },
+  "mission": {
+    "image": {
+      "src": "/images/lagos-dusk.jpg",
+      "alt": "Lagos at dusk across the lagoon, a fisherman in a canoe",
+      "position": "50% 60%"
+    },
+    "title": "Stronger organisations build a more prosperous society.",
+    "text": "We build the technology and capabilities that help them work better, decide better and serve the people who depend on them.",
+    "ctaLabel": "Our story",
+    "ctaHref": "/about"
+  },
+  "focusAreas": {
+    "title": "Our focus areas",
+    "items": [
+      {
+        "number": "01",
+        "title": "Digital Infrastructure",
+        "text": "We build the digital rails that enable people and organisations to access services, connect and transact. These systems provide a common foundation through which many participants can operate, repeatedly and at scale.",
+        "ctaLabel": "Explore Digital Infrastructure",
+        "href": "/solutions#digital-infrastructure",
+        "image": {
+          "src": "/images/filling-station.jpg",
+          "alt": "An attendant at a filling station completing a digital payment at dusk"
+        }
+      },
+      {
+        "number": "02",
+        "title": "Applied Intelligence",
+        "text": "Our intelligence systems connect fragmented information and help organisations examine it in depth. Across documents, records and datasets, including market data, our technology helps people investigate activity, understand relationships, track changes and identify what needs attention.",
+        "ctaLabel": "Explore Applied Intelligence",
+        "href": "/solutions#applied-intelligence",
+        "image": {
+          "src": "/images/intelligence-ops-room.jpg",
+          "alt": "An analyst in an intelligence operations room overlooking the city at night"
+        }
+      },
+      {
+        "number": "03",
+        "title": "Powering Initiatives",
+        "text": "We bring technology, people and processes together to deliver complex initiatives. We design how an initiative will operate, put the required systems in place and coordinate the activities needed to reach its intended beneficiaries.",
+        "ctaLabel": "Explore Powering Initiatives",
+        "href": "/solutions#powering-initiatives",
+        "image": {
+          "src": "/images/field-enrolment.jpg",
+          "alt": "A field officer enrolling a beneficiary in a rural community"
+        }
+      }
+    ]
+  },
+  "audiences": {
+    "title": "Who we work with",
+    "intro": "Different organisations have different ambitions. Some have a precise requirement, others have a challenge to work through or a possibility to explore.",
+    "items": [
+      {
+        "title": "Public Institutions",
+        "text": "We work with public institutions on the technology and systems needed to serve people, support oversight and coordinate delivery. Our approach considers the mandate, the operating environment and the people the solution must reach.",
+        "tags": [
+          "Government MDAs",
+          "Regulators",
+          "Law Enforcement Agencies"
+        ],
+        "icon": {
+          "src": "/media/home/audience-public-institutions.svg",
+          "alt": ""
+        }
+      },
+      {
+        "title": "Private Organisations",
+        "text": "We help businesses apply technology to the priorities that shape their performance. From enterprise systems to intelligence and digital services, we connect technical capability with the organisation’s commercial ambitions.",
+        "tags": [
+          "Financial Services",
+          "FMCG",
+          "Oil & Gas",
+          "Education"
+        ],
+        "icon": {
+          "src": "/media/home/audience-private-organisations.svg",
+          "alt": ""
+        }
+      },
+      {
+        "title": "Development Enablers",
+        "text": "Local understanding, coordinated implementation and visibility into results are essential to development work. Our technology and delivery expertise help development organisations reach intended beneficiaries, follow progress and respond to what they learn.",
+        "tags": [
+          "Multilateral Organisations",
+          "Cooperatives",
+          "Non-Profit Foundations"
+        ],
+        "icon": {
+          "src": "/media/home/audience-development-enablers.svg",
+          "alt": ""
+        }
+      }
+    ],
+    "primaryLabel": "Explore working with Softcom",
+    "primaryHref": "/solutions",
+    "secondaryLabel": "View case studies",
+    "secondaryHref": "/case-studies"
+  },
+  "howWeWork": {
+    "eyebrow": "How we work",
+    "items": [
+      {
+        "label": "Technology",
+        "title": "Technology to make it happen.",
+        "text": "Our engineers consider the organisation’s existing systems, operating conditions and future requirements. These inform what to build, what to integrate and how the different parts should work together."
+      },
+      {
+        "label": "Expertise",
+        "title": "Expertise to make it work.",
+        "text": "Putting technology to work requires clear responsibilities, prepared teams and processes that support its use. Depending on the engagement, our involvement can extend to change management, ongoing operations and impact assessment."
+      },
+      {
+        "label": "People",
+        "title": "People behind the work.",
+        "text": "Softcom’s experience lives in its people: the knowledge they have developed, the challenges they have worked through and the standards they bring to each engagement."
+      }
+    ],
+    "ctaLabel": "Discuss what you want to achieve",
+    "ctaHref": "/contact"
+  },
+  "thinking": {
+    "title": "Our thinking",
+    "text": "Perspectives on technology, organisations and the decisions that shape what comes next.",
+    "ctaLabel": "Explore our thinking",
+    "ctaHref": "/insights"
+  },
+  "cta": {
+    "image": {
+      "src": "/images/market-aerial.jpg",
+      "alt": "Aerial view of a busy open-air market in Lagos"
+    },
+    "title": "Proud partner of potential.",
+    "text": "What can we achieve together?",
+    "ctaLabel": "Start a conversation",
+    "ctaHref": "/contact",
+    "layout": "center"
+  }
+}

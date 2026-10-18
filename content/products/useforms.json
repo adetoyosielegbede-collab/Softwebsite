@@ -1,0 +1,39 @@
+{
+  "seo": { "title": "Useforms", "description": "Collect data in all its forms with Useforms." },
+  "name": "Useforms",
+  "hero": {
+    "eyebrow": "Softcom Product · Digital Infrastructure",
+    "title": "Collect data in all its forms.",
+    "text": "Equip teams to collect and submit text, images, location, direction, biometric information and more. Bring observations and supporting evidence together in structured submissions that document people, places and activities.",
+    "primaryLabel": "Request a demonstration",
+    "primaryHref": "/contact",
+    "secondaryLabel": "",
+    "secondaryHref": "",
+    "backgroundImage": { "src": "", "alt": "" }
+  },
+  "overview": [],
+  "blocks": [
+    {
+      "number": "",
+      "title": "",
+      "text": "",
+      "points": [],
+      "figures": [
+        { "label": "Useforms", "title": "Structured submissions from the field.", "caption": "Text, images, location, direction and biometric information in one record.", "image": { "src": "/media/products/useforms-card.png", "alt": "Useforms logo" }, "source": "Product artwork" }
+      ]
+    }
+  ],
+  "audience": {
+    "eyebrow": "",
+    "title": "",
+    "text": ""
+  },
+  "cta": {
+    "image": { "src": "/images/market-aerial.jpg", "alt": "Aerial view of a busy open-air market in Lagos" },
+    "title": "Find the technology that fits your work.",
+    "text": "Tell us what you need to achieve. We’ll help you identify the relevant products, platforms and implementation support.",
+    "ctaLabel": "Start a conversation",
+    "ctaHref": "/contact",
+    "layout": "center"
+  }
+}

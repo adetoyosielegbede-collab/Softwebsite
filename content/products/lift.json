@@ -1,0 +1,126 @@
+{
+  "seo": { "title": "Lift", "description": "LIFT is the platform behind entrepreneurial development initiatives." },
+  "name": "Lift",
+  "hero": {
+    "eyebrow": "Softcom Product · Powering Initiatives",
+    "title": "The platform behind entrepreneurial development initiatives.",
+    "text": "States, national agencies and development partners run initiatives to help small businesses start, formalise and grow. LIFT is the platform those initiatives run on.",
+    "primaryLabel": "Request a demonstration",
+    "primaryHref": "/contact",
+    "secondaryLabel": "Explore Lift",
+    "secondaryHref": "#overview",
+    "backgroundImage": { "src": "", "alt": "" }
+  },
+  "overview": [
+    "A business owner signs up once, verifies in stages, and gets learning, events, a verified marketplace, funding, government registration and a public directory in one account. The organisation running the initiative publishes, reviews and reports from the same place."
+  ],
+  "blocks": [
+    {
+      "number": "",
+      "title": "",
+      "text": "",
+      "points": [],
+      "figures": [
+        { "label": "LIFT / 01", "title": "A member’s home.", "caption": "Profile, standing, recommendations and what is new, in one view.", "image": { "src": "/media/lift/screen-1.png", "alt": "Lift member home screen" }, "source": "Product screen · Illustrative data" }
+      ]
+    },
+    {
+      "number": "01",
+      "title": "The more a member verifies, the more opens.",
+      "text": "A new member browses. A verified individual learns, attends and buys. A verified business sells, lists, applies for funding and advertises. A business with a good record on the platform earns Trusted status, with featured placement and priority access, and keeps it only while the record holds.",
+      "points": [],
+      "figures": [
+        { "label": "LIFT / 02", "title": "Four tiers.", "caption": "Each level of verification unlocks a set of tools. Trusted status is earned, and can be lost.", "image": { "src": "/media/lift/figure-02.png", "alt": "Diagram of Lift's four verification tiers" }, "source": "Concept illustration" },
+        { "label": "LIFT / 03", "title": "Where a new member starts.", "caption": "Every module is visible; locked ones say what it takes to open them.", "image": { "src": "/media/lift/screen-2.png", "alt": "Lift new member dashboard" }, "source": "Product screen · Illustrative data" }
+      ]
+    },
+    {
+      "number": "02",
+      "title": "Six things a business needs, one account.",
+      "text": "Most initiatives offer training on one site, grants on another and a directory nobody updates. LIFT puts six modules behind one profile. A member who verifies for the marketplace is already verified for a grant, a directory listing and a trademark search.",
+      "points": [],
+      "figures": [
+        { "label": "LIFT / 04", "title": "One member, six modules.", "caption": "Learn, Connect, Trade, Finance, Register, Grow. Each reads the same profile and tier.", "image": { "src": "/media/lift/figure-04.png", "alt": "Diagram of one member profile connected to six modules" }, "source": "Concept illustration" }
+      ]
+    },
+    {
+      "number": "03",
+      "title": "Verify in stages, not all at once.",
+      "text": "Sign-up asks for a name, a phone number, an email and a national identification number. Identity verification is automated. Business verification checks registration, tax identification and documents, is reviewed by people, and takes two to three working days. Nothing is asked for before it is needed, and nothing already given is asked for twice.",
+      "points": [],
+      "figures": [
+        { "label": "LIFT / 05", "title": "From sign-up to Trusted.", "caption": "Each step unlocks the next tier.", "image": { "src": "/media/lift/figure-05.png", "alt": "Five-step verification flow from account to standing" }, "source": "Concept illustration" }
+      ]
+    },
+    {
+      "number": "04",
+      "title": "Funding that members can see, and reach.",
+      "text": "Grant and loan programs from government agencies, development banks and financial institutions are listed in one place, with amounts, eligibility and closing dates. A verified individual can read and save a program and see whether they qualify. A verified business applies, with most of the form already filled from the profile. Trusted members enter a priority review queue.",
+      "points": [],
+      "figures": [
+        { "label": "LIFT / 06", "title": "Loans and grants.", "caption": "One list of programs. Eligibility, amount and deadline on every card.", "image": { "src": "/media/lift/screen-3.png", "alt": "Lift loans and grants screen" }, "source": "Product screen · Illustrative data" },
+        { "label": "LIFT / 07", "title": "A soft gate on a funding program.", "caption": "What a verified individual sees, and what each tier can do on the same page.", "image": { "src": "/media/lift/figure-07.png", "alt": "Funding program detail with a soft gate for Tier 1 members" }, "source": "Concept illustration · Fictional data" }
+      ]
+    },
+    {
+      "number": "05",
+      "title": "A marketplace for entrepreneurs, from entrepreneurs.",
+      "text": "Members buy from each other. A tailor sources fabric from a textile trader on the platform; a food processor buys packaging from a verified supplier two states away. Every seller is a verified business, every buyer is a member of the initiative, and payment is held by the platform until the buyer confirms delivery. Sellers manage products, orders and payouts from the account they use for everything else.",
+      "points": [],
+      "figures": [
+        { "label": "LIFT / 08", "title": "Order to payout.", "caption": "Verified member buys, verified business sells, platform in between.", "image": { "src": "/media/lift/figure-08.png", "alt": "Escrow flow from order to payout" }, "source": "Concept illustration" }
+      ]
+    },
+    {
+      "number": "06",
+      "title": "A directory that stays current, because members keep it.",
+      "text": "Every verified business gets a listing, maintained by the business itself. Visitors filter by sector, state, stage and verification. Trusted members are featured at the top. For the initiative, the directory is a live register of who is in it and what they do.",
+      "points": [],
+      "figures": [
+        { "label": "LIFT / 09", "title": "Business directory.", "caption": "Filter by sector, location and stage. Featured section for Trusted members.", "image": { "src": "/media/lift/screen-4.png", "alt": "Lift business directory screen" }, "source": "Product screen · Illustrative data" }
+      ]
+    },
+    {
+      "number": "07",
+      "title": "Events, courses and community in the same place.",
+      "text": "Masterclasses, workshops and summits with RSVP and capacity. Courses with certificates, recommended from the member’s sector and record. A forum where members ask each other. Trusted members see events first.",
+      "points": [],
+      "figures": [
+        { "label": "LIFT / 10", "title": "Events.", "caption": "Featured event with capacity, then everything upcoming.", "image": { "src": "/media/lift/screen-5.png", "alt": "Lift events screen" }, "source": "Product screen · Illustrative data" }
+      ]
+    },
+    {
+      "number": "08",
+      "title": "For the organisation running the initiative.",
+      "text": "LIFT is built to be run, not just launched. The sponsoring organisation publishes programs, events and resources, reviews business verifications, sees applications as they arrive, and places sponsored content in front of the right tier. Every member action is on one record, so reporting on reach, verification rates and funding disbursed is a query, not a survey.",
+      "points": [
+        { "title": "Publish", "text": "Courses, events, grant and loan programs, government service guides, news and sponsored placements, each targeted by tier, sector and location." },
+        { "title": "Review", "text": "Business verification queue with documents attached. Grant and loan applications with eligibility already checked and profile fields prefilled." },
+        { "title": "Report", "text": "Members by tier, sector and state. Applications by program. Marketplace volume. Who moved from new member to verified business, and how long it took." }
+      ],
+      "figures": []
+    },
+    {
+      "number": "09",
+      "title": "One product. Your initiative’s name on it.",
+      "text": "The tiers, modules and rules are shared across every deployment. The brand, colour, type and content are configuration. A state ministry, a national agency and a development partner can each run LIFT as their own initiative.",
+      "points": [],
+      "figures": [
+        { "label": "LIFT / 11", "title": "One product, many initiatives.", "caption": "The platform is the same. The front is yours.", "image": { "src": "/media/lift/figure-11.png", "alt": "One Lift codebase powering multiple branded deployments" }, "source": "Concept illustration" }
+      ]
+    }
+  ],
+  "audience": {
+    "eyebrow": "Who it is for",
+    "title": "Built for those with a mandate to grow small business.",
+    "text": "State ministries of commerce and industry, national enterprise development agencies, development banks and MSME funds, foundations and development partners running entrepreneurship programs, and industry associations with members to serve."
+  },
+  "cta": {
+    "image": { "src": "/images/market-aerial.jpg", "alt": "Aerial view of a busy open-air market in Lagos" },
+    "title": "See LIFT with your initiative on it.",
+    "text": "Tell us who your members are and what you want them to reach. We will show you LIFT configured for your initiative.",
+    "ctaLabel": "Request a demonstration",
+    "ctaHref": "/contact",
+    "layout": "split"
+  }
+}

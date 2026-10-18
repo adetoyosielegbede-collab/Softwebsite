@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "slug": "why-digital-transformation-fails-in-african-enterprises",
+      "title": "Why Digital Transformation Fails in African Enterprises — And What to Do About It",
+      "category": "Digital Strategy",
+      "date": "2026-04-26",
+      "featured": true,
+      "published": true,
+      "excerpt": "Most digital transformation efforts fail not because of bad technology, but because of a fundamental misreading of what needs to change.",
+      "image": { "src": "/images/market-trader-phone.jpg", "alt": "A market trader smiling at her phone beside her stall" },
+      "body": [
+        "Across Nigeria and the broader African continent, the story repeats itself with uncomfortable regularity. A large enterprise — bank, telco, retailer, or government agency — announces a major digital transformation initiative. External consultants are brought in. A global platform is selected. Millions are committed. And then, two or three years later, the system sits half-implemented, the champions have moved on, and the organisation reverts to what it was doing before.",
+        "The failure is rarely technological. The platforms being deployed — whether ERP systems, core banking software, CRM tools, or data platforms — are mature, tested, and capable. The failure is almost always organisational. It is a failure to change the workflows, incentive structures, and mental models that the technology is supposed to serve. A digital system layered onto an analogue process does not produce a digital process. It produces an expensive, underused system and a frustrated workforce.",
+        "There are three patterns we see most consistently in failed transformations. The first is scope without sequence — organisations try to change everything at once and end up changing nothing. The second is technology without redesign — new tools are deployed without rethinking the underlying processes they are supposed to improve. The third is implementation without ownership — transformation programmes are run by external teams with no accountability for outcomes after go-live.",
+        "What works is different. Successful transformations in African enterprises share a common thread: they start small, move deliberately, and are owned internally at a senior level. They treat the first phase as a learning exercise, not a solution deployment. They build internal capability alongside external delivery. And they define success not by go-live, but by measurable improvement in operational outcomes — faster service, lower cost, better decisions.",
+        "For Softcom, this insight has shaped how we engage. We do not sell transformation as a destination. We design it as a journey — one with clear phases, internal champions, and outcomes we stay accountable for long after the initial deployment."
+      ]
+    },
+    {
+      "slug": "building-a-data-culture-nigerian-financial-sector",
+      "title": "Building a Data Culture: Lessons from Nigeria’s Financial Sector",
+      "category": "Data",
+      "date": "2026-04-26",
+      "featured": false,
+      "published": false,
+      "excerpt": "Draft — add the summary for this article before publishing.",
+      "image": { "src": "", "alt": "" },
+      "body": ["Draft — add the article body before publishing."]
+    }
+  ]
+}
