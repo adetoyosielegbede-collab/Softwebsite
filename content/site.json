@@ -1,0 +1,1088 @@
+{
+  "meta": {
+    "title": "Softcom — Technology for Organisations. Progress for Society.",
+    "description": "Softcom builds the systems that help organisations operate, grow, and better serve the people who depend on them."
+  },
+  "contact": {
+    "email": "contact@softcom.xyz",
+    "company": "Softcom Limited",
+    "lines": [
+      "15B, Sasegbon Street",
+      "GRA, Ikeja, Lagos",
+      "Nigeria"
+    ]
+  },
+  "nav": [
+    {
+      "label": "Solutions",
+      "href": "/solutions"
+    },
+    {
+      "label": "Enterprise products",
+      "href": "/enterprise-products"
+    },
+    {
+      "label": "Case studies",
+      "href": "/case-studies"
+    },
+    {
+      "label": "Insights",
+      "href": "/insights"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "footer": {
+    "kicker": "Proud partner of potential.",
+    "headline": "What can we achieve together?",
+    "cta": "Start a conversation",
+    "href": "/contact",
+    "image": {
+      "id": "footer-aerial",
+      "label": "Footer · Market at dusk",
+      "src": "/media/market-aerial.jpg",
+      "alt": "Aerial view of a busy market at dusk"
+    }
+  },
+  "stats": [
+    {
+      "value": "20M+",
+      "label": "People reached"
+    },
+    {
+      "value": "100+",
+      "label": "Projects delivered"
+    },
+    {
+      "value": "30+",
+      "label": "Organisations served"
+    },
+    {
+      "value": "19",
+      "label": "Years of delivery"
+    }
+  ],
+  "partners": [
+    {
+      "id": "logo-mtn",
+      "label": "Partner logo · MTN",
+      "src": "/media/partners/mtn.svg",
+      "alt": "MTN logo",
+      "name": "MTN",
+      "width": 102,
+      "height": 51
+    },
+    {
+      "id": "logo-boi",
+      "label": "Partner logo · Bank of Industry",
+      "src": "/media/partners/bank-of-industry.png",
+      "alt": "Bank of Industry logo",
+      "name": "Bank of Industry",
+      "width": 162,
+      "height": 32
+    },
+    {
+      "id": "logo-rpa",
+      "label": "Partner logo · Rockefeller Philanthropy Advisors",
+      "src": "/media/partners/rockefeller-philanthropy-advisors.png",
+      "alt": "Rockefeller Philanthropy Advisors logo",
+      "name": "Rockefeller Philanthropy Advisors",
+      "width": 141,
+      "height": 37
+    },
+    {
+      "id": "logo-gsk",
+      "label": "Partner logo · GSK",
+      "src": "/media/partners/gsk.svg",
+      "alt": "GSK logo",
+      "name": "GSK",
+      "width": 129,
+      "height": 40
+    },
+    {
+      "id": "logo-gb",
+      "label": "Partner logo · GB Foods",
+      "src": "/media/partners/gb-foods.svg",
+      "alt": "GB Foods logo",
+      "name": "GB Foods",
+      "width": 94,
+      "height": 55
+    },
+    {
+      "id": "logo-ardova",
+      "label": "Partner logo · Ardova",
+      "src": "/media/partners/ardova.png",
+      "alt": "Ardova logo",
+      "name": "Ardova",
+      "width": 57,
+      "height": 68
+    },
+    {
+      "id": "logo-honeywell",
+      "label": "Partner logo · Honeywell Flour Mills",
+      "src": "/media/partners/honeywell-flour-mills.png",
+      "alt": "Honeywell Flour Mills logo",
+      "name": "Honeywell Flour Mills",
+      "width": 85,
+      "height": 61
+    },
+    {
+      "id": "logo-naicom",
+      "label": "Partner logo · NAICOM",
+      "src": "/media/partners/naicom.png",
+      "alt": "NAICOM logo",
+      "name": "NAICOM",
+      "width": 64,
+      "height": 68
+    },
+    {
+      "id": "logo-nlng",
+      "label": "Partner logo · NLNG",
+      "src": "/media/partners/nlng.png",
+      "alt": "NLNG logo",
+      "name": "NLNG",
+      "width": 84,
+      "height": 62
+    },
+    {
+      "id": "logo-osgf",
+      "label": "Partner logo · OSGF",
+      "src": "/media/partners/osgf.png",
+      "alt": "OSGF logo",
+      "name": "OSGF",
+      "width": 168,
+      "height": 31
+    },
+    {
+      "id": "logo-arm",
+      "label": "Partner logo · ARM",
+      "src": "/media/partners/arm.png",
+      "alt": "ARM logo",
+      "name": "ARM",
+      "width": 129,
+      "height": 40
+    },
+    {
+      "id": "logo-fccpc",
+      "label": "Partner logo · FCCPC",
+      "src": "/media/partners/fccpc.png",
+      "alt": "FCCPC logo",
+      "name": "FCCPC",
+      "width": 91,
+      "height": 57
+    },
+    {
+      "id": "logo-nibss",
+      "label": "Partner logo · NIBSS",
+      "src": "/media/partners/nibss.png",
+      "alt": "NIBSS logo",
+      "name": "NIBSS",
+      "width": 99,
+      "height": 52
+    },
+    {
+      "id": "logo-spar",
+      "label": "Partner logo · SPAR",
+      "src": "/media/partners/spar.png",
+      "alt": "SPAR logo",
+      "name": "SPAR",
+      "width": 136,
+      "height": 38
+    }
+  ],
+  "home": {
+    "headline": "Technology for Organisations.\nProgress for Society.",
+    "subhead": "Stronger organisations build a more prosperous society.",
+    "support": "We build the technology and capabilities that help them work better, decide better and serve the people who depend on them.",
+    "story": "Softcom is a technology and innovation company with 19 years of experience building for public institutions, private organisations and development enablers. We help organisations think through what they want to achieve, then bring together the technology, people and processes to make it happen.",
+    "heroImage": {
+      "id": "home-hero",
+      "label": "Home · Hero",
+      "src": "/media/lagos-dusk.jpg",
+      "alt": "Third Mainland Bridge over Lagos at dusk, with a figure in a canoe"
+    },
+    "primaryCta": "Explore our solutions",
+    "primaryHref": "/solutions",
+    "secondaryCta": "Start a conversation",
+    "secondaryHref": "/contact",
+    "focusTitle": "Our focus areas",
+    "focusIntro": "Our work focuses on building the foundations organisations depend on, the intelligence that informs their decisions, and the capabilities that power their initiatives.",
+    "focus": [
+      {
+        "number": "01",
+        "title": "Digital Infrastructure",
+        "body": "We build the digital rails that enable people and organisations to access services, connect and transact. These systems provide a common foundation through which many participants can operate, repeatedly and at scale.",
+        "more": "We do this with our own technology, partner platforms and custom-built systems. Where the infrastructure already exists globally, we are the partner that makes it work locally.",
+        "href": "/solutions#digital-infrastructure",
+        "link": "Explore Digital Infrastructure",
+        "image": {
+          "id": "home-infrastructure",
+          "label": "Home · Digital infrastructure",
+          "src": "/media/filling-station.jpg",
+          "alt": "An attendant taking a card payment at a Lagos filling station at night"
+        }
+      },
+      {
+        "number": "02",
+        "title": "Applied Intelligence",
+        "body": "Our intelligence systems connect fragmented information and help organisations examine it in depth. Across documents, records and datasets, including market data, our technology helps people investigate activity, understand relationships, track changes and identify what needs attention.",
+        "more": "We shape the intelligence around the questions people need to answer and the decisions they need to make.",
+        "href": "/solutions#applied-intelligence",
+        "link": "Explore Applied Intelligence",
+        "image": {
+          "id": "home-intelligence",
+          "label": "Home · Applied intelligence",
+          "src": "/media/intelligence-ops-room.jpg",
+          "alt": "Analysts examining network diagrams across a wall of screens"
+        }
+      },
+      {
+        "number": "03",
+        "title": "Powering Initiatives",
+        "body": "We bring technology, people and processes together to deliver complex initiatives. We design how an initiative will operate, put the required systems in place and coordinate the activities needed to reach its intended beneficiaries.",
+        "more": "We stay accountable for what the initiative achieves, not only for what we build.",
+        "href": "/solutions#powering-initiatives",
+        "link": "Explore Powering Initiatives",
+        "image": {
+          "id": "home-initiatives",
+          "label": "Home · Powering initiatives",
+          "src": "/media/field-enrolment.jpg",
+          "alt": "A field officer capturing a biometric record for a woman seated outdoors"
+        }
+      }
+    ],
+    "audienceTitle": "Who we work with",
+    "audienceIntro": "Different organisations have different ambitions. Some have a precise requirement, others have a challenge to work through or a possibility to explore.",
+    "audiences": [
+      {
+        "title": "Public Institutions",
+        "body": "We work with public institutions on the technology and systems needed to serve people, support oversight and coordinate delivery. Our approach considers the mandate, the operating environment and the people the solution must reach.",
+        "items": [
+          "Government MDAs",
+          "Regulators",
+          "Law Enforcement Agencies"
+        ],
+        "image": {
+          "id": "audience-public",
+          "label": "Home · Public institutions",
+          "src": "/media/lagos-dusk.jpg",
+          "alt": "Lagos at dusk"
+        }
+      },
+      {
+        "title": "Private Organisations",
+        "body": "We help businesses apply technology to the priorities that shape their performance. From enterprise systems to intelligence and digital services, we connect technical capability with the organisation’s commercial ambitions.",
+        "items": [
+          "Financial Services",
+          "FMCG",
+          "Oil & Gas",
+          "Education"
+        ],
+        "image": {
+          "id": "audience-private",
+          "label": "Home · Private organisations",
+          "src": "/media/filling-station.jpg",
+          "alt": "Card payment at a filling station"
+        }
+      },
+      {
+        "title": "Development Enablers",
+        "body": "Local understanding, coordinated implementation and visibility into results are essential to development work. Our technology and delivery expertise help development organisations reach intended beneficiaries, follow progress and respond to what they learn.",
+        "items": [
+          "Multilateral Organisations",
+          "Cooperatives",
+          "Non-Profit Foundations"
+        ],
+        "image": {
+          "id": "audience-development",
+          "label": "Home · Development enablers",
+          "src": "/media/field-enrolment.jpg",
+          "alt": "Enrolment in the field"
+        }
+      }
+    ],
+    "workTitle": "How we work",
+    "work": [
+      {
+        "number": "01",
+        "kicker": "Technology",
+        "title": "Technology to make it happen.",
+        "body": "Our engineers consider the organisation’s existing systems, operating conditions and future requirements. These inform what to build, what to integrate and how the different parts should work together."
+      },
+      {
+        "number": "02",
+        "kicker": "Expertise",
+        "title": "Expertise to make it work.",
+        "body": "Putting technology to work requires clear responsibilities, prepared teams and processes that support its use. Depending on the engagement, our involvement can extend to change management, ongoing operations and impact assessment."
+      },
+      {
+        "number": "03",
+        "kicker": "People",
+        "title": "People behind the work.",
+        "body": "Softcom’s experience lives in its people: the knowledge they have developed, the challenges they have worked through and the standards they bring to each engagement."
+      }
+    ],
+    "workCta": "Discuss what you want to achieve",
+    "workHref": "/contact",
+    "insightTitle": "Our thinking",
+    "insightLink": "Explore our thinking"
+  },
+  "about": {
+    "kicker": "About Softcom",
+    "headline": "Technology that matters.",
+    "lede": "Softcom is a technology and innovation company with 19 years of experience building digital products, enterprise systems and large-scale initiatives for public institutions, private organisations and development enablers.",
+    "image": {
+      "id": "about-hero",
+      "label": "About · Opening photograph",
+      "src": "/media/market-aerial.jpg",
+      "alt": "A market seen from above at dusk"
+    },
+    "convictionTitle": "Built from conviction about Africa’s potential.",
+    "conviction": [
+      "Softcom was founded in 2007 with a mission to give many people a path to growth, achievement and fulfilment.",
+      "When technology was largely associated with global giants, solving an everyday problem with software showed us what was possible. We took that same approach into enterprises: understand what they wanted to achieve and build the answers they needed.",
+      "Today, our mission remains the same: to help organisations, our people and the communities we reach achieve more. Their progress gives purpose to ours."
+    ],
+    "milestonesTitle": "Our journey",
+    "milestones": [
+      {
+        "year": "2007",
+        "title": "Pioneering electronic airtime purchases",
+        "body": "Founded in 2007, Softcom was among the pioneers of electronic airtime purchasing in Nigeria. ReloadNG enabled people to purchase airtime online, through a text message or with a missed call, introducing new ways to access an everyday service."
+      },
+      {
+        "year": "2010–2015",
+        "title": "Enterprise systems and industry value chains",
+        "body": "Softcom developed enterprise systems across FMCG and financial services. The work deepened the company’s understanding of industry value chains and how technology could support operations, distribution and service delivery."
+      },
+      {
+        "year": "2015",
+        "title": "Deepening our footprint in education",
+        "body": "The Future Ready University conference brought Softcom together with university leaders, opening relationships that led to technology engagements across the education sector."
+      },
+      {
+        "year": "2016",
+        "title": "A landmark in national development",
+        "body": "Working with the Bank of Industry, Softcom delivered technology supporting the recruitment, training, deployment, management and payment of more than 500,000 graduates."
+      },
+      {
+        "year": "2017",
+        "title": "Pioneering banking with a phone number",
+        "body": "Softcom developed Eyowo, pioneering a way for consumers to bank using their existing phone numbers. Removing the leading zero turned the remaining ten digits into an account number. The platform went on to reach more than 4.5 million users."
+      },
+      {
+        "year": "2018",
+        "title": "A landmark in development finance",
+        "body": "Softcom’s technology enabled delivery of microloans to more than 1.2 million traders across Nigeria, most of whom were previously unbanked."
+      },
+      {
+        "year": "2021",
+        "title": "Platforms enabling new services",
+        "body": "Softcom launched platforms enabling services across data, stateless payments, retail and banking, giving organisations digital foundations through which to serve their customers and users."
+      },
+      {
+        "year": "2025",
+        "title": "Web3, AI and machine learning",
+        "body": "Our work expanded into systems using Web3 technologies and intelligence solutions powered by artificial intelligence and machine learning."
+      },
+      {
+        "year": "2026",
+        "title": "Nineteen years of technology and innovation",
+        "body": "Softcom’s work spans Digital Infrastructure, Applied Intelligence and Powering Initiatives, bringing proprietary technology, partner platforms and delivery expertise to public institutions, private organisations and development enablers."
+      }
+    ],
+    "principlesTitle": "What guides our work",
+    "principles": [
+      {
+        "number": "01",
+        "title": "Depth of thought",
+        "body": "Our teams question assumptions, examine the context and consider the implications before settling on an answer."
+      },
+      {
+        "number": "02",
+        "title": "Technical competence",
+        "body": "Thoughtful design, disciplined engineering and attention to detail shape how our solutions are built and put into use."
+      },
+      {
+        "number": "03",
+        "title": "Ownership",
+        "body": "We make commitments carefully, raise issues openly and follow through on the work entrusted to us."
+      },
+      {
+        "number": "04",
+        "title": "Collective strength",
+        "body": "We bring different expertise and perspectives together. Sharing knowledge and working across disciplines makes us more capable as a team."
+      }
+    ],
+    "leadershipTitle": "Our leadership",
+    "leaders": [
+      {
+        "name": "Abayomi Adedeji",
+        "role": "Founder",
+        "image": {
+          "id": "leader-abayomi",
+          "label": "About · Abayomi Adedeji",
+          "src": "/media/leader-abayomi.png",
+          "alt": "Portrait of Abayomi Adedeji"
+        }
+      },
+      {
+        "name": "Omoseindemi Olobayo",
+        "role": "Chief Executive Officer",
+        "image": {
+          "id": "leader-omoseindemi",
+          "label": "About · Omoseindemi Olobayo",
+          "src": "/media/leader-omoseindemi.png",
+          "alt": "Portrait of Omoseindemi Olobayo"
+        }
+      },
+      {
+        "name": "Adetoyosi Elegbede",
+        "role": "Chief Operating Officer",
+        "image": {
+          "id": "leader-adetoyosi",
+          "label": "About · Adetoyosi Elegbede",
+          "src": "/media/leader-adetoyosi.png",
+          "alt": "Portrait of Adetoyosi Elegbede"
+        }
+      }
+    ],
+    "careersTitle": "Build with us.",
+    "careersBody": "Bring original thinking, an innovator’s mindset and a strong sense of ownership. Work alongside exceptional peers whose expertise complements yours and expands what you can achieve.",
+    "careersCta": "Explore careers at Softcom",
+    "alumniCta": "Explore our alumni community"
+  },
+  "solutions": {
+    "kicker": "Solutions",
+    "headline": "Technology and expertise for your most important work.",
+    "lede": "Softcom builds the systems people use to access services and transact, the intelligence organisations need to understand complex information, and the capabilities required to deliver large-scale initiatives.",
+    "image": {
+      "id": "solutions-hero",
+      "label": "Solutions · Opening photograph",
+      "src": "/media/lagos-dusk.jpg",
+      "alt": "Lagos at dusk"
+    },
+    "areas": [
+      {
+        "id": "digital-infrastructure",
+        "number": "01 / 03",
+        "title": "Digital Infrastructure",
+        "lede": "We build the digital rails and connected systems that enable institutions to operate, people to access services and participants to transact at scale.",
+        "image": {
+          "id": "solutions-infrastructure",
+          "label": "Solutions · Digital infrastructure",
+          "src": "/media/filling-station.jpg",
+          "alt": "Everyday payments on digital rails"
+        },
+        "points": [
+          {
+            "number": "01",
+            "title": "Identity and access",
+            "body": "Register and verify people, organisations or assets, and establish their access to services."
+          },
+          {
+            "number": "02",
+            "title": "Records and operations",
+            "body": "Maintain a shared record of participants, cases and activities, so work moves between teams, systems and partner organisations without duplicate data entry or loss of information."
+          },
+          {
+            "number": "03",
+            "title": "Services and transactions",
+            "body": "Turn eligibility rules, approvals and completed activities into access, service delivery or payments."
+          }
+        ],
+        "notes": [
+          {
+            "title": "Built here, for here",
+            "body": "Where existing systems cannot support what an organisation needs to do, we design and build the infrastructure that can. We bring together our own technology, partner platforms and custom-built systems, shaped around the organisation’s requirements, the people who will use them and the conditions in which they must operate."
+          },
+          {
+            "title": "Global rails, local expertise",
+            "body": "Where world-class infrastructure already exists, we bring the expertise to put it to work locally. Working with our technology partners, we integrate platforms into institutions’ existing systems and adapt their implementation to local requirements, workflows and operating conditions."
+          }
+        ],
+        "close": "These capabilities can form the operating foundation of an entire institution or shared rails through which many organisations serve their users."
+      },
+      {
+        "id": "applied-intelligence",
+        "number": "02 / 03",
+        "title": "Applied Intelligence",
+        "lede": "We build intelligence systems around the questions organisations need to answer and the work they need to carry out. Across documents, records and datasets, our technology makes it possible to examine information at a depth and scale that manual review cannot sustain.",
+        "image": {
+          "id": "solutions-intelligence",
+          "label": "Solutions · Applied intelligence",
+          "src": "/media/intelligence-ops-room.jpg",
+          "alt": "Investigators reading a network of relationships"
+        },
+        "points": [
+          {
+            "number": "01",
+            "title": "Audit Intelligence",
+            "body": "Equip audit teams to examine evidence, test records, reconcile discrepancies and develop findings against the objectives of an audit."
+          },
+          {
+            "number": "02",
+            "title": "Financial Intelligence",
+            "body": "Follow the money. Trace flows of funds, examine the relationships behind transactions and understand patterns of financial activity."
+          },
+          {
+            "number": "03",
+            "title": "Market Intelligence",
+            "body": "Understand consumer behaviour, competitive dynamics and emerging opportunities, and connect market signals to the decisions that shape how an organisation competes."
+          },
+          {
+            "number": "04",
+            "title": "Regulatory Intelligence",
+            "body": "Give regulators the capabilities to examine the organisations and activities under their oversight, bringing paper records, digital submissions and third-party information into a form that supports scrutiny."
+          },
+          {
+            "number": "05",
+            "title": "Societal Intelligence",
+            "body": "Build a connected understanding of a society, state or jurisdiction: its people, institutions, resources and economic activity."
+          }
+        ],
+        "notes": [
+          {
+            "title": "Shaped around the work",
+            "body": "We bring together the relevant information sources, analytical capabilities and workflows, with access tailored to each user’s role and responsibilities. The work is shaped by the mandate of its users, the evidence they need and the decisions they must make."
+          }
+        ],
+        "close": ""
+      },
+      {
+        "id": "powering-initiatives",
+        "number": "03 / 03",
+        "title": "Powering Initiatives",
+        "lede": "Softcom brings its full capability to complex initiatives: research, design, technology, people and operational expertise. Our involvement follows the initiative’s needs. We deliver directly, manage partners or combine both, with clear responsibility for execution and results.",
+        "image": {
+          "id": "solutions-initiatives",
+          "label": "Solutions · Powering initiatives",
+          "src": "/media/field-enrolment.jpg",
+          "alt": "An initiative reaching people in the field"
+        },
+        "points": [
+          {
+            "number": "01",
+            "title": "Discovery",
+            "body": "Understand the intended outcome, the people involved and the operating environment. Assess existing systems and establish what capabilities are needed."
+          },
+          {
+            "number": "02",
+            "title": "Design",
+            "body": "Design the technology, workflows and delivery plan together. Define how participants will be reached and served, how information and payments will move, and who is responsible at each stage."
+          },
+          {
+            "number": "03",
+            "title": "Deployment and operations",
+            "body": "Deploy and connect the systems, prepare teams and run operations. Use shared information to coordinate partners and keep field activities, services and payments on schedule."
+          },
+          {
+            "number": "04",
+            "title": "Impact and scale",
+            "body": "Use delivery data and participant feedback to assess results and improve the approach. Determine what the technology and operations need to support greater reach."
+          }
+        ],
+        "notes": [
+          {
+            "title": "What you can entrust to us",
+            "body": "Initiative design, participant recruitment, technology deployment, field operations, training, payment coordination and results assessment."
+          }
+        ],
+        "close": "We stay accountable for what the initiative achieves, not only for what we build."
+      }
+    ],
+    "closeTitle": "Not sure where to start?",
+    "closeBody": "Most of our engagements begin with a conversation. Tell us what you’re trying to solve; we will tell you honestly whether we can help."
+  },
+  "products": {
+    "kicker": "Products",
+    "headline": "Enterprise products",
+    "lede": "Explore the proprietary products we have built and the global platforms we implement.",
+    "partnerIntro": "Global technology, delivered with Softcom’s local expertise in implementation and integration.",
+    "items": [
+      {
+        "slug": "lift",
+        "kind": "product",
+        "name": "Lift",
+        "eyebrow": "Softcom product · Powering Initiatives",
+        "headline": "The platform behind entrepreneurial development initiatives.",
+        "lede": "States, national agencies and development partners run initiatives to help small businesses start, formalise and grow. LIFT is the platform those initiatives run on.",
+        "summary": "An integrated platform for entrepreneurial growth.",
+        "cta": "Request a demonstration",
+        "href": "/contact",
+    "image": {
+      "id": "lift-hero",
+      "label": "Lift · Hero",
+      "src": "/media/market-aerial.jpg",
+      "alt": "A market of small businesses"
+    },
+        "gallery": [
+          {
+            "id": "lift-home",
+            "label": "Lift · Member home",
+            "src": "/media/products/lift-home.png",
+            "alt": "A member’s home. Profile, standing, recommendations and what is new, in one view."
+          },
+          {
+            "id": "lift-tiers",
+            "label": "Lift · Verification tiers",
+            "src": "/media/products/lift-tiers.png",
+            "alt": "Four tiers. Each level of verification unlocks a set of tools."
+          },
+          {
+            "id": "lift-modules",
+            "label": "Lift · Six modules",
+            "src": "/media/products/lift-modules.png",
+            "alt": "Learn, Connect, Trade, Finance, Register, Grow."
+          },
+          {
+            "id": "lift-funding",
+            "label": "Lift · Funding",
+            "src": "/media/products/lift-funding.png",
+            "alt": "Loans and grants, with eligibility on every card."
+          },
+          {
+            "id": "lift-directory",
+            "label": "Lift · Directory",
+            "src": "/media/products/lift-directory.png",
+            "alt": "A business directory filtered by sector, location and stage."
+          }
+        ],
+        "sections": [
+          {
+            "number": "01",
+            "title": "The more a member verifies, the more opens.",
+            "body": "A new member browses. A verified individual learns, attends and buys. A verified business sells, lists, applies for funding and advertises. A business with a good record earns Trusted status, and keeps it only while the record holds."
+          },
+          {
+            "number": "02",
+            "title": "Six things a business needs, one account.",
+            "body": "Most initiatives offer training on one site, grants on another and a directory nobody updates. LIFT puts six modules behind one profile: Learn, Connect, Trade, Finance, Register and Grow. A member who verifies for the marketplace is already verified for a grant, a directory listing and a trademark search."
+          },
+          {
+            "number": "03",
+            "title": "Verify in stages, not all at once.",
+            "body": "Sign-up asks for a name, a phone number, an email and a national identification number. Identity verification is automated. Business verification checks registration, tax identification and documents, is reviewed by people, and takes two to three working days. Nothing is asked for before it is needed."
+          },
+          {
+            "number": "04",
+            "title": "Funding that members can see, and reach.",
+            "body": "Grant and loan programmes from government agencies, development banks and financial institutions are listed in one place, with amounts, eligibility and closing dates. A verified business applies with most of the form already filled from their profile."
+          },
+          {
+            "number": "05",
+            "title": "A marketplace, a directory, and a community.",
+            "body": "Members buy from each other. Payment is held by the platform until the buyer confirms delivery. Every verified business gets a listing it maintains itself. Events, courses and a forum sit in the same account."
+          },
+          {
+            "number": "06",
+            "title": "Built to be run, not just launched.",
+            "body": "The sponsoring organisation publishes programmes, events and resources, reviews business verifications, sees applications as they arrive, and reports on reach. The tiers, modules and rules are shared. The brand, colour, type and content are configuration, so a state ministry and a national agency can each run LIFT as their own initiative."
+          }
+        ],
+        "audienceTitle": "Built for those with a mandate to grow small business.",
+        "audienceBody": "State ministries of commerce and industry, national enterprise development agencies, development banks and MSME funds, foundations and development partners, and industry associations with members to serve.",
+        "close": "Tell us who your members are and what you want them to reach. We will show you LIFT configured for your initiative."
+      },
+      {
+        "slug": "reckon",
+        "kind": "product",
+        "name": "Reckon",
+        "eyebrow": "Softcom product · Applied Intelligence",
+        "headline": "What was declared vs what is owed.",
+        "lede": "A tax return says what a company declared. The documents filed show what is owed. Reckon reads every one of those documents, works out the tax each line should have attracted, and shows the officer where the two disagree.",
+        "summary": "Audit beyond the limits of manual review.",
+        "cta": "Request a demonstration",
+        "href": "/contact",
+    "image": {
+      "id": "reckon-hero",
+      "label": "Reckon · Hero",
+      "src": "/media/insight-hero.jpg",
+      "alt": "Records and evidence laid out for review"
+    },
+        "gallery": [],
+        "sections": [
+          {
+            "number": "01",
+            "title": "Most of what is missed was never looked for.",
+            "body": "A liability rarely hides in one document. It shows where the general ledger, the bank statement and the return disagree, and those three are seldom put side by side. Reckon compares every line, so a check that takes an officer a week happens in seconds."
+          },
+          {
+            "number": "02",
+            "title": "Start with what the taxpayer already filed.",
+            "body": "Returns, general ledgers, trial balances, financial statements, schedules and bank statements, in PDF, Excel or scanned form. Reckon reads them into one chart of accounts and maps every line to the tax areas it falls under."
+          },
+          {
+            "number": "03",
+            "title": "Every line, tested.",
+            "body": "For each line Reckon classifies what it is, computes what the applicable rule expects, and compares that with what was declared and what was remitted. A fee posted to the interest ledger is still a fee, and is tested as one. Differences above the materiality threshold become exceptions."
+          },
+          {
+            "number": "04",
+            "title": "The officer decides.",
+            "body": "Reckon raises exceptions; it does not raise findings. Every exception is reviewed by an officer, who raises a finding or dismisses it with a reason. The rules are configuration the administration maintains, so two teams examining the same taxpayer reach the same result."
+          },
+          {
+            "number": "05",
+            "title": "One engine. Desk review, audit, investigation.",
+            "body": "Desk review runs on every filing as it arrives. Audit takes selected cases through evidence requests, fieldwork and findings. Investigation works at transaction level. The rules and the taxpayer record are shared."
+          }
+        ],
+        "audienceTitle": "Built for those with a mandate to collect.",
+        "audienceBody": "Revenue administrations and large-taxpayer offices, state internal revenue services, tax audit and investigation units, and the audit firms acting for them.",
+        "close": "Tell us which filings you review and what your audits need to establish. We will run Reckon on records you select, against criteria you set."
+      },
+      {
+        "slug": "sentinel",
+        "kind": "product",
+        "name": "Sentinel",
+        "eyebrow": "Softcom product · Applied Intelligence",
+        "headline": "Follow the money. See the connections.",
+        "lede": "Turn financial records into intelligence for complex investigations. Sentinel connects transactions across accounts and parties, revealing money flows, relationships and patterns that warrant closer examination.",
+        "summary": "Financial intelligence for complex investigations.",
+        "cta": "Request a demonstration",
+        "href": "/contact",
+        "image": {
+          "id": "sentinel-hero",
+          "label": "Sentinel · Hero",
+          "src": "/media/intelligence-ops-room.jpg",
+          "alt": "Following connections across accounts"
+        },
+        "gallery": [],
+        "sections": [
+          {
+            "number": "01",
+            "title": "An investigation spans more than one statement.",
+            "body": "A single investigation can involve multiple accounts, different banks and thousands of transactions. Sentinel brings those records together and automates analysis, helping investigators examine activity across the whole set."
+          },
+          {
+            "number": "02",
+            "title": "Start with the records you have.",
+            "body": "Examine bank statements and accounting records in PDF, Excel and CSV, including scanned documents processed through OCR. Connect records from multiple accounts and parties and investigate them together."
+          },
+          {
+            "number": "03",
+            "title": "Understand how the money moves.",
+            "body": "Trace transfers between accounts and counterparties. Identify shared counterparties through network visualisation. Explore recurring transfers, concentrations and circular flows."
+          },
+          {
+            "number": "04",
+            "title": "Make the investigation clear.",
+            "body": "Bring transaction analysis into network maps, charts and investigative reports, so teams have a clearer basis for review and further enquiry."
+          }
+        ],
+        "audienceTitle": "Built for those with a mandate to investigate.",
+        "audienceBody": "For financial investigators, law-enforcement teams, regulators, AML functions, public-sector oversight teams and audit firms examining financial activity.",
+        "close": "Tell us about the records you examine and the questions you need to answer."
+      },
+      {
+        "slug": "useforms",
+        "kind": "product",
+        "name": "Useforms",
+        "eyebrow": "Softcom product · Digital Infrastructure",
+        "headline": "Collect data in all its forms.",
+        "lede": "Equip teams to collect and submit text, images, location, direction, biometric information and more. Bring observations and supporting evidence together in structured submissions that document people, places and activities.",
+        "summary": "Collect data in all its forms.",
+        "cta": "Request a demonstration",
+        "href": "/contact",
+        "image": {
+          "id": "useforms-hero",
+          "label": "Useforms · Hero",
+          "src": "/media/field-enrolment.jpg",
+          "alt": "Collecting evidence in the field"
+        },
+        "gallery": [],
+        "sections": [
+          {
+            "number": "01",
+            "title": "Evidence, not just a form.",
+            "body": "A useful submission carries the observation and the proof around it: a photograph, a location, a direction, a biometric, a signature. Useforms keeps those together so a record can stand up to review."
+          },
+          {
+            "number": "02",
+            "title": "Built for teams in the field.",
+            "body": "Enumerators, inspectors and programme officers work where connectivity and conditions vary. The collection experience is shaped around the question the institution needs answered, not around a generic survey."
+          }
+        ],
+        "audienceTitle": "For institutions that have to see what is happening.",
+        "audienceBody": "Public programmes, regulators, development initiatives and enterprises that need structured evidence from the field.",
+        "close": "Tell us what you need to observe, and what a trustworthy submission has to contain."
+      },
+      {
+        "slug": "liquio",
+        "kind": "partner",
+        "name": "Liquio by Kitsoft",
+        "eyebrow": "Partner platform · Digital Infrastructure",
+        "headline": "Public services, built to work together.",
+        "lede": "Design, launch and evolve digital public services on a shared low-code foundation. Softcom works with Kitsoft to implement Liquio for ministries, departments and agencies, connecting service delivery with the systems and workflows behind it.",
+        "summary": "The foundation for digital government services. Softcom works with Kitsoft to put Liquio into operation for ministries, departments and agencies.",
+        "cta": "Explore Liquio with Softcom",
+        "href": "/contact",
+        "image": {
+          "id": "liquio-hero",
+          "label": "Liquio · Hero",
+          "src": "/media/lagos-dusk.jpg",
+          "alt": "A city whose public services can share one foundation"
+        },
+        "gallery": [
+          {
+            "id": "liquio-logo",
+            "label": "Liquio · Logo",
+            "src": "/media/liquio.svg",
+            "alt": "Liquio by Kitsoft"
+          }
+        ],
+        "sections": [
+          {
+            "number": "01",
+            "title": "Build beyond the online form.",
+            "body": "A digital service needs the application, the information and the institutional work behind it to connect. Liquio provides tools for building services and integrating government systems, with less manual coding."
+          },
+          {
+            "number": "02",
+            "title": "From application to completed service.",
+            "body": "Shape the journey around what citizens and businesses need, and what the institution must do to serve them. Connect information capture, checks, reviews and service delivery in one designed workflow."
+          },
+          {
+            "number": "03",
+            "title": "Kitsoft’s platform. Softcom’s local delivery.",
+            "body": "Softcom brings the service context, implementation and integration expertise needed to put Liquio to work: understand the mandate, configure the service, connect the records, and prepare teams for use."
+          }
+        ],
+        "audienceTitle": "For those building public services.",
+        "audienceBody": "Ministries, departments, agencies and governments developing individual services or a shared digital-service platform.",
+        "close": "Tell us what your institution needs to deliver and the systems it must work with."
+      },
+      {
+        "slug": "rtgs-global",
+        "kind": "partner",
+        "name": "RTGS.global",
+        "eyebrow": "Partner platform · Digital Infrastructure",
+        "headline": "Cross-border payments. Real-time settlement.",
+        "lede": "Connect your institution to infrastructure for cross-border payments and foreign-exchange settlement. Softcom works with RTGS.global to support implementation for financial institutions in Nigeria and across Africa.",
+        "summary": "Infrastructure for cross-border payments and settlement. Softcom supports implementation for institutions in Nigeria and across Africa.",
+        "cta": "Discuss an implementation",
+        "href": "/contact",
+        "image": {
+          "id": "rtgs-hero",
+          "label": "RTGS.global · Hero",
+          "src": "/media/filling-station.jpg",
+          "alt": "Value moving through everyday commerce"
+        },
+        "gallery": [],
+        "sections": [
+          {
+            "number": "01",
+            "title": "Connect the payment. Complete the settlement.",
+            "body": "RTGS.global provides a real-time gross settlement network for financial institutions. It supports linked settlement across two currencies and cross-border customer payments through participating Funds Controllers."
+          },
+          {
+            "number": "02",
+            "title": "From agreed trade to confirmed settlement.",
+            "body": "Counterparties agree a trade, submit their instructions and receive confirmation when settlement completes. The connection brings the settlement process into the institution’s existing operations."
+          },
+          {
+            "number": "03",
+            "title": "Global infrastructure. Local implementation.",
+            "body": "RTGS.global provides the network. Softcom works with your institution and the platform team to connect it to the systems, processes and operating requirements that make it usable locally."
+          }
+        ],
+        "audienceTitle": "For institutions moving value across borders.",
+        "audienceBody": "Banks and other eligible regulated financial institutions seeking to develop cross-border payment and settlement capabilities. Available currencies, corridors and services depend on network participation, counterparties and applicable requirements.",
+        "close": "Tell us where you need to move value and how your institution operates today."
+      }
+    ]
+  },
+  "caseStudies": {
+    "kicker": "Case studies",
+    "headline": "Real engagements. Measurable outcomes.",
+    "lede": "A portfolio of real engagements — spanning government, financial services, consumer goods, and agriculture — each delivering measurable, lasting outcomes.",
+    "items": [
+      {
+        "slug": "n-power",
+        "number": "01",
+        "title": "A National Digital Platform for 500,000 Young Nigerians",
+        "summary": "Nigeria faced an acute youth unemployment crisis — nearly 50% of graduates were unemployed or unemployable. Past government interventions struggled with inefficiency, poor reach, and weak accountability. The challenge: recruit, train, deploy, and pay half a million young people fairly and on time, across all 36 states.",
+        "sector": "Government",
+        "metric": "500k",
+        "metricLabel": "Youth engaged",
+        "client": "Federal Government of Nigeria",
+        "image": {
+          "id": "case-npower",
+          "label": "Case study · National youth platform",
+          "src": "/media/field-enrolment.jpg",
+          "alt": "Field enrolment for a national programme"
+        }
+      },
+      {
+        "slug": "coca-cola",
+        "number": "02",
+        "title": "Connecting Directly with 12 Million Coca-Cola Consumers",
+        "summary": "Millions of Nigerians drank Coca-Cola daily, yet the company had limited visibility into who those consumers were or how to reward loyalty beyond traditional retail channels. A direct consumer database was needed — built at scale, fast.",
+        "sector": "FMCG",
+        "metric": "12M",
+        "metricLabel": "Consumers identified",
+        "client": "Coca-Cola Nigeria",
+        "image": {
+          "id": "case-coke",
+          "label": "Case study · Coca-Cola",
+          "src": "/media/market-aerial.jpg",
+          "alt": "A consumer market from above"
+        }
+      },
+      {
+        "slug": "cash-transfers",
+        "number": "03",
+        "title": "Conditional Cash Transfers to Nigeria's Poorest Households",
+        "summary": "Over 100 million Nigerians are classified as multidimensionally poor. The Federal Government needed to deliver targeted support to the poorest households — encouraging education, immunisation, and family planning — while reaching riverine and hard-to-access rural communities with full transparency.",
+        "sector": "Government",
+        "metric": "190k+",
+        "metricLabel": "Beneficiaries reached",
+        "client": "National Cash Transfer Office / FGN",
+        "image": {
+          "id": "case-cct",
+          "label": "Case study · Cash transfers",
+          "src": "/media/field-enrolment.jpg",
+          "alt": "Reaching a household in the field"
+        }
+      },
+      {
+        "slug": "traders",
+        "number": "04",
+        "title": "Digital Micro-Lending to 1.2 Million Nigerian Traders",
+        "summary": "Millions of Nigerian informal traders had no credit history, no bank account, and no access to formal lending — making them invisible to the financial system. The Bank of Industry needed to reach them directly, at scale, with verifiable identity and instant disbursement.",
+        "sector": "Financial Inclusion",
+        "metric": "1.2M",
+        "metricLabel": "Traders reached",
+        "client": "Bank of Industry / Federal Government of Nigeria",
+        "image": {
+          "id": "case-traders",
+          "label": "Case study · Trader lending",
+          "src": "/media/market-aerial.jpg",
+          "alt": "Informal trade at scale"
+        }
+      },
+      {
+        "slug": "gb-foods",
+        "number": "05",
+        "title": "Digitising the Agricultural Value Chain for West Africa's Largest Tomato Processor",
+        "summary": "GB Foods operates the largest tomato processing factory in West Africa in Kebbi State, sourcing from 1,500 hectares of farm and 5,000+ out-grower farmers. Before production could scale, they needed a reliable way to identify, verify, and profile thousands of smallholder farmers.",
+        "sector": "Agriculture",
+        "metric": "13k+",
+        "metricLabel": "Farmers profiled",
+        "client": "GB Foods Nigeria",
+        "image": {
+          "id": "case-gb",
+          "label": "Case study · GB Foods",
+          "src": "/media/field-enrolment.jpg",
+          "alt": "Profiling people who supply a value chain"
+        }
+      },
+      {
+        "slug": "trophy",
+        "number": "06",
+        "title": "Building a Direct Consumer Relationship for Trophy Beer",
+        "summary": "AB InBev needed to understand and directly engage their Trophy Beer consumer base in Nigeria's informal beer market — a largely anonymous audience transacting through informal distribution channels with no direct brand-to-consumer connection.",
+        "sector": "FMCG",
+        "metric": "4M",
+        "metricLabel": "Consumers engaged",
+        "client": "AB InBev Nigeria — Trophy Beer",
+        "image": {
+          "id": "case-trophy",
+          "label": "Case study · Trophy Beer",
+          "src": "/media/filling-station.jpg",
+          "alt": "A consumer transaction in the informal economy"
+        }
+      }
+    ]
+  },
+  "insights": {
+    "kicker": "News & insights",
+    "headline": "Research, analysis, perspectives from the field.",
+    "lede": "Thinking from Softcom's practice leads, on digital transformation, data strategy, government technology, and the forces shaping Africa's technology landscape.",
+    "items": [
+      {
+        "slug": "why-digital-transformation-fails-in-african-enterprises",
+        "title": "Why Digital Transformation Fails in African Enterprises — And What to Do About It",
+        "category": "Digital Strategy",
+        "date": "April 26, 2026",
+        "excerpt": "Most digital transformation efforts fail not because of bad technology, but because of a fundamental misreading of what needs to change.",
+        "minutes": "6",
+        "image": {
+          "id": "insight-transformation",
+          "label": "Insight · Digital transformation",
+          "src": "/media/insight-hero.jpg",
+          "alt": "Hands reviewing photographs and notes on a wooden table"
+        },
+        "paragraphs": [
+          "Across Nigeria and the broader African continent, the story repeats itself with uncomfortable regularity. A large enterprise — bank, telco, retailer, or government agency — announces a major digital transformation initiative. External consultants are brought in. A global platform is selected. Millions are committed. And then, two or three years later, the system sits half-implemented, the champions have moved on, and the organisation reverts to what it was doing before.",
+          "The failure is rarely technological. The platforms being deployed — whether ERP systems, core banking software, CRM tools, or data platforms — are mature, tested, and capable. The failure is almost always organisational. It is a failure to change the workflows, incentive structures, and mental models that the technology is supposed to serve. A digital system layered onto an analogue process does not produce a digital process. It produces an expensive, underused system and a frustrated workforce.",
+          "There are three patterns we see most consistently in failed transformations. The first is scope without sequence — organisations try to change everything at once and end up changing nothing. The second is technology without redesign — new tools are deployed without rethinking the underlying processes they are supposed to improve. The third is implementation without ownership — transformation programmes are run by external teams with no accountability for outcomes after go-live.",
+          "What works is different. Successful transformations in African enterprises share a common thread: they start small, move deliberately, and are owned internally at a senior level. They treat the first phase as a learning exercise, not a solution deployment. They build internal capability alongside external delivery. And they define success not by go-live, but by measurable improvement in operational outcomes — faster service, lower cost, better decisions.",
+          "For Softcom, this insight has shaped how we engage. We do not sell transformation as a destination. We design it as a journey — one with clear phases, internal champions, and outcomes we stay accountable for long after the initial deployment."
+        ]
+      },
+      {
+        "slug": "building-a-data-culture-nigerian-financial-sector",
+        "title": "Building a Data Culture: Lessons from Nigeria’s Financial Sector",
+        "category": "Data",
+        "date": "April 26, 2026",
+        "excerpt": "Nigerian financial institutions do not lack data. They lack a shared habit of using it when a decision is actually made.",
+        "minutes": "4",
+        "image": {
+          "id": "insight-data",
+          "label": "Insight · Data culture",
+          "src": "/media/intelligence-ops-room.jpg",
+          "alt": "A team reading evidence on screen"
+        },
+        "paragraphs": [
+          "Nigerian financial institutions do not lack data. They lack a shared habit of using it. Reports multiply, dashboards launch, and the decisions that matter still travel by experience, hierarchy and the last meeting in the room.",
+          "A data culture is not a platform. It is the agreement, repeated in ordinary work, that a claim should be traceable, a number should have an owner, and a team should be able to ask a harder question than the one the report was built to answer. Technology can make that possible. It cannot make it normal.",
+          "The institutions that move usually start inside a single decision, not a transformation programme. They pick a question leadership already cares about, put the evidence next to the people who decide, and stay with the workflow until the new habit is cheaper than the old one."
+        ]
+      }
+    ]
+  },
+  "careers": {
+    "kicker": "Careers",
+    "headline": "Original thinkers. Exceptional peers.",
+    "lede": "Softcom is for people who question assumptions, see possibilities and take responsibility for turning ideas into working solutions.",
+    "image": {
+      "id": "careers-hero",
+      "label": "Careers · Opening photograph",
+      "src": "/media/market-aerial.jpg",
+      "alt": "A city market at dusk"
+    },
+    "body": [
+      "Original thinking matters here. So does ownership: working through difficult problems, raising issues early and following through. We look for people who care enough about the outcome to act, learn and improve.",
+      "In return, expect exceptional peers — people with depth in their disciplines whose capabilities complement yours. Colleagues who challenge your thinking, contribute answers you would not reach alone and bring the same sense of ownership to the work.",
+      "The work you could help build spans digital infrastructure through which people access services, connect and transact; intelligence systems that help organisations investigate complex information; and initiatives that bring technology, people and processes together to reach intended beneficiaries."
+    ],
+    "empty": "There are no open roles listed right now. If you would like to introduce yourself, we would be glad to hear from you.",
+    "roles": []
+  },
+  "alumni": {
+    "kicker": "Alumni",
+    "headline": "You are part of the Softcom story.",
+    "lede": "Across teams, roles and generations, people have brought their knowledge, effort and ideas to Softcom. They helped build the company, and their contributions remain part of it.",
+    "body": "The Softcom Alumni Network invites you to reconnect with former colleagues and help shape a community that supports what comes next, for one another and for Softcom.",
+    "formIntro": "Whether you joined at the beginning or more recently, whatever your role and wherever you are today, you are welcome.",
+    "image": {
+      "id": "alumni-hero",
+      "label": "Alumni · Opening photograph",
+      "src": "/media/market-aerial.jpg",
+      "alt": "Lagos from above"
+    }
+  },
+  "contactPage": {
+    "kicker": "Contact",
+    "headline": "Let’s talk.",
+    "lede": "Whether you have a specific project in mind or just want to explore how Softcom can help, we are always open to a conversation."
+  }
+}

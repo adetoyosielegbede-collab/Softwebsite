@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-canvas: #070708;
+  --color-ink: #f4f3ee;
+  --color-muted: #a8a59c;
+  --color-paper: #f3f1ea;
+  --color-ink-strong: #111111;
+  --color-accent: #00e7ff;
+  --color-signal: #2f62ff;
+  --color-line: rgba(255, 255, 255, 0.12);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #070708;
+  color: #f4f3ee;
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+::selection {
+  background: #00e7ff;
+  color: #071014;
+}
+
+.kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244, 243, 238, 0.55);
+}
+
+.display {
+  font-weight: 300;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+.orb {
+  width: clamp(92px, 16vw, 190px);
+  height: clamp(92px, 16vw, 190px);
+  border-radius: 999px;
+  background-image: radial-gradient(circle, currentColor 1.15px, transparent 1.35px);
+  background-size: 7px 7px;
+  -webkit-mask-image: radial-gradient(circle, #000 58%, transparent 72%);
+  mask-image: radial-gradient(circle, #000 58%, transparent 72%);
+}
+
+.orb-signal {
+  color: #2f62ff;
+  box-shadow: 0 0 80px 10px rgba(47, 98, 255, 0.25);
+}
+
+.orb-accent {
+  color: #00e7ff;
+  box-shadow: 0 0 80px 10px rgba(0, 231, 255, 0.22);
+}
+
+.bridge {
+  width: clamp(92px, 18vw, 230px);
+  height: clamp(36px, 6vw, 72px);
+  margin-inline: -18px;
+  background-image: radial-gradient(circle, #7ef6ff 1.05px, transparent 1.25px);
+  background-size: 6px 6px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+}
+
+.hero-haze {
+  background:
+    radial-gradient(circle at 32% 48%, rgba(47, 98, 255, 0.18), transparent 26%),
+    radial-gradient(circle at 68% 48%, rgba(0, 231, 255, 0.16), transparent 26%);
+}
+
+@keyframes softcom-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: softcom-marquee 52s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100% !important;
+    justify-content: center;
+  }
+}
