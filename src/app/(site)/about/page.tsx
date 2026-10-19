@@ -25,6 +25,7 @@ export default async function AboutPage() {
         text={hero.text}
         backgroundImage={hero.backgroundImage}
         actions={[{ label: hero.ctaLabel, href: hero.ctaHref }]}
+        field="armillary"
       />
 
       <section className="container-site grid gap-10 pt-32 md:grid-cols-12 lg:pt-48">

@@ -19,7 +19,7 @@ type HeroProps = {
   backgroundImage?: CmsImageValue;
   actions?: { label: string; href: string; variant?: "pill" | "arrow" }[];
   /** Background field when the hero has no photograph. */
-  field?: "bits" | "torus";
+  field?: "bits" | "torus" | "armillary";
 };
 
 export function PageHero({ file, path = "hero", eyebrow, title, text, backgroundImage, actions = [], field = "bits" }: HeroProps) {
@@ -36,7 +36,7 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
         </>
       ) : (
         <>
-          {field === "torus" ? <TorusField /> : <HeroBits />}
+          {field === "torus" ? <TorusField /> : field === "armillary" ? <TorusField variant="armillary" /> : <HeroBits />}
           <CmsImage
             image={backgroundImage}
             file={file}
