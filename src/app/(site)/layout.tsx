@@ -10,8 +10,10 @@ export default async function SiteLayout({ children }: LayoutProps<"/">) {
   return (
     <>
       <SiteHeader site={site} />
-      <main id="main">{children}</main>
-      <SiteFooter site={site} />
+      <main id="main">
+        {children}
+        <SiteFooter site={site} />
+      </main>
       <RevealProvider />
       <PageTransition />
       <EditOverlay />

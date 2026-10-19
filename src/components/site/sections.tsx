@@ -77,11 +77,10 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
 export function CtaBanner({ cta, file, path = "cta" }: { cta: Cta; file: string; path?: string }) {
   const split = cta.layout === "split";
   return (
-    <section className="container-site pt-24 pb-4 lg:pt-32">
-      <div
-        className="relative isolate flex min-h-[420px] items-center overflow-hidden rounded-3xl px-6 py-16 lg:min-h-[520px] lg:px-16"
-        data-reveal
-      >
+    <section
+      className="sticky top-0 z-0 mx-4 mt-16 flex h-[min(420px,70svh)] flex-col items-center justify-center overflow-hidden rounded-[2rem] px-6 md:mx-10 lg:mt-24 lg:h-[min(520px,70svh)] relative"
+      data-reveal
+    >
         <CmsImage image={cta.image} file={file} path={`${path}.image`} sizes="(min-width: 1440px) 1360px, 100vw" />
         <div className="absolute inset-0 -z-0 bg-black/55" />
         <div
@@ -101,7 +100,6 @@ export function CtaBanner({ cta, file, path = "cta" }: { cta: Cta; file: string;
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 }

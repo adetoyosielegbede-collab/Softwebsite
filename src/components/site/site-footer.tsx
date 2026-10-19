@@ -3,8 +3,7 @@ import type { SiteContent } from "@/lib/content-types";
 
 export function SiteFooter({ site }: { site: SiteContent }) {
   return (
-    <footer className="container-site pb-4">
-      <div className="relative overflow-hidden rounded-3xl bg-surface-raised px-6 pt-10 pb-6 lg:px-10 lg:pt-12">
+    <footer className="relative z-10 mx-4 mt-2.5 mb-4 overflow-hidden rounded-[2rem] bg-surface-raised px-6 pt-14 pb-6 shadow-[0_-32px_80px_rgba(0,0,0,0.45)] md:mx-10 lg:mb-6 lg:h-[min(700px,85svh)] lg:px-[3.2%] lg:pt-[60px] lg:pb-0">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_2fr]">
           <div>
             <p className="mb-4 text-xs text-ink-soft">{site.footer.eyebrow}</p>
@@ -40,16 +39,15 @@ export function SiteFooter({ site }: { site: SiteContent }) {
 
         <div
           aria-hidden
-          className="dot-grid mt-16 aspect-[1268/284] w-full opacity-70 [mask-image:url(/brand/softcom-wordmark.svg)] [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center]"
+          className="dot-grid mt-16 aspect-[1268/284] w-full opacity-70 [mask-image:url(/brand/softcom-wordmark.svg)] [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] lg:absolute lg:bottom-0 lg:left-[4.45%] lg:mt-0 lg:w-[91.1%] lg:translate-y-[18%]"
         />
 
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-[11px] text-ink-faint">
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-[11px] text-ink-faint lg:absolute lg:inset-x-[3.2%] lg:bottom-6 lg:mt-0">
           <p>{site.footer.copyright}</p>
           <Link href="/admin" className="transition-colors hover:text-ink">
             Edit site
           </Link>
         </div>
-      </div>
     </footer>
   );
 }
