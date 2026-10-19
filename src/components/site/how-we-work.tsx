@@ -1,7 +1,7 @@
 "use client";
 
 import { Cpu, Users, Waypoints } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import type { HomeContent } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
 import { PillLink } from "./links";
@@ -25,7 +25,7 @@ export function HowWeWork({ content }: { content: HomeContent["howWeWork"] }) {
   const cards = useRef<(HTMLElement | null)[]>([]);
   const count = content.items.length;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const media = window.matchMedia("(min-width: 768px) and (prefers-reduced-motion: no-preference)");
     let frame = 0;
 
@@ -43,9 +43,8 @@ export function HowWeWork({ content }: { content: HomeContent["howWeWork"] }) {
       const segment = span / count;
 
       if (heading.current) {
-        const opacity = desktop ? 1 - clamp((progress - 0.12) / 0.28) : 1;
-        heading.current.style.opacity = String(opacity);
-        heading.current.style.pointerEvents = opacity < 0.15 ? "none" : "auto";
+        heading.current.style.opacity = "1";
+        heading.current.style.pointerEvents = "auto";
       }
 
       for (let i = 0; i < count; i++) {
@@ -63,7 +62,8 @@ export function HowWeWork({ content }: { content: HomeContent["howWeWork"] }) {
         // The first card begins centered, then steps left. Later cards rise in their own column so they never cover the one before them.
         const x = slot * spread * (i === 0 ? successor : 1);
         const cardH = card.offsetHeight || stageH * 0.55;
-        const y = -cardH * 0.12 + (1 - enter) * stageH * 0.7;
+        // Rest the row high enough that the title and button stay above the cards.
+        const y = -cardH * 0.2 + (1 - enter) * stageH * 0.7;
         const tilt = slot * 5 * (i === 0 ? successor : 1);
         card.style.transform = `translate(-50%, ${y.toFixed(2)}px) translateX(${x.toFixed(2)}px) rotate(${tilt.toFixed(2)}deg)`;
         card.style.zIndex = String(enter > 0.04 ? 20 + i : i + 1);
@@ -90,7 +90,7 @@ export function HowWeWork({ content }: { content: HomeContent["howWeWork"] }) {
       <div className="md:sticky md:top-0 md:h-svh md:overflow-hidden">
         <div
           ref={heading}
-          className="relative z-30 mx-auto flex max-w-3xl flex-col items-center px-5 pt-1 text-center md:absolute md:inset-x-0 md:top-0 md:pt-8"
+          className="relative z-30 mx-auto flex max-w-3xl flex-col items-center px-5 pt-1 text-center md:absolute md:inset-x-0 md:top-0 md:pt-20"
         >
           <h2 className="text-display">{content.eyebrow}</h2>
           <div className="mt-6">
@@ -109,7 +109,7 @@ export function HowWeWork({ content }: { content: HomeContent["howWeWork"] }) {
                 }}
                 style={{ zIndex: count - i }}
                 className={cn(
-                  "flex min-h-[280px] flex-col justify-between rounded-lg p-6 shadow-2xl shadow-black/40 md:absolute md:top-[46%] md:left-1/2 md:aspect-[0.72] md:min-h-0 md:w-[min(26vw,21rem)] md:p-8",
+                  "flex min-h-[280px] flex-col justify-between rounded-lg p-6 shadow-2xl shadow-black/40 md:absolute md:top-[40%] md:left-1/2 md:aspect-[0.72] md:min-h-0 md:w-[min(26vw,21rem)] md:p-8",
                   i === 0 ? "md:[transform:translate(-50%,-12%)]" : "md:[transform:translate(-50%,62vh)]",
                   TONES[i] ?? TONES[0],
                 )}
