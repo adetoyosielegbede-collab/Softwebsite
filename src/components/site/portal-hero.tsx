@@ -192,7 +192,7 @@ export function PortalHero({
             <CmsImage image={mission.image} file="home" path="mission.image" className="-z-10 object-cover object-bottom" />
             <div aria-hidden className="absolute inset-0 -z-10 bg-black/60" />
             <div ref={missionCopy} className="flex flex-col items-center gap-8 opacity-0 motion-reduce:opacity-100">
-              <span className="size-4 rounded-full bg-signal shadow-[0_0_30px_rgba(0,255,255,0.7)]" aria-hidden />
+              <img src="/brand/accent-dot.svg" alt="" width={26} height={26} className="size-[26px]" />
               <h2 className="display max-w-3xl text-4xl leading-tight sm:text-5xl">{mission.title}</h2>
               <p className="max-w-lg text-sm leading-relaxed text-white/80">{mission.text}</p>
             </div>

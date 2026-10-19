@@ -153,3 +153,20 @@ export function PartnerMarquee({ partners }: { partners: SiteContent["partners"]
 export function SectionNumber({ children }: { children: React.ReactNode }) {
   return <p className="font-mono text-xs text-ink-soft">{children}</p>;
 }
+
+/** Registration crosses that sit on the top edge of a homepage section. */
+export function FrameMarks() {
+  return (
+    <div aria-hidden className="container-site pointer-events-none relative h-5">
+      <svg viewBox="0 0 20 20" className="absolute top-0 left-0 size-5 text-line-strong">
+        <path d="M0.5 0v20M0 10h10" stroke="currentColor" />
+      </svg>
+      <svg viewBox="0 0 20 20" className="absolute top-0 left-1/2 hidden size-5 -translate-x-1/2 text-line-strong md:block">
+        <path d="M10 0v20M0 10h20" stroke="currentColor" />
+      </svg>
+      <svg viewBox="0 0 20 20" className="absolute top-0 right-0 size-5 text-line-strong">
+        <path d="M19.5 0v20M10 10h10" stroke="currentColor" />
+      </svg>
+    </div>
+  );
+}
