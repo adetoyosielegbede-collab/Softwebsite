@@ -45,13 +45,13 @@ export function InsightList({
       {matching.length === 0 && <p className="mt-12 text-sm text-ink-soft">{emptyText}</p>}
       {featured && (
         <div className="mt-12">
-          <h2 className="display mb-6 text-3xl">{featuredTitle}</h2>
+          <h2 className="text-headline mb-6">{featuredTitle}</h2>
           <InsightCard post={featured} index={featured.index} size="featured" />
         </div>
       )}
       {rest.length > 0 && (
         <div className="mt-16">
-          <h2 className="display mb-6 text-3xl">{moreTitle}</h2>
+          <h2 className="text-headline mb-6">{moreTitle}</h2>
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
             {rest.map((post) => (
               <InsightCard key={post.slug} post={post} index={post.index} />

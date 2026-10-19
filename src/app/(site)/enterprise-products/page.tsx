@@ -28,7 +28,7 @@ export default async function EnterpriseProductsPage() {
       />
 
       <section className="container-site">
-        <h2 className="display mb-8 text-4xl lg:text-5xl" data-reveal>
+        <h2 className="text-headline mb-8" data-reveal>
           {products.title}
         </h2>
         <div className="grid gap-4 md:grid-cols-2">
@@ -40,8 +40,8 @@ export default async function EnterpriseProductsPage() {
               data-reveal
             >
               <div className="flex items-start justify-between gap-6 p-6 lg:p-7">
-                <h3 className="display text-3xl lg:text-4xl">{p.name}</h3>
-                <p className="max-w-[220px] text-right text-[13px] leading-snug text-ink-soft">{p.tagline}</p>
+                <h3 className="text-headline leading-[1.1] sm:w-[56%]">{p.name}</h3>
+                <p className="text-lede max-w-[220px] text-right text-ink">{p.tagline}</p>
               </div>
               <ColorReveal className="relative mx-2 mb-2 aspect-[668/585] overflow-hidden rounded-[1.25rem] bg-brand">
                 <CmsImage
@@ -63,10 +63,10 @@ export default async function EnterpriseProductsPage() {
 
       <section className="container-site pt-28 lg:pt-40">
         <div className="mb-10 grid gap-4 lg:grid-cols-2 lg:items-end">
-          <h2 className="display text-4xl lg:text-5xl" data-reveal>
+          <h2 className="text-headline" data-reveal>
             {partners.title}
           </h2>
-          <p className="max-w-sm text-sm leading-relaxed text-ink-soft lg:justify-self-end" data-reveal>
+          <p className="text-body max-w-sm text-ink-soft lg:justify-self-end" data-reveal>
             {partners.text}
           </p>
         </div>
@@ -85,11 +85,11 @@ export default async function EnterpriseProductsPage() {
                       emptyClassName="absolute inset-0 p-2"
                     />
                   </div>
-                  <h3 className="display max-w-[12ch] text-3xl leading-tight lg:text-4xl">{p.name}</h3>
+                  <h3 className="text-headline max-w-[12ch] leading-[1.1]">{p.name}</h3>
                 </div>
-                <p className="max-w-[200px] text-right text-[13px] leading-snug text-ink-soft">{p.tagline}</p>
+                <p className="text-lede max-w-[200px] text-right text-ink-soft">{p.tagline}</p>
               </div>
-              <p className="mt-10 flex-1 text-[13px] leading-relaxed text-ink-soft">{p.text}</p>
+              <p className="text-body mt-10 flex-1 text-ink-soft">{p.text}</p>
               <div className="mt-6">
                 <PillLink href={p.href}>{p.ctaLabel}</PillLink>
               </div>

@@ -16,9 +16,9 @@ export default async function ContactPage() {
   return (
     <section className="container-site grid gap-10 pt-32 pb-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:pt-40">
       <div>
-        <span className="inline-block rounded-full bg-signal px-2.5 py-1 text-[11px] font-medium text-black">{page.badge}</span>
-        <h1 className="display mt-6 text-5xl lg:text-6xl">{page.title}</h1>
-        <p className="mt-5 max-w-md text-sm leading-relaxed text-ink-soft">{page.text}</p>
+        <span className="inline-block rounded-full bg-signal px-2.5 py-1 text-xs font-medium text-black">{page.badge}</span>
+        <h1 className="text-display mt-6">{page.title}</h1>
+        <p className="text-lede mt-5 max-w-[60ch] text-ink-soft">{page.text}</p>
         <div className={cn("relative mt-8 aspect-[4/3] overflow-hidden rounded-3xl", !page.image.src && "hidden [.cms-editing_&]:block")}>
           <CmsImage image={page.image} file="contact" path="image" sizes="(min-width: 1024px) 40vw, 100vw" emptyClassName="absolute inset-0" />
         </div>
@@ -26,8 +26,8 @@ export default async function ContactPage() {
       <div className="space-y-4">
         <ContactForm form={page.form} />
         <div className="grid gap-4 rounded-3xl bg-surface-raised p-6 sm:grid-cols-[auto_1fr_1fr] sm:items-center lg:p-8">
-          <h2 className="display text-xl">{page.getInTouchTitle}</h2>
-          <address className="flex gap-3 text-xs leading-relaxed text-ink-soft not-italic">
+          <h2 className="text-title max-w-[142px]">{page.getInTouchTitle}</h2>
+          <address className="flex gap-3 text-sm leading-[1.6] text-ink-soft not-italic">
             <MapPin className="mt-0.5 size-4 shrink-0 text-accent-ink" aria-hidden />
             <span>
               {site.contact.company}

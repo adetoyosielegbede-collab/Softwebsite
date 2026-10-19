@@ -163,11 +163,62 @@
   .container-site {
     @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10;
   }
+  .eyebrow,
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
   .eyebrow {
-    @apply font-mono text-[11px] tracking-[0.18em] text-ink-soft uppercase;
+    @apply text-ink-soft;
   }
   .display {
-    @apply font-heading font-light tracking-[-0.02em] text-balance;
+    @apply font-heading font-light text-balance;
+  }
+  /* Reference type scale. Sizes step at 40rem and 64rem. */
+  .text-display {
+    font-family: var(--font-heading);
+    font-weight: 300;
+    font-size: 2.75rem;
+    line-height: 1;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+  }
+  .text-headline {
+    font-family: var(--font-heading);
+    font-weight: 300;
+    font-size: 1.875rem;
+    line-height: 1.026;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  .text-title {
+    font-family: var(--font-heading);
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.026;
+  }
+  .text-lede {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+  .text-body {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  @media (min-width: 40rem) {
+    .text-display { font-size: 3rem; }
+    .text-headline { font-size: 2.25rem; }
+    .text-lede { font-size: 1.125rem; }
+  }
+  @media (min-width: 64rem) {
+    .text-display { font-size: 4rem; }
+    .text-headline { font-size: 3.25rem; }
+    .text-title { font-size: 2rem; }
+    .text-lede { font-size: 1.25rem; }
+    .text-body { font-size: 1.125rem; }
   }
   .dot-grid {
     background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 22%, transparent) 1.1px, transparent 1.5px);

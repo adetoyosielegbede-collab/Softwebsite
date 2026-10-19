@@ -52,7 +52,7 @@ export default async function ProductPage({ params }: PageProps<"/enterprise-pro
         {product.overview.length > 0 && (
           <div className="max-w-3xl pb-12 lg:ml-auto lg:w-2/3">
             {product.overview.map((p) => (
-              <p key={p} className="display text-2xl leading-snug text-ink-soft sm:text-3xl" data-reveal>
+              <p key={p} className="text-title text-ink-soft" data-reveal>
                 {p}
               </p>
             ))}
@@ -71,16 +71,16 @@ export default async function ProductPage({ params }: PageProps<"/enterprise-pro
                         {block.number}
                       </p>
                     )}
-                    <h2 className="display mt-4 text-3xl leading-tight lg:text-4xl">{block.title}</h2>
+                    <h2 className="text-headline mt-4">{block.title}</h2>
                   </div>
-                  {block.text && <p className="text-sm leading-relaxed text-ink-soft lg:pt-8">{block.text}</p>}
+                  {block.text && <p className="text-body text-ink-soft lg:pt-8">{block.text}</p>}
                 </div>
                 {block.points.length > 0 && (
                   <ul className="mt-10 grid gap-4 md:grid-cols-3">
                     {block.points.map((pt) => (
                       <li key={pt.title} className="rounded-2xl bg-paper/60 p-6 ring-1 ring-line">
                         <h3 className="text-base">{pt.title}</h3>
-                        <p className="mt-2 text-[13px] leading-relaxed text-ink-soft">{pt.text}</p>
+                        <p className="text-body mt-2 text-ink-soft">{pt.text}</p>
                       </li>
                     ))}
                   </ul>
@@ -92,7 +92,7 @@ export default async function ProductPage({ params }: PageProps<"/enterprise-pro
               <figure key={`${fig.label}-${f}`} className="m-0 flex flex-col gap-8 rounded-3xl bg-surface-raised p-6 lg:p-10" data-reveal>
                 <header className="flex flex-col gap-3">
                   <span className="font-mono text-[11px] tracking-[0.14em] text-ink-soft uppercase">{fig.label}</span>
-                  <h3 className="display text-2xl leading-tight lg:text-3xl">{fig.title}</h3>
+                  <h3 className="text-title">{fig.title}</h3>
                   {fig.caption && <p className="text-sm text-ink-soft lg:text-base">{fig.caption}</p>}
                 </header>
                 <div className="overflow-hidden rounded-2xl">
@@ -122,11 +122,11 @@ export default async function ProductPage({ params }: PageProps<"/enterprise-pro
           <p className="eyebrow mb-5" data-reveal>
             {product.audience.eyebrow}
           </p>
-          <h2 className="display mx-auto max-w-3xl text-4xl leading-tight lg:text-5xl" data-reveal>
+          <h2 className="text-headline mx-auto max-w-3xl" data-reveal>
             {product.audience.title}
           </h2>
           {product.audience.text && (
-            <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-ink-soft" data-reveal>
+            <p className="text-lede mx-auto mt-6 max-w-2xl text-ink-soft" data-reveal>
               {product.audience.text}
             </p>
           )}

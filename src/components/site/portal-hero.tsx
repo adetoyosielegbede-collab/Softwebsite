@@ -169,7 +169,7 @@ export function PortalHero({
               )}
             </div>
             <div data-hero-copy="" className="container-site relative flex items-end justify-between gap-6 pb-24 md:pb-28">
-              <h1 className="display text-[2.4rem] leading-[1.02] sm:text-6xl lg:text-7xl">
+              <h1 className="text-display">
                 <span className="block">{hero.titleLine1}</span>
                 <span className="block text-ink-soft">{hero.titleLine2}</span>
               </h1>
@@ -196,8 +196,8 @@ export function PortalHero({
             <div aria-hidden className="absolute inset-0 -z-10 bg-black/60" />
             <div ref={missionCopy} className="flex flex-col items-center gap-8 opacity-0 motion-reduce:opacity-100">
               <img src="/brand/accent-dot.svg" alt="" width={26} height={26} className="size-[26px]" />
-              <h2 className="display max-w-3xl text-4xl leading-tight sm:text-5xl">{mission.title}</h2>
-              <p className="max-w-lg text-sm leading-relaxed text-white/80">{mission.text}</p>
+              <h2 className="text-headline max-w-[760px] leading-[1.1]">{mission.title}</h2>
+              <p className="text-lede max-w-[576px] text-neutral-200">{mission.text}</p>
             </div>
             <div ref={missionCta} className="opacity-0 motion-reduce:opacity-100">
               <PillLink href={mission.ctaHref}>{mission.ctaLabel}</PillLink>

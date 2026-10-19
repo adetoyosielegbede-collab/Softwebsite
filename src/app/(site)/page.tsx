@@ -28,8 +28,8 @@ export default async function HomePage() {
         <FrameMarks />
         <div className="container-site">
           <div className="mb-12 grid gap-6 md:mb-20 lg:grid-cols-2 lg:items-end">
-            <LineReveal className="display text-4xl lg:text-5xl">{home.audiences.title}</LineReveal>
-            <p className="max-w-md text-sm leading-relaxed text-ink-soft lg:justify-self-end" data-reveal>
+            <LineReveal className="text-headline">{home.audiences.title}</LineReveal>
+            <p className="text-body max-w-md text-ink-soft lg:justify-self-end" data-reveal>
               {home.audiences.intro}
             </p>
           </div>
@@ -42,7 +42,7 @@ export default async function HomePage() {
                 style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
               >
                 <div className="flex items-start justify-between gap-4">
-                  <h3 className="display max-w-[10ch] text-2xl leading-tight">{a.title}</h3>
+                  <h3 className="text-title max-w-[10ch] whitespace-pre-line">{a.title}</h3>
                   <div className="relative h-[115px] w-24 shrink-0">
                     <CmsImage
                       image={a.icon}
@@ -54,7 +54,7 @@ export default async function HomePage() {
                     />
                   </div>
                 </div>
-                <p className="mt-10 flex-1 text-[13px] leading-relaxed text-ink-soft">{a.text}</p>
+                <p className="text-body mt-10 flex-1 text-ink-soft">{a.text}</p>
                 <ul className="mt-6 flex flex-wrap gap-2">
                   {a.tags.map((t) => (
                     <li key={t} className="rounded-md bg-ink/5 px-2.5 py-1.5 text-[11px] text-ink-soft ring-1 ring-line">
@@ -90,9 +90,9 @@ export default async function HomePage() {
       <section className={band}>
         <FrameMarks />
         <div className="container-site grid gap-12 md:grid-cols-12 md:gap-x-6 md:gap-y-20">
-          <LineReveal className="display text-4xl md:col-span-7 lg:text-5xl">{home.thinking.title}</LineReveal>
+          <LineReveal className="text-headline md:col-span-7">{home.thinking.title}</LineReveal>
           <div className="flex max-w-md flex-col items-start gap-6 md:col-span-4 md:col-start-9 md:self-end" data-reveal>
-            <p className="text-sm leading-relaxed text-ink-soft">{home.thinking.text}</p>
+            <p className="text-body text-ink-soft">{home.thinking.text}</p>
             <PillLink href={home.thinking.ctaHref}>{home.thinking.ctaLabel}</PillLink>
           </div>
           {article ? (

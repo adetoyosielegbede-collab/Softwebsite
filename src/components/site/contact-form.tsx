@@ -35,8 +35,8 @@ export function ContactForm({ form }: { form: Fields }) {
   if (status === "sent") {
     return (
       <div className="rounded-3xl bg-surface-raised p-8 lg:p-10">
-        <h2 className="display text-3xl">{form.successTitle}</h2>
-        <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-soft">{form.successText}</p>
+        <h2 className="text-headline">{form.successTitle}</h2>
+        <p className="text-body mt-4 max-w-md text-ink-soft">{form.successText}</p>
       </div>
     );
   }
@@ -60,7 +60,7 @@ export function ContactForm({ form }: { form: Fields }) {
 
   return (
     <form onSubmit={onSubmit} className="rounded-3xl bg-surface-raised p-6 lg:p-10" noValidate>
-      <h2 className="display text-2xl lg:text-3xl">{form.title}</h2>
+      <h2 className="text-title">{form.title}</h2>
       <div className="mt-8 grid gap-5 sm:grid-cols-2">
         {field("name", form.nameLabel, form.namePlaceholder)}
         {field("email", form.emailLabel, form.emailPlaceholder, "email")}

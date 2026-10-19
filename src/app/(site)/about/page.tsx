@@ -27,11 +27,11 @@ export default async function AboutPage() {
         actions={[{ label: hero.ctaLabel, href: hero.ctaHref }]}
       />
 
-      <section className="container-site grid gap-10 py-20 lg:grid-cols-2 lg:gap-20 lg:py-28">
-        <h2 className="display max-w-lg text-4xl leading-tight lg:text-5xl" data-reveal>
+      <section className="container-site grid gap-10 pt-32 md:grid-cols-12 lg:pt-48">
+        <h2 className="text-headline md:col-span-5" data-reveal>
           {story.title}
         </h2>
-        <div className="space-y-5 text-sm leading-relaxed text-ink-soft lg:text-base" data-reveal>
+        <div className="text-body flex flex-col gap-4 text-ink-soft md:col-span-6 md:col-start-7 md:pt-10" data-reveal>
           {story.paragraphs.map((p) => (
             <p key={p}>{p}</p>
           ))}
@@ -41,21 +41,35 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section className="container-site grid gap-10 border-t border-line pt-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-20 lg:pt-24">
-        <div className="lg:sticky lg:top-28 lg:self-start">
-          <p className="eyebrow mb-4">{journey.eyebrow}</p>
-          <h2 className="display text-4xl lg:text-5xl">{journey.title}</h2>
-          <p className="mt-4 font-mono text-[11px] text-ink-faint">
-            {journey.range} · {String(journey.items.length).padStart(2, "0")}
-          </p>
+      <section id="journey" className="container-site grid scroll-mt-24 gap-y-12 pt-32 md:grid-cols-12 md:gap-x-6 lg:pt-48">
+        <div className="md:col-span-4">
+          <div className="md:sticky md:top-32">
+            <p className="label mb-5 text-ink-soft">{journey.eyebrow}</p>
+            <h2 className="text-headline font-normal">{journey.title}</h2>
+            <p className="label mt-8 text-ink-faint">
+              {journey.range} · {String(journey.items.length).padStart(2, "0")}
+            </p>
+          </div>
         </div>
-        <ol>
+        <ol className="relative border-b border-line md:col-span-8">
           {journey.items.map((m, i) => (
-            <li key={`${m.year}-${m.title}`} className="grid gap-3 border-b border-line py-10 first:pt-0 sm:grid-cols-[140px_1fr] sm:gap-8" data-reveal>
-              <p className="display text-2xl text-signal">{m.year}</p>
+            <li
+              key={`${m.year}-${m.title}`}
+              className="group relative grid gap-3 border-t border-line py-8 pl-8 md:grid-cols-[14rem_1fr] md:gap-x-10 md:py-10 md:pl-0"
+              data-reveal
+            >
+              <span
+                aria-hidden
+                className="absolute top-0 bottom-0 left-0 w-px bg-line-strong group-first:top-10 group-last:bottom-auto group-last:h-[3.25rem] md:left-[14rem]"
+              />
+              <span
+                aria-hidden
+                className="absolute top-10 -left-[3px] size-[7px] rounded-full bg-brand ring-4 ring-paper md:top-[3.25rem] md:left-[calc(14rem-3px)]"
+              />
+              <p className="text-title font-light whitespace-nowrap text-accent-ink tabular-nums md:pr-6">{m.year}</p>
               <div>
-                <h3 className="text-xl leading-snug lg:text-2xl">{m.title}</h3>
-                <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-ink-soft lg:text-sm">{m.text}</p>
+                <h3 className="text-title">{m.title}</h3>
+                <p className="text-body mt-4 max-w-xl text-ink-soft">{m.text}</p>
                 <div className={cn("relative mt-6 aspect-[16/9] max-w-xl overflow-hidden rounded-2xl", !m.image.src && "hidden [.cms-editing_&]:block")}>
                   <CmsImage
                     image={m.image}
@@ -71,25 +85,25 @@ export default async function AboutPage() {
         </ol>
       </section>
 
-      <section className="container-site pt-28 lg:pt-40">
-        <h2 className="display mb-10 text-4xl lg:text-5xl" data-reveal>
+      <section className="container-site pt-32 lg:pt-48">
+        <h2 className="text-headline mb-12 md:mb-20" data-reveal>
           {values.title}
         </h2>
-        <ol className="border-t border-line">
+        <ol className="flex flex-col gap-6">
           {values.items.map((v, i) => (
-            <li key={v.title} className="grid gap-2 border-b border-line py-6 sm:grid-cols-[1fr_3fr]" data-reveal>
-              <span className="font-mono text-[11px] text-ink-faint">{String(i + 1).padStart(2, "0")}</span>
-              <div>
-                <h3 className="text-lg">{v.title}</h3>
-                <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-ink-soft">{v.text}</p>
+            <li key={v.title} className="grid gap-y-2 border-t border-line pt-6 md:grid-cols-12" data-reveal>
+              <span className="font-mono text-sm text-ink-soft md:col-span-3">{String(i + 1).padStart(2, "0")}</span>
+              <div className="flex flex-col gap-2 md:col-span-6">
+                <h3 className="font-heading text-xl">{v.title}</h3>
+                <p className="text-body text-ink-soft">{v.text}</p>
               </div>
             </li>
           ))}
         </ol>
       </section>
 
-      <section id="leadership" className="container-site scroll-mt-24 pt-28 lg:pt-40">
-        <h2 className="display mb-10 text-4xl lg:text-5xl" data-reveal>
+      <section id="leadership" className="container-site scroll-mt-24 pt-32 lg:pt-48">
+        <h2 className="text-headline mb-12 md:mb-20" data-reveal>
           {leadership.title}
         </h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -109,8 +123,8 @@ export default async function AboutPage() {
                 />
               </div>
               <figcaption className="mt-4">
-                <p className="text-lg">{person.name}</p>
-                <p className="text-[13px] text-ink-soft">{person.role}</p>
+                <p className="font-heading text-xl leading-none font-medium">{person.name}</p>
+                <p className="font-heading mt-1 text-lg leading-[1.6] text-ink-soft">{person.role}</p>
               </figcaption>
             </figure>
           ))}
@@ -121,12 +135,12 @@ export default async function AboutPage() {
         <Stats stats={site.stats} />
       </section>
 
-      <section className="container-site grid gap-8 pt-28 lg:grid-cols-2 lg:pt-40">
-        <h2 className="display text-4xl lg:text-5xl" data-reveal>
+      <section className="container-site grid gap-6 pt-32 md:grid-cols-12 md:items-end lg:pt-48">
+        <h2 className="text-headline md:col-span-7" data-reveal>
           {buildWithUs.title}
         </h2>
-        <div data-reveal>
-          <p className="max-w-md text-sm leading-relaxed text-ink-soft">{buildWithUs.text}</p>
+        <div className="flex max-w-md flex-col items-start gap-6 md:col-span-4 md:col-start-9" data-reveal>
+          <p className="text-body text-ink-soft">{buildWithUs.text}</p>
           <div className="mt-8 flex flex-wrap items-center gap-6">
             <PillLink href={buildWithUs.primaryHref}>{buildWithUs.primaryLabel}</PillLink>
             <ArrowLink href={buildWithUs.secondaryHref}>{buildWithUs.secondaryLabel}</ArrowLink>
@@ -134,24 +148,24 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section className="container-site pt-28 lg:pt-40">
-        <div className="mb-10 grid gap-4 lg:grid-cols-2 lg:items-end">
-          <div>
-            <p className="eyebrow mb-4">{news.eyebrow}</p>
-            <h2 className="display text-4xl lg:text-5xl">{news.title}</h2>
+      <section className="container-site pt-32 lg:pt-48">
+        <div className="mb-12 grid gap-6 md:mb-20 md:grid-cols-12 md:items-end">
+          <div className="md:col-span-7">
+            <p className="label mb-5 text-ink-soft">{news.eyebrow}</p>
+            <h2 className="text-headline">{news.title}</h2>
           </div>
-          <p className="text-sm text-ink-soft lg:justify-self-end">{news.text}</p>
+          <p className="text-body max-w-md text-ink-soft md:col-span-4 md:col-start-9">{news.text}</p>
         </div>
         <ul className="border-t border-line">
           {posts.slice(0, 5).map((post) => (
             <li key={post.slug}>
               <Link
                 href={`/insights/${post.slug}`}
-                className="grid gap-2 border-b border-line py-5 transition-colors hover:text-accent-ink sm:grid-cols-[1fr_180px_140px] sm:items-center"
+                className="grid gap-2 border-b border-line py-5 transition-colors hover:text-accent-ink md:grid-cols-12 md:items-center"
               >
-                <span className="text-[15px]">{post.title}</span>
-                <span className="text-xs text-ink-soft">{post.category}</span>
-                <time dateTime={post.date} className="text-xs text-ink-soft sm:text-right">
+                <span className="font-heading text-lg md:col-span-7 lg:text-xl">{post.title}</span>
+                <span className="text-sm text-ink-soft md:col-span-2 md:col-start-9">{post.category}</span>
+                <time dateTime={post.date} className="text-sm whitespace-nowrap text-ink-soft md:col-span-2 md:text-right">
                   {formatDate(post.date)}
                 </time>
               </Link>

@@ -43,13 +43,13 @@ export default async function InsightArticlePage({ params }: PageProps<"/insight
           <span className="rounded-full bg-ink/5 px-3 py-1 ring-1 ring-line">{post.category}</span>
           <time dateTime={post.date}>{formatDate(post.date)}</time>
         </div>
-        <h1 className="display mt-6 max-w-4xl text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">{post.title}</h1>
+        <h1 className="text-display mt-6 max-w-4xl">{post.title}</h1>
         {post.image.src && (
           <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-3xl">
             <CmsImage image={post.image} file="posts" path={`items.${index}.image`} priority sizes="(min-width: 1440px) 1360px, 100vw" />
           </div>
         )}
-        <div className="mx-auto mt-12 max-w-2xl space-y-6 text-[15px] leading-[1.75] text-ink-soft lg:text-base">
+        <div className="text-body mx-auto mt-12 max-w-2xl space-y-6 text-ink-soft">
           {post.body.map((paragraph) => (
             <p key={paragraph.slice(0, 48)}>{paragraph}</p>
           ))}

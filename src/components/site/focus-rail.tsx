@@ -45,7 +45,7 @@ export function FocusRail({ content }: { content: HomeContent["focusAreas"] }) {
     <div ref={track} className="relative lg:motion-safe:h-[260vh]">
       <div className="flex flex-col gap-8 lg:motion-safe:sticky lg:motion-safe:top-0 lg:motion-safe:h-svh lg:motion-safe:justify-center lg:motion-safe:overflow-hidden">
         <div className="container-site">
-          <LineReveal className="display text-4xl lg:text-5xl">{content.title}</LineReveal>
+          <LineReveal className="text-headline">{content.title}</LineReveal>
         </div>
         <div
           ref={row}
@@ -68,8 +68,8 @@ export function FocusRail({ content }: { content: HomeContent["focusAreas"] }) {
                 {area.number}
               </span>
               <div className="relative m-3 w-full rounded-2xl bg-paper/95 p-6 text-ink backdrop-blur sm:ml-auto sm:max-w-[560px] lg:m-6 lg:p-8">
-                <h3 className="display text-3xl leading-tight lg:text-4xl">{area.title}</h3>
-                <p className="mt-4 text-[13px] leading-relaxed text-ink-soft">{area.text}</p>
+                <h3 className="text-title xl:text-headline xl:leading-[1.1]">{area.title}</h3>
+                <p className="mt-4 text-base leading-[1.6] text-ink-soft">{area.text}</p>
                 <div className="mt-6">
                   <PillLink href={area.href}>{area.ctaLabel}</PillLink>
                 </div>

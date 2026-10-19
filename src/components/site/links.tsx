@@ -29,7 +29,7 @@ export function PillLink({ href, children, className, tone = "light" }: LinkProp
     <SmartLink
       href={href}
       className={cn(
-        "inline-flex h-9 items-center justify-center rounded-full px-4 text-[13px] font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-signal focus-visible:outline-none",
+        "inline-flex h-10 items-center justify-center rounded-full px-4 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-signal focus-visible:outline-none",
         tone === "light" ? "bg-ink text-paper hover:bg-signal hover:text-black" : "bg-black text-white hover:bg-surface-high",
         className,
       )}
@@ -45,7 +45,7 @@ export function ArrowLink({ href, children, className }: LinkProps) {
     <SmartLink
       href={href}
       className={cn(
-        "group inline-flex items-center gap-2 text-[13px] font-medium text-ink transition-colors hover:text-accent-ink",
+        "group inline-flex items-center gap-2 text-sm font-medium text-ink transition-colors hover:text-accent-ink",
         className,
       )}
     >

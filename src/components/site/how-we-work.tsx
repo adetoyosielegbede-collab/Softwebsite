@@ -92,7 +92,7 @@ export function HowWeWork({ content }: { content: HomeContent["howWeWork"] }) {
           ref={heading}
           className="relative z-30 mx-auto flex max-w-3xl flex-col items-center px-5 pt-1 text-center md:absolute md:inset-x-0 md:top-0 md:pt-8"
         >
-          <h2 className="display text-4xl md:text-6xl">{content.eyebrow}</h2>
+          <h2 className="text-display">{content.eyebrow}</h2>
           <div className="mt-6">
             <PillLink href={content.ctaHref}>{content.ctaLabel}</PillLink>
           </div>
@@ -119,8 +119,8 @@ export function HowWeWork({ content }: { content: HomeContent["howWeWork"] }) {
                   <p className="font-mono text-[11px] tracking-[0.16em] uppercase opacity-70">
                     {String(i + 1).padStart(2, "0")} {item.label}
                   </p>
-                  <h3 className="mt-3 font-heading text-[1.7rem] leading-[1.05] font-light md:text-[2rem]">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed opacity-80">{item.text}</p>
+                  <h3 className="text-title mt-3">{item.title}</h3>
+                  <p className="text-body mt-4 opacity-80">{item.text}</p>
                 </div>
               </article>
             );

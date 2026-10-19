@@ -42,15 +42,15 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
       )}
       <div className={cn("container-site relative text-center", hasImage && "text-white")}>
         {eyebrow && (
-          <p className={cn("mb-6 font-mono text-[11px] tracking-[0.18em] uppercase", hasImage ? "text-white/70" : "eyebrow")} data-reveal>
+          <p className={cn("label mb-6", hasImage ? "text-white/70" : "text-ink-soft")} data-reveal>
             {eyebrow}
           </p>
         )}
-        <LineReveal as="h1" className="display mx-auto max-w-4xl text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-7xl">
+        <LineReveal as="h1" className="text-display mx-auto mt-6 max-w-[18ch]">
           {title}
         </LineReveal>
         {text && (
-          <p className={cn("mx-auto mt-6 max-w-2xl text-sm leading-relaxed sm:text-base", hasImage ? "text-white/80" : "text-ink-soft")} data-reveal>
+          <p className={cn("mx-auto mt-6 max-w-xl text-lg text-pretty", hasImage ? "text-white/80" : "text-ink-soft")} data-reveal>
             {text}
           </p>
         )}
@@ -94,10 +94,10 @@ export function CtaBanner({ cta, file, path = "cta", className }: { cta: Cta; fi
         >
           <div className={cn("flex flex-col gap-6", split ? "max-w-md" : "items-center")}>
             <span className="size-4 rounded-full bg-signal shadow-[0_0_30px_rgba(0,255,255,0.7)]" aria-hidden />
-            <h2 className="display text-4xl leading-tight sm:text-5xl">{cta.title}</h2>
+            <h2 className="text-headline max-w-[598px] text-center">{cta.title}</h2>
           </div>
           <div className={cn("flex flex-col gap-6", split ? "max-w-sm" : "items-center")}>
-            {cta.text && <p className="max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">{cta.text}</p>}
+            {cta.text && <p className="text-lede max-w-[576px] text-center text-white/80">{cta.text}</p>}
             <div>
               <PillLink href={cta.ctaHref}>{cta.ctaLabel}</PillLink>
             </div>
@@ -112,9 +112,8 @@ export function Stats({ stats }: { stats: SiteContent["stats"] }) {
     <dl className="grid grid-cols-2 gap-x-6 gap-y-10 border-t border-line pt-10 lg:grid-cols-4">
       {stats.map((s, i) => (
         <div key={s.label} data-reveal style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}>
-          <dt className="sr-only">{s.label}</dt>
-          <dd className="display text-5xl lg:text-6xl">{s.value}</dd>
-          <dd className="mt-2 text-xs text-ink-soft">{s.label}</dd>
+          <dd className="font-heading text-5xl leading-[0.9] font-light lg:text-7xl">{s.value}</dd>
+          <dt className="text-body text-ink-soft">{s.label}</dt>
         </div>
       ))}
     </dl>

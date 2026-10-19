@@ -43,15 +43,15 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
                 </span>
                 <span className="rounded-full bg-signal/15 px-3 py-1 text-[11px] font-medium text-signal">{item.tag}</span>
               </div>
-              <h2 className="display mt-8 text-2xl leading-snug lg:text-3xl">{item.title}</h2>
-              <p className="mt-4 flex-1 text-[13px] leading-relaxed text-ink-soft">{item.text}</p>
+              <h2 className="text-title mt-8">{item.title}</h2>
+              <p className="text-body mt-4 flex-1 text-ink-soft">{item.text}</p>
               <div className={cn("relative mt-6 aspect-[16/9] overflow-hidden rounded-2xl", !item.image.src && "hidden [.cms-editing_&]:block")}>
                 <CmsImage image={item.image} file="case-studies" path={`items.${index}.image`} sizes="(min-width: 1024px) 50vw, 100vw" emptyClassName="absolute inset-0" />
               </div>
               <div className="mt-8 flex items-end justify-between gap-4 rounded-2xl bg-paper/70 p-5 ring-1 ring-line">
                 <div>
-                  <p className="display text-4xl">{item.metric}</p>
-                  <p className="mt-1 text-xs text-ink-soft">{item.metricLabel}</p>
+                  <p className="font-heading text-5xl leading-[0.9] font-light">{item.metric}</p>
+                  <p className="text-body mt-1 text-ink-soft">{item.metricLabel}</p>
                 </div>
                 <p className="max-w-[180px] text-right text-xs leading-relaxed text-ink-soft">
                   <span className="block text-[10px] tracking-wider text-ink-faint uppercase">Client</span>

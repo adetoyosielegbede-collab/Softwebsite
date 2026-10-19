@@ -18,8 +18,8 @@ function SectionHeader({ id, number, title, lead }: { id: string; number: string
     <div id={id} className="grid scroll-mt-24 gap-4 border-t border-line pt-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]" data-reveal>
       <SectionNumber>{number}</SectionNumber>
       <div>
-        <h2 className="display text-4xl lg:text-5xl">{title}</h2>
-        <p className="mt-4 max-w-xl text-sm leading-relaxed text-signal">{lead}</p>
+        <h2 className="text-headline">{title}</h2>
+        <p className="text-lede mt-4 max-w-[52ch] text-accent-ink">{lead}</p>
       </div>
     </div>
   );
@@ -35,9 +35,9 @@ export default async function SolutionsPage() {
 
       <section className="container-site pt-20 pb-24 lg:pt-28 lg:pb-32">
         <div className="max-w-4xl lg:ml-auto lg:w-2/3">
-          <span className="mb-6 inline-block rounded-full bg-signal px-2.5 py-1 text-[11px] font-medium text-black">{intro.badge}</span>
+          <span className="mb-6 inline-block rounded-full bg-signal px-2.5 py-1 text-xs font-medium text-black">{intro.badge}</span>
           {intro.paragraphs.map((p, i) => (
-            <p key={p} className={cn("display text-2xl leading-snug sm:text-3xl", i > 0 && "mt-6 text-ink-soft")} data-reveal>
+            <p key={p} className={cn("text-title", i > 0 && "mt-6 text-ink-soft")} data-reveal>
               {p}
             </p>
           ))}
@@ -48,12 +48,12 @@ export default async function SolutionsPage() {
         <SectionHeader id="digital-infrastructure" number={infra.number} title={infra.title} lead={infra.lead} />
         <div className="mt-16 max-w-md" data-reveal>
           <h3 className="text-xl">{infra.subTitle}</h3>
-          <p className="mt-3 text-[13px] leading-relaxed text-ink-soft">{infra.subText}</p>
+          <p className="mt-3 text-body text-ink-soft">{infra.subText}</p>
         </div>
         <div className="mt-6">
           <StickySteps steps={infra.steps} file="solutions" path="infrastructure.steps" />
         </div>
-        <p className="display mx-auto mt-20 max-w-2xl text-center text-2xl leading-snug lg:text-3xl" data-reveal>
+        <p className="text-title mx-auto mt-20 max-w-2xl text-center" data-reveal>
           {infra.statement}
         </p>
         <div className="mt-12 grid gap-4 md:grid-cols-2">
@@ -64,8 +64,8 @@ export default async function SolutionsPage() {
               data-reveal
             >
               <p className={cn("eyebrow", card.highlight && "text-white/70")}>{card.eyebrow}</p>
-              <h3 className="display mt-16 text-3xl lg:mt-24 lg:text-4xl">{card.title}</h3>
-              <p className={cn("mt-5 text-[13px] leading-relaxed", card.highlight ? "text-white/85" : "text-ink-soft")}>{card.text}</p>
+              <h3 className="text-headline mt-16 lg:mt-24">{card.title}</h3>
+              <p className={cn("mt-5 text-body", card.highlight ? "text-white/85" : "text-ink-soft")}>{card.text}</p>
             </article>
           ))}
         </div>
@@ -79,7 +79,7 @@ export default async function SolutionsPage() {
           <SectionHeader id="applied-intelligence" number={intel.number} title={intel.title} lead={intel.lead} />
           <div className="mt-16 max-w-md" data-reveal>
             <p className="eyebrow">{intel.eyebrow} →</p>
-            <p className="mt-4 text-[13px] leading-relaxed text-ink-soft">{intel.intro}</p>
+            <p className="mt-4 text-body text-ink-soft">{intel.intro}</p>
           </div>
         </div>
         <Carousel label={intel.eyebrow} className="mt-10">
@@ -91,13 +91,13 @@ export default async function SolutionsPage() {
               <div className="p-6 lg:p-8">
                 <p className="font-mono text-[11px] text-ink-faint">{String(i + 1).padStart(2, "0")}</p>
                 <h3 className="mt-3 text-xl">{item.title}</h3>
-                <p className="mt-3 text-[13px] leading-relaxed text-ink-soft">{item.text}</p>
+                <p className="mt-3 text-body text-ink-soft">{item.text}</p>
               </div>
             </article>
           ))}
         </Carousel>
         <div className="container-site mt-20 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
-          <h3 className="display text-3xl lg:text-4xl" data-reveal>
+          <h3 className="text-headline" data-reveal>
             {intel.shapedTitle}
           </h3>
           <div data-reveal>
@@ -109,7 +109,7 @@ export default async function SolutionsPage() {
                 </li>
               ))}
             </ol>
-            <p className="mt-10 max-w-lg text-[13px] leading-relaxed text-ink-soft">{intel.shapedText}</p>
+            <p className="mt-10 max-w-lg text-body text-ink-soft">{intel.shapedText}</p>
             <div className="mt-6">
               <PillLink href={intel.ctaHref}>{intel.ctaLabel}</PillLink>
             </div>
@@ -129,13 +129,13 @@ export default async function SolutionsPage() {
         <div className="mt-20 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           <div data-reveal>
             <h3 className="text-xl">{init.entrustTitle}</h3>
-            <p className="mt-3 max-w-sm text-[13px] leading-relaxed text-ink-soft">{init.entrustText}</p>
+            <p className="mt-3 max-w-sm text-body text-ink-soft">{init.entrustText}</p>
           </div>
           <ol className="border-t border-line">
             {init.entrustItems.map((item, i) => (
               <li key={item} className="flex items-baseline gap-6 border-b border-line py-4" data-reveal>
                 <span className="font-mono text-[11px] text-ink-faint">{String(i + 1).padStart(2, "0")}</span>
-                <span className="display text-2xl lg:text-3xl">{item}</span>
+                <span className="text-title">{item}</span>
               </li>
             ))}
           </ol>
@@ -143,19 +143,19 @@ export default async function SolutionsPage() {
 
         <div className="mt-20 rounded-3xl bg-brand p-6 text-white sm:p-10" data-reveal>
           <span className="inline-block rounded-full bg-white px-2.5 py-1 text-[11px] font-medium text-black">{init.phasesBadge}</span>
-          <h3 className="display mt-4 text-4xl">{init.phasesTitle}</h3>
+          <h3 className="text-headline mt-4">{init.phasesTitle}</h3>
           <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {init.phases.map((phase, i) => (
               <li key={phase.title} className="relative border-t border-white/40 pt-6">
                 <span className="absolute -top-[5px] left-0 size-2.5 rounded-full bg-white" aria-hidden />
-                <p className="display text-4xl">{String(i + 1).padStart(2, "0")}</p>
+                <p className="text-headline">{String(i + 1).padStart(2, "0")}</p>
                 <h4 className="mt-3 text-sm font-medium">{phase.title}</h4>
-                <p className="mt-2 text-[13px] leading-relaxed text-white/80">{phase.text}</p>
+                <p className="mt-2 text-body text-white/80">{phase.text}</p>
               </li>
             ))}
           </ol>
           <div className="mt-12 flex flex-col gap-6 border-t border-white/25 pt-8 sm:flex-row sm:items-center sm:justify-between">
-            <p className="display max-w-xl text-2xl leading-snug">{init.closing}</p>
+            <p className="text-title max-w-xl">{init.closing}</p>
             <PillLink href={init.ctaHref} className="bg-white text-black hover:bg-signal">
               {init.ctaLabel}
             </PillLink>

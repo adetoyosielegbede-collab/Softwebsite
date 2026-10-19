@@ -36,13 +36,13 @@ export function StickySteps({ steps, file, path }: { steps: Step[]; file: string
             data-index={i}
             className="flex flex-col justify-center py-10 lg:min-h-[70vh] lg:py-0"
           >
-            <p className="font-mono text-[11px] tracking-[0.14em] text-ink-faint uppercase">
+            <p className="font-mono text-sm tracking-[0.12em] text-ink-faint uppercase">
               {String(i + 1).padStart(2, "0")} — {step.label}
             </p>
-            <h3 className={cn("display mt-3 text-3xl transition-colors duration-500", i === active ? "text-ink" : "lg:text-ink-faint")}>
+            <h3 className={cn("text-title mt-3 transition-colors duration-500", i === active ? "text-ink" : "lg:text-ink-faint")}>
               {step.title}
             </h3>
-            <p className={cn("mt-3 max-w-sm text-[13px] leading-relaxed transition-colors duration-500", i === active ? "text-ink-soft" : "lg:text-ink-faint")}>
+            <p className={cn("text-body mt-3 max-w-sm transition-colors duration-500", i === active ? "text-ink-soft" : "lg:text-ink-faint")}>
               {step.text}
             </p>
             <div className="relative mt-6 aspect-[719/520] overflow-hidden rounded-3xl bg-night lg:hidden">

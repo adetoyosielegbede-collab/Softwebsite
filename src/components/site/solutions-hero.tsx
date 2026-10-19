@@ -19,9 +19,9 @@ export function SolutionsHero({ hero }: { hero: Hero }) {
         )}
       </div>
       <div data-hero-copy="" className="relative flex h-full flex-col justify-end px-6 pb-16 md:px-10 md:pb-24 lg:px-[7vw]">
-        {hero.eyebrow ? <p className="mb-5 font-mono text-[11px] tracking-[0.18em] text-white/55 uppercase">{hero.eyebrow}</p> : null}
+        {hero.eyebrow ? <p className="label mb-5 text-white/55">{hero.eyebrow}</p> : null}
         <div className="flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <h1 className="display max-w-[11em] text-[2.4rem] leading-[1.05] sm:text-6xl lg:text-7xl">{hero.title}</h1>
+          <h1 className="text-display max-w-[12em]">{hero.title}</h1>
           <PillLink href={hero.ctaHref} className="bg-white text-black hover:bg-signal">
             {hero.ctaLabel}
           </PillLink>

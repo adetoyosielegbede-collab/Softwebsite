@@ -60,10 +60,10 @@ export function InsightCard({
           </div>
         ) : (
           <>
-            <h3 className={cn("mt-3 transition-colors group-hover:text-accent-ink", featured ? "display text-3xl leading-tight" : "text-lg leading-snug")}>
+            <h3 className={cn("mt-3 transition-colors group-hover:text-accent-ink", featured ? "text-headline" : "text-title")}>
               {post.title}
             </h3>
-            <p className="mt-3 text-[13px] leading-relaxed text-ink-soft">{post.excerpt}</p>
+            <p className="text-body mt-3 text-ink-soft">{post.excerpt}</p>
           </>
         )}
       </div>

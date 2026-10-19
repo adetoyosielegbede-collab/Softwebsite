@@ -26,7 +26,7 @@ export default async function CareersPage() {
       />
 
       <section className="container-site grid gap-10 pb-8 lg:grid-cols-2 lg:gap-20">
-        <div className="space-y-5 text-sm leading-relaxed text-ink-soft lg:text-base" data-reveal>
+        <div className="text-body space-y-5 text-ink-soft" data-reveal>
           {page.intro.map((p) => (
             <p key={p}>{p}</p>
           ))}
@@ -38,15 +38,15 @@ export default async function CareersPage() {
 
       <section id="open-roles" className="container-site scroll-mt-24 pt-16">
         <div className="rounded-3xl bg-surface-raised p-6 lg:p-10" data-reveal>
-          <h2 className="display text-3xl lg:text-4xl">{openRoles.title}</h2>
+          <h2 className="text-headline">{openRoles.title}</h2>
           {openRoles.roles.length === 0 ? (
-            <p className="mt-4 max-w-lg text-sm leading-relaxed text-ink-soft">{openRoles.emptyText}</p>
+            <p className="text-body mt-4 max-w-lg text-ink-soft">{openRoles.emptyText}</p>
           ) : (
             <ul className="mt-8 divide-y divide-line border-y border-line">
               {openRoles.roles.map((role) => (
                 <li key={role.title}>
                   <a href={role.href || "/contact"} className="group flex flex-wrap items-center justify-between gap-3 py-5">
-                    <span className="text-lg transition-colors group-hover:text-accent-ink">{role.title}</span>
+                    <span className="text-title transition-colors group-hover:text-accent-ink">{role.title}</span>
                     <span className="flex items-center gap-4 text-xs text-ink-soft">
                       {role.location && <span>{role.location}</span>}
                       {role.type && <span>{role.type}</span>}
@@ -60,7 +60,7 @@ export default async function CareersPage() {
           <div className="mt-8">
             <a
               href={openRoles.ctaHref}
-              className="inline-flex h-9 items-center rounded-full bg-ink px-4 text-[13px] font-medium text-paper hover:bg-signal hover:text-black"
+              className="inline-flex h-10 items-center rounded-full bg-ink px-4 text-sm font-medium text-paper hover:bg-signal hover:text-black"
             >
               {openRoles.ctaLabel}
             </a>
@@ -69,10 +69,10 @@ export default async function CareersPage() {
       </section>
 
       <section className="container-site grid gap-8 pt-28 lg:grid-cols-2 lg:pt-40">
-        <h2 className="display text-4xl leading-tight lg:text-5xl" data-reveal>
+        <h2 className="text-headline" data-reveal>
           {page.work.title}
         </h2>
-        <div className="space-y-5 text-sm leading-relaxed text-ink-soft lg:text-base" data-reveal>
+        <div className="text-body space-y-5 text-ink-soft" data-reveal>
           {page.work.paragraphs.map((p) => (
             <p key={p}>{p}</p>
           ))}
