@@ -160,7 +160,10 @@ export function PortalHero({
           <section className="dark absolute inset-0 flex flex-col justify-end bg-black text-ink motion-reduce:relative motion-reduce:min-h-svh">
             <div aria-hidden className="absolute inset-0">
               {hero.backgroundImage.src ? (
-                <CmsImage image={hero.backgroundImage} file="home" path="hero.backgroundImage" priority />
+                <>
+                  <CmsImage image={hero.backgroundImage} file="home" path="hero.backgroundImage" priority />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/25" />
+                </>
               ) : (
                 <ConduitCanvas />
               )}

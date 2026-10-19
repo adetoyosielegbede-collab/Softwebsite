@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { CmsImage } from "@/components/cms/cms-image";
 import { Carousel } from "@/components/site/carousel";
 import { PillLink } from "@/components/site/links";
-import { CtaBanner, PageHero, SectionNumber } from "@/components/site/sections";
+import { CtaBanner, SectionNumber } from "@/components/site/sections";
+import { SolutionsHero } from "@/components/site/solutions-hero";
 import { StickySteps } from "@/components/site/sticky-steps";
 import { getContent } from "@/lib/content";
 import { cn } from "@/lib/utils";
@@ -30,16 +31,9 @@ export default async function SolutionsPage() {
 
   return (
     <>
-      <PageHero
-        file="solutions"
-        eyebrow={hero.eyebrow}
-        title={hero.title}
-        text={hero.text}
-        backgroundImage={hero.backgroundImage}
-        actions={[{ label: hero.ctaLabel, href: hero.ctaHref }]}
-      />
+      <SolutionsHero hero={hero} />
 
-      <section className="container-site pb-24 lg:pb-32">
+      <section className="container-site pt-20 pb-24 lg:pt-28 lg:pb-32">
         <div className="max-w-4xl lg:ml-auto lg:w-2/3">
           <span className="mb-6 inline-block rounded-full bg-signal px-2.5 py-1 text-[11px] font-medium text-black">{intro.badge}</span>
           {intro.paragraphs.map((p, i) => (

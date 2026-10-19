@@ -3,8 +3,9 @@
     "titleLine1": "Technology for Organisations.",
     "titleLine2": "Progress for Society.",
     "backgroundImage": {
-      "src": "",
-      "alt": ""
+      "src": "/images/organisations-progress.jpg",
+      "alt": "People arriving at a civic building at dusk, the city lit beyond the water",
+      "position": "50% 42%"
     }
   },
   "intro": {
