@@ -22,6 +22,7 @@ export default async function CaseStudiesPage() {
         text={hero.text}
         backgroundImage={hero.backgroundImage}
         actions={[{ label: hero.ctaLabel, href: hero.ctaHref }]}
+        field="torus"
       />
 
       <section className="container-site pt-32 pb-8 lg:pt-48">
