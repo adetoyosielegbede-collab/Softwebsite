@@ -74,11 +74,14 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
   );
 }
 
-export function CtaBanner({ cta, file, path = "cta" }: { cta: Cta; file: string; path?: string }) {
+export function CtaBanner({ cta, file, path = "cta", className }: { cta: Cta; file: string; path?: string; className?: string }) {
   const split = cta.layout === "split";
   return (
     <section
-      className="dark sticky top-0 z-0 relative mx-4 mt-16 flex h-[min(420px,70svh)] flex-col items-center justify-center overflow-hidden rounded-[2rem] px-6 text-white md:mx-10 lg:mt-24 lg:h-[min(520px,70svh)]"
+      className={cn(
+        "dark sticky top-0 z-0 relative mx-4 mt-16 flex h-[min(420px,70svh)] flex-col items-center justify-center overflow-hidden rounded-[2rem] px-6 text-white md:mx-10 lg:mt-24 lg:h-[min(520px,70svh)]",
+        className,
+      )}
       data-reveal
     >
         <CmsImage image={cta.image} file={file} path={`${path}.image`} sizes="(min-width: 1440px) 1360px, 100vw" />

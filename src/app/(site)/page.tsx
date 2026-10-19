@@ -8,22 +8,26 @@ import { PortalHero } from "@/components/site/portal-hero";
 import { CtaBanner, FrameMarks, PartnerMarquee, Stats } from "@/components/site/sections";
 import { getContent, getPublishedPosts } from "@/lib/content";
 
+/** Same distance between every homepage band: 8rem, then 12rem from the large breakpoint. */
+const band = "flex scroll-mt-24 flex-col gap-10 pt-32 md:gap-16 lg:pt-48";
+
 export default async function HomePage() {
   const [home, site, posts] = await Promise.all([getContent("home"), getContent("site"), getPublishedPosts()]);
+  const article = posts.find((post) => post.featured) ?? posts[0];
 
   return (
     <>
       <PortalHero hero={home.hero} intro={home.intro} mission={home.mission} />
 
-      <section className="flex flex-col gap-8 pt-16 lg:gap-10 lg:pt-8">
+      <section className={band}>
         <FrameMarks />
         <FocusRail content={home.focusAreas} />
       </section>
 
-      <section className="flex flex-col gap-10 pt-20 md:gap-14 lg:pt-28">
+      <section className={band}>
         <FrameMarks />
         <div className="container-site">
-          <div className="mb-12 grid gap-6 lg:grid-cols-2 lg:items-end">
+          <div className="mb-12 grid gap-6 md:mb-20 lg:grid-cols-2 lg:items-end">
             <LineReveal className="display text-4xl lg:text-5xl">{home.audiences.title}</LineReveal>
             <p className="max-w-md text-sm leading-relaxed text-ink-soft lg:justify-self-end" data-reveal>
               {home.audiences.intro}
@@ -66,49 +70,42 @@ export default async function HomePage() {
             <ArrowLink href={home.audiences.secondaryHref}>{home.audiences.secondaryLabel}</ArrowLink>
           </div>
         </div>
+        <div className="pt-6 lg:pt-10" aria-label="Organisations we have worked with">
+          <PartnerMarquee partners={site.partners} />
+        </div>
       </section>
 
-      <section className="pt-20 lg:pt-28" aria-label="Organisations we have worked with">
-        <PartnerMarquee partners={site.partners} />
-      </section>
-
-      <section className="mt-14 flex flex-col gap-8 lg:mt-16">
+      <section className={band}>
         <FrameMarks />
         <div className="container-site">
           <Stats stats={site.stats} />
         </div>
       </section>
 
-      <section className="mt-4 flex flex-col gap-3 md:mt-6">
+      <section className={band}>
         <FrameMarks />
         <HowWeWork content={home.howWeWork} />
       </section>
 
-      <section className="flex flex-col gap-10 pt-16 md:gap-14 lg:pt-24">
+      <section className={band}>
         <FrameMarks />
-        <div className="container-site">
-          <div className="mb-12 grid gap-6 lg:grid-cols-2 lg:items-end">
-            <LineReveal className="display text-4xl lg:text-5xl">{home.thinking.title}</LineReveal>
-            <div className="flex flex-col gap-5 lg:items-end lg:text-right" data-reveal>
-              <p className="max-w-sm text-sm leading-relaxed text-ink-soft">{home.thinking.text}</p>
-              <PillLink href={home.thinking.ctaHref}>{home.thinking.ctaLabel}</PillLink>
-            </div>
+        <div className="container-site grid gap-12 md:grid-cols-12 md:gap-x-6 md:gap-y-20">
+          <LineReveal className="display text-4xl md:col-span-7 lg:text-5xl">{home.thinking.title}</LineReveal>
+          <div className="flex max-w-md flex-col items-start gap-6 md:col-span-4 md:col-start-9 md:self-end" data-reveal>
+            <p className="text-sm leading-relaxed text-ink-soft">{home.thinking.text}</p>
+            <PillLink href={home.thinking.ctaHref}>{home.thinking.ctaLabel}</PillLink>
           </div>
-          {posts.length > 0 ? (
-            <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-              {posts.slice(0, 3).map((post) => (
-                <div key={post.slug} data-reveal>
-                  <InsightCard post={post} index={post.index} />
-                </div>
-              ))}
+          {article ? (
+            <div className="md:col-span-7" data-reveal>
+              <InsightCard post={article} index={article.index} size="lead" />
             </div>
           ) : (
-            <p className="text-sm text-ink-soft">New perspectives are on the way.</p>
+            <p className="text-sm text-ink-soft md:col-span-7">New perspectives are on the way.</p>
           )}
         </div>
       </section>
 
-      <CtaBanner cta={home.cta} file="home" />
+      <CtaBanner cta={home.cta} file="home" className="mt-32 lg:mt-48" />
     </>
   );
 }
