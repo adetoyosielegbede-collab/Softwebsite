@@ -34,8 +34,25 @@ function noise(x: number, y: number) {
 
 export const CELL = 6;
 export const FRONT = 0.5;
+export const GLYPH_MIN = 12;
 export const CYAN = "#00ffff";
 export const BLUE = "#004bff";
+export const GLYPH_STREAM =
+  "0x4B ff 1010 0x004BFF 200 OK ▲ 6.52N 3.38E 0110 4B 1101 ff 0x00 SYNC 0011 ACK 2007 0xFF 1001 ▲ LAGOS 404 0x1F 0101 ";
+
+export function glyphAt(x: number, y: number) {
+  const count = GLYPH_STREAM.length;
+  const index = (Math.floor(x) + 29 * Math.floor(y)) % count;
+  return GLYPH_STREAM[(index + count) % count] ?? " ";
+}
+
+/** `rest` is empty, `front` is the cyan edge, `on` has settled to blue. */
+export function cellState(progress: number, fieldValue: number, threshold: number) {
+  const cover = coverage(progress, fieldValue);
+  if (threshold >= cover) return "rest" as const;
+  if (cover < FRONT) return "front" as const;
+  return "on" as const;
+}
 
 export function field(x: number, y: number, fromBottom: number, seed = 0) {
   return 0.75 * fromBottom + 0.35 * noise(0.06 * x + seed, 0.06 * y + seed);

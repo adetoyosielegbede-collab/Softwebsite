@@ -9,6 +9,28 @@
     "company": "Softcom Limited",
     "addressLines": ["15B, Sasegbon Street", "GRA, Ikeja, Lagos", "Nigeria"]
   },
+  "headerNav": [
+    {
+      "label": "About",
+      "href": "/about",
+      "links": [
+        { "label": "About", "href": "/about" },
+        { "label": "Leadership", "href": "/about#team" },
+        { "label": "Careers", "href": "/careers" }
+      ]
+    },
+    {
+      "label": "Solutions",
+      "href": "/solutions",
+      "links": [
+        { "label": "Solutions", "href": "/solutions" },
+        { "label": "Enterprise Products", "href": "/enterprise-products" },
+        { "label": "Case Studies", "href": "/case-studies" }
+      ]
+    },
+    { "label": "Insights", "href": "/insights" },
+    { "label": "Contact", "href": "/contact" }
+  ],
   "menu": [
     {
       "title": "Company",

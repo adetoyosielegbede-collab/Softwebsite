@@ -28,6 +28,7 @@ export type SiteContent = {
   brand: { name: string; logo: CmsImage; tagline: string };
   contact: { email: string; company: string; addressLines: string[] };
   menu: { title: string; links: Link[] }[];
+  headerNav: { label: string; href: string; links?: Link[] }[];
   menuFeature: { eyebrow: string; title: string; image: CmsImage; ctaLabel: string; ctaHref: string };
   footer: { eyebrow: string; copyright: string };
   stats: { value: string; label: string }[];

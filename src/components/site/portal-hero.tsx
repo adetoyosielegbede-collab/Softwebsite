@@ -204,7 +204,7 @@ export function PortalHero({
           <div ref={cover} aria-hidden className="softcom-intro-cover pointer-events-none absolute inset-0 z-[6] bg-brand opacity-0 motion-reduce:hidden" />
           <canvas ref={wash} aria-hidden className="softcom-intro-wash pointer-events-none absolute inset-0 z-[6] size-full motion-reduce:hidden" />
 
-          <div className="pointer-events-none absolute inset-0 z-[7] flex flex-col items-start justify-center gap-10 px-6 pt-24 pb-12 motion-reduce:pointer-events-auto motion-reduce:relative motion-reduce:min-h-[70vh] motion-reduce:bg-brand motion-reduce:py-16 md:px-[7vw]">
+          <div className="pointer-events-none absolute inset-0 z-[7] flex flex-col items-start justify-center gap-10 px-6 pt-24 pb-12 text-white motion-reduce:pointer-events-auto motion-reduce:relative motion-reduce:min-h-[70vh] motion-reduce:bg-brand motion-reduce:py-16 md:px-[7vw]">
             <p className="sr-only">{runs.map((run) => run.text).join("")}</p>
             <p
               ref={statement}
@@ -222,7 +222,7 @@ export function PortalHero({
                       data-state="hidden"
                       className={
                         "relative data-[state=hidden]:text-transparent data-[state=scramble]:text-transparent after:pointer-events-none after:absolute after:inset-0 after:text-signal data-[state=scramble]:after:content-[attr(data-glyph)] " +
-                        (run.accent ? "text-black" : "")
+                        (run.accent ? "text-signal" : "")
                       }
                     >
                       {char}
@@ -231,9 +231,9 @@ export function PortalHero({
                 ),
               )}
             </p>
-            <div ref={actions} className="pointer-events-auto flex flex-wrap items-center gap-6 opacity-0 motion-reduce:opacity-100">
+            <div ref={actions} className="pointer-events-auto flex flex-wrap items-center gap-x-8 gap-y-4 opacity-0 motion-reduce:opacity-100">
               <PillLink href={intro.primaryHref}>{intro.primaryLabel}</PillLink>
-              <ArrowLink href={intro.secondaryHref} className="text-black hover:text-brand">
+              <ArrowLink href={intro.secondaryHref} className="text-white hover:text-signal">
                 {intro.secondaryLabel}
               </ArrowLink>
             </div>
