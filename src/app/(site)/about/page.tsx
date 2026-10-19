@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CmsImage } from "@/components/cms/cms-image";
+import { ColorReveal } from "@/components/site/color-reveal";
 import { ArrowLink, PillLink } from "@/components/site/links";
 import { CtaBanner, PageHero, Stats } from "@/components/site/sections";
 import { getContent, getPublishedPosts } from "@/lib/content";
@@ -20,11 +21,11 @@ export default async function AboutPage() {
     <>
       <PageHero
         file="about"
-        eyebrow={hero.eyebrow}
         title={hero.title}
         text={hero.text}
         backgroundImage={hero.backgroundImage}
         actions={[{ label: hero.ctaLabel, href: hero.ctaHref }]}
+        immediateTitle
       />
 
       <section className="container-site grid gap-10 pt-32 md:grid-cols-12 lg:pt-48">
@@ -106,25 +107,27 @@ export default async function AboutPage() {
         <h2 className="text-headline mb-12 md:mb-20" data-reveal>
           {leadership.title}
         </h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {leadership.people.map((person, i) => (
-            <figure key={person.name} className="group" data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}>
-              <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-surface-raised">
+            <figure
+              key={person.name}
+              className="group relative flex aspect-[335/471] flex-col justify-end overflow-clip rounded-2xl bg-neutral-900"
+              data-reveal
+              style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
+            >
+              <ColorReveal className="absolute inset-0">
                 <CmsImage
                   image={person.photo}
                   file="about"
                   path={`leadership.people.${i}.photo`}
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  className={cn(
-                    "object-top transition duration-700 group-hover:scale-[1.02]",
-                    leadership.grayscale && "grayscale group-hover:grayscale-0",
-                  )}
+                  sizes="(min-width: 1024px) 420px, 50vw"
+                  className="object-center"
                   emptyClassName="absolute inset-0"
                 />
-              </div>
-              <figcaption className="mt-4">
-                <p className="font-heading text-xl leading-none font-medium">{person.name}</p>
-                <p className="font-heading mt-1 text-lg leading-[1.6] text-ink-soft">{person.role}</p>
+              </ColorReveal>
+              <figcaption className="leader-plate dark relative z-10 flex w-full flex-col gap-1 rounded-md bg-brand p-3">
+                <p className="font-heading text-xl leading-none font-bold text-ink">{person.name}</p>
+                <p className="font-heading text-lg leading-[1.6] text-signal">{person.role}</p>
               </figcaption>
             </figure>
           ))}

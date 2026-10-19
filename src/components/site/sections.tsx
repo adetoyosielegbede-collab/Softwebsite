@@ -16,9 +16,11 @@ type HeroProps = {
   text?: string;
   backgroundImage?: CmsImageValue;
   actions?: { label: string; href: string; variant?: "pill" | "arrow" }[];
+  /** Paint the title immediately. Above-the-fold heroes use this so the line is never clipped. */
+  immediateTitle?: boolean;
 };
 
-export function PageHero({ file, path = "hero", eyebrow, title, text, backgroundImage, actions = [] }: HeroProps) {
+export function PageHero({ file, path = "hero", eyebrow, title, text, backgroundImage, actions = [], immediateTitle = false }: HeroProps) {
   const hasImage = Boolean(backgroundImage?.src);
   return (
     <section className="relative flex min-h-[78vh] items-center overflow-hidden pt-28 pb-20 lg:min-h-[80vh]">
@@ -46,9 +48,13 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
             {eyebrow}
           </p>
         )}
-        <LineReveal as="h1" className="text-display mx-auto mt-6 max-w-[18ch]">
-          {title}
-        </LineReveal>
+        {immediateTitle ? (
+          <h1 className="text-display mx-auto mt-6 max-w-[18ch] text-balance">{title}</h1>
+        ) : (
+          <LineReveal as="h1" className="text-display mx-auto mt-6 max-w-[18ch]">
+            {title}
+          </LineReveal>
+        )}
         {text && (
           <p className={cn("mx-auto mt-6 max-w-xl text-lg text-pretty", hasImage ? "text-white/80" : "text-ink-soft")} data-reveal>
             {text}

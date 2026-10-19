@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { CmsImage } from "@/components/cms/cms-image";
-import { Carousel } from "@/components/site/carousel";
+import { IntelligenceRail } from "@/components/site/intelligence-rail";
 import { PillLink } from "@/components/site/links";
 import { CtaBanner, SectionNumber } from "@/components/site/sections";
 import { SolutionsHero } from "@/components/site/solutions-hero";
@@ -77,25 +77,8 @@ export default async function SolutionsPage() {
       <section className="pt-28 lg:pt-40">
         <div className="container-site">
           <SectionHeader id="applied-intelligence" number={intel.number} title={intel.title} lead={intel.lead} />
-          <div className="mt-16 max-w-md" data-reveal>
-            <p className="eyebrow">{intel.eyebrow} →</p>
-            <p className="mt-4 text-body text-ink-soft">{intel.intro}</p>
-          </div>
         </div>
-        <Carousel label={intel.eyebrow} className="mt-10">
-          {intel.items.map((item, i) => (
-            <article key={item.title} className="w-[80vw] shrink-0 snap-start overflow-hidden rounded-3xl bg-surface-raised sm:w-[392px]">
-              <div className="relative aspect-[4/3] bg-night">
-                <CmsImage image={item.image} file="solutions" path={`intelligence.items.${i}.image`} sizes="392px" emptyClassName="absolute inset-0" />
-              </div>
-              <div className="p-6 lg:p-8">
-                <p className="font-mono text-[11px] text-ink-faint">{String(i + 1).padStart(2, "0")}</p>
-                <h3 className="mt-3 text-xl">{item.title}</h3>
-                <p className="mt-3 text-body text-ink-soft">{item.text}</p>
-              </div>
-            </article>
-          ))}
-        </Carousel>
+        <IntelligenceRail eyebrow={intel.eyebrow} intro={intel.intro} items={intel.items} />
         <div className="container-site mt-20 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           <h3 className="text-headline" data-reveal>
             {intel.shapedTitle}
