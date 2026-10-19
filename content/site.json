@@ -15,7 +15,7 @@
       "href": "/about",
       "links": [
         { "label": "About", "href": "/about" },
-        { "label": "Leadership", "href": "/about#team" },
+        { "label": "Leadership", "href": "/about#leadership" },
         { "label": "Careers", "href": "/careers" }
       ]
     },

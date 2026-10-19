@@ -41,6 +41,17 @@ export function SiteHeader({ site }: { site: SiteContent }) {
     setActive(null);
   };
 
+  const onNavClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    close();
+    const url = new URL(href, window.location.href);
+    if (url.pathname !== window.location.pathname || !url.hash) return;
+    const el = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+    if (!el) return;
+    event.preventDefault();
+    el.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    window.history.pushState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  };
+
   const holdOpen = () => {
     window.clearTimeout(closeTimer.current);
     setOpen(true);
@@ -235,7 +246,7 @@ export function SiteHeader({ site }: { site: SiteContent }) {
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        onClick={close}
+                        onClick={(event) => onNavClick(event, link.href)}
                         className="block rounded-lg px-3 py-2 text-sm font-medium text-ink/70 transition-colors hover:text-signal"
                       >
                         {link.label}
@@ -285,7 +296,7 @@ export function SiteHeader({ site }: { site: SiteContent }) {
                             <li key={link.href}>
                               <Link
                                 href={link.href}
-                                onClick={close}
+                                onClick={(event) => onNavClick(event, link.href)}
                                 className={cn("flex min-h-10 items-center gap-3 text-sm", here ? "text-ink" : "text-ink-soft")}
                               >
                                 <span aria-hidden className={cn("size-1.5 shrink-0 rounded-full", here ? "bg-signal" : "bg-white/25")} />

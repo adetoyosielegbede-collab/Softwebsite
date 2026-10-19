@@ -82,7 +82,7 @@ export function PageTransition() {
     let dropped = false;
     animate(1, 340, 0, () => {
       if (dropped) return;
-      if (destination.current) router.push(destination.current);
+      if (destination.current) router.push(destination.current, { scroll: !destination.current.includes("#") });
       window.setTimeout(close, 4000);
     });
     return () => {
@@ -95,6 +95,20 @@ export function PageTransition() {
     if (seen.current === pathname) return;
     seen.current = pathname;
     if (travelling.current) close();
+    const hash = window.location.hash;
+    if (!hash) return;
+    const id = decodeURIComponent(hash.slice(1));
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let frames = 0;
+    const attempt = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
+        return;
+      }
+      if (frames++ < 40) requestAnimationFrame(attempt);
+    };
+    attempt();
   }, [pathname, close]);
 
   useEffect(() => () => cancelAnimationFrame(frame.current), []);
