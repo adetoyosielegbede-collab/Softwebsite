@@ -35,8 +35,14 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full">
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'try{if(!sessionStorage.getItem("softcom:intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches&&scrollY<10){document.documentElement.classList.add("play-intro");sessionStorage.setItem("softcom:intro","1")}}catch(e){}',
+          }}
+        />
         {children}
         <Toaster theme="dark" position="bottom-right" richColors />
       </body>

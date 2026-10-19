@@ -3,7 +3,9 @@ import { CmsImage } from "@/components/cms/cms-image";
 import type { Cta, SiteContent } from "@/lib/content-types";
 import type { CmsImage as CmsImageValue } from "@/lib/cms/paths";
 import { cn } from "@/lib/utils";
+import { ColorReveal } from "./color-reveal";
 import { StarField } from "./dot-canvas";
+import { LineReveal } from "./line-reveal";
 import { ArrowLink, PillLink } from "./links";
 
 type HeroProps = {
@@ -22,7 +24,9 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
     <section className="relative flex min-h-[78vh] items-center overflow-hidden pt-28 pb-20 lg:min-h-[80vh]">
       {hasImage ? (
         <>
-          <CmsImage image={backgroundImage} file={file} path={`${path}.backgroundImage`} priority />
+          <ColorReveal className="absolute inset-0">
+            <CmsImage image={backgroundImage} file={file} path={`${path}.backgroundImage`} priority />
+          </ColorReveal>
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-paper" />
         </>
       ) : (
@@ -42,9 +46,9 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
             {eyebrow}
           </p>
         )}
-        <h1 className="display mx-auto max-w-4xl text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-7xl" data-reveal>
+        <LineReveal as="h1" className="display mx-auto max-w-4xl text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-7xl">
           {title}
-        </h1>
+        </LineReveal>
         {text && (
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-ink-soft sm:text-base" data-reveal>
             {text}

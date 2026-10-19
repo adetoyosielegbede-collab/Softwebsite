@@ -1,4 +1,5 @@
 import { EditOverlay } from "@/components/cms/edit-overlay";
+import { PageTransition } from "@/components/site/page-transition";
 import { RevealProvider } from "@/components/site/reveal-provider";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
@@ -12,6 +13,7 @@ export default async function SiteLayout({ children }: LayoutProps<"/">) {
       <main id="main">{children}</main>
       <SiteFooter site={site} />
       <RevealProvider />
+      <PageTransition />
       <EditOverlay />
     </>
   );

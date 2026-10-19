@@ -12,8 +12,36 @@ import { PillLink } from "./links";
 export function SiteHeader({ site }: { site: SiteContent }) {
   const [open, setOpen] = useState(false);
   const [openedAt, setOpenedAt] = useState<string | null>(null);
+  const [hidden, setHidden] = useState(false);
   const pathname = usePathname();
   const isOpen = open && openedAt === pathname;
+
+  useEffect(() => {
+    let last = window.scrollY;
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const y = window.scrollY;
+        const delta = y - last;
+        if (y < 96) setHidden(false);
+        else if (delta > 6) setHidden(true);
+        else if (delta < -6) setHidden(false);
+        last = y;
+      });
+    };
+    const onPointer = (event: PointerEvent) => {
+      if (event.pointerType !== "touch" && event.clientY <= 32) setHidden(false);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("pointermove", onPointer, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("pointermove", onPointer);
+    };
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -33,7 +61,10 @@ export function SiteHeader({ site }: { site: SiteContent }) {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-3 z-50 flex justify-center px-4">
+      <header
+        data-hidden={hidden && !isOpen ? "" : undefined}
+        className="fixed inset-x-0 top-3 z-50 flex justify-center px-4 transition-[translate,opacity] duration-300 ease-out data-hidden:-translate-y-[calc(100%+1rem)] data-hidden:opacity-0 motion-reduce:transition-none"
+      >
         <div className="flex items-center gap-3 rounded-full border border-white/10 bg-black/70 py-2 pr-2 pl-4 shadow-lg shadow-black/30 backdrop-blur-md">
           <Link href="/" aria-label={`${site.brand.name} home`} className="relative block h-[18px] w-[80px]">
             <CmsImage image={site.brand.logo} file="site" path="brand.logo" className="object-contain" sizes="80px" priority />

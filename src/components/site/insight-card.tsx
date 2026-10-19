@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CmsImage } from "@/components/cms/cms-image";
+import { ColorReveal } from "@/components/site/color-reveal";
 import { formatDate } from "@/lib/format";
 import type { Post } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
@@ -20,7 +21,7 @@ export function InsightCard({
       href={`/insights/${post.slug}`}
       className={cn("group block", featured && "grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-end lg:gap-12")}
     >
-      <div className={cn("relative overflow-hidden rounded-2xl bg-surface-raised", featured ? "aspect-[16/9]" : "aspect-[3/2]")}>
+      <ColorReveal className={cn("relative overflow-hidden rounded-2xl bg-surface-raised", featured ? "aspect-[16/9]" : "aspect-[3/2]")}>
         <CmsImage
           image={post.image}
           file="posts"
@@ -29,7 +30,7 @@ export function InsightCard({
           className="transition-transform duration-700 group-hover:scale-[1.03]"
           emptyClassName="absolute inset-0 rounded-2xl"
         />
-      </div>
+      </ColorReveal>
       <div className={cn(!featured && "mt-4")}>
         <div className="flex items-center justify-between gap-4 text-[11px] text-ink-soft">
           <span>{post.category}</span>

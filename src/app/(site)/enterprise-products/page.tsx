@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CmsImage } from "@/components/cms/cms-image";
+import { ColorReveal } from "@/components/site/color-reveal";
 import { PillLink } from "@/components/site/links";
 import { CtaBanner, PageHero } from "@/components/site/sections";
 import { getContent } from "@/lib/content";
@@ -42,7 +43,7 @@ export default async function EnterpriseProductsPage() {
                 <h3 className="display text-3xl lg:text-4xl">{p.name}</h3>
                 <p className="max-w-[220px] text-right text-[13px] leading-snug text-ink-soft">{p.tagline}</p>
               </div>
-              <div className="relative mx-2 mb-2 aspect-[668/585] overflow-hidden rounded-[1.25rem] bg-brand">
+              <ColorReveal className="relative mx-2 mb-2 aspect-[668/585] overflow-hidden rounded-[1.25rem] bg-brand">
                 <CmsImage
                   image={p.image}
                   file="enterprise-products"
@@ -54,7 +55,7 @@ export default async function EnterpriseProductsPage() {
                 <span className="absolute right-4 bottom-4 inline-flex h-8 items-center rounded-full bg-white px-3.5 text-xs font-medium text-black transition-colors group-hover:bg-signal">
                   Explore {p.name}
                 </span>
-              </div>
+              </ColorReveal>
             </Link>
           ))}
         </div>
