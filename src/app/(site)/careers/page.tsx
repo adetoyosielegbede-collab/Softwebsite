@@ -46,7 +46,7 @@ export default async function CareersPage() {
               {openRoles.roles.map((role) => (
                 <li key={role.title}>
                   <a href={role.href || "/contact"} className="group flex flex-wrap items-center justify-between gap-3 py-5">
-                    <span className="text-lg transition-colors group-hover:text-signal">{role.title}</span>
+                    <span className="text-lg transition-colors group-hover:text-accent-ink">{role.title}</span>
                     <span className="flex items-center gap-4 text-xs text-ink-soft">
                       {role.location && <span>{role.location}</span>}
                       {role.type && <span>{role.type}</span>}
@@ -60,7 +60,7 @@ export default async function CareersPage() {
           <div className="mt-8">
             <a
               href={openRoles.ctaHref}
-              className="inline-flex h-9 items-center rounded-full bg-white px-4 text-[13px] font-medium text-black hover:bg-signal"
+              className="inline-flex h-9 items-center rounded-full bg-ink px-4 text-[13px] font-medium text-paper hover:bg-signal hover:text-black"
             >
               {openRoles.ctaLabel}
             </a>

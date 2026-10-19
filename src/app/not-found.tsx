@@ -9,7 +9,7 @@ export default function NotFound() {
         <p className="mx-auto mt-4 max-w-md text-sm text-ink-soft">
           The address may have changed, or the page has not been published yet.
         </p>
-        <Link href="/" className="mt-8 inline-flex h-10 items-center rounded-full bg-white px-5 text-sm font-medium text-black hover:bg-signal">
+        <Link href="/" className="mt-8 inline-flex h-10 items-center rounded-full bg-ink px-5 text-sm font-medium text-paper hover:bg-signal hover:text-black">
           Back to Softcom
         </Link>
       </div>

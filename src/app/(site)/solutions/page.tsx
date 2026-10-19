@@ -162,7 +162,9 @@ export default async function SolutionsPage() {
           </ol>
           <div className="mt-12 flex flex-col gap-6 border-t border-white/25 pt-8 sm:flex-row sm:items-center sm:justify-between">
             <p className="display max-w-xl text-2xl leading-snug">{init.closing}</p>
-            <PillLink href={init.ctaHref}>{init.ctaLabel}</PillLink>
+            <PillLink href={init.ctaHref} className="bg-white text-black hover:bg-signal">
+              {init.ctaLabel}
+            </PillLink>
           </div>
         </div>
       </section>

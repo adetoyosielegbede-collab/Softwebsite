@@ -28,7 +28,7 @@ export default async function ContactPage() {
         <div className="grid gap-4 rounded-3xl bg-surface-raised p-6 sm:grid-cols-[auto_1fr_1fr] sm:items-center lg:p-8">
           <h2 className="display text-xl">{page.getInTouchTitle}</h2>
           <address className="flex gap-3 text-xs leading-relaxed text-ink-soft not-italic">
-            <MapPin className="mt-0.5 size-4 shrink-0 text-signal" aria-hidden />
+            <MapPin className="mt-0.5 size-4 shrink-0 text-accent-ink" aria-hidden />
             <span>
               {site.contact.company}
               {site.contact.addressLines.map((line) => (
@@ -38,8 +38,8 @@ export default async function ContactPage() {
               ))}
             </span>
           </address>
-          <a href={`mailto:${site.contact.email}`} className="flex items-center gap-3 text-sm hover:text-signal">
-            <Mail className="size-4 text-signal" aria-hidden />
+          <a href={`mailto:${site.contact.email}`} className="flex items-center gap-3 text-sm hover:text-accent-ink">
+            <Mail className="size-4 text-accent-ink" aria-hidden />
             {site.contact.email}
           </a>
         </div>

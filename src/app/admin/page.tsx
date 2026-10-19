@@ -200,8 +200,10 @@ function NavButton({ active, onClick, icon, children }: { active: boolean; onCli
 
 export default function AdminPage() {
   return (
-    <Suspense fallback={<main className="grid min-h-screen place-items-center text-sm text-ink-soft">Loading…</main>}>
-      <Admin />
-    </Suspense>
+    <div className="dark min-h-screen bg-paper text-ink">
+      <Suspense fallback={<main className="grid min-h-screen place-items-center text-sm text-ink-soft">Loading…</main>}>
+        <Admin />
+      </Suspense>
+    </div>
   );
 }

@@ -36,11 +36,11 @@ export default async function InsightArticlePage({ params }: PageProps<"/insight
   return (
     <>
       <article className="container-site pt-32 pb-8 lg:pt-40">
-        <Link href="/insights" className="inline-flex items-center gap-2 text-xs text-ink-soft transition-colors hover:text-signal">
+        <Link href="/insights" className="inline-flex items-center gap-2 text-xs text-ink-soft transition-colors hover:text-accent-ink">
           <ArrowLeft className="size-3.5" /> Insights
         </Link>
         <div className="mt-8 flex flex-wrap items-center gap-4 text-xs text-ink-soft">
-          <span className="rounded-full bg-white/5 px-3 py-1 ring-1 ring-line">{post.category}</span>
+          <span className="rounded-full bg-ink/5 px-3 py-1 ring-1 ring-line">{post.category}</span>
           <time dateTime={post.date}>{formatDate(post.date)}</time>
         </div>
         <h1 className="display mt-6 max-w-4xl text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">{post.title}</h1>

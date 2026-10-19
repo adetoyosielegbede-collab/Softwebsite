@@ -53,7 +53,7 @@ export default async function HomePage() {
                 <p className="mt-10 flex-1 text-[13px] leading-relaxed text-ink-soft">{a.text}</p>
                 <ul className="mt-6 flex flex-wrap gap-2">
                   {a.tags.map((t) => (
-                    <li key={t} className="rounded-md bg-white/5 px-2.5 py-1.5 text-[11px] text-ink-soft ring-1 ring-line">
+                    <li key={t} className="rounded-md bg-ink/5 px-2.5 py-1.5 text-[11px] text-ink-soft ring-1 ring-line">
                       {t}
                     </li>
                   ))}

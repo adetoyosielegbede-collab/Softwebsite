@@ -3,6 +3,7 @@
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
 
 @theme inline {
   --color-background: var(--background);
@@ -11,15 +12,16 @@
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-heading: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 
-  --color-paper: #0a0a0a;
-  --color-surface: #141414;
-  --color-surface-raised: #1c1c1c;
-  --color-surface-high: #262626;
-  --color-ink: #fafafa;
-  --color-ink-soft: #a3a3a3;
-  --color-ink-faint: #737373;
-  --color-line: rgb(255 255 255 / 0.1);
-  --color-line-strong: rgb(255 255 255 / 0.16);
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-high: var(--surface-high);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent-ink: var(--accent-ink);
   --color-brand: #004bff;
   --color-brand-deep: #0a2bb8;
   --color-signal: #00ffff;
@@ -74,27 +76,69 @@
   to { opacity: 1; transform: none; }
 }
 
-:root,
+:root {
+  --paper: #f6f5f1;
+  --surface: #ffffff;
+  --surface-raised: #ecebe6;
+  --surface-high: #e0dfd8;
+  --ink: #0c0c0d;
+  --ink-soft: #55554f;
+  --ink-faint: #6c6b66;
+  --line: #0c0c0d1f;
+  --line-strong: #0c0c0d3d;
+  --accent-ink: #004bff;
+
+  --background: #f6f5f1;
+  --foreground: #0c0c0d;
+  --card: #ffffff;
+  --card-foreground: #0c0c0d;
+  --popover: #ffffff;
+  --popover-foreground: #0c0c0d;
+  --primary: #0c0c0d;
+  --primary-foreground: #f6f5f1;
+  --secondary: #ecebe6;
+  --secondary-foreground: #0c0c0d;
+  --muted: #ecebe6;
+  --muted-foreground: #55554f;
+  --accent: #ecebe6;
+  --accent-foreground: #0c0c0d;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #0c0c0d1f;
+  --input: #0c0c0d26;
+  --ring: #004bff;
+  --radius: 0.75rem;
+}
+
 .dark {
+  --paper: #0a0a0a;
+  --surface: #171717;
+  --surface-raised: #262626;
+  --surface-high: #333333;
+  --ink: #fafafa;
+  --ink-soft: #a1a1a1;
+  --ink-faint: #737373;
+  --line: rgb(255 255 255 / 0.1);
+  --line-strong: rgb(255 255 255 / 0.15);
+  --accent-ink: #00ffff;
+
   --background: #0a0a0a;
   --foreground: #fafafa;
-  --card: #141414;
+  --card: #171717;
   --card-foreground: #fafafa;
-  --popover: #1c1c1c;
+  --popover: #262626;
   --popover-foreground: #fafafa;
   --primary: #fafafa;
   --primary-foreground: #0a0a0a;
   --secondary: #262626;
   --secondary-foreground: #fafafa;
   --muted: #262626;
-  --muted-foreground: #a3a3a3;
+  --muted-foreground: #a1a1a1;
   --accent: #262626;
   --accent-foreground: #fafafa;
   --destructive: oklch(0.704 0.191 22.216);
   --border: rgb(255 255 255 / 0.1);
   --input: rgb(255 255 255 / 0.15);
   --ring: #00ffff;
-  --radius: 0.75rem;
 }
 
 @layer base {
@@ -126,7 +170,7 @@
     @apply font-heading font-light tracking-[-0.02em] text-balance;
   }
   .dot-grid {
-    background-image: radial-gradient(circle, rgb(255 255 255 / 0.22) 1.1px, transparent 1.5px);
+    background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 22%, transparent) 1.1px, transparent 1.5px);
     background-size: 7px 7px;
   }
   .no-scrollbar {

@@ -147,7 +147,7 @@ export default async function AboutPage() {
             <li key={post.slug}>
               <Link
                 href={`/insights/${post.slug}`}
-                className="grid gap-2 border-b border-line py-5 transition-colors hover:text-signal sm:grid-cols-[1fr_180px_140px] sm:items-center"
+                className="grid gap-2 border-b border-line py-5 transition-colors hover:text-accent-ink sm:grid-cols-[1fr_180px_140px] sm:items-center"
               >
                 <span className="text-[15px]">{post.title}</span>
                 <span className="text-xs text-ink-soft">{post.category}</span>
