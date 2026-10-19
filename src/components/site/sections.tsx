@@ -40,9 +40,9 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
           />
         </>
       )}
-      <div className="container-site relative text-center">
+      <div className={cn("container-site relative text-center", hasImage && "text-white")}>
         {eyebrow && (
-          <p className="eyebrow mb-6" data-reveal>
+          <p className={cn("mb-6 font-mono text-[11px] tracking-[0.18em] uppercase", hasImage ? "text-white/70" : "eyebrow")} data-reveal>
             {eyebrow}
           </p>
         )}
@@ -50,7 +50,7 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
           {title}
         </LineReveal>
         {text && (
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-ink-soft sm:text-base" data-reveal>
+          <p className={cn("mx-auto mt-6 max-w-2xl text-sm leading-relaxed sm:text-base", hasImage ? "text-white/80" : "text-ink-soft")} data-reveal>
             {text}
           </p>
         )}
@@ -58,11 +58,11 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
           <div className="mt-8 flex flex-wrap items-center justify-center gap-5" data-reveal>
             {actions.map((a) =>
               a.variant === "arrow" ? (
-                <ArrowLink key={a.label} href={a.href}>
+                <ArrowLink key={a.label} href={a.href} className={hasImage ? "text-white hover:text-signal" : undefined}>
                   {a.label}
                 </ArrowLink>
               ) : (
-                <PillLink key={a.label} href={a.href}>
+                <PillLink key={a.label} href={a.href} className={hasImage ? "bg-white text-black hover:bg-signal" : undefined}>
                   {a.label}
                 </PillLink>
               ),
@@ -78,7 +78,7 @@ export function CtaBanner({ cta, file, path = "cta" }: { cta: Cta; file: string;
   const split = cta.layout === "split";
   return (
     <section
-      className="sticky top-0 z-0 mx-4 mt-16 flex h-[min(420px,70svh)] flex-col items-center justify-center overflow-hidden rounded-[2rem] px-6 md:mx-10 lg:mt-24 lg:h-[min(520px,70svh)] relative"
+      className="dark sticky top-0 z-0 relative mx-4 mt-16 flex h-[min(420px,70svh)] flex-col items-center justify-center overflow-hidden rounded-[2rem] px-6 text-white md:mx-10 lg:mt-24 lg:h-[min(520px,70svh)]"
       data-reveal
     >
         <CmsImage image={cta.image} file={file} path={`${path}.image`} sizes="(min-width: 1440px) 1360px, 100vw" />
@@ -132,7 +132,7 @@ export function PartnerMarquee({ partners }: { partners: SiteContent["partners"]
             unoptimized={p.logo.src.endsWith(".svg")}
             data-cms-file={hidden ? undefined : "site"}
             data-cms-path={hidden ? undefined : `partners.${i}.logo`}
-            className="max-h-12 w-auto opacity-55 brightness-0 invert transition-opacity hover:opacity-100"
+            className="max-h-12 w-auto opacity-55 brightness-0 transition-opacity hover:opacity-100 dark:invert"
             style={{ width: "auto", height: "auto" }}
           />
         )}

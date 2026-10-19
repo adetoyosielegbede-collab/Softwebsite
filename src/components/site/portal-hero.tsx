@@ -157,7 +157,7 @@ export function PortalHero({
     <div className="bg-paper text-ink">
       <div ref={track} className="h-[460vh] motion-reduce:h-auto">
         <div className="sticky top-0 isolate h-svh overflow-hidden motion-reduce:relative motion-reduce:h-auto motion-reduce:min-h-svh">
-          <section className="absolute inset-0 flex flex-col justify-end bg-black text-ink motion-reduce:relative motion-reduce:min-h-svh">
+          <section className="dark absolute inset-0 flex flex-col justify-end bg-black text-ink motion-reduce:relative motion-reduce:min-h-svh">
             <div aria-hidden className="absolute inset-0">
               {hero.backgroundImage.src ? (
                 <CmsImage image={hero.backgroundImage} file="home" path="hero.backgroundImage" priority />
@@ -187,7 +187,7 @@ export function PortalHero({
             ref={missionLayer}
             aria-label="Our mission"
             role="group"
-            className="invisible absolute inset-0 z-[5] flex flex-col items-center justify-center gap-8 px-6 text-center motion-reduce:visible motion-reduce:relative motion-reduce:min-h-[90vh] motion-reduce:py-24"
+            className="dark invisible absolute inset-0 z-[5] flex flex-col items-center justify-center gap-8 px-6 text-center text-white motion-reduce:visible motion-reduce:relative motion-reduce:min-h-[90vh] motion-reduce:py-24"
           >
             <CmsImage image={mission.image} file="home" path="mission.image" className="-z-10 object-cover object-bottom" />
             <div aria-hidden className="absolute inset-0 -z-10 bg-black/60" />
@@ -232,7 +232,9 @@ export function PortalHero({
               )}
             </p>
             <div ref={actions} className="pointer-events-auto flex flex-wrap items-center gap-x-8 gap-y-4 opacity-0 motion-reduce:opacity-100">
-              <PillLink href={intro.primaryHref}>{intro.primaryLabel}</PillLink>
+              <PillLink href={intro.primaryHref} className="bg-white text-black hover:bg-signal">
+                {intro.primaryLabel}
+              </PillLink>
               <ArrowLink href={intro.secondaryHref} className="text-white hover:text-signal">
                 {intro.secondaryLabel}
               </ArrowLink>

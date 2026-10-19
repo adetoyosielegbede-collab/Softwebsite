@@ -77,14 +77,17 @@ const drawStarField: Draw = (ctx, w, h, t) => {
       const tw = 0.5 + 0.5 * Math.sin(t * (0.6 + r * 1.6) + r * 40);
       const signal = r < 0.02;
       const alpha = signal ? 0.35 + 0.5 * tw : 0.06 + 0.22 * tw * (r < 0.15 ? 1 : 0.5);
-      ctx.fillStyle = signal ? `rgba(0,255,255,${alpha})` : `rgba(255,255,255,${alpha})`;
+      const light = document.documentElement.classList.contains("light");
+      ctx.fillStyle = signal ? `rgba(0,255,255,${alpha})` : light ? `rgba(12,12,13,${alpha})` : `rgba(255,255,255,${alpha})`;
       const s = signal ? 2 : 1.4;
       ctx.fillRect(x + (r - 0.2) * 8, y + (hash(y, x) - 0.5) * 8, s, s);
     }
   }
+  const light = document.documentElement.classList.contains("light");
   const fade = ctx.createLinearGradient(0, h * 0.55, 0, h);
-  fade.addColorStop(0, "rgba(10,10,10,0)");
-  fade.addColorStop(1, "rgba(10,10,10,1)");
+  const paper = light ? "246,245,241" : "10,10,10";
+  fade.addColorStop(0, `rgba(${paper},0)`);
+  fade.addColorStop(1, `rgba(${paper},1)`);
   ctx.fillStyle = fade;
   ctx.fillRect(0, 0, w, h);
 };

@@ -8,6 +8,7 @@ import type { SiteContent } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
 import { PillLink } from "./links";
 import { MenuPlate } from "./menu-plate";
+import { ThemeSwitcher, ThemeToggleDot } from "./theme-toggle";
 
 const CUE_KEY = "softcom-menu-cue";
 
@@ -130,7 +131,7 @@ export function SiteHeader({ site }: { site: SiteContent }) {
     <>
       <header
         data-hidden={!open && hidden && !focused ? "" : undefined}
-        className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-6 pt-4 transition-[translate,opacity] duration-300 ease-out data-hidden:-translate-y-[calc(100%+1rem)] data-hidden:opacity-0 motion-reduce:transition-none lg:px-7"
+        className="dark pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-6 pt-4 transition-[translate,opacity] duration-300 ease-out data-hidden:-translate-y-[calc(100%+1rem)] data-hidden:opacity-0 motion-reduce:transition-none lg:px-7"
         onFocusCapture={(event) => setFocused(event.target instanceof Element && event.target.matches(":focus-visible"))}
         onBlurCapture={(event) => {
           if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setFocused(false);
@@ -156,7 +157,7 @@ export function SiteHeader({ site }: { site: SiteContent }) {
               id="site-menu"
               className={cn(
                 "relative flex h-10 items-center justify-between overflow-hidden px-1 transition-[width] duration-300 ease-out motion-reduce:transition-none",
-                expanded ? "w-[432px]" : cue ? "w-28" : "w-14",
+                expanded ? "w-[480px]" : cue ? "w-28" : "w-14",
               )}
             >
               <button
@@ -189,6 +190,7 @@ export function SiteHeader({ site }: { site: SiteContent }) {
                       </Link>
                     );
                   })}
+                  <ThemeToggleDot />
                 </nav>
               ) : (
                 <span
@@ -253,7 +255,7 @@ export function SiteHeader({ site }: { site: SiteContent }) {
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
-          className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-black px-4 pt-28 pb-8 text-ink md:hidden"
+          className="dark fixed inset-0 z-40 flex flex-col overflow-y-auto bg-black px-4 pt-28 pb-8 text-ink md:hidden"
         >
           <nav aria-label="Main" className="flex-1">
             <ul className="flex flex-col border-b border-line">
@@ -300,6 +302,7 @@ export function SiteHeader({ site }: { site: SiteContent }) {
             </ul>
           </nav>
           <div className="mt-10 flex flex-col gap-4">
+            <ThemeSwitcher className="self-start" />
             <a href={`mailto:${site.contact.email}`} className="font-mono text-[11px] tracking-[0.18em] text-ink-soft uppercase">
               {site.contact.email}
             </a>

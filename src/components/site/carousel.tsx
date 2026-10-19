@@ -60,7 +60,7 @@ export function Carousel({
             onClick={() => scroll(dir)}
             disabled={dir === -1 ? edges.start : edges.end}
             aria-label={dir === -1 ? "Previous" : "Next"}
-            className="grid size-10 place-items-center rounded-full border border-line-strong text-ink transition-colors hover:bg-white hover:text-black disabled:pointer-events-none disabled:opacity-30"
+            className="grid size-10 place-items-center rounded-full border border-line-strong text-ink transition-colors hover:bg-ink hover:text-paper disabled:pointer-events-none disabled:opacity-30"
           >
             {dir === -1 ? <ArrowLeft className="size-4" /> : <ArrowRight className="size-4" />}
           </button>

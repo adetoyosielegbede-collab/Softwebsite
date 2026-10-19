@@ -86,7 +86,7 @@ export function ContactForm({ form }: { form: Fields }) {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="mt-6 inline-flex h-10 items-center gap-2 rounded-full bg-white px-5 text-sm font-medium text-black hover:bg-signal disabled:opacity-60"
+        className="mt-6 inline-flex h-10 items-center gap-2 rounded-full bg-ink px-5 text-sm font-medium text-paper hover:bg-signal hover:text-black disabled:opacity-60"
       >
         {status === "sending" && <Loader2 className="size-4 animate-spin" />}
         {form.submitLabel}

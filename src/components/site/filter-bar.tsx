@@ -27,7 +27,7 @@ export function FilterBar({
             onClick={() => setActive(option)}
             className={cn(
               "shrink-0 rounded-full px-3.5 py-1.5 text-xs transition-colors",
-              option === active ? "bg-white text-black" : "bg-white/5 text-ink-soft ring-1 ring-line hover:text-ink",
+              option === active ? "bg-ink text-paper" : "bg-ink/5 text-ink-soft ring-1 ring-line hover:text-ink",
             )}
           >
             {option}
