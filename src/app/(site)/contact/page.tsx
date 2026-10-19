@@ -15,8 +15,10 @@ export default async function ContactPage() {
   const [page, site] = await Promise.all([getContent("contact"), getContent("site")]);
 
   return (
-    <section className="relative isolate min-h-[80svh] overflow-hidden">
-      <HeroBits presence="page" />
+    <section className="relative isolate min-h-[80svh]">
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <HeroBits presence="page" />
+      </div>
       <div className="container-site relative grid gap-10 pt-32 pb-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:pt-40">
         <div>
           <span className="inline-flex rounded-full bg-brand px-3 py-[5px] text-xs font-medium text-white dark:bg-signal dark:text-neutral-950">

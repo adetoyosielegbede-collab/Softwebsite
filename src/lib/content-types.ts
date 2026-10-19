@@ -121,7 +121,10 @@ export type SolutionsContent = {
 export type EnterpriseProductsContent = {
   seo: Seo;
   hero: Hero;
-  products: { title: string; items: { name: string; tagline: string; href: string; image: CmsImage }[] };
+  products: {
+    title: string;
+    items: { name: string; tagline: string; summary: string; href: string; color: string; logo: CmsImage; image: CmsImage }[];
+  };
   partners: {
     title: string;
     text: string;

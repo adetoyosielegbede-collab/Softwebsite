@@ -45,6 +45,30 @@ function Field({
     return <ImageField image={value} path={path} label={label} focused={focusPath === path} onChange={onChange} />;
   }
 
+  if (typeof value === "string" && (path === "color" || path.endsWith(".color"))) {
+    return (
+      <label className="block">
+        <span className="mb-1.5 block text-xs text-ink-soft">{label}</span>
+        <span className="flex items-center gap-3">
+          <input
+            type="color"
+            value={/^#[0-9a-fA-F]{6}$/.test(value) ? value : "#2a2b30"}
+            onChange={(e) => onChange(e.target.value)}
+            aria-label={`${label} picker`}
+            className="h-10 w-14 cursor-pointer rounded-xl border border-line bg-paper p-1"
+          />
+          <input
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            placeholder="#141416"
+            spellCheck={false}
+            className="h-10 w-full rounded-xl border border-line bg-paper px-3 font-mono text-sm outline-none focus:border-signal"
+          />
+        </span>
+      </label>
+    );
+  }
+
   if (typeof value === "string") {
     const long = value.length > 90 || value.includes("\n");
     const input = long ? (
@@ -203,7 +227,7 @@ function ImageField({
         <label className="group relative grid h-36 w-full shrink-0 cursor-pointer place-items-center overflow-hidden rounded-xl bg-surface sm:w-56">
           {image.src ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={image.src} alt="" className="size-full object-cover" />
+            <img src={image.src} alt="" className={cn("size-full", path.includes("logo") ? "object-contain p-3" : "object-cover")} />
           ) : (
             <span className="flex flex-col items-center gap-1 text-xs text-ink-faint">
               <ImagePlus className="size-5" /> No image

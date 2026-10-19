@@ -24,7 +24,7 @@ export default async function CaseStudiesPage() {
         actions={[{ label: hero.ctaLabel, href: hero.ctaHref }]}
       />
 
-      <section className="container-site pb-8">
+      <section className="container-site pt-32 pb-8 lg:pt-48">
         <CaseStudyList items={page.items} filters={page.filters} />
       </section>
 

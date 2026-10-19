@@ -6,8 +6,9 @@ import { cn } from "@/lib/utils";
 import { ColorReveal } from "./color-reveal";
 import { CountUp } from "./count-up";
 import { HeroBits } from "./dot-canvas";
-import { LineReveal } from "./line-reveal";
+import { HeroMotion } from "./hero-motion";
 import { ArrowLink, PillLink } from "./links";
+import { TorusField } from "./torus-field";
 
 type HeroProps = {
   file: string;
@@ -17,15 +18,15 @@ type HeroProps = {
   text?: string;
   backgroundImage?: CmsImageValue;
   actions?: { label: string; href: string; variant?: "pill" | "arrow" }[];
-  /** Paint the title immediately. Above-the-fold heroes use this so the line is never clipped. */
-  immediateTitle?: boolean;
+  /** Background field when the hero has no photograph. */
+  field?: "bits" | "torus";
 };
 
-export function PageHero({ file, path = "hero", eyebrow, title, text, backgroundImage, actions = [], immediateTitle = false }: HeroProps) {
+export function PageHero({ file, path = "hero", eyebrow, title, text, backgroundImage, actions = [], field = "bits" }: HeroProps) {
   const hasImage = Boolean(backgroundImage?.src);
   const titleClass = `text-display ${cn("mx-auto max-w-[18ch] text-balance", eyebrow && "mt-6", hasImage && "text-white")}`;
   return (
-    <section className="relative isolate flex min-h-[80svh] flex-col pt-32 md:pt-44">
+    <section className="relative isolate flex min-h-[80svh] flex-col overflow-x-clip pt-28 pb-8 md:pt-36">
       {hasImage ? (
         <>
           <ColorReveal className="absolute inset-0">
@@ -35,7 +36,7 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
         </>
       ) : (
         <>
-          <HeroBits />
+          {field === "torus" ? <TorusField /> : <HeroBits />}
           <CmsImage
             image={backgroundImage}
             file={file}
@@ -44,45 +45,31 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
           />
         </>
       )}
-      <div className={cn("container-site relative flex flex-1 flex-col items-center justify-center text-center", hasImage && "text-white")}>
-        {eyebrow && (
-          <p className={cn("label", hasImage ? "text-white/70" : "text-ink-soft")} data-reveal>
-            {eyebrow}
-          </p>
-        )}
-        {immediateTitle ? (
+      <div className={cn("container-site relative z-10 flex flex-1 flex-col pb-10", hasImage && "text-white")}>
+        <HeroMotion className="flex w-full flex-1 flex-col items-center justify-center text-center">
+          {eyebrow ? <p className={cn("label", hasImage ? "text-white/70" : "text-ink-soft")}>{eyebrow}</p> : null}
           <h1 className={titleClass}>{title}</h1>
-        ) : (
-          <LineReveal as="h1" immediate delay={0.15} className={titleClass}>
-            {title}
-          </LineReveal>
-        )}
-        {text && (
-          <p
-            className={cn("mx-auto mt-6 max-w-xl text-lg text-pretty", hasImage ? "text-white/80" : "text-ink-soft")}
-            data-reveal
-            style={{ "--reveal-delay": "400ms" } as React.CSSProperties}
-          >
-            {text}
-          </p>
-        )}
-        {actions.some((a) => a.label) && (
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-5" data-reveal style={{ "--reveal-delay": "550ms" } as React.CSSProperties}>
-            {actions.map((a) =>
-              a.variant === "arrow" ? (
-                <ArrowLink key={a.label} href={a.href} className={hasImage ? "text-white hover:text-signal" : undefined}>
-                  {a.label}
-                </ArrowLink>
-              ) : (
-                <PillLink key={a.label} href={a.href} className={hasImage ? "bg-white text-black hover:bg-signal" : undefined}>
-                  {a.label}
-                </PillLink>
-              ),
-            )}
-          </div>
-        )}
+          {text ? (
+            <p className={cn("mx-auto mt-6 max-w-xl text-lg text-pretty", hasImage ? "text-white/80" : "text-ink-soft")}>{text}</p>
+          ) : null}
+          {actions.some((a) => a.label) ? (
+            <div className="mt-10 flex shrink-0 flex-wrap items-center justify-center gap-x-5 gap-y-3">
+              {actions.map((a) =>
+                a.variant === "arrow" ? (
+                  <ArrowLink key={a.label} href={a.href} className={hasImage ? "text-white hover:text-signal" : undefined}>
+                    {a.label}
+                  </ArrowLink>
+                ) : (
+                  <PillLink key={a.label} href={a.href} className={hasImage ? "bg-white text-black hover:bg-signal" : undefined}>
+                    {a.label}
+                  </PillLink>
+                ),
+              )}
+            </div>
+          ) : null}
+        </HeroMotion>
       </div>
-      <div className="mt-20 md:mt-28">
+      <div className="pointer-events-none absolute inset-x-0 bottom-4 z-10">
         <FrameMarks />
       </div>
     </section>
@@ -94,7 +81,7 @@ export function CtaBanner({ cta, file, path = "cta", className }: { cta: Cta; fi
   return (
     <section
       className={cn(
-        "dark sticky top-0 z-0 relative mx-4 mt-16 flex h-[min(420px,70svh)] flex-col items-center justify-center overflow-hidden rounded-[2rem] px-6 text-white md:mx-10 lg:mt-24 lg:h-[min(520px,70svh)]",
+        "dark sticky top-0 z-0 relative mx-4 mt-16 flex min-h-[420px] flex-col items-center justify-center overflow-hidden rounded-[2rem] px-6 py-16 text-white md:mx-10 lg:mt-24 lg:min-h-[520px]",
         className,
       )}
       data-reveal

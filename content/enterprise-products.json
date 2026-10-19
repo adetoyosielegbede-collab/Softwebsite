@@ -1,7 +1,7 @@
 {
   "seo": { "title": "Enterprise Products", "description": "Explore the proprietary products Softcom has built and the global platforms we implement." },
   "hero": {
-    "eyebrow": "Products",
+    "eyebrow": "",
     "title": "Enterprise Products",
     "text": "Explore the proprietary products we have built and the global platforms we implement.",
     "ctaLabel": "Start a conversation",
@@ -11,10 +11,42 @@
   "products": {
     "title": "Softcom Products",
     "items": [
-      { "name": "Sentinel", "tagline": "Financial intelligence for complex investigations.", "href": "/enterprise-products/sentinel", "image": { "src": "/media/products/sentinel-card.png", "alt": "Sentinel dot-matrix artwork" } },
-      { "name": "Reckon", "tagline": "Audit beyond the limits of manual review.", "href": "/enterprise-products/reckon", "image": { "src": "/media/products/reckon-card.png", "alt": "Reckon dot-matrix artwork" } },
-      { "name": "Useforms", "tagline": "Collect data in all its forms.", "href": "/enterprise-products/useforms", "image": { "src": "/media/products/useforms-card.png", "alt": "Useforms logo on dot-matrix artwork" } },
-      { "name": "Lift", "tagline": "An integrated platform for entrepreneurial growth.", "href": "/enterprise-products/lift", "image": { "src": "/media/products/lift-card.png", "alt": "Lift dot-matrix artwork" } }
+      {
+        "name": "Sentinel",
+        "tagline": "Financial intelligence for complex investigations.",
+        "summary": "Turn financial records into intelligence for complex investigations. Sentinel connects transactions across accounts and parties, and surfaces the flows that need a closer look.",
+        "href": "/enterprise-products/sentinel",
+        "color": "#2a2b30",
+        "logo": { "src": "", "alt": "Sentinel logo" },
+        "image": { "src": "/media/products/sentinel-card.png", "alt": "Sentinel dot-matrix artwork" }
+      },
+      {
+        "name": "Reckon",
+        "tagline": "Audit beyond the limits of manual review.",
+        "summary": "Compare what was declared with what the documents show is owed. Reckon reads each line, applies the tax rule, and shows where the two disagree.",
+        "href": "/enterprise-products/reckon",
+        "color": "#004bff",
+        "logo": { "src": "", "alt": "Reckon logo" },
+        "image": { "src": "/media/products/reckon-card.png", "alt": "Reckon dot-matrix artwork" }
+      },
+      {
+        "name": "Useforms",
+        "tagline": "Collect data in all its forms.",
+        "summary": "Collect text, images, location, direction and biometric information in structured submissions that document people, places and activities.",
+        "href": "/enterprise-products/useforms",
+        "color": "#d7c4a3",
+        "logo": { "src": "", "alt": "Useforms logo" },
+        "image": { "src": "/media/products/useforms-card.png", "alt": "Useforms logo on dot-matrix artwork" }
+      },
+      {
+        "name": "Lift",
+        "tagline": "An integrated platform for entrepreneurial growth.",
+        "summary": "The platform entrepreneurial development initiatives run on. Members learn, verify, trade and apply for funding from one account.",
+        "href": "/enterprise-products/lift",
+        "color": "#1f6a5c",
+        "logo": { "src": "", "alt": "Lift logo" },
+        "image": { "src": "/media/products/lift-card.png", "alt": "Lift dot-matrix artwork" }
+      }
     ]
   },
   "partners": {

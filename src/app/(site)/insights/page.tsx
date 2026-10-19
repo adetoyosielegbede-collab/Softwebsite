@@ -21,9 +21,10 @@ export default async function InsightsPage() {
         text={hero.text}
         backgroundImage={hero.backgroundImage}
         actions={[{ label: hero.ctaLabel, href: hero.ctaHref }]}
+        field="torus"
       />
 
-      <section className="container-site pb-8">
+      <section className="container-site pt-32 pb-8 lg:pt-48">
         <InsightList
           posts={posts}
           categories={page.categories}

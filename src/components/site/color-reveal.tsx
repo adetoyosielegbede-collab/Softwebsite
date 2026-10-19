@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { smoothstep } from "./dither-math";
 
@@ -34,10 +34,11 @@ function stop() {
 export function ColorReveal({ className, children }: { className?: string; children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = ref.current;
     if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    el.style.setProperty("--reveal", "0");
+    const amount = Math.max(0, Math.min(1, (0.95 - el.getBoundingClientRect().top / (window.innerHeight || 1)) / 0.6));
+    el.style.setProperty("--reveal", smoothstep(amount).toFixed(3));
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

@@ -48,7 +48,7 @@ export default async function ProductPage({ params }: PageProps<"/enterprise-pro
         ]}
       />
 
-      <div id="overview" className="container-site scroll-mt-24 space-y-4">
+      <div id="overview" className="container-site scroll-mt-24 space-y-4 pt-32 lg:pt-48">
         {product.overview.length > 0 && (
           <div className="max-w-3xl pb-12 lg:ml-auto lg:w-2/3">
             {product.overview.map((p) => (
