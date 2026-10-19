@@ -1,18 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Azeret_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { getContent } from "@/lib/content";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const generalSans = localFont({
+  src: [
+    { path: "../fonts/general-sans-regular.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/general-sans-medium.woff2", weight: "500", style: "normal" },
+  ],
+  variable: "--font-general-sans",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const azeretMono = Azeret_Mono({
   subsets: ["latin"],
+  weight: "500",
+  variable: "--font-azeret-mono",
+  display: "swap",
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -36,7 +43,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth" className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth" className={`dark ${generalSans.variable} ${azeretMono.variable} h-full antialiased`}>
       <body className="min-h-full">
         <script
           dangerouslySetInnerHTML={{

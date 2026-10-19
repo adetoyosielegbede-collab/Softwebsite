@@ -47,10 +47,10 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
       )}
       <div className={cn("container-site relative z-10 flex flex-1 flex-col pb-10", hasImage && "text-white")}>
         <HeroMotion className="flex w-full flex-1 flex-col items-center justify-center text-center">
-          {eyebrow ? <p className={cn("label", hasImage ? "text-white/70" : "text-ink-soft")}>{eyebrow}</p> : null}
+          {eyebrow ? <p className={`label ${hasImage ? "text-white/70" : "text-ink-soft"}`}>{eyebrow}</p> : null}
           <h1 className={titleClass}>{title}</h1>
           {text ? (
-            <p className={cn("mx-auto mt-6 max-w-xl text-lg text-pretty", hasImage ? "text-white/80" : "text-ink-soft")}>{text}</p>
+            <p className={`text-lede ${cn("mx-auto mt-6 max-w-xl text-pretty", hasImage ? "text-white/80" : "text-ink-soft")}`}>{text}</p>
           ) : null}
           {actions.some((a) => a.label) ? (
             <div className="mt-10 flex shrink-0 flex-wrap items-center justify-center gap-x-5 gap-y-3">
@@ -114,7 +114,7 @@ export function Stats({ stats, count = false }: { stats: SiteContent["stats"]; c
     <dl className="grid grid-cols-2 gap-x-6 gap-y-10 border-t border-line pt-10 lg:grid-cols-4">
       {stats.map((s, i) => (
         <div key={s.label} data-reveal style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}>
-          <dd className="font-heading text-5xl leading-[0.9] font-light lg:text-7xl">
+          <dd className="font-heading text-[2.25rem] leading-[0.95] font-medium md:text-[3.75rem]">
             {count ? <CountUp value={s.value} delay={i * 120} /> : s.value}
           </dd>
           <dt className="text-body text-ink-soft">{s.label}</dt>

@@ -38,7 +38,7 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
           {visible.map(({ item, index }) => (
             <li key={item.title} className="flex flex-col rounded-3xl bg-surface p-6 lg:p-8">
               <div className="flex items-start justify-between gap-4">
-                <span className="grid h-14 min-w-14 place-items-center rounded-2xl bg-brand px-3 font-heading text-xl font-light text-signal">
+                <span className="grid h-14 min-w-14 place-items-center rounded-2xl bg-brand px-3 font-heading text-xl font-medium text-signal">
                   {String(index + 1).padStart(2, "0")} / {total}
                 </span>
                 <span className="rounded-full bg-signal/15 px-3 py-1 text-[11px] font-medium text-signal">{item.tag}</span>
@@ -50,11 +50,11 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
               </div>
               <div className="mt-8 flex items-end justify-between gap-4 rounded-2xl bg-paper/70 p-5 ring-1 ring-line">
                 <div>
-                  <p className="font-heading text-5xl leading-[0.9] font-light">{item.metric}</p>
+                  <p className="font-heading text-[2.25rem] leading-[0.95] font-medium md:text-[3.75rem]">{item.metric}</p>
                   <p className="text-body mt-1 text-ink-soft">{item.metricLabel}</p>
                 </div>
                 <p className="max-w-[180px] text-right text-xs leading-relaxed text-ink-soft">
-                  <span className="block text-[10px] tracking-wider text-ink-faint uppercase">Client</span>
+                  <span className="label block text-ink-faint">Client</span>
                   {item.client}
                 </p>
               </div>

@@ -50,7 +50,7 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
           className="flex snap-x snap-mandatory items-stretch gap-2.5 overflow-x-auto px-5 pb-4 sm:px-8 lg:px-10 lg:motion-safe:w-max lg:motion-safe:snap-none lg:motion-safe:overflow-visible lg:motion-safe:pb-0"
         >
           <div className="flex w-[82vw] shrink-0 snap-start flex-col justify-end gap-6 rounded-3xl p-2 sm:w-[420px] lg:w-[460px] lg:p-8">
-            <span className="font-mono text-xs tracking-[0.12em] text-ink-soft uppercase">{eyebrow} →</span>
+            <span className="label">{eyebrow} →</span>
             <p className="text-xl leading-[1.4] text-ink lg:text-2xl">{intro}</p>
           </div>
           {items.map((item, i) => (
@@ -65,7 +65,7 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
               </div>
               <div className="flex flex-1 flex-col gap-3 p-6 lg:p-8">
                 <span className="font-mono text-xs text-ink-soft tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="font-heading text-2xl leading-[1.15] font-light">{item.title}</h3>
+                <h3 className="font-heading text-2xl leading-none font-medium">{item.title}</h3>
                 <p className="text-base leading-[1.6] text-ink-soft">{item.text}</p>
               </div>
             </article>

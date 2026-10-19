@@ -109,7 +109,7 @@ export default async function EnterpriseProductsPage() {
                       emptyClassName="absolute inset-0 p-2"
                     />
                   </div>
-                  <h3 className="text-headline max-w-[12ch] leading-[1.1]">{p.name}</h3>
+                  <h3 className="text-headline max-w-[12ch]">{p.name}</h3>
                 </div>
                 <p className="text-lede max-w-[200px] text-right text-ink-soft">{p.tagline}</p>
               </div>

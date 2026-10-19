@@ -37,7 +37,7 @@ export default async function SolutionsPage() {
         <div className="max-w-4xl lg:ml-auto lg:w-2/3">
           <span className="mb-6 inline-block rounded-full bg-signal px-2.5 py-1 text-xs font-medium text-black">{intro.badge}</span>
           {intro.paragraphs.map((p, i) => (
-            <p key={p} className={cn("text-title", i > 0 && "mt-6 text-ink-soft")} data-reveal>
+            <p key={p} className={`text-title ${i > 0 ? "mt-6 text-ink-soft" : ""}`} data-reveal>
               {p}
             </p>
           ))}
@@ -47,7 +47,7 @@ export default async function SolutionsPage() {
       <section className="container-site">
         <SectionHeader id="digital-infrastructure" number={infra.number} title={infra.title} lead={infra.lead} />
         <div className="mt-16 max-w-md" data-reveal>
-          <h3 className="text-xl">{infra.subTitle}</h3>
+          <h3 className="font-heading text-xl font-medium">{infra.subTitle}</h3>
           <p className="mt-3 text-body text-ink-soft">{infra.subText}</p>
         </div>
         <div className="mt-6">
@@ -63,9 +63,9 @@ export default async function SolutionsPage() {
               className={cn("rounded-3xl p-8 lg:p-10", card.highlight ? "bg-brand text-white" : "bg-surface")}
               data-reveal
             >
-              <p className={cn("eyebrow", card.highlight && "text-white/70")}>{card.eyebrow}</p>
+              <p className={`eyebrow ${card.highlight ? "text-white/70" : ""}`}>{card.eyebrow}</p>
               <h3 className="text-headline mt-16 lg:mt-24">{card.title}</h3>
-              <p className={cn("mt-5 text-body", card.highlight ? "text-white/85" : "text-ink-soft")}>{card.text}</p>
+              <p className={`text-body mt-5 ${card.highlight ? "text-white/85" : "text-ink-soft"}`}>{card.text}</p>
             </article>
           ))}
         </div>

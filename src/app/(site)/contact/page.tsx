@@ -37,7 +37,7 @@ export default async function ContactPage() {
             <address className="flex items-start gap-4 text-sm leading-[1.6] text-ink not-italic">
               <MapPin className="size-6 shrink-0" aria-hidden />
               <span className="w-[167px]">
-                <span className="font-bold">{site.contact.company}</span>
+                <span className="font-medium">{site.contact.company}</span>
                 {site.contact.addressLines.map((line) => (
                   <span key={line} className="block">
                     {line}

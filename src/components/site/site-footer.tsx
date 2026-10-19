@@ -8,7 +8,7 @@ export function SiteFooter({ site }: { site: SiteContent }) {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_2fr]">
           <div>
             <p className="mb-4 text-sm leading-6 font-medium text-ink-soft">{site.footer.eyebrow}</p>
-            <a href={`mailto:${site.contact.email}`} className="font-heading text-2xl leading-[1.15] font-light transition-colors hover:text-signal lg:text-[1.75rem]">
+            <a href={`mailto:${site.contact.email}`} className="font-heading text-2xl leading-none font-medium transition-colors hover:text-signal lg:text-[1.75rem]">
               {site.contact.email}
             </a>
             <address className="mt-6 text-sm leading-6 text-neutral-400 not-italic">

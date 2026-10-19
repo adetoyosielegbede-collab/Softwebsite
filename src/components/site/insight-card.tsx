@@ -43,10 +43,7 @@ export function InsightCard({
       </ColorReveal>
       <div className={cn(!featured && !lead && "mt-4", lead && "flex flex-col gap-6")}>
         <div
-          className={cn(
-            "flex items-start justify-between gap-4",
-            lead ? "font-heading text-xs leading-[1.2]" : "text-[11px] text-ink-soft",
-          )}
+          className={`label flex items-start justify-between gap-4 ${lead ? "text-ink" : "text-ink-soft"}`}
         >
           <span className={lead ? "text-ink" : undefined}>{post.category}</span>
           <time dateTime={post.date} className={lead ? "text-ink-soft" : undefined}>
@@ -55,12 +52,12 @@ export function InsightCard({
         </div>
         {lead ? (
           <div className="flex flex-col gap-2.5">
-            <h3 className="font-heading text-2xl leading-[1.2] font-light transition-colors group-hover:text-accent-ink">{post.title}</h3>
-            <p className="text-sm leading-[1.2] text-ink-soft">{post.excerpt}</p>
+            <h3 className="text-title transition-colors group-hover:text-accent-ink">{post.title}</h3>
+            <p className="text-body text-ink-soft">{post.excerpt}</p>
           </div>
         ) : (
           <>
-            <h3 className={cn("mt-3 transition-colors group-hover:text-accent-ink", featured ? "text-headline" : "text-title")}>
+            <h3 className={`${featured ? "text-headline" : "text-title"} mt-3 transition-colors group-hover:text-accent-ink`}>
               {post.title}
             </h3>
             <p className="text-body mt-3 text-ink-soft">{post.excerpt}</p>

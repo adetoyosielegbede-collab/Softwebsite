@@ -46,7 +46,7 @@ export default async function AboutPage() {
         <div className="md:col-span-4">
           <div className="md:sticky md:top-32">
             <p className="label mb-5 text-ink-soft">{journey.eyebrow}</p>
-            <h2 className="text-headline font-normal">{journey.title}</h2>
+            <h2 className="text-headline">{journey.title}</h2>
             <p className="label mt-8 text-ink-faint">
               {journey.range} · {String(journey.items.length).padStart(2, "0")}
             </p>
@@ -67,7 +67,7 @@ export default async function AboutPage() {
                 aria-hidden
                 className="absolute top-10 -left-[3px] size-[7px] rounded-full bg-brand ring-4 ring-paper md:top-[3.25rem] md:left-[calc(14rem-3px)]"
               />
-              <p className="text-title font-light whitespace-nowrap text-accent-ink tabular-nums md:pr-6">{m.year}</p>
+              <p className="text-title whitespace-nowrap text-accent-ink tabular-nums md:pr-6">{m.year}</p>
               <div>
                 <h3 className="text-title">{m.title}</h3>
                 <p className="text-body mt-4 max-w-xl text-ink-soft">{m.text}</p>
@@ -126,8 +126,8 @@ export default async function AboutPage() {
                 />
               </ColorReveal>
               <figcaption className="leader-plate dark relative z-10 flex w-full flex-col gap-1 rounded-md bg-brand p-3">
-                <p className="font-heading text-xl leading-none font-bold text-ink">{person.name}</p>
-                <p className="font-heading text-lg leading-[1.6] text-signal">{person.role}</p>
+                <p className="font-heading text-xl leading-none font-medium text-ink">{person.name}</p>
+                <p className="font-heading text-base leading-[1.2] font-medium text-signal">{person.role}</p>
               </figcaption>
             </figure>
           ))}
@@ -166,7 +166,7 @@ export default async function AboutPage() {
                 href={`/insights/${post.slug}`}
                 className="grid gap-2 border-b border-line py-5 transition-colors hover:text-accent-ink md:grid-cols-12 md:items-center"
               >
-                <span className="font-heading text-lg md:col-span-7 lg:text-xl">{post.title}</span>
+                <span className="font-heading text-lg font-medium md:col-span-7 lg:text-xl">{post.title}</span>
                 <span className="text-sm text-ink-soft md:col-span-2 md:col-start-9">{post.category}</span>
                 <time dateTime={post.date} className="text-sm whitespace-nowrap text-ink-soft md:col-span-2 md:text-right">
                   {formatDate(post.date)}

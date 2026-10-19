@@ -279,7 +279,7 @@ export function SiteHeader({ site }: { site: SiteContent }) {
                       onClick={close}
                       aria-current={current ? "page" : undefined}
                       className={cn(
-                        "rise-in flex items-center justify-between gap-4 py-4 font-heading text-[2rem] leading-[1.1] font-light",
+                        "rise-in flex items-center justify-between gap-4 py-4 font-heading text-[2rem] leading-none font-medium",
                         current ? "text-signal" : "text-ink",
                       )}
                     >
@@ -314,7 +314,7 @@ export function SiteHeader({ site }: { site: SiteContent }) {
           </nav>
           <div className="mt-10 flex flex-col gap-4">
             <ThemeSwitcher className="self-start" />
-            <a href={`mailto:${site.contact.email}`} className="font-mono text-[11px] tracking-[0.18em] text-ink-soft uppercase">
+            <a href={`mailto:${site.contact.email}`} className="label">
               {site.contact.email}
             </a>
             <PillLink href="/contact" className="h-12 w-full">

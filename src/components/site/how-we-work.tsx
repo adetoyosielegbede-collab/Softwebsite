@@ -116,7 +116,7 @@ export function HowWeWork({ content }: { content: HomeContent["howWeWork"] }) {
               >
                 <Icon className="size-14" strokeWidth={1.15} aria-hidden />
                 <div>
-                  <p className="font-mono text-[11px] tracking-[0.16em] uppercase opacity-70">
+                  <p className="label opacity-70">
                     {String(i + 1).padStart(2, "0")} {item.label}
                   </p>
                   <h3 className="text-title mt-3">{item.title}</h3>

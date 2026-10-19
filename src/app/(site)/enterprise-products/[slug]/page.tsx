@@ -91,7 +91,7 @@ export default async function ProductPage({ params }: PageProps<"/enterprise-pro
             {block.figures.map((fig, f) => (
               <figure key={`${fig.label}-${f}`} className="m-0 flex flex-col gap-8 rounded-3xl bg-surface-raised p-6 lg:p-10" data-reveal>
                 <header className="flex flex-col gap-3">
-                  <span className="font-mono text-[11px] tracking-[0.14em] text-ink-soft uppercase">{fig.label}</span>
+                  <span className="label">{fig.label}</span>
                   <h3 className="text-title">{fig.title}</h3>
                   {fig.caption && <p className="text-sm text-ink-soft lg:text-base">{fig.caption}</p>}
                 </header>
@@ -107,7 +107,7 @@ export default async function ProductPage({ params }: PageProps<"/enterprise-pro
                     emptyClassName="aspect-video w-full"
                   />
                 </div>
-                <footer className="flex flex-wrap items-center justify-between gap-2 border-t border-line pt-4 font-mono text-[11px] tracking-[0.12em] text-ink-faint uppercase">
+                <footer className="label flex flex-wrap items-center justify-between gap-2 border-t border-line pt-4 text-ink-faint">
                   <span className="text-ink">Softcom</span>
                   <span>{fig.source}</span>
                 </footer>

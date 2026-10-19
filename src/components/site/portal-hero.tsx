@@ -196,7 +196,7 @@ export function PortalHero({
             <div aria-hidden className="absolute inset-0 -z-10 bg-black/64" />
             <div ref={missionCopy} className="flex flex-col items-center gap-8 opacity-0 motion-reduce:opacity-100">
               <img src="/brand/accent-dot.svg" alt="" width={26} height={26} className="size-[26px]" />
-              <h2 className="text-headline max-w-[760px] leading-[1.1]">{mission.title}</h2>
+              <h2 className="text-headline max-w-[760px]">{mission.title}</h2>
               <p className="text-lede max-w-[576px] text-neutral-200">{mission.text}</p>
             </div>
             <div ref={missionCta} className="opacity-0 motion-reduce:opacity-100">
@@ -212,7 +212,7 @@ export function PortalHero({
             <p
               ref={statement}
               aria-hidden
-              className="max-w-[1140px] font-heading text-[clamp(26px,3.6vw,58px)] leading-[1.25] font-light tracking-[-0.035em]"
+              className="max-w-[1140px] font-heading text-[clamp(2.25rem,4.2vw,3.75rem)] leading-[0.95] font-medium"
             >
               {runs.map((run) =>
                 [...run.text].map((char, index) =>
