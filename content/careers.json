@@ -1,11 +1,14 @@
 {
-  "seo": { "title": "Careers", "description": "Original thinkers. Exceptional peers. Build your career at Softcom." },
+  "seo": {
+    "title": "Careers",
+    "description": "Softcom is for people who question assumptions, see possibilities and take responsibility for turning ideas into working solutions."
+  },
   "hero": {
     "eyebrow": "Careers",
     "title": "Original thinkers. Exceptional peers.",
     "text": "Softcom is for people who question assumptions, see possibilities and take responsibility for turning ideas into working solutions.",
     "ctaLabel": "See open roles",
-    "ctaHref": "#open-roles",
+    "ctaHref": "#roles",
     "backgroundImage": { "src": "", "alt": "" }
   },
   "intro": [

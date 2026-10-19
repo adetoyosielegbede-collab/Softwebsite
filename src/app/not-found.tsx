@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { HeroBits } from "@/components/site/dot-canvas";
 
 export default function NotFound() {
   return (
-    <main className="grid min-h-[70vh] place-items-center px-6 text-center">
-      <div>
+    <main className="relative grid min-h-[70vh] place-items-center overflow-hidden px-6 text-center">
+      <HeroBits />
+      <div className="relative">
         <p className="font-mono text-xs tracking-[0.18em] text-signal uppercase">404</p>
         <h1 className="display mt-4 text-4xl sm:text-5xl">This page is not on the map.</h1>
         <p className="mx-auto mt-4 max-w-md text-sm text-ink-soft">

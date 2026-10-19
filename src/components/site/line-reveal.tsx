@@ -11,11 +11,14 @@ export function LineReveal({
   className,
   children,
   delay = 0,
+  immediate = false,
 }: {
   as?: "h1" | "h2" | "h3" | "p";
   className?: string;
   children: string;
   delay?: number;
+  /** Start the rise on load. Above-the-fold heroes use this so the line cannot stay clipped. */
+  immediate?: boolean;
 }) {
   const ref = useRef<HTMLHeadingElement | HTMLParagraphElement>(null);
   const [lines, setLines] = useState<string[] | null>(null);
@@ -24,29 +27,39 @@ export function LineReveal({
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const measure = () => {
-      const nodes = [...el.querySelectorAll<HTMLElement>("[data-word]")];
-      const grouped: string[][] = [];
-      let top: number | null = null;
-      for (const node of nodes) {
-        if (node.offsetTop !== top) {
-          grouped.push([]);
-          top = node.offsetTop;
-        }
-        grouped[grouped.length - 1].push(node.textContent ?? "");
+    if (!el || lines || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const nodes = [...el.querySelectorAll<HTMLElement>("[data-word]")];
+    if (nodes.length === 0) return;
+    const grouped: string[][] = [];
+    let top: number | null = null;
+    for (const node of nodes) {
+      if (node.offsetTop !== top) {
+        grouped.push([]);
+        top = node.offsetTop;
       }
-      setLines(grouped.map((line) => line.join(" ")));
-    };
-    measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [children]);
+      grouped[grouped.length - 1].push(node.textContent ?? "");
+    }
+    setLines(grouped.map((line) => line.join(" ")));
+    if (immediate) setShown(true);
+  }, [children, lines, immediate]);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || !lines) return;
+    if (!el) return;
+    let width = el.clientWidth;
+    const observer = new ResizeObserver(() => {
+      if (el.clientWidth === width) return;
+      width = el.clientWidth;
+      setLines(null);
+      if (!immediate) setShown(false);
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [immediate]);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !lines || immediate) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -58,7 +71,7 @@ export function LineReveal({
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [lines]);
+  }, [lines, immediate]);
 
   return (
     <Tag ref={ref} className={className}>

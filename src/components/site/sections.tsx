@@ -5,7 +5,7 @@ import type { CmsImage as CmsImageValue } from "@/lib/cms/paths";
 import { cn } from "@/lib/utils";
 import { ColorReveal } from "./color-reveal";
 import { CountUp } from "./count-up";
-import { StarField } from "./dot-canvas";
+import { HeroBits } from "./dot-canvas";
 import { LineReveal } from "./line-reveal";
 import { ArrowLink, PillLink } from "./links";
 
@@ -23,8 +23,9 @@ type HeroProps = {
 
 export function PageHero({ file, path = "hero", eyebrow, title, text, backgroundImage, actions = [], immediateTitle = false }: HeroProps) {
   const hasImage = Boolean(backgroundImage?.src);
+  const titleClass = `text-display ${cn("mx-auto max-w-[18ch] text-balance", eyebrow && "mt-6", hasImage && "text-white")}`;
   return (
-    <section className="relative flex min-h-[78vh] items-center overflow-hidden pt-28 pb-20 lg:min-h-[80vh]">
+    <section className="relative isolate flex min-h-[80svh] flex-col pt-32 md:pt-44">
       {hasImage ? (
         <>
           <ColorReveal className="absolute inset-0">
@@ -34,7 +35,7 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
         </>
       ) : (
         <>
-          <StarField />
+          <HeroBits />
           <CmsImage
             image={backgroundImage}
             file={file}
@@ -43,26 +44,30 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
           />
         </>
       )}
-      <div className={cn("container-site relative text-center", hasImage && "text-white")}>
+      <div className={cn("container-site relative flex flex-1 flex-col items-center justify-center text-center", hasImage && "text-white")}>
         {eyebrow && (
-          <p className={cn("label mb-6", hasImage ? "text-white/70" : "text-ink-soft")} data-reveal>
+          <p className={cn("label", hasImage ? "text-white/70" : "text-ink-soft")} data-reveal>
             {eyebrow}
           </p>
         )}
         {immediateTitle ? (
-          <h1 className="text-display mx-auto mt-6 max-w-[18ch] text-balance">{title}</h1>
+          <h1 className={titleClass}>{title}</h1>
         ) : (
-          <LineReveal as="h1" className="text-display mx-auto mt-6 max-w-[18ch]">
+          <LineReveal as="h1" immediate delay={0.15} className={titleClass}>
             {title}
           </LineReveal>
         )}
         {text && (
-          <p className={cn("mx-auto mt-6 max-w-xl text-lg text-pretty", hasImage ? "text-white/80" : "text-ink-soft")} data-reveal>
+          <p
+            className={cn("mx-auto mt-6 max-w-xl text-lg text-pretty", hasImage ? "text-white/80" : "text-ink-soft")}
+            data-reveal
+            style={{ "--reveal-delay": "400ms" } as React.CSSProperties}
+          >
             {text}
           </p>
         )}
         {actions.some((a) => a.label) && (
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-5" data-reveal>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-5" data-reveal style={{ "--reveal-delay": "550ms" } as React.CSSProperties}>
             {actions.map((a) =>
               a.variant === "arrow" ? (
                 <ArrowLink key={a.label} href={a.href} className={hasImage ? "text-white hover:text-signal" : undefined}>
@@ -76,6 +81,9 @@ export function PageHero({ file, path = "hero", eyebrow, title, text, background
             )}
           </div>
         )}
+      </div>
+      <div className="mt-20 md:mt-28">
+        <FrameMarks />
       </div>
     </section>
   );

@@ -156,6 +156,133 @@ const drawHeroMatrix: Draw = (ctx, w, h, t) => {
   }
 };
 
+const HERO_MASK =
+  "radial-gradient(ellipse 70% 80% at 50% 45%, rgb(0 0 0 / 0.25) 0%, #000 40%, #000 50%, transparent 85%)";
+
+type Bit = {
+  x: number;
+  y: number;
+  size: number;
+  period: number;
+  offset: number;
+  one: boolean;
+  accent: boolean;
+  cycle: number;
+};
+
+/** Faint 0s and 1s that breathe behind an interior page hero. */
+export function HeroBits({ className }: { className?: string }) {
+  const ref = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = ref.current;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const probe = document.createElement("span");
+    probe.style.display = "none";
+    canvas.parentElement?.appendChild(probe);
+    const read = (name: string) => {
+      probe.style.color = `var(${name})`;
+      return getComputedStyle(probe).color;
+    };
+    const palette = () => {
+      probe.style.fontFamily = "var(--font-mono)";
+      return { ink: read("--color-ink"), accent: read("--color-accent-ink"), mono: getComputedStyle(probe).fontFamily };
+    };
+
+    let colors = palette();
+    let w = 0;
+    let h = 0;
+    let bits: Bit[] = [];
+    let raf = 0;
+    let frame = 0;
+    let visible = true;
+
+    const draw = (time: number) => {
+      const t = time / 1000;
+      ctx.clearRect(0, 0, w, h);
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      for (const bit of bits) {
+        const phase = t / bit.period + bit.offset;
+        const cycle = Math.floor(phase);
+        if (cycle !== bit.cycle) {
+          if (bit.cycle !== -1 && Math.random() < 0.5) bit.one = !bit.one;
+          bit.cycle = cycle;
+        }
+        const glow = Math.max(0, Math.sin((phase - cycle) * Math.PI)) ** 3;
+        if (glow < 0.02) continue;
+        ctx.globalAlpha = glow * (bit.accent ? 0.45 : 0.2);
+        ctx.fillStyle = bit.accent ? colors.accent : colors.ink;
+        ctx.font = `400 ${bit.size}px ${colors.mono}`;
+        ctx.fillText(bit.one ? "1" : "0", bit.x, bit.y);
+      }
+      ctx.globalAlpha = 1;
+    };
+
+    const layout = () => {
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      w = canvas.clientWidth;
+      h = canvas.clientHeight;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = Math.max(12, Math.round((w * h) / 2400));
+      bits = Array.from({ length: count }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        size: 9 + 6 * Math.random(),
+        period: 4 + 7 * Math.random(),
+        offset: Math.random(),
+        one: Math.random() > 0.5,
+        accent: Math.random() < 0.04,
+        cycle: -1,
+      }));
+      draw(reduced ? 5000 : performance.now());
+    };
+
+    const loop = (time: number) => {
+      raf = requestAnimationFrame(loop);
+      frame += 1;
+      if (frame % 2 || !visible || document.hidden) return;
+      draw(time);
+    };
+
+    const ro = new ResizeObserver(layout);
+    ro.observe(canvas);
+    const io = new IntersectionObserver(([entry]) => {
+      visible = entry?.isIntersecting ?? true;
+    });
+    io.observe(canvas);
+    const mo = new MutationObserver(() => {
+      colors = palette();
+      if (reduced) draw(5000);
+    });
+    mo.observe(document.documentElement, { attributeFilter: ["class"] });
+    layout();
+    if (!reduced) raf = requestAnimationFrame(loop);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+      io.disconnect();
+      mo.disconnect();
+      probe.remove();
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={ref}
+      aria-hidden
+      className={cn("pointer-events-none absolute inset-0 size-full", className)}
+      style={{ maskImage: HERO_MASK, WebkitMaskImage: HERO_MASK }}
+    />
+  );
+}
+
 export function StarField({ className }: { className?: string }) {
   const ref = useCanvasLoop(drawStarField, 24);
   return <canvas ref={ref} aria-hidden className={cn("pointer-events-none absolute inset-0 size-full", className)} />;

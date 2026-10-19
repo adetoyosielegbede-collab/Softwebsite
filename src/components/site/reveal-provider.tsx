@@ -19,8 +19,17 @@ export function RevealProvider() {
       { rootMargin: "0px 0px -8% 0px", threshold: 0.05 },
     );
 
+    const inView = (el: Element) => {
+      const rect = el.getBoundingClientRect();
+      const view = window.innerHeight || 0;
+      return rect.bottom > 0 && rect.top < view * 0.92 && rect.height > 0;
+    };
+
     const observeAll = () => {
-      document.querySelectorAll("[data-reveal]:not(.is-visible)").forEach((el) => io.observe(el));
+      document.querySelectorAll("[data-reveal]:not(.is-visible)").forEach((el) => {
+        if (inView(el)) el.classList.add("is-visible");
+        else io.observe(el);
+      });
     };
     observeAll();
 
