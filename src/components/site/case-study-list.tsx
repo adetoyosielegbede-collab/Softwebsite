@@ -276,13 +276,9 @@ function StudyCard({ item, index, total, onOpen }: { item: Item; index: number; 
           type="button"
           data-open-study=""
           onClick={onOpen}
-          className="mt-4 flex w-fit items-center gap-2.5 font-mono text-[0.75rem] font-medium tracking-normal text-white uppercase"
+          className="mt-4 inline-flex h-10 w-fit items-center rounded-full bg-white px-4 text-sm font-medium text-black transition-colors hover:bg-signal"
         >
-          <span
-            aria-hidden
-            className="size-2.5 -translate-x-3 rounded-[3px] bg-current opacity-0 blur-md transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100 group-hover:blur-none max-md:translate-x-0 max-md:opacity-100 max-md:blur-none"
-          />
-          <span className="-translate-x-3 transition-transform duration-500 group-hover:translate-x-0 max-md:translate-x-0">Read the study</span>
+          Read the study
         </button>
 
         <PinnedMark>

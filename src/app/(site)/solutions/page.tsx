@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { CmsImage } from "@/components/cms/cms-image";
 import { IntelligenceRail } from "@/components/site/intelligence-rail";
 import { PillLink } from "@/components/site/links";
+import { DeliverTimeline } from "@/components/site/deliver-timeline";
+import { ScrollWords } from "@/components/site/scroll-words";
 import { CtaBanner, SectionNumber } from "@/components/site/sections";
 import { SolutionsHero } from "@/components/site/solutions-hero";
 import { StickySteps } from "@/components/site/sticky-steps";
@@ -36,11 +38,7 @@ export default async function SolutionsPage() {
       <section className="container-site pt-20 pb-24 lg:pt-28 lg:pb-32">
         <div className="max-w-4xl lg:ml-auto lg:w-2/3">
           <span className="mb-6 inline-block rounded-full bg-signal px-2.5 py-1 text-xs font-medium text-black">{intro.badge}</span>
-          {intro.paragraphs.map((p, i) => (
-            <p key={p} className={`text-title ${i > 0 ? "mt-6 text-ink-soft" : ""}`} data-reveal>
-              {p}
-            </p>
-          ))}
+          <ScrollWords paragraphs={intro.paragraphs} />
         </div>
       </section>
 
@@ -127,16 +125,7 @@ export default async function SolutionsPage() {
         <div className="mt-20 rounded-3xl bg-brand p-6 text-white sm:p-10" data-reveal>
           <span className="inline-block rounded-full bg-white px-2.5 py-1 text-[11px] font-medium text-black">{init.phasesBadge}</span>
           <h3 className="text-headline mt-4">{init.phasesTitle}</h3>
-          <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {init.phases.map((phase, i) => (
-              <li key={phase.title} className="relative border-t border-white/40 pt-6">
-                <span className="absolute -top-[5px] left-0 size-2.5 rounded-full bg-white" aria-hidden />
-                <p className="text-headline">{String(i + 1).padStart(2, "0")}</p>
-                <h4 className="mt-3 text-sm font-medium">{phase.title}</h4>
-                <p className="mt-2 text-body text-white/80">{phase.text}</p>
-              </li>
-            ))}
-          </ol>
+          <DeliverTimeline phases={init.phases} />
           <div className="mt-12 flex flex-col gap-6 border-t border-white/25 pt-8 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-title max-w-xl">{init.closing}</p>
             <PillLink href={init.ctaHref} className="bg-white text-black hover:bg-signal">

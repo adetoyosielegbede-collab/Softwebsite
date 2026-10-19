@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 /**
  * Dotted torus fields for interior heroes.
  * `band` is the Insights ring: one tube rolling behind the title.
- * `armillary` is the About variation: two rings crossing on a slower orbit.
+ * `armillary` is the About field: one ring, drawn in black and grey.
  */
 const MAJOR = 3;
 const MINOR = 1;
@@ -57,13 +57,7 @@ export function TorusField({ variant = "band", className }: { variant?: Variant;
       return getComputedStyle(probe).color;
     };
 
-    const readAccent = () => {
-      probe.style.color = "var(--color-accent-ink)";
-      return getComputedStyle(probe).color;
-    };
-
     let color = readColor();
-    let accent = readAccent();
     let width = 0;
     let height = 0;
     let raf = 0;
@@ -114,7 +108,8 @@ export function TorusField({ variant = "band", className }: { variant?: Variant;
         const sx1 = width / 2 + wx * scale;
         const sy1 = height / 2 - wy * scale;
         if (sx1 < -12 || sy1 < -12 || sx1 > width + 12 || sy1 > height + 12) continue;
-        const size = Math.max(1.1, (0.04 * attenuation) / dist);
+        const raw = Math.max(1.05, (0.04 * attenuation) / dist);
+        const size = variant === "armillary" ? Math.min(2.2, raw) : raw;
         ctx.fillRect(sx1 - size / 2, sy1 - size / 2, size, size);
       }
     };
@@ -122,10 +117,14 @@ export function TorusField({ variant = "band", className }: { variant?: Variant;
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
       if (variant === "armillary") {
-        const sway = Math.sin(time * 0.65);
-        const oy = 0.2 + 0.18 * sway;
-        drawRing(ORBIT, { rx: 14 * DEG * sway, ry: 16 * DEG + time * 0.16, rz: 6 * DEG * sway, ox: -0.35, oy, oz: 10.4 }, color, 0.8, 260);
-        drawRing(ORBIT, { rx: 86 * DEG, ry: -time * 0.22, rz: 18 * DEG, ox: 0.45, oy: oy - 0.05, oz: 10.6 }, accent, 0.42, 240);
+        const sway = Math.sin(time * 0.55);
+        drawRing(
+          ORBIT,
+          { rx: 18 * DEG * sway, ry: 12 * DEG + time * 0.14, rz: -time * 0.2, ox: 0, oy: 0.15 + 0.12 * sway, oz: 10.5 },
+          color,
+          0.85,
+          160,
+        );
       } else {
         const sway = Math.sin(time);
         // Foundry parks the ring high in a short header. Our hero is a full band, so the rest position sits behind the title.
@@ -136,7 +135,6 @@ export function TorusField({ variant = "band", className }: { variant?: Variant;
 
     const paintTheme = () => {
       color = readColor();
-      accent = readAccent();
       draw();
     };
     const ro = new ResizeObserver(() => {

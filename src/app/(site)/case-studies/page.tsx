@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { CmsImage } from "@/components/cms/cms-image";
 import { CaseStudyList } from "@/components/site/case-study-list";
 import { CtaBanner, PageHero } from "@/components/site/sections";
 import { getContent } from "@/lib/content";
@@ -28,14 +27,6 @@ export default async function CaseStudiesPage() {
       <section className="container-site pt-32 pb-8 lg:pt-48">
         <CaseStudyList items={page.items} filters={page.filters} />
       </section>
-
-      {page.band.src && (
-        <div className="container-site pt-16">
-          <div className="relative aspect-[21/7] overflow-hidden rounded-3xl">
-            <CmsImage image={page.band} file="case-studies" path="band" sizes="100vw" />
-          </div>
-        </div>
-      )}
 
       <CtaBanner cta={page.cta} file="case-studies" />
     </>

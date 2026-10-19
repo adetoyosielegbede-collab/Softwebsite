@@ -288,6 +288,113 @@ export function HeroBits({ className, presence = "hero" }: { className?: string;
   );
 }
 
+type Cross = { x: number; y: number; size: number; alpha: number };
+
+/** Sparse registration crosses, the same marks that sit on the homepage sections. */
+export function CrossField({ className }: { className?: string }) {
+  const ref = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = ref.current;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const probe = document.createElement("span");
+    probe.style.display = "none";
+    canvas.parentElement?.appendChild(probe);
+    const read = () => {
+      probe.style.color = "var(--color-ink)";
+      return getComputedStyle(probe).color;
+    };
+
+    let ink = read();
+    let w = 0;
+    let h = 0;
+    let marks: Cross[] = [];
+    let raf = 0;
+    let frame = 0;
+    let visible = true;
+
+    const draw = (time: number) => {
+      ctx.clearRect(0, 0, w, h);
+      ctx.strokeStyle = ink;
+      ctx.lineWidth = 1;
+      const t = time / 1000;
+      for (const mark of marks) {
+        const pulse = reduced ? 1 : 0.72 + 0.28 * Math.sin(t * 0.6 + mark.x * 0.01);
+        ctx.globalAlpha = mark.alpha * pulse;
+        const arm = mark.size / 2;
+        ctx.beginPath();
+        ctx.moveTo(mark.x - arm, mark.y);
+        ctx.lineTo(mark.x + arm, mark.y);
+        ctx.moveTo(mark.x, mark.y - arm);
+        ctx.lineTo(mark.x, mark.y + arm);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+    };
+
+    const layout = () => {
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      w = canvas.clientWidth;
+      h = canvas.clientHeight;
+      canvas.width = Math.max(1, Math.round(w * dpr));
+      canvas.height = Math.max(1, Math.round(h * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const gap = w < 640 ? 72 : 96;
+      marks = [];
+      for (let y = gap / 2; y < h; y += gap) {
+        for (let x = gap / 2; x < w; x += gap) {
+          const n = hash(x, y);
+          if (n > 0.62) continue;
+          marks.push({ x, y, size: 8 + (n > 0.4 ? 6 : 0), alpha: 0.1 + n * 0.16 });
+        }
+      }
+      draw(reduced ? 0 : performance.now());
+    };
+
+    const loop = (time: number) => {
+      raf = requestAnimationFrame(loop);
+      frame += 1;
+      if (frame % 2 || !visible || document.hidden) return;
+      draw(time);
+    };
+
+    const ro = new ResizeObserver(layout);
+    ro.observe(canvas);
+    const io = new IntersectionObserver(([entry]) => {
+      visible = entry?.isIntersecting ?? true;
+    });
+    io.observe(canvas);
+    const mo = new MutationObserver(() => {
+      ink = read();
+      draw(reduced ? 0 : performance.now());
+    });
+    mo.observe(document.documentElement, { attributeFilter: ["class"] });
+    layout();
+    if (!reduced) raf = requestAnimationFrame(loop);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+      io.disconnect();
+      mo.disconnect();
+      probe.remove();
+    };
+  }, []);
+
+  const mask = "radial-gradient(ellipse 120% 80% at 18% 20%, rgb(0 0 0 / 0.35) 0%, #000 28%, #000 70%, transparent 96%)";
+  return (
+    <canvas
+      ref={ref}
+      aria-hidden
+      className={cn("pointer-events-none absolute inset-0 size-full", className)}
+      style={{ maskImage: mask, WebkitMaskImage: mask }}
+    />
+  );
+}
+
 export function StarField({ className }: { className?: string }) {
   const ref = useCanvasLoop(drawStarField, 24);
   return <canvas ref={ref} aria-hidden className={cn("pointer-events-none absolute inset-0 size-full", className)} />;

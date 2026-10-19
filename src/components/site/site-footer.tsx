@@ -4,7 +4,7 @@ import { ThemeSwitcher } from "./theme-toggle";
 
 export function SiteFooter({ site }: { site: SiteContent }) {
   return (
-    <footer className="dark relative z-10 mx-4 mt-2.5 mb-4 overflow-hidden rounded-[2rem] bg-neutral-900 px-6 pt-14 pb-6 text-ink shadow-[0_-32px_80px_rgba(0,0,0,0.45)] md:mx-10 lg:mb-6 lg:h-[min(700px,85svh)] lg:px-[3.2%] lg:pt-[60px] lg:pb-0">
+    <footer className="dark relative z-20 mx-4 mt-2.5 mb-4 overflow-hidden rounded-[2rem] bg-neutral-900 px-6 pt-14 pb-6 text-ink shadow-[0_-32px_80px_rgba(0,0,0,0.45)] md:mx-10 lg:mb-6 lg:h-[min(700px,85svh)] lg:px-[3.2%] lg:pt-[60px] lg:pb-0">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_2fr]">
           <div>
             <p className="mb-4 text-sm leading-6 font-medium text-ink-soft">{site.footer.eyebrow}</p>

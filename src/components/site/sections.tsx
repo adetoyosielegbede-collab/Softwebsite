@@ -81,7 +81,7 @@ export function CtaBanner({ cta, file, path = "cta", className }: { cta: Cta; fi
   return (
     <section
       className={cn(
-        "dark sticky top-0 z-0 relative mx-4 mt-16 flex min-h-[420px] flex-col items-center justify-center overflow-hidden rounded-[2rem] px-6 py-16 text-white md:mx-10 lg:mt-24 lg:min-h-[520px]",
+        "dark sticky top-0 z-0 mx-4 mt-16 flex min-h-[420px] flex-col items-center justify-center overflow-hidden rounded-[2rem] px-6 py-16 text-white md:mx-10 lg:mt-24 lg:min-h-[520px]",
         className,
       )}
       data-reveal

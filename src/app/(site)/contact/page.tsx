@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Mail, MapPin } from "lucide-react";
 import { CmsImage } from "@/components/cms/cms-image";
 import { ContactForm } from "@/components/site/contact-form";
-import { HeroBits } from "@/components/site/dot-canvas";
+import { CrossField } from "@/components/site/dot-canvas";
 import { getContent } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -17,7 +17,7 @@ export default async function ContactPage() {
   return (
     <section className="relative isolate min-h-[80svh]">
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <HeroBits presence="page" />
+        <CrossField />
       </div>
       <div className="container-site relative grid gap-10 pt-32 pb-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:pt-40">
         <div>

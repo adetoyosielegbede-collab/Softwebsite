@@ -25,6 +25,7 @@ export default async function CareersPage() {
             text={hero.text}
             backgroundImage={hero.backgroundImage}
             actions={[{ label: hero.ctaLabel, href: hero.ctaHref }]}
+            field="torus"
           />
 
           <div className="container-site grid grid-cols-1 gap-y-4 md:grid-cols-12 md:gap-x-6">
