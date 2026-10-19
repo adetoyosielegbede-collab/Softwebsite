@@ -193,7 +193,7 @@ export function PortalHero({
             className="dark invisible absolute inset-0 z-[5] flex flex-col items-center justify-center gap-8 px-6 text-center text-white motion-reduce:visible motion-reduce:relative motion-reduce:min-h-[90vh] motion-reduce:py-24"
           >
             <CmsImage image={mission.image} file="home" path="mission.image" className="-z-10 object-cover object-bottom" />
-            <div aria-hidden className="absolute inset-0 -z-10 bg-black/60" />
+            <div aria-hidden className="absolute inset-0 -z-10 bg-black/64" />
             <div ref={missionCopy} className="flex flex-col items-center gap-8 opacity-0 motion-reduce:opacity-100">
               <img src="/brand/accent-dot.svg" alt="" width={26} height={26} className="size-[26px]" />
               <h2 className="text-headline max-w-[760px] leading-[1.1]">{mission.title}</h2>

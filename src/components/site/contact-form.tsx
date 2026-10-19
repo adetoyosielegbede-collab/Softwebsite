@@ -34,7 +34,7 @@ export function ContactForm({ form }: { form: Fields }) {
 
   if (status === "sent") {
     return (
-      <div className="rounded-3xl bg-surface-raised p-8 lg:p-10">
+      <div className="rounded-3xl bg-surface p-8 lg:p-10">
         <h2 className="text-headline">{form.successTitle}</h2>
         <p className="text-body mt-4 max-w-md text-ink-soft">{form.successText}</p>
       </div>
@@ -43,7 +43,7 @@ export function ContactForm({ form }: { form: Fields }) {
 
   const field = (name: string, label: string, placeholder: string, type = "text") => (
     <div className="space-y-2">
-      <Label htmlFor={name} className="text-xs text-ink-soft">
+      <Label htmlFor={name} className="text-sm font-medium">
         {label}
       </Label>
       <Input
@@ -52,14 +52,14 @@ export function ContactForm({ form }: { form: Fields }) {
         type={type}
         placeholder={placeholder}
         aria-invalid={Boolean(errors[name])}
-        className="h-11 rounded-full border-line bg-paper px-4"
+        className="h-12 rounded-full border-line-strong bg-line-strong/30 px-4 dark:bg-line-strong/30"
       />
       {errors[name] && <p className="text-xs text-destructive">{errors[name]}</p>}
     </div>
   );
 
   return (
-    <form onSubmit={onSubmit} className="rounded-3xl bg-surface-raised p-6 lg:p-10" noValidate>
+    <form onSubmit={onSubmit} className="rounded-3xl bg-surface p-8 lg:p-[47px]" noValidate>
       <h2 className="text-title">{form.title}</h2>
       <div className="mt-8 grid gap-5 sm:grid-cols-2">
         {field("name", form.nameLabel, form.namePlaceholder)}
@@ -68,7 +68,7 @@ export function ContactForm({ form }: { form: Fields }) {
         {field("company", form.companyLabel, form.companyPlaceholder)}
       </div>
       <div className="mt-5 space-y-2">
-        <Label htmlFor="message" className="text-xs text-ink-soft">
+        <Label htmlFor="message" className="text-sm font-medium">
           {form.messageLabel}
         </Label>
         <Textarea
@@ -76,7 +76,7 @@ export function ContactForm({ form }: { form: Fields }) {
           name="message"
           placeholder={form.messagePlaceholder}
           aria-invalid={Boolean(errors.message)}
-          className="min-h-32 rounded-2xl border-line bg-paper px-4 py-3"
+          className="min-h-32 rounded-2xl border-line-strong bg-line-strong/30 px-4 py-3 dark:bg-line-strong/30"
         />
         {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
       </div>

@@ -60,7 +60,7 @@ export default async function SolutionsPage() {
           {infra.cards.map((card) => (
             <article
               key={card.title}
-              className={cn("rounded-3xl p-8 lg:p-10", card.highlight ? "bg-brand text-white" : "bg-surface-raised")}
+              className={cn("rounded-3xl p-8 lg:p-10", card.highlight ? "bg-brand text-white" : "bg-surface")}
               data-reveal
             >
               <p className={cn("eyebrow", card.highlight && "text-white/70")}>{card.eyebrow}</p>

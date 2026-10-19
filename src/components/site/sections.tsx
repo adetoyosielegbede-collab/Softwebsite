@@ -100,7 +100,7 @@ export function CtaBanner({ cta, file, path = "cta", className }: { cta: Cta; fi
       data-reveal
     >
         <CmsImage image={cta.image} file={file} path={`${path}.image`} sizes="(min-width: 1440px) 1360px, 100vw" />
-        <div className="absolute inset-0 -z-0 bg-black/55" />
+        <div className="absolute inset-0 -z-0 bg-black/75" />
         <div
           className={cn(
             "relative z-10 mx-auto flex w-full max-w-5xl flex-col gap-6",
@@ -112,7 +112,7 @@ export function CtaBanner({ cta, file, path = "cta", className }: { cta: Cta; fi
             <h2 className="text-headline max-w-[598px] text-center">{cta.title}</h2>
           </div>
           <div className={cn("flex flex-col gap-6", split ? "max-w-sm" : "items-center")}>
-            {cta.text && <p className="text-lede max-w-[576px] text-center text-white/80">{cta.text}</p>}
+            {cta.text && <p className="text-lede max-w-[576px] text-center text-ink-soft">{cta.text}</p>}
             <div>
               <PillLink href={cta.ctaHref}>{cta.ctaLabel}</PillLink>
             </div>

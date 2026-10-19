@@ -7,6 +7,7 @@ import { ArrowLink, PillLink } from "@/components/site/links";
 import { PortalHero } from "@/components/site/portal-hero";
 import { CtaBanner, FrameMarks, PartnerMarquee, Stats } from "@/components/site/sections";
 import { getContent, getPublishedPosts } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 /** Same distance between every homepage band: 8rem, then 12rem from the large breakpoint. */
 const band = "flex scroll-mt-24 flex-col gap-10 pt-32 md:gap-16 lg:pt-48";
@@ -37,7 +38,7 @@ export default async function HomePage() {
           {home.audiences.items.map((a, i) => (
               <article
                 key={a.title}
-                className="flex flex-col rounded-3xl bg-surface-raised p-6 transition-colors hover:bg-surface-high lg:p-8"
+                className={cn("flex flex-col rounded-3xl p-6 lg:p-8", i === 1 ? "bg-surface-raised" : "bg-surface")}
                 data-reveal
                 style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
               >

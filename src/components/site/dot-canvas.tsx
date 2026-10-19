@@ -156,8 +156,10 @@ const drawHeroMatrix: Draw = (ctx, w, h, t) => {
   }
 };
 
-const HERO_MASK =
-  "radial-gradient(ellipse 70% 80% at 50% 45%, rgb(0 0 0 / 0.25) 0%, #000 40%, #000 50%, transparent 85%)";
+const MASKS = {
+  hero: "radial-gradient(ellipse 70% 80% at 50% 45%, rgb(0 0 0 / 0.25) 0%, #000 40%, #000 50%, transparent 85%)",
+  page: "radial-gradient(ellipse 130% 90% at 16% 22%, rgb(0 0 0 / 0.4) 0%, #000 32%, #000 68%, transparent 96%)",
+} as const;
 
 type Bit = {
   x: number;
@@ -170,8 +172,8 @@ type Bit = {
   cycle: number;
 };
 
-/** Faint 0s and 1s that breathe behind an interior page hero. */
-export function HeroBits({ className }: { className?: string }) {
+/** Faint 0s and 1s. `hero` sits behind a page title; `page` spreads across a whole section. */
+export function HeroBits({ className, presence = "hero" }: { className?: string; presence?: keyof typeof MASKS }) {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -214,7 +216,9 @@ export function HeroBits({ className }: { className?: string }) {
         }
         const glow = Math.max(0, Math.sin((phase - cycle) * Math.PI)) ** 3;
         if (glow < 0.02) continue;
-        ctx.globalAlpha = glow * (bit.accent ? 0.45 : 0.2);
+        const inkAlpha = presence === "page" ? 0.34 : 0.2;
+        const accentAlpha = presence === "page" ? 0.62 : 0.45;
+        ctx.globalAlpha = glow * (bit.accent ? accentAlpha : inkAlpha);
         ctx.fillStyle = bit.accent ? colors.accent : colors.ink;
         ctx.font = `400 ${bit.size}px ${colors.mono}`;
         ctx.fillText(bit.one ? "1" : "0", bit.x, bit.y);
@@ -229,7 +233,7 @@ export function HeroBits({ className }: { className?: string }) {
       canvas.width = Math.round(w * dpr);
       canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const count = Math.max(12, Math.round((w * h) / 2400));
+      const count = Math.max(12, Math.round((w * h) / (presence === "page" ? 1500 : 2400)));
       bits = Array.from({ length: count }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -271,14 +275,15 @@ export function HeroBits({ className }: { className?: string }) {
       mo.disconnect();
       probe.remove();
     };
-  }, []);
+  }, [presence]);
 
+  const mask = MASKS[presence];
   return (
     <canvas
       ref={ref}
       aria-hidden
       className={cn("pointer-events-none absolute inset-0 size-full", className)}
-      style={{ maskImage: HERO_MASK, WebkitMaskImage: HERO_MASK }}
+      style={{ maskImage: mask, WebkitMaskImage: mask }}
     />
   );
 }

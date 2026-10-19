@@ -24,7 +24,7 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
             onClick={() => setActive(option)}
             className={cn(
               "shrink-0 rounded-full px-3.5 py-1.5 text-xs transition-colors",
-              option === active ? "bg-ink text-paper" : "bg-ink/5 text-ink-soft ring-1 ring-line hover:text-ink",
+              option === active ? "bg-ink text-paper" : "bg-surface-raised text-ink-soft hover:text-ink",
             )}
           >
             {option}
@@ -36,7 +36,7 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
       ) : (
         <ol className="mt-10 grid gap-4 lg:grid-cols-2">
           {visible.map(({ item, index }) => (
-            <li key={item.title} className="flex flex-col rounded-3xl bg-surface-raised p-6 lg:p-8">
+            <li key={item.title} className="flex flex-col rounded-3xl bg-surface p-6 lg:p-8">
               <div className="flex items-start justify-between gap-4">
                 <span className="grid h-14 min-w-14 place-items-center rounded-2xl bg-brand px-3 font-heading text-xl font-light text-signal">
                   {String(index + 1).padStart(2, "0")} / {total}
