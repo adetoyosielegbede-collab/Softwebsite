@@ -103,8 +103,8 @@ export default async function AboutPage() {
         </ol>
       </section>
 
-      <section id="leadership" className="container-site scroll-mt-24 pt-32 lg:pt-48">
-        <h2 className="text-headline mb-12 md:mb-20" data-reveal>
+      <section className="container-site pt-32 lg:pt-48">
+        <h2 id="leadership" className="text-headline mb-12 scroll-mt-24 md:mb-20" data-reveal>
           {leadership.title}
         </h2>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
