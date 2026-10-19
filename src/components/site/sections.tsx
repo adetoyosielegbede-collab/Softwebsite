@@ -4,6 +4,7 @@ import type { Cta, SiteContent } from "@/lib/content-types";
 import type { CmsImage as CmsImageValue } from "@/lib/cms/paths";
 import { cn } from "@/lib/utils";
 import { ColorReveal } from "./color-reveal";
+import { CountUp } from "./count-up";
 import { StarField } from "./dot-canvas";
 import { LineReveal } from "./line-reveal";
 import { ArrowLink, PillLink } from "./links";
@@ -113,12 +114,14 @@ export function CtaBanner({ cta, file, path = "cta", className }: { cta: Cta; fi
   );
 }
 
-export function Stats({ stats }: { stats: SiteContent["stats"] }) {
+export function Stats({ stats, count = false }: { stats: SiteContent["stats"]; count?: boolean }) {
   return (
     <dl className="grid grid-cols-2 gap-x-6 gap-y-10 border-t border-line pt-10 lg:grid-cols-4">
       {stats.map((s, i) => (
         <div key={s.label} data-reveal style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}>
-          <dd className="font-heading text-5xl leading-[0.9] font-light lg:text-7xl">{s.value}</dd>
+          <dd className="font-heading text-5xl leading-[0.9] font-light lg:text-7xl">
+            {count ? <CountUp value={s.value} delay={i * 120} /> : s.value}
+          </dd>
           <dt className="text-body text-ink-soft">{s.label}</dt>
         </div>
       ))}

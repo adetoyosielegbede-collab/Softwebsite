@@ -78,7 +78,7 @@ export default async function HomePage() {
       <section className={band}>
         <FrameMarks />
         <div className="container-site">
-          <Stats stats={site.stats} />
+          <Stats stats={site.stats} count />
         </div>
       </section>
 
