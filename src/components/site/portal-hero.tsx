@@ -4,7 +4,7 @@ import { ArrowDown } from "lucide-react";
 import { useLayoutEffect, useRef } from "react";
 import type { HomeContent } from "@/lib/content-types";
 import { createDitherWash } from "./dither-wash";
-import { range, smoothstep } from "./dither-math";
+import { clamp01, range, smoothstep } from "./dither-math";
 import { ArrowLink, PillLink } from "./links";
 
 const BLUE = "#004bff";
@@ -18,7 +18,7 @@ const STATEMENT_OUT: [number, number] = [0.6, 0.7];
 
 type Run = { text: string; accent: boolean };
 type Tone = "grey" | "blue" | "cyan";
-type Cell = { x: number; y: number; letter: boolean; tone: Tone };
+type Cell = { x: number; y: number; tone: Tone };
 
 function statementRuns(text: string): Run[] {
   return text
@@ -36,13 +36,6 @@ function splitTitle(title: string) {
   if (parts.length < 2) return [title.trim(), ""] as const;
   const tail = parts.pop() ?? "";
   return [parts.join(" "), tail] as const;
-}
-
-function mixTone(tone: string, morph: number) {
-  if (morph <= 0) return tone;
-  const [r, g, b] = tone.split(",").map(Number);
-  const mix = (channel: number) => Math.round(channel + (255 - channel) * morph);
-  return `${mix(r)},${mix(g)},${mix(b)}`;
 }
 
 function hash(x: number, y: number) {
@@ -81,14 +74,14 @@ export function PortalHero({
   const cyan = useRef<HTMLSpanElement>(null);
   const scene = useRef<HTMLElement>(null);
   const world = useRef<HTMLCanvasElement>(null);
-  const copy = useRef<HTMLDivElement>(null);
-  const lineA = useRef<HTMLSpanElement>(null);
-  const lineB = useRef<HTMLSpanElement>(null);
+  const headline = useRef<HTMLHeadingElement>(null);
+  const sub = useRef<HTMLParagraphElement>(null);
   const wash = useRef<HTMLCanvasElement>(null);
   const statement = useRef<HTMLParagraphElement>(null);
   const actions = useRef<HTMLDivElement>(null);
   const runs = statementRuns(intro.text);
   const [lead, tail] = splitTitle(hero.titleLine2);
+  const words = mission.text.trim().split(/\s+/);
 
   useLayoutEffect(() => {
     const root = track.current;
@@ -103,8 +96,7 @@ export function PortalHero({
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const field = wash.current ? createDitherWash(wash.current, 2) : null;
     const chars = [...(statement.current?.querySelectorAll<HTMLElement>("[data-ch]") ?? [])];
-    const mask = document.createElement("canvas");
-    const maskCtx = mask.getContext("2d", { willReadFrequently: true });
+    const wordEls = [...(sub.current?.children ?? [])] as HTMLElement[];
     let cells: Cell[] = [];
     let square = 8;
     let built = "";
@@ -114,10 +106,8 @@ export function PortalHero({
     const rebuild = () => {
       const width = grid.clientWidth;
       const height = grid.clientHeight;
-      const first = lineA.current?.getBoundingClientRect();
-      const stageBox = grid.getBoundingClientRect();
-      if (width < 2 || height < 2 || !first || !maskCtx) return;
-      const key = `${width}x${height}:${Math.round(first.top)}:${Math.round(first.width)}:${lead}:${tail}`;
+      if (width < 2 || height < 2) return;
+      const key = `${width}x${height}`;
       if (key === built) return;
       built = key;
       const dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -125,78 +115,54 @@ export function PortalHero({
       grid.height = Math.round(height * dpr);
       gridCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      mask.width = width;
-      mask.height = height;
-      maskCtx.clearRect(0, 0, width, height);
-      maskCtx.fillStyle = "#fff";
-      maskCtx.textAlign = "center";
-      maskCtx.textBaseline = "middle";
-      const family = getComputedStyle(lineA.current ?? document.body).fontFamily;
-      const longer = lead.length >= tail.length ? lead : tail;
-      maskCtx.font = `500 100px ${family}`;
-      const measured = Math.max(1, maskCtx.measureText(longer || "Society").width);
-      const fontSize = Math.round(Math.min(168, height * 0.2, (100 * width * 0.88) / measured));
-      maskCtx.font = `500 ${fontSize}px ${family}`;
-      const lineGap = fontSize * 0.92;
-      const firstBox = lineA.current?.getBoundingClientRect();
-      const secondBox = lineB.current?.getBoundingClientRect();
-      const midY =
-        firstBox && secondBox
-          ? (firstBox.top + secondBox.bottom) / 2 - stageBox.top
-          : height * 0.46;
-      if (lead) maskCtx.fillText(lead, width / 2, midY - lineGap / 2);
-      if (tail) maskCtx.fillText(tail, width / 2, midY + lineGap / 2);
-      const pixels = maskCtx.getImageData(0, 0, width, height).data;
-
-      const pitch = Math.max(8, Math.min(22, Math.round(fontSize * 0.12)));
-      square = Math.max(3, Math.round(pitch * 0.46));
+      const pitch = Math.max(16, Math.min(22, Math.round(Math.min(width, height) / 46)));
+      square = Math.max(7, Math.round(pitch * 0.46));
       const cols = Math.ceil(width / pitch) + 1;
       const rows = Math.ceil(height / pitch) + 1;
       const originX = (width - (cols - 1) * pitch) / 2;
       const originY = (height - (rows - 1) * pitch) / 2;
-      const sample = Math.max(2, Math.round(square * 0.55));
       const next: Cell[] = [];
       for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
-          const x = originX + col * pitch;
-          const y = originY + row * pitch;
-          let hits = 0;
-          for (let oy = -sample; oy <= sample; oy += 2) {
-            const py = Math.round(y + oy);
-            if (py < 0 || py >= height) continue;
-            for (let ox = -sample; ox <= sample; ox += 2) {
-              const px = Math.round(x + ox);
-              if (px < 0 || px >= width) continue;
-              if (pixels[(py * width + px) * 4 + 3] > 40) hits += 1;
-            }
-          }
           const n = hash(col, row);
           const tone: Tone = n > 0.985 ? "blue" : n > 0.97 ? "cyan" : "grey";
-          next.push({ x, y, letter: hits >= 2, tone });
+          next.push({ x: originX + col * pitch, y: originY + row * pitch, tone });
         }
       }
       cells = next;
     };
 
-    const drawGrid = (morph: number, shown: number, time: number) => {
+    const drawGrid = (time: number, quiet: number) => {
       const width = grid.clientWidth;
       const height = grid.clientHeight;
       gridCtx.clearRect(0, 0, width, height);
-      const breathe = 0.9 + 0.1 * Math.sin(time * 1.1);
+      const breathe = 0.92 + 0.08 * Math.sin(time * 1.1);
+      const rx = Math.min(width * 0.36, 520);
+      const ry = Math.min(height * 0.28, 240);
       for (const cell of cells) {
+        const dist = Math.hypot((cell.x - width / 2) / rx, (cell.y - height / 2) / ry);
+        const field = smoothstep(clamp01((dist - 0.42) / 0.7));
+        const fade = 1 - quiet * (1 - field);
+        if (fade < 0.04) continue;
         const tone = cell.tone === "blue" ? "0,75,255" : cell.tone === "cyan" ? "0,255,255" : "230,230,226";
-        const idle = (cell.tone === "grey" ? 0.78 : 0.95) * breathe;
-        const presence = cell.letter ? shown : Math.max(0.07, 1 - morph * 0.93);
-        const scale = cell.letter ? 1 + morph * 0.85 : 1 - morph * 0.35;
-        const size = Math.max(2, square * scale);
-        const color = cell.letter ? mixTone(tone, Math.min(1, morph * 1.15)) : tone;
-        const alpha = (cell.letter ? idle + (1 - idle) * morph : idle * 0.9) * presence;
-        if (alpha < 0.03) continue;
-        const left = Math.round(cell.x - size / 2);
-        const top = Math.round(cell.y - size / 2);
-        gridCtx.fillStyle = `rgba(${color},${alpha})`;
-        gridCtx.fillRect(left, top, Math.round(size), Math.round(size));
+        const alpha = (cell.tone === "grey" ? 0.7 : 0.95) * breathe * fade;
+        const left = Math.round(cell.x - square / 2);
+        const top = Math.round(cell.y - square / 2);
+        gridCtx.fillStyle = `rgba(${tone},${alpha})`;
+        gridCtx.fillRect(left, top, square, square);
       }
+    };
+
+    const paintArrival = (landed: number, reveal: number, cover: number) => {
+      if (headline.current) {
+        headline.current.style.opacity = String(landed * cover);
+        headline.current.style.transform = `translateY(${(1 - landed) * 18}px)`;
+      }
+      wordEls.forEach((el, index) => {
+        const local = smoothstep(clamp01((reveal * (wordEls.length + 5) - index) / 5));
+        el.style.opacity = String(local * cover);
+        el.style.transform = `translateY(${(1 - local) * 8}px)`;
+      });
     };
 
     const render = (now: number) => {
@@ -206,18 +172,14 @@ export function PortalHero({
       const still = reduced.matches;
       const width = frame.clientWidth;
       const height = frame.clientHeight;
-      const washP = still ? 1 : range(progress, [0.62, 1]);
+      const washP = still ? 1 : range(progress, [0.66, 1]);
       const fading = smoothstep(range(washP, WASH_OUT));
       const washAmount = still ? 0 : washP < WASH_OUT[0] ? smoothstep(range(washP, WASH_IN)) : 1 - fading;
-      const morph = still ? 1 : smoothstep(range(progress, [0.3, 0.46]));
-      const mosaic = still ? 0 : (1 - smoothstep(range(progress, [0.48, 0.58]))) * (1 - washAmount);
-      const shown = still ? 1 : smoothstep(range(progress, [0.54, 0.66])) * (1 - washAmount);
-      drawGrid(morph, mosaic, now / 1000);
-
-      if (copy.current) {
-        copy.current.style.opacity = String(shown);
-        copy.current.style.transform = `translateY(${(1 - Math.min(1, shown)) * 18}px)`;
-      }
+      const cover = 1 - washAmount;
+      const landed = still ? 1 : smoothstep(range(progress, [0.22, 0.34]));
+      drawGrid(now / 1000, landed * cover);
+      const reveal = still ? 1 : range(progress, [0.4, 0.6]);
+      paintArrival(landed, reveal, cover);
 
       if (still) {
         sceneEl.style.opacity = "1";
@@ -316,7 +278,7 @@ export function PortalHero({
       cancelAnimationFrame(raf);
       reduced.removeEventListener("change", onChange);
     };
-  }, [lead, tail]);
+  }, [lead, tail, words.length]);
 
   const scrollOn = () => {
     const root = track.current;
@@ -324,7 +286,7 @@ export function PortalHero({
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const top = window.scrollY + root.getBoundingClientRect().top;
     const span = root.offsetHeight - window.innerHeight;
-    window.scrollTo({ top: reduced ? top + root.offsetHeight : top + span * 0.36, behavior: reduced ? "instant" : "smooth" });
+    window.scrollTo({ top: reduced ? top + root.offsetHeight : top + span * 0.34, behavior: reduced ? "instant" : "smooth" });
   };
 
   return (
@@ -359,18 +321,25 @@ export function PortalHero({
           className="pointer-events-none absolute inset-0 z-20 overflow-hidden bg-black opacity-0 motion-reduce:relative motion-reduce:min-h-svh motion-reduce:opacity-100"
         >
           <canvas ref={world} aria-hidden className="absolute inset-0 size-full" />
-          <div ref={copy} className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-white opacity-0 motion-reduce:opacity-100">
-            <h2 className="text-display max-w-[10em]">
-              <span ref={lineA} className="block">
-                {lead}
-              </span>
-              {tail ? (
-                <span ref={lineB} className="block">
-                  {tail}
-                </span>
-              ) : null}
+          <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_46%,rgb(0_0_0/0.55)_100%)]" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-white">
+            <h2 ref={headline} className="text-display max-w-[9em] opacity-0 motion-reduce:opacity-100">
+              <span className="block">{lead}</span>
+              {tail ? <span className="block">{tail}</span> : null}
             </h2>
-            <p className="text-lede mt-6 max-w-[36rem] text-white/80">{mission.text}</p>
+            <p ref={sub} className="text-lede mt-8 max-w-[34rem] text-white/80">
+                {words.map((word, index) => (
+                  <span
+                    key={`${word}-${index}`}
+                    className={
+                      "inline-block opacity-0 motion-reduce:opacity-100" +
+                      (index < words.length - 1 ? " pr-[0.32em]" : "")
+                    }
+                  >
+                    {word}
+                  </span>
+                ))}
+            </p>
           </div>
         </section>
 
