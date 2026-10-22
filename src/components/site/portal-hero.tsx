@@ -249,7 +249,7 @@ export function PortalHero({
         <section
           ref={scene}
           aria-label={hero.titleLine2}
-          className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center overflow-hidden px-6 text-center text-ink opacity-0 motion-reduce:relative motion-reduce:min-h-svh motion-reduce:opacity-100 motion-reduce:py-32"
+          className="portal-invert pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center overflow-hidden px-6 text-center text-ink opacity-0 motion-reduce:relative motion-reduce:min-h-svh motion-reduce:opacity-100 motion-reduce:py-32"
         >
           <div aria-hidden className="portal-grain absolute inset-0" />
           <div aria-hidden className="portal-vignette absolute inset-0" />

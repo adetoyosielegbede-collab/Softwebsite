@@ -263,6 +263,23 @@
   --portal-edge: rgb(0 0 0 / 0.55);
   --portal-rim: #000000;
 }
+/* The far side of the portal takes the opposite theme: black opens onto white, and white onto black. */
+.dark .portal-invert {
+  --ink: #0c0c0d;
+  --portal-ground: #f5f4f0;
+  --portal-dot: rgb(12 12 13 / 0.22);
+  --portal-dot-soft: rgb(12 12 13 / 0.1);
+  --portal-edge: rgb(255 255 255 / 0.6);
+  --portal-rim: #ffffff;
+}
+html:not(.dark) .portal-invert {
+  --ink: #fafafa;
+  --portal-ground: #050505;
+  --portal-dot: rgb(255 255 255 / 0.2);
+  --portal-dot-soft: rgb(255 255 255 / 0.09);
+  --portal-edge: rgb(0 0 0 / 0.55);
+  --portal-rim: #000000;
+}
 .portal-vignette {
   background: radial-gradient(ellipse at center, transparent 30%, var(--portal-edge) 78%, var(--portal-rim) 100%);
 }
