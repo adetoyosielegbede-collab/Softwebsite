@@ -17,8 +17,6 @@ const WASH_OUT: [number, number] = [0.58, 0.78];
 const STATEMENT_OUT: [number, number] = [0.6, 0.7];
 
 type Run = { text: string; accent: boolean };
-type Tone = "grey" | "blue" | "cyan";
-type Cell = { x: number; y: number; tone: Tone };
 
 function statementRuns(text: string): Run[] {
   return text
@@ -36,11 +34,6 @@ function splitTitle(title: string) {
   if (parts.length < 2) return [title.trim(), ""] as const;
   const tail = parts.pop() ?? "";
   return [parts.join(" "), tail] as const;
-}
-
-function hash(x: number, y: number) {
-  const n = Math.sin(x * 127.1 + y * 311.7) * 43758.5453;
-  return n - Math.floor(n);
 }
 
 function placeOrb(el: HTMLElement, x: number, y: number, radius: number, color: string, opacity: number) {
@@ -73,7 +66,6 @@ export function PortalHero({
   const blue = useRef<HTMLSpanElement>(null);
   const cyan = useRef<HTMLSpanElement>(null);
   const scene = useRef<HTMLElement>(null);
-  const world = useRef<HTMLCanvasElement>(null);
   const headline = useRef<HTMLHeadingElement>(null);
   const sub = useRef<HTMLParagraphElement>(null);
   const wash = useRef<HTMLCanvasElement>(null);
@@ -89,69 +81,14 @@ export function PortalHero({
     const blueEl = blue.current;
     const cyanEl = cyan.current;
     const sceneEl = scene.current;
-    const grid = world.current;
-    const gridCtx = grid?.getContext("2d");
-    if (!root || !frame || !blueEl || !cyanEl || !sceneEl || !grid || !gridCtx) return;
+    if (!root || !frame || !blueEl || !cyanEl || !sceneEl) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const field = wash.current ? createDitherWash(wash.current, 2) : null;
     const chars = [...(statement.current?.querySelectorAll<HTMLElement>("[data-ch]") ?? [])];
     const wordEls = [...(sub.current?.children ?? [])] as HTMLElement[];
-    let cells: Cell[] = [];
-    let square = 8;
-    let built = "";
     let raf = 0;
     document.documentElement.classList.remove("play-intro");
-
-    const rebuild = () => {
-      const width = grid.clientWidth;
-      const height = grid.clientHeight;
-      if (width < 2 || height < 2) return;
-      const key = `${width}x${height}`;
-      if (key === built) return;
-      built = key;
-      const dpr = Math.min(2, window.devicePixelRatio || 1);
-      grid.width = Math.round(width * dpr);
-      grid.height = Math.round(height * dpr);
-      gridCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      const pitch = Math.max(16, Math.min(22, Math.round(Math.min(width, height) / 46)));
-      square = Math.max(7, Math.round(pitch * 0.46));
-      const cols = Math.ceil(width / pitch) + 1;
-      const rows = Math.ceil(height / pitch) + 1;
-      const originX = (width - (cols - 1) * pitch) / 2;
-      const originY = (height - (rows - 1) * pitch) / 2;
-      const next: Cell[] = [];
-      for (let row = 0; row < rows; row++) {
-        for (let col = 0; col < cols; col++) {
-          const n = hash(col, row);
-          const tone: Tone = n > 0.985 ? "blue" : n > 0.97 ? "cyan" : "grey";
-          next.push({ x: originX + col * pitch, y: originY + row * pitch, tone });
-        }
-      }
-      cells = next;
-    };
-
-    const drawGrid = (time: number, quiet: number) => {
-      const width = grid.clientWidth;
-      const height = grid.clientHeight;
-      gridCtx.clearRect(0, 0, width, height);
-      const breathe = 0.92 + 0.08 * Math.sin(time * 1.1);
-      const rx = Math.min(width * 0.36, 520);
-      const ry = Math.min(height * 0.28, 240);
-      for (const cell of cells) {
-        const dist = Math.hypot((cell.x - width / 2) / rx, (cell.y - height / 2) / ry);
-        const field = smoothstep(clamp01((dist - 0.42) / 0.7));
-        const fade = 1 - quiet * (1 - field);
-        if (fade < 0.04) continue;
-        const tone = cell.tone === "blue" ? "0,75,255" : cell.tone === "cyan" ? "0,255,255" : "230,230,226";
-        const alpha = (cell.tone === "grey" ? 0.7 : 0.95) * breathe * fade;
-        const left = Math.round(cell.x - square / 2);
-        const top = Math.round(cell.y - square / 2);
-        gridCtx.fillStyle = `rgba(${tone},${alpha})`;
-        gridCtx.fillRect(left, top, square, square);
-      }
-    };
 
     const paintArrival = (landed: number, reveal: number, cover: number) => {
       if (headline.current) {
@@ -166,7 +103,6 @@ export function PortalHero({
     };
 
     const render = (now: number) => {
-      rebuild();
       const span = root.offsetHeight - window.innerHeight;
       const progress = Math.max(0, Math.min(1, -root.getBoundingClientRect().top / Math.max(1, span)));
       const still = reduced.matches;
@@ -177,7 +113,6 @@ export function PortalHero({
       const washAmount = still ? 0 : washP < WASH_OUT[0] ? smoothstep(range(washP, WASH_IN)) : 1 - fading;
       const cover = 1 - washAmount;
       const landed = still ? 1 : smoothstep(range(progress, [0.22, 0.34]));
-      drawGrid(now / 1000, landed * cover);
       const reveal = still ? 1 : range(progress, [0.4, 0.6]);
       paintArrival(landed, reveal, cover);
 
@@ -268,17 +203,13 @@ export function PortalHero({
 
     render(performance.now());
     raf = requestAnimationFrame(loop);
-    const onChange = () => {
-      built = "";
-      render(performance.now());
-    };
+    const onChange = () => render(performance.now());
     reduced.addEventListener("change", onChange);
-    document.fonts?.ready.then(onChange).catch(() => {});
     return () => {
       cancelAnimationFrame(raf);
       reduced.removeEventListener("change", onChange);
     };
-  }, [lead, tail, words.length]);
+  }, [words.length]);
 
   const scrollOn = () => {
     const root = track.current;
@@ -318,27 +249,27 @@ export function PortalHero({
         <section
           ref={scene}
           aria-label={hero.titleLine2}
-          className="pointer-events-none absolute inset-0 z-20 overflow-hidden bg-black opacity-0 motion-reduce:relative motion-reduce:min-h-svh motion-reduce:opacity-100"
+          className="dark pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center overflow-hidden px-6 text-center text-ink opacity-0 motion-reduce:relative motion-reduce:min-h-svh motion-reduce:opacity-100 motion-reduce:py-32"
         >
-          <canvas ref={world} aria-hidden className="absolute inset-0 size-full" />
-          <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_46%,rgb(0_0_0/0.55)_100%)]" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-white">
-            <h2 ref={headline} className="text-display max-w-[9em] opacity-0 motion-reduce:opacity-100">
-              <span className="block">{lead}</span>
-              {tail ? <span className="block">{tail}</span> : null}
-            </h2>
-            <p ref={sub} className="text-lede mt-8 max-w-[34rem] text-white/80">
-                {words.map((word, index) => (
-                  <span
-                    key={`${word}-${index}`}
-                    className={
-                      "inline-block opacity-0 motion-reduce:opacity-100" +
-                      (index < words.length - 1 ? " pr-[0.32em]" : "")
-                    }
-                  >
-                    {word}
-                  </span>
-                ))}
+          <div aria-hidden className="portal-grain absolute inset-0" />
+          <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgb(0_0_0/0.55)_78%,#000_100%)]" />
+          <h2 ref={headline} className="text-display relative max-w-[9em] opacity-0 motion-reduce:opacity-100">
+            <span className="block">{lead}</span>
+            {tail ? <span className="block">{tail}</span> : null}
+          </h2>
+          <div className="relative mt-10 h-11 w-full max-w-[34rem]">
+            <p ref={sub} className="text-lede absolute inset-x-0 top-0 text-white/80">
+              {words.map((word, index) => (
+                <span
+                  key={`${word}-${index}`}
+                  className={
+                    "inline-block opacity-0 motion-reduce:opacity-100" +
+                    (index < words.length - 1 ? " pr-[0.32em]" : "")
+                  }
+                >
+                  {word}
+                </span>
+              ))}
             </p>
           </div>
         </section>
