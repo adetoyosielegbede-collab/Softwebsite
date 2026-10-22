@@ -4,22 +4,32 @@ import { ArrowDown } from "lucide-react";
 import { useLayoutEffect, useRef } from "react";
 import { CmsImage } from "@/components/cms/cms-image";
 import type { HomeContent } from "@/lib/content-types";
+import { createDitherWash } from "./dither-wash";
 import { range, smoothstep } from "./dither-math";
 import { ArrowLink, PillLink } from "./links";
 
 const BLUE = "#004bff";
 const CYAN = "#00ffff";
+const GLYPHS = ["▖", "▗", "▘", "▝", "▚", "▞", "▙", "▟"];
+const WASH_IN: [number, number] = [0.1, 0.28];
+const SCRAMBLE: [number, number] = [0.26, 0.4];
+const ACTIONS: [number, number] = [0.38, 0.43];
+const WASH_OUT: [number, number] = [0.56, 0.72];
+const STATEMENT_OUT: [number, number] = [0.58, 0.64];
+const MISSION_IN: [number, number] = [0.7, 0.82];
+const MISSION_CTA: [number, number] = [0.81, 0.88];
 
-function accentText(text: string) {
-  return text.split(/(\{[^}]+\})/g).filter(Boolean).map((part, index) =>
-    part.startsWith("{") && part.endsWith("}") ? (
-      <span key={index} className="text-brand">
-        {part.slice(1, -1)}
-      </span>
-    ) : (
-      <span key={index}>{part}</span>
-    ),
-  );
+type Run = { text: string; accent: boolean };
+
+function statementRuns(text: string): Run[] {
+  return text
+    .split(/(\{[^}]+\})/g)
+    .filter(Boolean)
+    .map((part) =>
+      part.startsWith("{") && part.endsWith("}")
+        ? { text: part.slice(1, -1), accent: true }
+        : { text: part, accent: false },
+    );
 }
 
 function placeOrb(el: HTMLElement, x: number, y: number, radius: number, color: string, opacity: number) {
@@ -34,6 +44,13 @@ function placeOrb(el: HTMLElement, x: number, y: number, radius: number, color: 
   el.style.opacity = String(opacity);
   el.style.background = color;
   el.style.boxShadow = radius < 70 ? `0 0 ${radius * 1.4}px ${color}` : "none";
+}
+
+function fadeBlock(el: HTMLElement | null, amount: number) {
+  if (!el) return;
+  el.style.opacity = String(amount);
+  el.style.transform = `translateY(${(1 - amount) * 24}px)`;
+  el.inert = amount < 0.5;
 }
 
 export function PortalHero({
@@ -55,6 +72,13 @@ export function PortalHero({
   const world = useRef<HTMLDivElement>(null);
   const scrim = useRef<HTMLDivElement>(null);
   const copy = useRef<HTMLDivElement>(null);
+  const wash = useRef<HTMLCanvasElement>(null);
+  const statement = useRef<HTMLParagraphElement>(null);
+  const actions = useRef<HTMLDivElement>(null);
+  const missionLayer = useRef<HTMLDivElement>(null);
+  const missionCopy = useRef<HTMLDivElement>(null);
+  const missionCta = useRef<HTMLDivElement>(null);
+  const runs = statementRuns(intro.text);
 
   useLayoutEffect(() => {
     const root = track.current;
@@ -65,23 +89,19 @@ export function PortalHero({
     if (!root || !frame || !blueEl || !cyanEl || !sceneEl) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const field = wash.current ? createDitherWash(wash.current, 2) : null;
+    const chars = [...(statement.current?.querySelectorAll<HTMLElement>("[data-ch]") ?? [])];
     let raf = 0;
     document.documentElement.classList.remove("play-intro");
 
     const render = (now: number) => {
       const span = root.offsetHeight - window.innerHeight;
-      const progress = reduced.matches ? 1 : Math.max(0, Math.min(1, -root.getBoundingClientRect().top / Math.max(1, span)));
+      const progress = Math.max(0, Math.min(1, -root.getBoundingClientRect().top / Math.max(1, span)));
+      const still = reduced.matches;
       const width = frame.clientWidth;
       const height = frame.clientHeight;
-      const titleBox = title.current?.getBoundingClientRect();
-      const frameBox = frame.getBoundingClientRect();
-      const baseR = Math.max(16, Math.min(30, Math.min(width, height) * 0.032));
-      const anchorY = titleBox ? titleBox.bottom - frameBox.top + baseR + 36 : height * 0.62;
-      const cx = width / 2;
-      const cy = Math.max(height * 0.42, Math.min(height * 0.72, anchorY));
-      const coverR = Math.hypot(Math.max(cx, width - cx), Math.max(cy, height - cy)) * 1.04;
 
-      if (reduced.matches) {
+      if (still) {
         sceneEl.style.opacity = "1";
         sceneEl.style.maskImage = "none";
         sceneEl.style.webkitMaskImage = "none";
@@ -89,32 +109,46 @@ export function PortalHero({
         if (copy.current) {
           copy.current.style.opacity = "1";
           copy.current.style.transform = "none";
-          copy.current.inert = false;
         }
+        if (statement.current) statement.current.style.opacity = "1";
+        if (actions.current) {
+          actions.current.style.opacity = "1";
+          actions.current.style.transform = "none";
+          actions.current.inert = false;
+        }
+        fadeBlock(missionCopy.current, 1);
+        fadeBlock(missionCta.current, 1);
+        if (missionLayer.current) missionLayer.current.style.visibility = "visible";
         return;
       }
 
-      const meet = smoothstep(range(progress, [0.05, 0.36]));
-      const zoomT = smoothstep(range(progress, [0.34, 0.84]));
-      const arrive = smoothstep(range(progress, [0.76, 0.92]));
-      const titleFade = smoothstep(range(progress, [0.24, 0.46]));
-      const calm = 1 - smoothstep(range(progress, [0.02, 0.16]));
+      const meet = smoothstep(range(progress, [0.03, 0.15]));
+      const zoomT = smoothstep(range(progress, [0.13, 0.34]));
+      const arrive = smoothstep(range(progress, [0.3, 0.4]));
+      const titleFade = smoothstep(range(progress, [0.1, 0.2]));
+      const washP = range(progress, [0.44, 1]);
+      const washCover = smoothstep(range(washP, [0.04, 0.2]));
+
+      const titleBox = title.current?.getBoundingClientRect();
+      const frameBox = frame.getBoundingClientRect();
+      const baseR = Math.max(16, Math.min(30, Math.min(width, height) * 0.032));
+      const anchorY = titleBox ? titleBox.bottom - frameBox.top + baseR + 36 : height * 0.58;
+      const cx = width / 2;
+      const cy = Math.max(height * 0.42, Math.min(height * 0.7, anchorY));
+      const coverR = Math.hypot(Math.max(cx, width - cx), Math.max(cy, height - cy)) * 1.04;
+      const calm = 1 - smoothstep(range(progress, [0.02, 0.08]));
       const radius = baseR * Math.pow(coverR / baseR, zoomT);
       const time = now / 1000;
-      const pulseA = 1 + calm * 0.07 * Math.sin(time * 2.1);
-      const pulseB = 1 + calm * 0.07 * Math.sin(time * 2.1 + 1.35);
       const restD = baseR * 2 + Math.max(18, baseR * 0.7);
       const d = restD * (1 - meet) * (1 - zoomT) + radius * 1.05 * (1 - zoomT) * meet;
-      const r1 = radius * pulseA;
-      const r2 = radius * pulseB;
+      const r1 = radius * (1 + calm * 0.07 * Math.sin(time * 2.1));
+      const r2 = radius * (1 + calm * 0.07 * Math.sin(time * 2.1 + 1.35));
       const orbFade = 1 - smoothstep(range(zoomT, [0.38, 0.68]));
-
       placeOrb(blueEl, cx - d / 2, cy, r1, BLUE, orbFade);
       placeOrb(cyanEl, cx + d / 2, cy, r2, CYAN, orbFade);
 
       const open = zoomT > 0.97 && d < 2;
-      sceneEl.style.opacity = progress > 0.08 ? "1" : String(meet);
-      sceneEl.style.pointerEvents = arrive > 0.5 ? "auto" : "none";
+      sceneEl.style.opacity = progress > 0.05 ? "1" : String(meet);
       if (open) {
         sceneEl.style.maskImage = "none";
         sceneEl.style.webkitMaskImage = "none";
@@ -128,20 +162,47 @@ export function PortalHero({
         sceneEl.style.webkitMaskRepeat = "no-repeat";
       }
       if (world.current) world.current.style.transform = `scale(${1.1 - zoomT * 0.1})`;
-      if (scrim.current) scrim.current.style.opacity = String(arrive);
+      if (scrim.current) scrim.current.style.opacity = String(arrive * (1 - washCover));
       if (title.current) {
         title.current.style.opacity = String(1 - titleFade);
         title.current.style.transform = `translateY(${-titleFade * 28}px)`;
       }
       if (cue.current) {
-        cue.current.style.opacity = String(1 - smoothstep(range(progress, [0.02, 0.12])));
-        cue.current.inert = progress > 0.08;
+        const cueAmount = 1 - smoothstep(range(progress, [0.02, 0.08]));
+        cue.current.style.opacity = String(cueAmount);
+        cue.current.inert = cueAmount < 0.5;
       }
       if (copy.current) {
-        copy.current.style.opacity = String(arrive);
+        const shown = arrive * (1 - washCover);
+        copy.current.style.opacity = String(shown);
         copy.current.style.transform = `translateY(${(1 - arrive) * 28}px)`;
-        copy.current.inert = arrive < 0.5;
       }
+
+      const fading = smoothstep(range(washP, WASH_OUT));
+      const washAmount = washP < WASH_OUT[0] ? smoothstep(range(washP, WASH_IN)) : 1 - fading;
+      field?.resize();
+      field?.draw(washAmount);
+
+      const statementFade = smoothstep(range(washP, STATEMENT_OUT));
+      const cursor = range(washP, SCRAMBLE) * (chars.length + 14);
+      for (let i = 0; i < chars.length; i++) {
+        const state = i < cursor - 14 ? "done" : i < cursor ? "scramble" : "hidden";
+        const el = chars[i];
+        if (el.dataset.state !== state) el.dataset.state = state;
+        if (state === "scramble") el.dataset.glyph = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+      }
+      if (statement.current) statement.current.style.opacity = String(1 - statementFade);
+      const actionAmount = smoothstep(range(washP, ACTIONS)) * (1 - statementFade);
+      if (actions.current) {
+        actions.current.style.opacity = String(actionAmount);
+        actions.current.style.transform = `translateY(${(1 - actionAmount) * 16}px)`;
+        actions.current.inert = actionAmount < 0.5;
+      }
+      if (missionLayer.current) {
+        missionLayer.current.style.visibility = washP >= WASH_IN[1] ? "visible" : "hidden";
+      }
+      fadeBlock(missionCopy.current, smoothstep(range(washP, MISSION_IN)));
+      fadeBlock(missionCta.current, smoothstep(range(washP, MISSION_CTA)));
     };
 
     const loop = (now: number) => {
@@ -168,64 +229,106 @@ export function PortalHero({
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const top = window.scrollY + root.getBoundingClientRect().top;
     const span = root.offsetHeight - window.innerHeight;
-    window.scrollTo({ top: reduced ? top + root.offsetHeight : top + span * 0.9, behavior: reduced ? "instant" : "smooth" });
+    window.scrollTo({ top: reduced ? top + root.offsetHeight : top + span * 0.38, behavior: reduced ? "instant" : "smooth" });
   };
 
   return (
-    <>
-      <div ref={track} className="h-[300vh] bg-black sm:h-[380vh] motion-reduce:h-auto">
-        <div ref={stage} className="sticky top-0 h-svh overflow-hidden motion-reduce:static motion-reduce:h-auto motion-reduce:overflow-visible">
-          <div aria-hidden className="portal-grain absolute inset-0 motion-reduce:min-h-svh" />
+    <div ref={track} className="h-[560vh] bg-black sm:h-[700vh] motion-reduce:h-auto motion-reduce:bg-transparent">
+      <div ref={stage} className="sticky top-0 h-svh overflow-hidden motion-reduce:static motion-reduce:h-auto motion-reduce:overflow-visible">
+        <section className="dark absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-ink motion-reduce:relative motion-reduce:min-h-svh motion-reduce:py-32">
+          <div aria-hidden className="portal-grain absolute inset-0" />
           <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgb(0_0_0/0.55)_78%,#000_100%)]" />
-
-          <section className="dark absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-ink motion-reduce:relative motion-reduce:min-h-svh motion-reduce:py-32">
-            <h1 ref={title} className="text-display max-w-[9em]">
-              {hero.titleLine1}
-            </h1>
-            <div aria-hidden className="mt-10 flex h-11 items-center justify-center gap-7">
-              <span ref={blue} className="portal-pulse size-11 rounded-full" style={{ background: BLUE, boxShadow: `0 0 22px ${BLUE}` }} />
-              <span ref={cyan} className="portal-pulse size-11 rounded-full [animation-delay:-1.1s]" style={{ background: CYAN, boxShadow: `0 0 22px ${CYAN}` }} />
-            </div>
-            <button
-              ref={cue}
-              type="button"
-              onClick={scrollOn}
-              className="label mt-10 inline-flex items-center gap-2 text-white/55 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal"
-            >
-              Scroll
-              <span className="softcom-nudge block">
-                <ArrowDown className="size-4" />
-              </span>
-            </button>
-          </section>
-
-          <section
-            ref={scene}
-            aria-label={hero.titleLine2}
-            className="pointer-events-none absolute inset-0 z-20 overflow-hidden opacity-0 motion-reduce:pointer-events-auto motion-reduce:relative motion-reduce:min-h-svh motion-reduce:opacity-100"
+          <h1 ref={title} className="text-display relative max-w-[9em]">
+            {hero.titleLine1}
+          </h1>
+          <div aria-hidden className="mt-10 flex h-11 items-center justify-center gap-7">
+            <span ref={blue} className="portal-pulse size-11 rounded-full" style={{ background: BLUE, boxShadow: `0 0 22px ${BLUE}` }} />
+            <span ref={cyan} className="portal-pulse size-11 rounded-full [animation-delay:-1.1s]" style={{ background: CYAN, boxShadow: `0 0 22px ${CYAN}` }} />
+          </div>
+          <button
+            ref={cue}
+            type="button"
+            aria-label="Scroll"
+            onClick={scrollOn}
+            className="absolute bottom-6 left-1/2 z-40 -translate-x-1/2 rounded-full p-2 text-white/70 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal motion-reduce:hidden"
           >
-            <div ref={world} className="absolute inset-0">
-              <CmsImage image={hero.backgroundImage} file="home" path="hero.backgroundImage" priority className="object-cover" />
-              <div ref={scrim} aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgb(0_0_0/0.62),rgb(0_0_0/0.28)_46%,transparent_72%)] opacity-0 motion-reduce:opacity-100" />
-            </div>
-            <div ref={copy} className="relative flex h-full flex-col items-center justify-end gap-6 px-6 pb-16 text-center text-white drop-shadow-[0_2px_18px_rgb(0_0_0/0.65)] sm:justify-center sm:pb-0">
-              <h2 className="text-display max-w-[10em]">{hero.titleLine2}</h2>
-              <p className="text-lede max-w-[34rem] text-white/85">{mission.text}</p>
-              <PillLink href={mission.ctaHref} className="bg-white text-black hover:bg-signal">
-                {mission.ctaLabel}
-              </PillLink>
-            </div>
-          </section>
+            <span className="softcom-nudge block">
+              <ArrowDown className="size-5" />
+            </span>
+          </button>
+        </section>
+
+        <section
+          ref={scene}
+          aria-label={hero.titleLine2}
+          className="pointer-events-none absolute inset-0 z-20 overflow-hidden opacity-0 motion-reduce:pointer-events-auto motion-reduce:relative motion-reduce:min-h-svh motion-reduce:opacity-100"
+        >
+          <div ref={world} className="absolute inset-0">
+            <CmsImage image={hero.backgroundImage} file="home" path="hero.backgroundImage" priority className="object-cover" />
+            <div ref={scrim} aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgb(0_0_0/0.55),transparent_68%)] opacity-0 motion-reduce:opacity-100" />
+          </div>
+          <div ref={copy} className="relative flex h-full items-center justify-center px-6 text-center text-white">
+            <h2 className="text-display max-w-[10em] drop-shadow-[0_2px_18px_rgb(0_0_0/0.65)]">{hero.titleLine2}</h2>
+          </div>
+        </section>
+
+        <div
+          ref={missionLayer}
+          aria-label="Our mission"
+          role="group"
+          className="dark invisible absolute inset-0 z-30 flex flex-col items-center justify-center gap-8 px-6 text-center text-white motion-reduce:visible motion-reduce:relative motion-reduce:min-h-[90vh] motion-reduce:py-24"
+        >
+          <CmsImage image={mission.image} file="home" path="mission.image" className="-z-10 object-cover object-bottom" />
+          <div aria-hidden className="absolute inset-0 -z-10 bg-black/64" />
+          <div ref={missionCopy} className="flex flex-col items-center gap-8 opacity-0 motion-reduce:opacity-100">
+            <img src="/brand/accent-dot.svg" alt="" width={26} height={26} className="size-[26px]" />
+            <h2 className="text-headline max-w-[760px]">{mission.title}</h2>
+            <p className="text-lede max-w-[576px] text-neutral-200">{mission.text}</p>
+          </div>
+          <div ref={missionCta} className="opacity-0 motion-reduce:opacity-100">
+            <PillLink href={mission.ctaHref}>{mission.ctaLabel}</PillLink>
+          </div>
+        </div>
+
+        <canvas ref={wash} aria-hidden className="pointer-events-none absolute inset-0 z-40 size-full motion-reduce:hidden" />
+
+        <div className="pointer-events-none absolute inset-0 z-50 flex flex-col items-start justify-center gap-10 px-6 pt-24 pb-12 text-white motion-reduce:pointer-events-auto motion-reduce:relative motion-reduce:min-h-[70vh] motion-reduce:bg-brand motion-reduce:py-16 md:px-[7vw]">
+          <p className="sr-only">{runs.map((run) => run.text).join("")}</p>
+          <p
+            ref={statement}
+            aria-hidden
+            className="max-w-[1140px] font-heading text-[clamp(2.25rem,4.2vw,3.75rem)] leading-[0.95] font-medium"
+          >
+            {runs.map((run) =>
+              [...run.text].map((char, index) =>
+                char === " " ? (
+                  " "
+                ) : (
+                  <span
+                    key={`${run.text}-${index}`}
+                    data-ch=""
+                    data-state="hidden"
+                    className={
+                      "relative data-[state=hidden]:text-transparent data-[state=scramble]:text-transparent after:pointer-events-none after:absolute after:inset-0 after:text-signal data-[state=scramble]:after:content-[attr(data-glyph)] " +
+                      (run.accent ? "text-signal" : "")
+                    }
+                  >
+                    {char}
+                  </span>
+                ),
+              ),
+            )}
+          </p>
+          <div ref={actions} className="pointer-events-auto flex flex-wrap items-center gap-x-8 gap-y-4 opacity-0 motion-reduce:opacity-100">
+            <PillLink href={intro.primaryHref} className="bg-white text-black hover:bg-signal">
+              {intro.primaryLabel}
+            </PillLink>
+            <ArrowLink href={intro.secondaryHref} className="text-white hover:text-signal">
+              {intro.secondaryLabel}
+            </ArrowLink>
+          </div>
         </div>
       </div>
-
-      <section className="container-site flex scroll-mt-24 flex-col items-start gap-8 pt-32 lg:pt-48">
-        <p className="text-title max-w-[46rem] text-ink">{accentText(intro.text)}</p>
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
-          <PillLink href={intro.primaryHref}>{intro.primaryLabel}</PillLink>
-          <ArrowLink href={intro.secondaryHref}>{intro.secondaryLabel}</ArrowLink>
-        </div>
-      </section>
-    </>
+    </div>
   );
 }
