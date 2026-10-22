@@ -279,7 +279,7 @@ export function SiteHeader({ site }: { site: SiteContent }) {
                       onClick={close}
                       aria-current={current ? "page" : undefined}
                       className={cn(
-                        "rise-in flex items-center justify-between gap-4 py-4 font-heading text-[2rem] leading-none font-medium",
+                        "rise-in flex items-center justify-between gap-4 py-4 font-heading text-[2rem] leading-none heading-type",
                         current ? "text-signal" : "text-ink",
                       )}
                     >

@@ -95,7 +95,7 @@ export default async function AboutPage() {
             <li key={v.title} className="grid gap-y-2 border-t border-line pt-6 md:grid-cols-12" data-reveal>
               <span className="font-mono text-sm text-ink-soft md:col-span-3">{String(i + 1).padStart(2, "0")}</span>
               <div className="flex flex-col gap-2 md:col-span-6">
-                <h3 className="font-heading text-xl">{v.title}</h3>
+                <h3 className="font-heading text-xl heading-type">{v.title}</h3>
                 <p className="text-body text-ink-soft">{v.text}</p>
               </div>
             </li>
@@ -126,8 +126,8 @@ export default async function AboutPage() {
                 />
               </ColorReveal>
               <figcaption className="leader-plate dark relative z-10 flex w-full flex-col gap-1 rounded-md bg-brand p-3">
-                <p className="font-heading text-xl leading-none font-medium text-ink">{person.name}</p>
-                <p className="font-heading text-base leading-[1.2] font-medium text-signal">{person.role}</p>
+                <p className="font-heading text-xl leading-none heading-type text-ink">{person.name}</p>
+                <p className="font-heading text-base leading-[1.2] heading-type text-signal">{person.role}</p>
               </figcaption>
             </figure>
           ))}
@@ -166,7 +166,7 @@ export default async function AboutPage() {
                 href={`/insights/${post.slug}`}
                 className="grid gap-2 border-b border-line py-5 transition-colors hover:text-accent-ink md:grid-cols-12 md:items-center"
               >
-                <span className="font-heading text-lg font-medium md:col-span-7 lg:text-xl">{post.title}</span>
+                <span className="font-heading text-lg heading-type md:col-span-7 lg:text-xl">{post.title}</span>
                 <span className="text-sm text-ink-soft md:col-span-2 md:col-start-9">{post.category}</span>
                 <time dateTime={post.date} className="text-sm whitespace-nowrap text-ink-soft md:col-span-2 md:text-right">
                   {formatDate(post.date)}

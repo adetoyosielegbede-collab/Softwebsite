@@ -1,3 +1,4 @@
+import type { Typography } from "@/lib/typography";
 import type { CmsImage } from "@/lib/cms/paths";
 
 export type { CmsImage };
@@ -34,6 +35,7 @@ export type SiteContent = {
   stats: { value: string; label: string }[];
   partners: { name: string; logo: CmsImage; width: number; height: number }[];
   seo: { title: string; description: string; shareImage: CmsImage };
+  typography?: Partial<Typography>;
 };
 
 export type HomeContent = {

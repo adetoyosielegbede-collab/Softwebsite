@@ -65,7 +65,7 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
               </div>
               <div className="flex flex-1 flex-col gap-3 p-6 lg:p-8">
                 <span className="font-mono text-xs text-ink-soft tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="font-heading text-2xl leading-none font-medium">{item.title}</h3>
+                <h3 className="font-heading text-2xl leading-none heading-type">{item.title}</h3>
                 <p className="text-base leading-[1.6] text-ink-soft">{item.text}</p>
               </div>
             </article>

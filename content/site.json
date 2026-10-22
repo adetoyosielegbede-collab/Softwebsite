@@ -97,6 +97,14 @@
     { "name": "Office of the Secretary to the Government of the Federation", "logo": { "src": "/partners/osgf.png", "alt": "Office of the Secretary to the Government of the Federation" }, "width": 168, "height": 31 },
     { "name": "ARM", "logo": { "src": "/partners/arm.png", "alt": "ARM" }, "width": 129, "height": 40 }
   ],
+  "typography": {
+    "headingFont": "General Sans",
+    "headingWeight": "Medium",
+    "headingStyle": "Normal",
+    "bodyFont": "General Sans",
+    "bodyWeight": "Regular",
+    "bodyStyle": "Normal"
+  },
   "seo": {
     "title": "Softcom — Technology for Organisations. Progress for Society.",
     "description": "Softcom is a technology and innovation company with 19 years of experience building for public institutions, private organisations and development enablers.",

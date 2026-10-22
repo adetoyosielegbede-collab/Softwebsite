@@ -61,7 +61,7 @@ export function FocusRail({ content }: { content: HomeContent["focusAreas"] }) {
               </ColorReveal>
               <span
                 className={
-                  "relative grid size-14 place-items-center rounded-2xl font-heading text-3xl font-medium lg:size-16 lg:text-4xl " +
+                  "relative grid size-14 place-items-center rounded-2xl font-heading text-3xl heading-type lg:size-16 lg:text-4xl " +
                   (CHIPS[i] ?? CHIPS[2])
                 }
               >

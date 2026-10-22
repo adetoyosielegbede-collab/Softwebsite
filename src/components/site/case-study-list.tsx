@@ -161,7 +161,7 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
                 </p>
                 <SheetClose className="label rounded-full px-3 py-1 text-ink ring-1 ring-line">Close</SheetClose>
               </div>
-              <SheetTitle className="mt-4 max-w-[18ch] font-heading text-[1.75rem] leading-none font-medium">{openItem.title}</SheetTitle>
+              <SheetTitle className="mt-4 max-w-[18ch] font-heading text-[1.75rem] leading-none heading-type">{openItem.title}</SheetTitle>
               <SheetDescription className="sr-only">{excerpt(openItem.text)}</SheetDescription>
               <div className={cn("relative mt-6 aspect-[16/8] overflow-hidden rounded-2xl bg-neutral-900", !openItem.image.src && "hidden [.cms-editing_&]:block")}>
                 <CmsImage image={openItem.image} file="case-studies" path={`items.${selected}.image`} sizes="640px" emptyClassName="absolute inset-0" />
@@ -169,7 +169,7 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
               <dl className="mt-6 grid grid-cols-2 overflow-hidden rounded-2xl bg-surface ring-1 ring-line sm:grid-cols-3">
                 <div className="border-b border-line p-4 sm:border-r">
                   <dt className="label text-ink-faint">Outcome</dt>
-                  <dd className="mt-2 font-heading text-2xl leading-none font-medium">{openItem.metric}</dd>
+                  <dd className="mt-2 font-heading text-2xl leading-none heading-type">{openItem.metric}</dd>
                   <dd className="text-body mt-2 text-ink-soft">{openItem.metricLabel}</dd>
                 </div>
                 <div className="border-b border-line p-4 sm:border-r">
@@ -268,7 +268,7 @@ function StudyCard({ item, index, total, onOpen }: { item: Item; index: number; 
 
       <div className="relative flex h-full flex-col p-4 text-white md:p-6">
         <div className="flex items-start justify-between gap-4">
-          <h2 className="max-w-[24ch] font-heading text-xl leading-none font-medium md:text-2xl">{item.title}</h2>
+          <h2 className="max-w-[24ch] font-heading text-xl leading-none heading-type md:text-2xl">{item.title}</h2>
           <span className="label shrink-0 text-white/70">{number}</span>
         </div>
         <p className="mt-3 max-w-[36ch] border-t border-white/25 pt-3 text-[0.8125rem] leading-[1.35] text-white/70">{excerpt(item.text)}</p>
@@ -282,7 +282,7 @@ function StudyCard({ item, index, total, onOpen }: { item: Item; index: number; 
         </button>
 
         <PinnedMark>
-          <p className="font-heading text-[2.25rem] leading-[0.95] font-medium text-signal md:text-[2.75rem]">{item.metric}</p>
+          <p className="font-heading text-[2.25rem] leading-[0.95] heading-type text-signal md:text-[2.75rem]">{item.metric}</p>
           <p className="label mt-1 text-white/60">{item.metricLabel}</p>
         </PinnedMark>
 

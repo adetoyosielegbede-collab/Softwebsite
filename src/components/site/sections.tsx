@@ -114,7 +114,7 @@ export function Stats({ stats, count = false }: { stats: SiteContent["stats"]; c
     <dl className="grid grid-cols-2 gap-x-6 gap-y-10 border-t border-line pt-10 lg:grid-cols-4">
       {stats.map((s, i) => (
         <div key={s.label} data-reveal style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}>
-          <dd className="font-heading text-[2.25rem] leading-[0.95] font-medium md:text-[3.75rem]">
+          <dd className="font-heading text-[2.25rem] leading-[0.95] heading-type md:text-[3.75rem]">
             {count ? <CountUp value={s.value} delay={i * 120} /> : s.value}
           </dd>
           <dt className="text-body text-ink-soft">{s.label}</dt>

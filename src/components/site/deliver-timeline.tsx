@@ -67,7 +67,7 @@ export function DeliverTimeline({ phases }: { phases: Phase[] }) {
             <span data-phase-dot="" className="size-2.5 rounded-full bg-white" style={{ transform: "scale(0)" }} />
           </span>
           <div data-phase-body="" className="flex flex-col gap-3" style={{ opacity: 0.25 }}>
-            <span className="font-heading text-5xl leading-none font-medium tabular-nums">{String(index + 1).padStart(2, "0")}</span>
+            <span className="font-heading text-5xl leading-none heading-type tabular-nums">{String(index + 1).padStart(2, "0")}</span>
             <h4 className="text-lg font-medium">{phase.title}</h4>
             <p className="text-body text-white/80">{phase.text}</p>
           </div>

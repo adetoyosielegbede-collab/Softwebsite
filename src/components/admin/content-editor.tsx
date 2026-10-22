@@ -5,6 +5,7 @@ import { ArrowDown, ArrowUp, ImagePlus, Loader2, Plus, Trash2 } from "lucide-rea
 import { toast } from "sonner";
 import { saveContent, uploadImage } from "@/lib/cms/client";
 import { humanize, isImageValue } from "@/lib/cms/paths";
+import { FIELD_OPTIONS, FONT_FAMILIES, type FontFamilyName } from "@/lib/typography";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -65,6 +66,27 @@ function Field({
             className="h-10 w-full rounded-xl border border-line bg-paper px-3 font-mono text-sm outline-none focus:border-signal"
           />
         </span>
+      </label>
+    );
+  }
+
+  const options = FIELD_OPTIONS[path];
+  if (typeof value === "string" && options) {
+    return (
+      <label className="block">
+        <span className="mb-1.5 block text-xs text-ink-soft">{label}</span>
+        <select
+          value={options.includes(value) ? value : options[0]}
+          onChange={(e) => onChange(e.target.value)}
+          className="h-10 w-full rounded-xl border border-line bg-paper px-3 text-sm outline-none focus:border-signal"
+          style={path.endsWith("Font") ? { fontFamily: FONT_FAMILIES[value as FontFamilyName] } : undefined}
+        >
+          {options.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
       </label>
     );
   }

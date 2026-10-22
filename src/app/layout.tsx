@@ -1,26 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Azeret_Mono } from "next/font/google";
-import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { getContent } from "@/lib/content";
+import { typographyStyle } from "@/lib/typography";
+import { fontVariables } from "./fonts";
 import "./globals.css";
-
-const generalSans = localFont({
-  src: [
-    { path: "../fonts/general-sans-regular.woff2", weight: "400", style: "normal" },
-    { path: "../fonts/general-sans-medium.woff2", weight: "500", style: "normal" },
-  ],
-  variable: "--font-general-sans",
-  display: "swap",
-});
-
-const azeretMono = Azeret_Mono({
-  subsets: ["latin"],
-  weight: "500",
-  variable: "--font-azeret-mono",
-  display: "swap",
-});
 
 export async function generateMetadata(): Promise<Metadata> {
   const site = await getContent("site");
@@ -41,9 +25,16 @@ export const viewport: Viewport = {
   colorScheme: "dark light",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const site = await getContent("site");
   return (
-    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth" className={`dark ${generalSans.variable} ${azeretMono.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+      className={`dark ${fontVariables} h-full antialiased`}
+      style={typographyStyle(site.typography)}
+    >
       <body className="min-h-full">
         <script
           dangerouslySetInnerHTML={{
