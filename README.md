@@ -24,6 +24,8 @@ Two ways to change an image:
 
 Text, lists, stats, open roles and articles are edited from the page list in the same CMS. **Save changes** writes the JSON and the live site updates immediately. Insight articles are the **Insight articles** entry: set `published` to show one, and `featured` to pin it.
 
+The homepage hero has an **Image mode** switch under **Home → Hero**. Off, the portal opens onto the Progress for Society headline and sentence. On, it opens onto the **Background image** uploaded just below the switch.
+
 Fonts are set under **Header, footer & shared → Typography**: a font, weight and style for headings, and the same for body text. The choices are General Sans, Inter, DM Sans, Manrope, Space Grotesk, IBM Plex Sans, Fraunces and Source Serif. General Sans ships in Regular and Medium only, so other weights and italic in that font are drawn by the browser.
 
 Contact-form messages are listed under **Messages**.

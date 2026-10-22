@@ -2,6 +2,7 @@
 
 import { ArrowDown } from "lucide-react";
 import { useLayoutEffect, useRef } from "react";
+import { CmsImage } from "@/components/cms/cms-image";
 import type { HomeContent } from "@/lib/content-types";
 import { createDitherWash } from "./dither-wash";
 import { clamp01, range, smoothstep } from "./dither-math";
@@ -74,6 +75,7 @@ export function PortalHero({
   const runs = statementRuns(intro.text);
   const [lead, tail] = splitTitle(hero.titleLine2);
   const words = mission.text.trim().split(/\s+/);
+  const imageMode = Boolean(hero.imageMode && hero.backgroundImage?.src);
 
   useLayoutEffect(() => {
     const root = track.current;
@@ -251,13 +253,19 @@ export function PortalHero({
           aria-label={hero.titleLine2}
           className="portal-invert pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center overflow-hidden px-6 text-center text-ink opacity-0 motion-reduce:relative motion-reduce:min-h-svh motion-reduce:opacity-100 motion-reduce:py-32"
         >
-          <div aria-hidden className="portal-grain absolute inset-0" />
-          <div aria-hidden className="portal-vignette absolute inset-0" />
-          <h2 ref={headline} className="text-display relative max-w-[9em] opacity-0 motion-reduce:opacity-100">
+          {imageMode ? (
+            <CmsImage image={hero.backgroundImage} file="home" path="hero.backgroundImage" />
+          ) : (
+            <>
+              <div aria-hidden className="portal-grain absolute inset-0" />
+              <div aria-hidden className="portal-vignette absolute inset-0" />
+            </>
+          )}
+          <h2 ref={headline} className={"text-display relative max-w-[9em] opacity-0 motion-reduce:opacity-100" + (imageMode ? " sr-only" : "")}>
             <span className="block">{lead}</span>
             {tail ? <span className="block">{tail}</span> : null}
           </h2>
-          <div className="relative mt-10 h-11 w-full max-w-[34rem]">
+          <div className={"relative mt-10 h-11 w-full max-w-[34rem]" + (imageMode ? " sr-only" : "")}>
             <p ref={sub} className="text-lede absolute inset-x-0 top-0 text-ink/80">
               {words.map((word, index) => (
                 <span

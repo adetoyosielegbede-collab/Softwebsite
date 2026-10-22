@@ -39,7 +39,7 @@ export type SiteContent = {
 };
 
 export type HomeContent = {
-  hero: { titleLine1: string; titleLine2: string; backgroundImage: CmsImage };
+  hero: { titleLine1: string; titleLine2: string; imageMode?: boolean; backgroundImage: CmsImage };
   intro: { text: string; primaryLabel: string; primaryHref: string; secondaryLabel: string; secondaryHref: string };
   mission: { image: CmsImage; title: string; text: string; ctaLabel: string; ctaHref: string };
   focusAreas: {
