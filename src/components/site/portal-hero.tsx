@@ -1,37 +1,39 @@
 "use client";
 
 import { ArrowDown } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { CmsImage } from "@/components/cms/cms-image";
 import type { HomeContent } from "@/lib/content-types";
-import { createDitherWash } from "./dither-wash";
-import { ConduitCanvas } from "./conduit-canvas";
 import { range, smoothstep } from "./dither-math";
 import { ArrowLink, PillLink } from "./links";
 
-const GLYPHS = ["▖", "▗", "▘", "▝", "▚", "▞", "▙", "▟"];
-const WASH_IN: [number, number] = [0.1, 0.28];
-const SCRAMBLE: [number, number] = [0.26, 0.4];
-const ACTIONS: [number, number] = [0.38, 0.43];
-const WASH_OUT: [number, number] = [0.56, 0.72];
-const STATEMENT_OUT: [number, number] = [0.58, 0.64];
-const MISSION_IN: [number, number] = [0.7, 0.82];
-const MISSION_CTA: [number, number] = [0.81, 0.88];
-const STOPS = [0.5, MISSION_CTA[1]];
+const BLUE = "#004bff";
+const CYAN = "#00ffff";
 
-type Run = { text: string; accent: boolean };
-
-function statementRuns(text: string): Run[] {
-  const parts = text.split(/(\{[^}]+\})/g).filter(Boolean);
-  return parts.map((part) =>
-    part.startsWith("{") && part.endsWith("}")
-      ? { text: part.slice(1, -1), accent: true }
-      : { text: part, accent: false },
+function accentText(text: string) {
+  return text.split(/(\{[^}]+\})/g).filter(Boolean).map((part, index) =>
+    part.startsWith("{") && part.endsWith("}") ? (
+      <span key={index} className="text-brand">
+        {part.slice(1, -1)}
+      </span>
+    ) : (
+      <span key={index}>{part}</span>
+    ),
   );
 }
 
-function place(progress: number, span: [number, number], reduced: boolean) {
-  return reduced ? 1 : smoothstep(range(progress, span));
+function placeOrb(el: HTMLElement, x: number, y: number, radius: number, color: string, opacity: number) {
+  const size = radius * 2;
+  el.style.position = "absolute";
+  el.style.left = `${x - radius}px`;
+  el.style.top = `${y - radius}px`;
+  el.style.width = `${size}px`;
+  el.style.height = `${size}px`;
+  el.style.animation = "none";
+  el.style.transform = "none";
+  el.style.opacity = String(opacity);
+  el.style.background = color;
+  el.style.boxShadow = radius < 70 ? `0 0 ${radius * 1.4}px ${color}` : "none";
 }
 
 export function PortalHero({
@@ -44,100 +46,119 @@ export function PortalHero({
   mission: HomeContent["mission"];
 }) {
   const track = useRef<HTMLDivElement>(null);
-  const wash = useRef<HTMLCanvasElement>(null);
-  const cover = useRef<HTMLDivElement>(null);
-  const statement = useRef<HTMLParagraphElement>(null);
-  const actions = useRef<HTMLDivElement>(null);
-  const missionLayer = useRef<HTMLDivElement>(null);
-  const missionCopy = useRef<HTMLDivElement>(null);
-  const missionCta = useRef<HTMLDivElement>(null);
-  const runs = statementRuns(intro.text);
+  const stage = useRef<HTMLDivElement>(null);
+  const title = useRef<HTMLHeadingElement>(null);
+  const cue = useRef<HTMLButtonElement>(null);
+  const blue = useRef<HTMLSpanElement>(null);
+  const cyan = useRef<HTMLSpanElement>(null);
+  const scene = useRef<HTMLElement>(null);
+  const world = useRef<HTMLDivElement>(null);
+  const scrim = useRef<HTMLDivElement>(null);
+  const copy = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const root = track.current;
-    if (!root) return;
+    const frame = stage.current;
+    const blueEl = blue.current;
+    const cyanEl = cyan.current;
+    const sceneEl = scene.current;
+    if (!root || !frame || !blueEl || !cyanEl || !sceneEl) return;
+
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const canvas = wash.current;
-    const field = canvas ? createDitherWash(canvas, 2) : null;
-    const chars = [...(statement.current?.querySelectorAll<HTMLElement>("[data-ch]") ?? [])];
-    let frame = 0;
-    let introFrame = 0;
-    let floor = 0;
+    let raf = 0;
+    document.documentElement.classList.remove("play-intro");
 
-    const render = () => {
-      frame = 0;
+    const render = (now: number) => {
       const span = root.offsetHeight - window.innerHeight;
-      const progress = Math.max(0, Math.min(1, -root.getBoundingClientRect().top / Math.max(1, span)));
-      const still = reduced.matches;
-      const fading = smoothstep(range(progress, WASH_OUT));
-      const washAmount = Math.max(still ? 0 : progress < WASH_OUT[0] ? smoothstep(range(progress, WASH_IN)) : 1 - fading, floor);
-      field?.resize();
-      field?.draw(washAmount);
-      if (cover.current) cover.current.style.opacity = String(field ? 0 : washAmount);
+      const progress = reduced.matches ? 1 : Math.max(0, Math.min(1, -root.getBoundingClientRect().top / Math.max(1, span)));
+      const width = frame.clientWidth;
+      const height = frame.clientHeight;
+      const titleBox = title.current?.getBoundingClientRect();
+      const frameBox = frame.getBoundingClientRect();
+      const baseR = Math.max(16, Math.min(30, Math.min(width, height) * 0.032));
+      const anchorY = titleBox ? titleBox.bottom - frameBox.top + baseR + 36 : height * 0.62;
+      const cx = width / 2;
+      const cy = Math.max(height * 0.42, Math.min(height * 0.72, anchorY));
+      const coverR = Math.hypot(Math.max(cx, width - cx), Math.max(cy, height - cy)) * 1.04;
 
-      const statementFade = still ? 0 : smoothstep(range(progress, STATEMENT_OUT));
-      const cursor = (still ? 1 : range(progress, SCRAMBLE)) * (chars.length + 14);
-      for (let i = 0; i < chars.length; i++) {
-        const state = i < cursor - 14 ? "done" : i < cursor ? "scramble" : "hidden";
-        const el = chars[i];
-        if (el.dataset.state !== state) el.dataset.state = state;
-        if (state === "scramble") el.dataset.glyph = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
-      }
-      if (statement.current) statement.current.style.opacity = String(1 - statementFade);
-
-      const actionAmount = (still ? 1 : smoothstep(range(progress, ACTIONS))) * (1 - statementFade);
-      if (actions.current) {
-        actions.current.style.opacity = String(actionAmount);
-        actions.current.style.transform = `translateY(${(1 - actionAmount) * 16}px)`;
-        actions.current.inert = actionAmount < 0.5;
-      }
-      if (missionLayer.current && !still) {
-        missionLayer.current.style.visibility = progress >= WASH_IN[1] ? "visible" : "hidden";
-      }
-      const fadeBlock = (el: HTMLElement | null, amount: number) => {
-        if (!el) return;
-        el.style.opacity = String(amount);
-        el.style.transform = `translateY(${(1 - amount) * 24}px)`;
-        el.inert = amount < 0.5;
-      };
-      fadeBlock(missionCopy.current, place(progress, MISSION_IN, still));
-      fadeBlock(missionCta.current, place(progress, MISSION_CTA, still));
-    };
-
-    const schedule = () => {
-      if (!frame) frame = requestAnimationFrame(render);
-    };
-
-    const html = document.documentElement;
-    if (html.classList.contains("play-intro") && !reduced.matches) {
-      floor = 1;
-      const started = performance.now();
-      const play = (now: number) => {
-        const t = Math.min(1, (now - started) / 1500);
-        floor = 1 - smoothstep(t);
-        render();
-        if (t < 1) introFrame = requestAnimationFrame(play);
-        else {
-          floor = 0;
-          html.classList.remove("play-intro");
-          render();
+      if (reduced.matches) {
+        sceneEl.style.opacity = "1";
+        sceneEl.style.maskImage = "none";
+        sceneEl.style.webkitMaskImage = "none";
+        if (scrim.current) scrim.current.style.opacity = "1";
+        if (copy.current) {
+          copy.current.style.opacity = "1";
+          copy.current.style.transform = "none";
+          copy.current.inert = false;
         }
-      };
-      introFrame = requestAnimationFrame(play);
-    }
+        return;
+      }
 
-    render();
-    window.addEventListener("scroll", schedule, { passive: true });
-    window.addEventListener("resize", schedule);
-    reduced.addEventListener("change", schedule);
+      const meet = smoothstep(range(progress, [0.05, 0.36]));
+      const zoomT = smoothstep(range(progress, [0.34, 0.84]));
+      const arrive = smoothstep(range(progress, [0.76, 0.92]));
+      const titleFade = smoothstep(range(progress, [0.24, 0.46]));
+      const calm = 1 - smoothstep(range(progress, [0.02, 0.16]));
+      const radius = baseR * Math.pow(coverR / baseR, zoomT);
+      const time = now / 1000;
+      const pulseA = 1 + calm * 0.07 * Math.sin(time * 2.1);
+      const pulseB = 1 + calm * 0.07 * Math.sin(time * 2.1 + 1.35);
+      const restD = baseR * 2 + Math.max(18, baseR * 0.7);
+      const d = restD * (1 - meet) * (1 - zoomT) + radius * 1.05 * (1 - zoomT) * meet;
+      const r1 = radius * pulseA;
+      const r2 = radius * pulseB;
+      const orbFade = 1 - smoothstep(range(zoomT, [0.38, 0.68]));
+
+      placeOrb(blueEl, cx - d / 2, cy, r1, BLUE, orbFade);
+      placeOrb(cyanEl, cx + d / 2, cy, r2, CYAN, orbFade);
+
+      const open = zoomT > 0.97 && d < 2;
+      sceneEl.style.opacity = progress > 0.08 ? "1" : String(meet);
+      sceneEl.style.pointerEvents = arrive > 0.5 ? "auto" : "none";
+      if (open) {
+        sceneEl.style.maskImage = "none";
+        sceneEl.style.webkitMaskImage = "none";
+      } else {
+        const mask = `radial-gradient(circle ${r1}px at ${cx - d / 2}px ${cy}px, #000 98.5%, transparent 100%), radial-gradient(circle ${r2}px at ${cx + d / 2}px ${cy}px, #000 98.5%, transparent 100%)`;
+        sceneEl.style.maskImage = mask;
+        sceneEl.style.webkitMaskImage = mask;
+        sceneEl.style.maskComposite = "intersect";
+        sceneEl.style.webkitMaskComposite = "source-in";
+        sceneEl.style.maskRepeat = "no-repeat";
+        sceneEl.style.webkitMaskRepeat = "no-repeat";
+      }
+      if (world.current) world.current.style.transform = `scale(${1.1 - zoomT * 0.1})`;
+      if (scrim.current) scrim.current.style.opacity = String(arrive);
+      if (title.current) {
+        title.current.style.opacity = String(1 - titleFade);
+        title.current.style.transform = `translateY(${-titleFade * 28}px)`;
+      }
+      if (cue.current) {
+        cue.current.style.opacity = String(1 - smoothstep(range(progress, [0.02, 0.12])));
+        cue.current.inert = progress > 0.08;
+      }
+      if (copy.current) {
+        copy.current.style.opacity = String(arrive);
+        copy.current.style.transform = `translateY(${(1 - arrive) * 28}px)`;
+        copy.current.inert = arrive < 0.5;
+      }
+    };
+
+    const loop = (now: number) => {
+      raf = requestAnimationFrame(loop);
+      if (document.hidden) return;
+      const box = root.getBoundingClientRect();
+      if (box.bottom < -40 || box.top > window.innerHeight + 40) return;
+      render(now);
+    };
+
+    render(performance.now());
+    raf = requestAnimationFrame(loop);
+    const onChange = () => render(performance.now());
+    reduced.addEventListener("change", onChange);
     return () => {
-      cancelAnimationFrame(frame);
-      cancelAnimationFrame(introFrame);
-      floor = 0;
-      html.classList.remove("play-intro");
-      window.removeEventListener("scroll", schedule);
-      window.removeEventListener("resize", schedule);
-      reduced.removeEventListener("change", schedule);
+      cancelAnimationFrame(raf);
+      reduced.removeEventListener("change", onChange);
     };
   }, []);
 
@@ -147,104 +168,64 @@ export function PortalHero({
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const top = window.scrollY + root.getBoundingClientRect().top;
     const span = root.offsetHeight - window.innerHeight;
-    const progress = (window.scrollY - top) / Math.max(1, span);
-    const next = STOPS.find((stop) => stop > progress + 0.01);
-    const destination = next === undefined || reduced ? top + root.offsetHeight : top + span * next;
-    window.scrollTo({ top: destination, behavior: reduced ? "instant" : "smooth" });
+    window.scrollTo({ top: reduced ? top + root.offsetHeight : top + span * 0.9, behavior: reduced ? "instant" : "smooth" });
   };
 
   return (
-    <div className="bg-paper text-ink">
-      <div ref={track} className="h-[460vh] motion-reduce:h-auto">
-        <div className="sticky top-0 isolate h-svh overflow-hidden motion-reduce:relative motion-reduce:h-auto motion-reduce:min-h-svh">
-          <section className="dark absolute inset-0 flex flex-col justify-end bg-black text-ink motion-reduce:relative motion-reduce:min-h-svh">
-            <div aria-hidden className="absolute inset-0">
-              {hero.backgroundImage.src ? (
-                <>
-                  <CmsImage image={hero.backgroundImage} file="home" path="hero.backgroundImage" priority />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/25" />
-                </>
-              ) : (
-                <ConduitCanvas />
-              )}
+    <>
+      <div ref={track} className="h-[300vh] bg-black sm:h-[380vh] motion-reduce:h-auto">
+        <div ref={stage} className="sticky top-0 h-svh overflow-hidden motion-reduce:static motion-reduce:h-auto motion-reduce:overflow-visible">
+          <div aria-hidden className="portal-grain absolute inset-0 motion-reduce:min-h-svh" />
+          <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgb(0_0_0/0.55)_78%,#000_100%)]" />
+
+          <section className="dark absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-ink motion-reduce:relative motion-reduce:min-h-svh motion-reduce:py-32">
+            <h1 ref={title} className="text-display max-w-[9em]">
+              {hero.titleLine1}
+            </h1>
+            <div aria-hidden className="mt-10 flex h-11 items-center justify-center gap-7">
+              <span ref={blue} className="portal-pulse size-11 rounded-full" style={{ background: BLUE, boxShadow: `0 0 22px ${BLUE}` }} />
+              <span ref={cyan} className="portal-pulse size-11 rounded-full [animation-delay:-1.1s]" style={{ background: CYAN, boxShadow: `0 0 22px ${CYAN}` }} />
             </div>
-            <div data-hero-copy="" className="container-site relative flex items-end justify-between gap-6 pb-24 md:pb-28">
-              <h1 className="text-display">
-                <span className="block">{hero.titleLine1}</span>
-                <span className="block text-ink-soft">{hero.titleLine2}</span>
-              </h1>
-              <button
-                type="button"
-                aria-label="Scroll"
-                onClick={scrollOn}
-                className="mb-3 hidden shrink-0 rounded-full p-2 text-ink-soft hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal sm:block"
-              >
-                <span className="softcom-nudge block">
-                  <ArrowDown className="size-5" />
-                </span>
-              </button>
-            </div>
+            <button
+              ref={cue}
+              type="button"
+              onClick={scrollOn}
+              className="label mt-10 inline-flex items-center gap-2 text-white/55 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal"
+            >
+              Scroll
+              <span className="softcom-nudge block">
+                <ArrowDown className="size-4" />
+              </span>
+            </button>
           </section>
 
-          <div
-            ref={missionLayer}
-            aria-label="Our mission"
-            role="group"
-            className="dark invisible absolute inset-0 z-[5] flex flex-col items-center justify-center gap-8 px-6 text-center text-white motion-reduce:visible motion-reduce:relative motion-reduce:min-h-[90vh] motion-reduce:py-24"
+          <section
+            ref={scene}
+            aria-label={hero.titleLine2}
+            className="pointer-events-none absolute inset-0 z-20 overflow-hidden opacity-0 motion-reduce:pointer-events-auto motion-reduce:relative motion-reduce:min-h-svh motion-reduce:opacity-100"
           >
-            <CmsImage image={mission.image} file="home" path="mission.image" className="-z-10 object-cover object-bottom" />
-            <div aria-hidden className="absolute inset-0 -z-10 bg-black/64" />
-            <div ref={missionCopy} className="flex flex-col items-center gap-8 opacity-0 motion-reduce:opacity-100">
-              <img src="/brand/accent-dot.svg" alt="" width={26} height={26} className="size-[26px]" />
-              <h2 className="text-headline max-w-[760px]">{mission.title}</h2>
-              <p className="text-lede max-w-[576px] text-neutral-200">{mission.text}</p>
+            <div ref={world} className="absolute inset-0">
+              <CmsImage image={hero.backgroundImage} file="home" path="hero.backgroundImage" priority className="object-cover" />
+              <div ref={scrim} aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgb(0_0_0/0.62),rgb(0_0_0/0.28)_46%,transparent_72%)] opacity-0 motion-reduce:opacity-100" />
             </div>
-            <div ref={missionCta} className="opacity-0 motion-reduce:opacity-100">
-              <PillLink href={mission.ctaHref}>{mission.ctaLabel}</PillLink>
-            </div>
-          </div>
-
-          <div ref={cover} aria-hidden className="softcom-intro-cover pointer-events-none absolute inset-0 z-[6] bg-brand opacity-0 motion-reduce:hidden" />
-          <canvas ref={wash} aria-hidden className="softcom-intro-wash pointer-events-none absolute inset-0 z-[6] size-full motion-reduce:hidden" />
-
-          <div className="pointer-events-none absolute inset-0 z-[7] flex flex-col items-start justify-center gap-10 px-6 pt-24 pb-12 text-white motion-reduce:pointer-events-auto motion-reduce:relative motion-reduce:min-h-[70vh] motion-reduce:bg-brand motion-reduce:py-16 md:px-[7vw]">
-            <p className="sr-only">{runs.map((run) => run.text).join("")}</p>
-            <p
-              ref={statement}
-              aria-hidden
-              className="max-w-[1140px] font-heading text-[clamp(2.25rem,4.2vw,3.75rem)] leading-[0.95] font-medium"
-            >
-              {runs.map((run) =>
-                [...run.text].map((char, index) =>
-                  char === " " ? (
-                    " "
-                  ) : (
-                    <span
-                      key={`${run.text}-${index}`}
-                      data-ch=""
-                      data-state="hidden"
-                      className={
-                        "relative data-[state=hidden]:text-transparent data-[state=scramble]:text-transparent after:pointer-events-none after:absolute after:inset-0 after:text-signal data-[state=scramble]:after:content-[attr(data-glyph)] " +
-                        (run.accent ? "text-signal" : "")
-                      }
-                    >
-                      {char}
-                    </span>
-                  ),
-                ),
-              )}
-            </p>
-            <div ref={actions} className="pointer-events-auto flex flex-wrap items-center gap-x-8 gap-y-4 opacity-0 motion-reduce:opacity-100">
-              <PillLink href={intro.primaryHref} className="bg-white text-black hover:bg-signal">
-                {intro.primaryLabel}
+            <div ref={copy} className="relative flex h-full flex-col items-center justify-end gap-6 px-6 pb-16 text-center text-white drop-shadow-[0_2px_18px_rgb(0_0_0/0.65)] sm:justify-center sm:pb-0">
+              <h2 className="text-display max-w-[10em]">{hero.titleLine2}</h2>
+              <p className="text-lede max-w-[34rem] text-white/85">{mission.text}</p>
+              <PillLink href={mission.ctaHref} className="bg-white text-black hover:bg-signal">
+                {mission.ctaLabel}
               </PillLink>
-              <ArrowLink href={intro.secondaryHref} className="text-white hover:text-signal">
-                {intro.secondaryLabel}
-              </ArrowLink>
             </div>
-          </div>
+          </section>
         </div>
       </div>
-    </div>
+
+      <section className="container-site flex scroll-mt-24 flex-col items-start gap-8 pt-32 lg:pt-48">
+        <p className="text-title max-w-[46rem] text-ink">{accentText(intro.text)}</p>
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+          <PillLink href={intro.primaryHref}>{intro.primaryLabel}</PillLink>
+          <ArrowLink href={intro.secondaryHref}>{intro.secondaryLabel}</ArrowLink>
+        </div>
+      </section>
+    </>
   );
 }

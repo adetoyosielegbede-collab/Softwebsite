@@ -1,11 +1,11 @@
 {
   "hero": {
-    "titleLine1": "Technology for Organisations.",
-    "titleLine2": "Progress for Society.",
+    "titleLine1": "Technology for organisations",
+    "titleLine2": "Progress for Society",
     "backgroundImage": {
-      "src": "/uploads/shutterstock-557310703-3b782c.jpg",
-      "alt": "People arriving at a civic building at dusk, the city lit beyond the water",
-      "position": "50% 42%"
+      "src": "/images/market-aerial.jpg",
+      "alt": "A city market in full trade, stalls and people filling the street",
+      "position": "50% 40%"
     }
   },
   "intro": {

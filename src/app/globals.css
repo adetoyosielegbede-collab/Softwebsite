@@ -235,6 +235,25 @@
 .softcom-nudge {
   animation: softcom-nudge 2.4s cubic-bezier(0.62, 0.16, 0.13, 1.01) 1.2s infinite;
 }
+.portal-grain {
+  background-color: #050505;
+  background-image:
+    radial-gradient(circle, rgb(255 255 255 / 0.2) 0.6px, transparent 1.15px),
+    radial-gradient(circle, rgb(255 255 255 / 0.09) 1px, transparent 1.7px);
+  background-size: 5px 5px, 19px 19px;
+  animation: portal-grain 22s linear infinite;
+}
+.portal-pulse {
+  animation: portal-pulse 2.8s ease-in-out infinite;
+}
+@keyframes portal-grain {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 90px 54px, -40px 28px; }
+}
+@keyframes portal-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
 .rise-in {
   animation: rise-in 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -255,7 +274,9 @@ header[data-hidden] {
 }
 @media (prefers-reduced-motion: reduce) {
   .softcom-nudge,
-  .rise-in {
+  .rise-in,
+  .portal-grain,
+  .portal-pulse {
     animation: none;
   }
   .softcom-color-reveal img {
