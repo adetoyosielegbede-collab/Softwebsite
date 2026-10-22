@@ -2,7 +2,7 @@
   "hero": {
     "titleLine1": "Technology for organisations",
     "titleLine2": "Progress for Society",
-    "imageMode": false,
+    "imageMode": true,
     "backgroundImage": {
       "src": "/images/field-enrolment.jpg",
       "alt": "A field officer enrolling a woman in a rural community",
