@@ -84,17 +84,17 @@
   "partners": [
     { "name": "GB Foods", "logo": { "src": "/partners/gb-foods.svg", "alt": "GB Foods" }, "width": 77, "height": 45 },
     { "name": "Ardova Plc", "logo": { "src": "/partners/ardova-colour.png", "alt": "Ardova Plc" }, "width": 43, "height": 52 },
-    { "name": "Honeywell Flour Mills", "logo": { "src": "/partners/honeywell-flour-mills-colour.png", "alt": "Honeywell Flour Mills" }, "width": 70, "height": 49 },
+    { "name": "Honeywell Flour Mills", "logo": { "src": "/partners/honeywell-flour-mills-clear.png", "alt": "Honeywell Flour Mills" }, "width": 70, "height": 49 },
     { "name": "MTN Nigeria", "logo": { "src": "/partners/mtn-colour.png", "alt": "MTN Nigeria" }, "width": 82, "height": 41 },
     { "name": "Bank of Industry", "logo": { "src": "/partners/bank-of-industry-colour.png", "alt": "Bank of Industry" }, "width": 140, "height": 28 },
-    { "name": "Rockefeller Philanthropy Advisors", "logo": { "src": "/partners/rockefeller-philanthropy-advisors-colour.png", "alt": "Rockefeller Philanthropy Advisors" }, "width": 114, "height": 30 },
+    { "name": "Rockefeller Philanthropy Advisors", "logo": { "src": "/partners/rockefeller-philanthropy-advisors-clear.png", "alt": "Rockefeller Philanthropy Advisors" }, "width": 114, "height": 30 },
     { "name": "GSK", "logo": { "src": "/partners/gsk.svg", "alt": "GSK" }, "width": 103, "height": 32 },
     { "name": "FCCPC", "logo": { "src": "/partners/fccpc-colour.png", "alt": "FCCPC" }, "width": 73, "height": 46 },
     { "name": "NIBSS", "logo": { "src": "/partners/nibss-colour.png", "alt": "NIBSS" }, "width": 74, "height": 45 },
     { "name": "SPAR Nigeria", "logo": { "src": "/partners/spar-colour.png", "alt": "SPAR Nigeria" }, "width": 142, "height": 28 },
     { "name": "NAICOM", "logo": { "src": "/partners/naicom-colour.png", "alt": "NAICOM" }, "width": 49, "height": 52 },
     { "name": "NLNG", "logo": { "src": "/partners/nlng-colour.png", "alt": "NLNG" }, "width": 67, "height": 50 },
-    { "name": "Office of the Secretary to the Government of the Federation", "logo": { "src": "/partners/osgf-colour.png", "alt": "Office of the Secretary to the Government of the Federation" }, "width": 152, "height": 28 },
+    { "name": "Office of the Secretary to the Government of the Federation", "logo": { "src": "/partners/osgf-colour.png", "alt": "Office of the Secretary to the Government of the Federation" }, "darkLogo": { "src": "/partners/osgf-white.png", "alt": "Office of the Secretary to the Government of the Federation" }, "width": 152, "height": 28 },
     { "name": "ARM", "logo": { "src": "/partners/arm-colour.png", "alt": "ARM" }, "width": 107, "height": 32 }
   ],
   "typography": {

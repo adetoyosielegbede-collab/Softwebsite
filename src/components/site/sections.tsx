@@ -126,27 +126,32 @@ export function Stats({ stats, count = false }: { stats: SiteContent["stats"]; c
 
 export function PartnerMarquee({ partners }: { partners: SiteContent["partners"] }) {
   const row = (hidden: boolean) =>
-    partners.map((p, i) => (
-      <li key={`${p.name}-${hidden}`} aria-hidden={hidden || undefined} className="flex h-20 shrink-0 items-center rounded-2xl bg-white px-7 ring-1 ring-black/5 lg:h-24 lg:px-9">
-        {p.logo.src && (
-          <Image
-            src={p.logo.src}
-            alt={hidden ? "" : p.logo.alt || p.name}
-            title={p.name}
-            width={p.width}
-            height={p.height}
-            unoptimized={p.logo.src.endsWith(".svg")}
-            data-cms-file={hidden ? undefined : "site"}
-            data-cms-path={hidden ? undefined : `partners.${i}.logo`}
-            className="block object-contain"
-            style={{ width: p.width, height: p.height }}
-          />
-        )}
-      </li>
-    ));
+    partners.map((p, i) => {
+      const dark = p.darkLogo?.src ? p.darkLogo : null;
+      const logo = (image: NonNullable<typeof dark>, field: string, className: string) => (
+        <Image
+          src={image.src}
+          alt={hidden ? "" : image.alt || p.name}
+          title={p.name}
+          width={p.width}
+          height={p.height}
+          unoptimized={image.src.endsWith(".svg")}
+          data-cms-file={hidden ? undefined : "site"}
+          data-cms-path={hidden ? undefined : `partners.${i}.${field}`}
+          className={`object-contain ${className}`}
+          style={{ width: p.width, height: p.height }}
+        />
+      );
+      return (
+        <li key={`${p.name}-${hidden}`} aria-hidden={hidden || undefined} className="flex shrink-0 items-center">
+          {p.logo.src && logo(p.logo, "logo", dark ? "block dark:hidden" : "block")}
+          {dark && logo(dark, "darkLogo", "hidden dark:block")}
+        </li>
+      );
+    });
   return (
     <div className="relative overflow-hidden py-3 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
-      <ul className="flex w-max animate-marquee items-center gap-4 pr-4 hover:[animation-play-state:paused] lg:gap-5 lg:pr-5">
+      <ul className="flex w-max animate-marquee items-center gap-16 pr-16 hover:[animation-play-state:paused] lg:gap-24 lg:pr-24">
         {row(false)}
         {row(true)}
       </ul>
