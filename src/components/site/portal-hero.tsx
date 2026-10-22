@@ -13,8 +13,7 @@ const GLYPHS = ["▖", "▗", "▘", "▝", "▚", "▞", "▙", "▟"];
 const WASH_IN: [number, number] = [0.08, 0.24];
 const SCRAMBLE: [number, number] = [0.22, 0.4];
 const ACTIONS: [number, number] = [0.36, 0.44];
-const WASH_OUT: [number, number] = [0.58, 0.78];
-const STATEMENT_OUT: [number, number] = [0.6, 0.7];
+const WASH_END = 0.6;
 
 type Run = { text: string; accent: boolean };
 
@@ -61,6 +60,7 @@ export function PortalHero({
 }) {
   const track = useRef<HTMLDivElement>(null);
   const stage = useRef<HTMLDivElement>(null);
+  const opening = useRef<HTMLElement>(null);
   const title = useRef<HTMLHeadingElement>(null);
   const cue = useRef<HTMLButtonElement>(null);
   const blue = useRef<HTMLSpanElement>(null);
@@ -108,13 +108,14 @@ export function PortalHero({
       const still = reduced.matches;
       const width = frame.clientWidth;
       const height = frame.clientHeight;
-      const washP = still ? 1 : range(progress, [0.66, 1]);
-      const fading = smoothstep(range(washP, WASH_OUT));
-      const washAmount = still ? 0 : washP < WASH_OUT[0] ? smoothstep(range(washP, WASH_IN)) : 1 - fading;
-      const cover = 1 - washAmount;
+      const washP = still ? 1 : range(progress, [0.66, 1]) * WASH_END;
+      const washAmount = still ? 0 : smoothstep(range(washP, WASH_IN));
+      const behindWash = !still && washP >= WASH_IN[1];
+      const cover = behindWash ? 0 : 1 - washAmount;
       const landed = still ? 1 : smoothstep(range(progress, [0.22, 0.34]));
       const reveal = still ? 1 : range(progress, [0.4, 0.6]);
       paintArrival(landed, reveal, cover);
+      if (opening.current) opening.current.style.visibility = behindWash ? "hidden" : "visible";
 
       if (still) {
         sceneEl.style.opacity = "1";
@@ -151,7 +152,7 @@ export function PortalHero({
       placeOrb(cyanEl, cx + d / 2, cy, r2, CYAN, orbFade);
 
       const open = zoomT > 0.97 && d < 2;
-      sceneEl.style.opacity = progress > 0.05 ? "1" : String(meet);
+      sceneEl.style.opacity = behindWash ? "0" : progress > 0.05 ? "1" : String(meet);
       if (open) {
         sceneEl.style.maskImage = "none";
         sceneEl.style.webkitMaskImage = "none";
@@ -176,7 +177,6 @@ export function PortalHero({
 
       field?.resize();
       field?.draw(washAmount);
-      const statementFade = smoothstep(range(washP, STATEMENT_OUT));
       const cursor = range(washP, SCRAMBLE) * (chars.length + 14);
       for (let i = 0; i < chars.length; i++) {
         const state = i < cursor - 14 ? "done" : i < cursor ? "scramble" : "hidden";
@@ -184,8 +184,8 @@ export function PortalHero({
         if (el.dataset.state !== state) el.dataset.state = state;
         if (state === "scramble") el.dataset.glyph = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
       }
-      if (statement.current) statement.current.style.opacity = String(1 - statementFade);
-      const actionAmount = smoothstep(range(washP, ACTIONS)) * (1 - statementFade);
+      if (statement.current) statement.current.style.opacity = "1";
+      const actionAmount = smoothstep(range(washP, ACTIONS));
       if (actions.current) {
         actions.current.style.opacity = String(actionAmount);
         actions.current.style.transform = `translateY(${(1 - actionAmount) * 16}px)`;
@@ -221,11 +221,11 @@ export function PortalHero({
   };
 
   return (
-    <div ref={track} className="h-[520vh] bg-black sm:h-[640vh] motion-reduce:h-auto motion-reduce:bg-transparent">
+    <div ref={track} className="h-[520vh] bg-paper sm:h-[640vh] motion-reduce:h-auto motion-reduce:bg-transparent">
       <div ref={stage} className="sticky top-0 h-svh overflow-hidden motion-reduce:static motion-reduce:h-auto motion-reduce:overflow-visible">
-        <section className="dark absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-ink motion-reduce:relative motion-reduce:min-h-svh motion-reduce:py-32">
+        <section ref={opening} className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-ink motion-reduce:relative motion-reduce:min-h-svh motion-reduce:py-32">
           <div aria-hidden className="portal-grain absolute inset-0" />
-          <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgb(0_0_0/0.55)_78%,#000_100%)]" />
+          <div aria-hidden className="portal-vignette absolute inset-0" />
           <h1 ref={title} className="text-display relative max-w-[9em]">
             {hero.titleLine1}
           </h1>
@@ -238,7 +238,7 @@ export function PortalHero({
             type="button"
             aria-label="Scroll"
             onClick={scrollOn}
-            className="absolute bottom-6 left-1/2 z-40 -translate-x-1/2 rounded-full p-2 text-white/70 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal motion-reduce:hidden"
+            className="absolute bottom-6 left-1/2 z-40 -translate-x-1/2 rounded-full p-2 text-ink/70 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal motion-reduce:hidden"
           >
             <span className="softcom-nudge block">
               <ArrowDown className="size-5" />
@@ -249,16 +249,16 @@ export function PortalHero({
         <section
           ref={scene}
           aria-label={hero.titleLine2}
-          className="dark pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center overflow-hidden px-6 text-center text-ink opacity-0 motion-reduce:relative motion-reduce:min-h-svh motion-reduce:opacity-100 motion-reduce:py-32"
+          className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center overflow-hidden px-6 text-center text-ink opacity-0 motion-reduce:relative motion-reduce:min-h-svh motion-reduce:opacity-100 motion-reduce:py-32"
         >
           <div aria-hidden className="portal-grain absolute inset-0" />
-          <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgb(0_0_0/0.55)_78%,#000_100%)]" />
+          <div aria-hidden className="portal-vignette absolute inset-0" />
           <h2 ref={headline} className="text-display relative max-w-[9em] opacity-0 motion-reduce:opacity-100">
             <span className="block">{lead}</span>
             {tail ? <span className="block">{tail}</span> : null}
           </h2>
           <div className="relative mt-10 h-11 w-full max-w-[34rem]">
-            <p ref={sub} className="text-lede absolute inset-x-0 top-0 text-white/80">
+            <p ref={sub} className="text-lede absolute inset-x-0 top-0 text-ink/80">
               {words.map((word, index) => (
                 <span
                   key={`${word}-${index}`}
@@ -281,7 +281,7 @@ export function PortalHero({
           <p
             ref={statement}
             aria-hidden
-            className="max-w-[1140px] font-heading text-[clamp(2.25rem,4.2vw,3.75rem)] leading-[0.95] font-medium"
+            className="max-w-[1140px] font-heading text-[clamp(2.25rem,4.2vw,3.75rem)] leading-[0.95] heading-type"
           >
             {runs.map((run) =>
               [...run.text].map((char, index) =>
