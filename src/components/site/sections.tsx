@@ -127,7 +127,7 @@ export function Stats({ stats, count = false }: { stats: SiteContent["stats"]; c
 export function PartnerMarquee({ partners }: { partners: SiteContent["partners"] }) {
   const row = (hidden: boolean) =>
     partners.map((p, i) => (
-      <li key={`${p.name}-${hidden}`} aria-hidden={hidden || undefined} className="flex shrink-0 items-center">
+      <li key={`${p.name}-${hidden}`} aria-hidden={hidden || undefined} className="flex h-20 shrink-0 items-center rounded-2xl bg-white px-7 ring-1 ring-black/5 lg:h-24 lg:px-9">
         {p.logo.src && (
           <Image
             src={p.logo.src}
@@ -138,7 +138,7 @@ export function PartnerMarquee({ partners }: { partners: SiteContent["partners"]
             unoptimized={p.logo.src.endsWith(".svg")}
             data-cms-file={hidden ? undefined : "site"}
             data-cms-path={hidden ? undefined : `partners.${i}.logo`}
-            className="block object-contain opacity-55 brightness-0 transition-opacity hover:opacity-100 dark:invert"
+            className="block object-contain"
             style={{ width: p.width, height: p.height }}
           />
         )}
@@ -146,7 +146,7 @@ export function PartnerMarquee({ partners }: { partners: SiteContent["partners"]
     ));
   return (
     <div className="relative overflow-hidden py-3 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
-      <ul className="flex w-max animate-marquee items-center gap-16 pr-16 hover:[animation-play-state:paused] lg:gap-24 lg:pr-24">
+      <ul className="flex w-max animate-marquee items-center gap-4 pr-4 hover:[animation-play-state:paused] lg:gap-5 lg:pr-5">
         {row(false)}
         {row(true)}
       </ul>
