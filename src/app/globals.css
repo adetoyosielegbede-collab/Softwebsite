@@ -8,9 +8,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-general-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-body-choice, var(--font-general-sans)), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-azeret-mono), ui-monospace, monospace;
-  --font-heading: var(--font-general-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-heading-choice, var(--font-general-sans)), ui-sans-serif, system-ui, sans-serif;
 
   --color-paper: var(--paper);
   --color-surface: var(--surface);
@@ -151,12 +151,19 @@
   }
   body {
     @apply bg-paper text-ink;
+    font-weight: var(--body-weight, 400);
+    font-style: var(--body-style, normal);
     -webkit-font-smoothing: antialiased;
   }
   ::selection {
     background: var(--color-signal);
     color: #000;
   }
+}
+
+@utility heading-type {
+  font-weight: var(--heading-weight, 500);
+  font-style: var(--heading-style, normal);
 }
 
 @layer components {
@@ -176,12 +183,15 @@
     @apply text-ink-soft;
   }
   .display {
-    @apply font-heading font-medium text-balance;
+    @apply font-heading text-balance;
+    font-weight: var(--heading-weight, 500);
+    font-style: var(--heading-style, normal);
   }
   /* Foundry type scale. One step at 48rem. Headings are medium, body is compact. */
   .text-display {
     font-family: var(--font-heading);
-    font-weight: 500;
+    font-weight: var(--heading-weight, 500);
+    font-style: var(--heading-style, normal);
     font-size: 2.25rem;
     line-height: 0.95;
     letter-spacing: 0;
@@ -189,7 +199,8 @@
   }
   .text-headline {
     font-family: var(--font-heading);
-    font-weight: 500;
+    font-weight: var(--heading-weight, 500);
+    font-style: var(--heading-style, normal);
     font-size: 2rem;
     line-height: 1;
     letter-spacing: 0;
@@ -197,19 +208,22 @@
   }
   .text-title {
     font-family: var(--font-heading);
-    font-weight: 500;
+    font-weight: var(--heading-weight, 500);
+    font-style: var(--heading-style, normal);
     font-size: 1.5rem;
     line-height: 1;
   }
   .text-lede {
     font-size: 0.875rem;
     line-height: 1.2;
-    font-weight: 400;
+    font-weight: var(--body-weight, 400);
+    font-style: var(--body-style, normal);
   }
   .text-body {
     font-size: 0.875rem;
     line-height: 1.2;
-    font-weight: 400;
+    font-weight: var(--body-weight, 400);
+    font-style: var(--body-style, normal);
   }
   @media (min-width: 48rem) {
     .eyebrow,
@@ -235,11 +249,28 @@
 .softcom-nudge {
   animation: softcom-nudge 2.4s cubic-bezier(0.62, 0.16, 0.13, 1.01) 1.2s infinite;
 }
+:root {
+  --portal-ground: #f5f4f0;
+  --portal-dot: rgb(12 12 13 / 0.22);
+  --portal-dot-soft: rgb(12 12 13 / 0.1);
+  --portal-edge: rgb(255 255 255 / 0.6);
+  --portal-rim: #ffffff;
+}
+.dark {
+  --portal-ground: #050505;
+  --portal-dot: rgb(255 255 255 / 0.2);
+  --portal-dot-soft: rgb(255 255 255 / 0.09);
+  --portal-edge: rgb(0 0 0 / 0.55);
+  --portal-rim: #000000;
+}
+.portal-vignette {
+  background: radial-gradient(ellipse at center, transparent 30%, var(--portal-edge) 78%, var(--portal-rim) 100%);
+}
 .portal-grain {
-  background-color: #050505;
+  background-color: var(--portal-ground);
   background-image:
-    radial-gradient(circle, rgb(255 255 255 / 0.2) 0.6px, transparent 1.15px),
-    radial-gradient(circle, rgb(255 255 255 / 0.09) 1px, transparent 1.7px);
+    radial-gradient(circle, var(--portal-dot) 0.6px, transparent 1.15px),
+    radial-gradient(circle, var(--portal-dot-soft) 1px, transparent 1.7px);
   background-size: 5px 5px, 19px 19px;
   animation: portal-grain 22s linear infinite;
 }
