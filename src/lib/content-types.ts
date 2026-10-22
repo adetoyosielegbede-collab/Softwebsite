@@ -33,7 +33,7 @@ export type SiteContent = {
   menuFeature: { eyebrow: string; title: string; image: CmsImage; ctaLabel: string; ctaHref: string };
   footer: { eyebrow: string; copyright: string };
   stats: { value: string; label: string }[];
-  partners: { name: string; logo: CmsImage; darkLogo?: CmsImage; width: number; height: number }[];
+  partners: { name: string; logo: CmsImage; width: number; height: number }[];
   seo: { title: string; description: string; shareImage: CmsImage };
   typography?: Partial<Typography>;
 };
