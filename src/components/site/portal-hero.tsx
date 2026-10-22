@@ -251,21 +251,31 @@ export function PortalHero({
         <section
           ref={scene}
           aria-label={hero.titleLine2}
-          className="portal-invert pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center overflow-hidden px-6 text-center text-ink opacity-0 motion-reduce:relative motion-reduce:min-h-svh motion-reduce:opacity-100 motion-reduce:py-32"
+          style={imageMode ? ({ "--ink": "#fafafa" } as React.CSSProperties) : undefined}
+          className={
+            (imageMode ? "" : "portal-invert ") +
+            "pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center overflow-hidden px-6 text-center text-ink opacity-0 motion-reduce:relative motion-reduce:min-h-svh motion-reduce:opacity-100 motion-reduce:py-32"
+          }
         >
           {imageMode ? (
-            <CmsImage image={hero.backgroundImage} file="home" path="hero.backgroundImage" />
+            <>
+              <CmsImage image={hero.backgroundImage} file="home" path="hero.backgroundImage" />
+              <div
+                aria-hidden
+                className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgb(0_0_0/0.55)_0%,rgb(0_0_0/0.4)_55%,rgb(0_0_0/0.65)_100%)]"
+              />
+            </>
           ) : (
             <>
               <div aria-hidden className="portal-grain absolute inset-0" />
               <div aria-hidden className="portal-vignette absolute inset-0" />
             </>
           )}
-          <h2 ref={headline} className={"text-display relative max-w-[9em] opacity-0 motion-reduce:opacity-100" + (imageMode ? " sr-only" : "")}>
+          <h2 ref={headline} className="text-display relative max-w-[9em] opacity-0 motion-reduce:opacity-100">
             <span className="block">{lead}</span>
             {tail ? <span className="block">{tail}</span> : null}
           </h2>
-          <div className={"relative mt-10 h-11 w-full max-w-[34rem]" + (imageMode ? " sr-only" : "")}>
+          <div className="relative mt-10 h-11 w-full max-w-[34rem]">
             <p ref={sub} className="text-lede absolute inset-x-0 top-0 text-ink/80">
               {words.map((word, index) => (
                 <span
