@@ -62,7 +62,7 @@ export function ScrollWords({
   return (
     <div ref={ref} className={cn("flex flex-col gap-8", className)}>
       {paragraphs.map((paragraph) => (
-        <p key={paragraph} className={cn("text-title text-ink", paragraphClassName)}>
+        <p key={paragraph} className={cn("text-ink", paragraphClassName ?? "text-title")}>
           {paragraph.split(" ").map((word, index, all) => (
             <span key={`${word}-${index}`} data-word="" style={{ opacity: 0.16 }}>
               {word}
