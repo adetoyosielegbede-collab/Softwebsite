@@ -1,12 +1,18 @@
 {
-  "seo": { "title": "Solutions", "description": "Technology and expertise for your most important work: digital infrastructure, applied intelligence and powering initiatives." },
+  "seo": {
+    "title": "Solutions",
+    "description": "Technology and expertise for your most important work: digital infrastructure, applied intelligence and powering initiatives."
+  },
   "hero": {
     "eyebrow": "",
     "title": "Technology and expertise for your most important work.",
     "text": "",
     "ctaLabel": "Start a conversation",
     "ctaHref": "/contact",
-    "backgroundImage": { "src": "", "alt": "" }
+    "backgroundImage": {
+      "src": "",
+      "alt": ""
+    }
   },
   "intro": {
     "badge": "Our Solutions",
@@ -15,7 +21,10 @@
       "Whether you have a defined requirement, a challenge to work through or an opportunity to explore, we bring together the technology, people and processes needed to develop and deliver the answer."
     ],
     "textStyle": "Headline",
-    "fontSize": { "desktopPx": 0, "mobilePx": 0 }
+    "fontSize": {
+      "desktopPx": 0,
+      "mobilePx": 0
+    }
   },
   "infrastructure": {
     "number": "01 / 03",
@@ -28,19 +37,28 @@
         "label": "Identity and access",
         "title": "Identity and access",
         "text": "Register and verify people, organisations or assets, and establish their access to services.",
-        "image": { "src": "/media/solutions/infrastructure-identity.png", "alt": "Isometric city block highlighting the registration office where people are verified" }
+        "image": {
+          "src": "/media/solutions/infrastructure-identity.png",
+          "alt": "Isometric city block highlighting the registration office where people are verified"
+        }
       },
       {
         "label": "Records and operations",
         "title": "Records and operations",
         "text": "Maintain a shared record of participants, cases and activities, so work moves between teams, systems and partner organisations without duplicate data entry or loss of information.",
-        "image": { "src": "/media/solutions/infrastructure-records.png", "alt": "Isometric city block highlighting the shared record data hall" }
+        "image": {
+          "src": "/media/solutions/infrastructure-records.png",
+          "alt": "Isometric city block highlighting the shared record data hall"
+        }
       },
       {
         "label": "Services and transactions",
         "title": "Services and transactions",
         "text": "Turn eligibility rules, approvals and completed activities into access, service delivery or payments.",
-        "image": { "src": "/media/solutions/infrastructure-services.png", "alt": "Isometric city block highlighting services and settled payments" }
+        "image": {
+          "src": "/media/solutions/infrastructure-services.png",
+          "alt": "Isometric city block highlighting services and settled payments"
+        }
       }
     ],
     "statement": "These capabilities can form the operating foundation of an entire institution or shared rails through which many organisations serve their users.",
@@ -68,14 +86,53 @@
     "eyebrow": "Five kinds of intelligence",
     "intro": "Across documents, records and datasets, our technology makes it possible to examine information at a depth and scale that manual review cannot sustain. It helps people connect evidence, investigate activity, understand relationships and determine what requires action.",
     "items": [
-      { "title": "Audit Intelligence", "text": "Equip audit teams to examine evidence, test records, reconcile discrepancies and develop findings against the objectives of an audit. Across financial, operational and forensic audits, our systems connect the information and investigative capabilities needed to conduct the work thoroughly.", "image": { "src": "/media/solutions/intelligence-audit.png", "alt": "Isometric illustration of an audit office with a document stack" } },
-      { "title": "Financial Intelligence", "text": "Follow the money. Trace flows of funds, examine the relationships behind transactions and understand patterns of financial activity. Give organisations with financial oversight the capabilities to identify and investigate movements that require attention.", "image": { "src": "/media/solutions/intelligence-financial.png", "alt": "Isometric illustration of connected nodes tracing money flows" } },
-      { "title": "Market Intelligence", "text": "Understand consumer behaviour, competitive dynamics and emerging opportunities. Connect market signals and evidence to the decisions that shape how an organisation competes, serves its customers and grows.", "image": { "src": "/media/solutions/intelligence-market.png", "alt": "Isometric illustration of a market with rising bar charts" } },
-      { "title": "Regulatory Intelligence", "text": "Give regulators the capabilities to examine the organisations and activities under their oversight. Bring paper records, digital submissions and information from third-party systems into a form that supports scrutiny, assessment and follow-up.", "image": { "src": "/media/solutions/intelligence-regulatory.png", "alt": "Isometric illustration of a regulator's building" } },
-      { "title": "Societal Intelligence", "text": "Build a connected understanding of a society, state or jurisdiction: its people, institutions, resources and economic activity. Reveal local differences, opportunities and issues requiring attention to inform the work of governments, investors and development organisations.", "image": { "src": "/media/solutions/intelligence-societal.png", "alt": "Isometric illustration of a grid of districts with one highlighted" } }
+      {
+        "title": "Audit Intelligence",
+        "text": "Equip audit teams to examine evidence, test records, reconcile discrepancies and develop findings against the objectives of an audit. Across financial, operational and forensic audits, our systems connect the information and investigative capabilities needed to conduct the work thoroughly.",
+        "image": {
+          "src": "/media/solutions/intelligence-audit.png",
+          "alt": "Isometric illustration of an audit office with a document stack"
+        }
+      },
+      {
+        "title": "Financial Intelligence",
+        "text": "Follow the money. Trace flows of funds, examine the relationships behind transactions and understand patterns of financial activity. Give organisations with financial oversight the capabilities to identify and investigate movements that require attention.",
+        "image": {
+          "src": "/media/solutions/intelligence-financial.png",
+          "alt": "Isometric illustration of connected nodes tracing money flows"
+        }
+      },
+      {
+        "title": "Market Intelligence",
+        "text": "Understand consumer behaviour, competitive dynamics and emerging opportunities. Connect market signals and evidence to the decisions that shape how an organisation competes, serves its customers and grows.",
+        "image": {
+          "src": "/media/solutions/intelligence-market.png",
+          "alt": "Isometric illustration of a market with rising bar charts"
+        }
+      },
+      {
+        "title": "Regulatory Intelligence",
+        "text": "Give regulators the capabilities to examine the organisations and activities under their oversight. Bring paper records, digital submissions and information from third-party systems into a form that supports scrutiny, assessment and follow-up.",
+        "image": {
+          "src": "/media/solutions/intelligence-regulatory.png",
+          "alt": "Isometric illustration of a regulator's building"
+        }
+      },
+      {
+        "title": "Societal Intelligence",
+        "text": "Build a connected understanding of a society, state or jurisdiction: its people, institutions, resources and economic activity. Reveal local differences, opportunities and issues requiring attention to inform the work of governments, investors and development organisations.",
+        "image": {
+          "src": "/media/solutions/intelligence-societal.png",
+          "alt": "Isometric illustration of a grid of districts with one highlighted"
+        }
+      }
     ],
     "shapedTitle": "Shaped around the work",
-    "shapedItems": ["The mandate of its users", "The evidence they need", "The decisions they must make"],
+    "shapedItems": [
+      "The mandate of its users",
+      "The evidence they need",
+      "The decisions they must make"
+    ],
     "shapedText": "We bring together the relevant information sources, analytical capabilities and workflows, with access tailored to each user’s role and responsibilities.",
     "ctaLabel": "Explore our enterprise products",
     "ctaHref": "/enterprise-products"
@@ -85,24 +142,50 @@
     "title": "Powering Initiatives",
     "lead": "Softcom brings its full capability to complex initiatives: research, design, technology, people and operational expertise.",
     "figureLabel": "An initiative in the field",
-    "figure": { "src": "/media/solutions/initiative-in-the-field.png", "alt": "Isometric illustration of an initiative in the field: enrolment, training, deployment, payments and results" },
+    "figure": {
+      "src": "/media/solutions/initiative-in-the-field.png",
+      "alt": "Isometric illustration of an initiative in the field: enrolment, training, deployment, payments and results"
+    },
     "entrustTitle": "What you can entrust to us",
     "entrustText": "Our involvement follows the initiative’s needs. We deliver directly, manage partners or combine both, with clear responsibility for execution and results.",
-    "entrustItems": ["Initiative design", "Participant recruitment", "Technology deployment", "Field operations", "Training", "Payment coordination", "Results assessment"],
+    "entrustItems": [
+      "Initiative design",
+      "Participant recruitment",
+      "Technology deployment",
+      "Field operations",
+      "Training",
+      "Payment coordination",
+      "Results assessment"
+    ],
     "phasesBadge": "Phases",
     "phasesTitle": "How we deliver",
     "phases": [
-      { "title": "Discovery", "text": "Understand the intended outcome, the people involved and the operating environment. Assess existing systems and establish what capabilities are needed." },
-      { "title": "Design", "text": "Design the technology, workflows and delivery plan together. Define how participants will be reached and served, how information and payments will move, and who is responsible at each stage." },
-      { "title": "Deployment & Operations", "text": "Deploy and connect the systems, prepare teams and run operations. Use shared information to coordinate partners and keep field activities, services and payments on schedule." },
-      { "title": "Impact & Scale", "text": "Use delivery data and participant feedback to assess results and improve the approach. Determine what the technology and operations need to support greater reach." }
+      {
+        "title": "Discovery",
+        "text": "Understand the intended outcome, the people involved and the operating environment. Assess existing systems and establish what capabilities are needed."
+      },
+      {
+        "title": "Design",
+        "text": "Design the technology, workflows and delivery plan together. Define how participants will be reached and served, how information and payments will move, and who is responsible at each stage."
+      },
+      {
+        "title": "Deployment & Operations",
+        "text": "Deploy and connect the systems, prepare teams and run operations. Use shared information to coordinate partners and keep field activities, services and payments on schedule."
+      },
+      {
+        "title": "Impact & Scale",
+        "text": "Use delivery data and participant feedback to assess results and improve the approach. Determine what the technology and operations need to support greater reach."
+      }
     ],
     "closing": "We stay accountable for what the initiative achieves, not only for what we build.",
     "ctaLabel": "Discuss an initiative",
     "ctaHref": "/contact"
   },
   "cta": {
-    "image": { "src": "/images/market-aerial.jpg", "alt": "Aerial view of a busy open-air market in Lagos" },
+    "image": {
+      "src": "/uploads/hf-20261022-221242-2753ae25-30a6-4e48-aa6f-07982-fc1d62.png",
+      "alt": "Aerial view of a busy open-air market in Lagos"
+    },
     "title": "Not sure where to start?",
     "text": "Most of our engagements begin with a conversation. Tell us what you’re trying to solve; we will tell you honestly whether we can help.",
     "ctaLabel": "Start a conversation",
