@@ -22,8 +22,8 @@
     ],
     "textStyle": "Headline",
     "fontSize": {
-      "desktopPx": 0,
-      "mobilePx": 0
+      "desktopPx": 30,
+      "mobilePx": 24
     }
   },
   "infrastructure": {
