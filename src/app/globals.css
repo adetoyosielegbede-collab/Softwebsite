@@ -192,7 +192,7 @@
     font-family: var(--font-heading);
     font-weight: var(--heading-weight, 500);
     font-style: var(--heading-style, normal);
-    font-size: 2.25rem;
+    font-size: var(--block-size-sm, var(--size-display-sm, 2.25rem));
     line-height: 0.95;
     letter-spacing: 0;
     text-wrap: balance;
@@ -201,7 +201,7 @@
     font-family: var(--font-heading);
     font-weight: var(--heading-weight, 500);
     font-style: var(--heading-style, normal);
-    font-size: 2rem;
+    font-size: var(--block-size-sm, var(--size-headline-sm, 2rem));
     line-height: 1;
     letter-spacing: 0;
     text-wrap: balance;
@@ -210,17 +210,17 @@
     font-family: var(--font-heading);
     font-weight: var(--heading-weight, 500);
     font-style: var(--heading-style, normal);
-    font-size: 1.5rem;
+    font-size: var(--block-size-sm, var(--size-title-sm, 1.5rem));
     line-height: 1;
   }
   .text-lede {
-    font-size: 0.875rem;
+    font-size: var(--block-size-sm, var(--size-lede-sm, 0.875rem));
     line-height: 1.2;
     font-weight: var(--body-weight, 400);
     font-style: var(--body-style, normal);
   }
   .text-body {
-    font-size: 0.875rem;
+    font-size: var(--block-size-sm, var(--size-body-sm, 0.875rem));
     line-height: 1.2;
     font-weight: var(--body-weight, 400);
     font-style: var(--body-style, normal);
@@ -228,11 +228,11 @@
   @media (min-width: 48rem) {
     .eyebrow,
     .label { font-size: 0.75rem; }
-    .text-display { font-size: 3.75rem; }
-    .text-headline { font-size: 3.125rem; }
-    .text-title { font-size: 1.875rem; }
-    .text-lede,
-    .text-body { font-size: 1rem; }
+    .text-display { font-size: var(--block-size, var(--size-display, 3.75rem)); }
+    .text-headline { font-size: var(--block-size, var(--size-headline, 3.125rem)); }
+    .text-title { font-size: var(--block-size, var(--size-title, 1.875rem)); }
+    .text-lede { font-size: var(--block-size, var(--size-lede, 1rem)); }
+    .text-body { font-size: var(--block-size, var(--size-body, 1rem)); }
   }
   .dot-grid {
     background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 22%, transparent) 1.1px, transparent 1.5px);

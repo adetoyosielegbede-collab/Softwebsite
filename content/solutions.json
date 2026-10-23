@@ -13,7 +13,9 @@
     "paragraphs": [
       "Softcom builds the systems people use to access services and transact, the intelligence organisations need to understand complex information, and the capabilities required to deliver large-scale initiatives.",
       "Whether you have a defined requirement, a challenge to work through or an opportunity to explore, we bring together the technology, people and processes needed to develop and deliver the answer."
-    ]
+    ],
+    "textStyle": "Headline",
+    "fontSize": { "desktopPx": 0, "mobilePx": 0 }
   },
   "infrastructure": {
     "number": "01 / 03",

@@ -103,7 +103,14 @@
     "headingStyle": "Normal",
     "bodyFont": "General Sans",
     "bodyWeight": "Regular",
-    "bodyStyle": "Normal"
+    "bodyStyle": "Normal",
+    "sizes": {
+      "display": { "desktopPx": 60, "mobilePx": 36 },
+      "headline": { "desktopPx": 50, "mobilePx": 32 },
+      "title": { "desktopPx": 30, "mobilePx": 24 },
+      "lede": { "desktopPx": 16, "mobilePx": 14 },
+      "body": { "desktopPx": 16, "mobilePx": 14 }
+    }
   },
   "seo": {
     "title": "Softcom — Technology for Organisations. Progress for Society.",

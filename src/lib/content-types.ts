@@ -1,4 +1,4 @@
-import type { Typography } from "@/lib/typography";
+import type { FontSize, TextStyleLabel, Typography } from "@/lib/typography";
 import type { CmsImage } from "@/lib/cms/paths";
 
 export type { CmsImage };
@@ -75,7 +75,7 @@ export type AboutContent = {
 export type SolutionsContent = {
   seo: Seo;
   hero: Hero;
-  intro: { badge: string; paragraphs: string[] };
+  intro: { badge: string; paragraphs: string[]; textStyle?: TextStyleLabel; fontSize?: Partial<FontSize> };
   infrastructure: {
     number: string;
     title: string;

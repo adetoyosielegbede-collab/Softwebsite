@@ -15,10 +15,12 @@ export function ScrollWords({
   paragraphs,
   className,
   paragraphClassName,
+  paragraphStyle,
 }: {
   paragraphs: string[];
   className?: string;
   paragraphClassName?: string;
+  paragraphStyle?: React.CSSProperties;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -62,7 +64,7 @@ export function ScrollWords({
   return (
     <div ref={ref} className={cn("flex flex-col gap-8", className)}>
       {paragraphs.map((paragraph) => (
-        <p key={paragraph} className={cn("text-ink", paragraphClassName ?? "text-title")}>
+        <p key={paragraph} className={cn("text-ink", paragraphClassName ?? "text-title")} style={paragraphStyle}>
           {paragraph.split(" ").map((word, index, all) => (
             <span key={`${word}-${index}`} data-word="" style={{ opacity: 0.16 }}>
               {word}
