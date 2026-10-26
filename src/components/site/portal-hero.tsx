@@ -226,8 +226,7 @@ export function PortalHero({
     <div ref={track} className="h-[520vh] bg-paper sm:h-[640vh] motion-reduce:h-auto motion-reduce:bg-transparent">
       <div ref={stage} className="sticky top-0 h-svh overflow-hidden motion-reduce:static motion-reduce:h-auto motion-reduce:overflow-visible">
         <section ref={opening} className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-ink motion-reduce:relative motion-reduce:min-h-svh motion-reduce:py-32">
-          <div aria-hidden className="portal-grain absolute inset-0" />
-          <div aria-hidden className="portal-vignette absolute inset-0" />
+          <div aria-hidden className="absolute inset-0 bg-paper" />
           <h1 ref={title} className="text-display relative max-w-[9em]">
             {hero.titleLine1}
           </h1>
