@@ -6,6 +6,8 @@ import type { HomeContent } from "@/lib/content-types";
 import { ColorReveal } from "./color-reveal";
 import { LineReveal } from "./line-reveal";
 import { PillLink } from "./links";
+import { SwipeCue } from "./swipe-cue";
+import { useEqualHeights, useSwipeHint } from "./swipe-rail";
 
 const CHIPS = ["bg-brand text-signal", "bg-signal text-brand", "bg-black text-white"];
 
@@ -13,6 +15,8 @@ const CHIPS = ["bg-brand text-signal", "bg-signal text-brand", "bg-black text-wh
 export function FocusRail({ content }: { content: HomeContent["focusAreas"] }) {
   const track = useRef<HTMLDivElement>(null);
   const row = useRef<HTMLDivElement>(null);
+  const swiped = useSwipeHint(row);
+  useEqualHeights(row, "[data-focus-panel]");
 
   useEffect(() => {
     const media = window.matchMedia("(min-width: 1024px) and (prefers-reduced-motion: no-preference)");
@@ -44,12 +48,13 @@ export function FocusRail({ content }: { content: HomeContent["focusAreas"] }) {
   return (
     <div ref={track} className="relative lg:motion-safe:h-[260vh]">
       <div className="flex flex-col gap-8 lg:motion-safe:sticky lg:motion-safe:top-0 lg:motion-safe:h-svh lg:motion-safe:justify-center lg:motion-safe:overflow-hidden">
-        <div className="container-site">
+        <div className="container-site flex items-end justify-between gap-6">
           <LineReveal className="text-headline">{content.title}</LineReveal>
+          <SwipeCue hidden={swiped} className="mb-1 lg:hidden" />
         </div>
         <div
           ref={row}
-          className="flex snap-x snap-mandatory items-stretch gap-3 overflow-x-auto px-5 pt-2 sm:px-8 lg:px-10 lg:motion-safe:snap-none lg:motion-safe:overflow-visible"
+          className="flex snap-x snap-mandatory items-stretch gap-3 overflow-x-auto px-5 pt-2 [scrollbar-width:none] sm:px-8 [&::-webkit-scrollbar]:hidden lg:px-10 lg:motion-safe:snap-none lg:motion-safe:overflow-visible"
         >
           {content.items.map((area, i) => (
             <article
@@ -67,10 +72,10 @@ export function FocusRail({ content }: { content: HomeContent["focusAreas"] }) {
               >
                 {area.number}
               </span>
-              <div className="relative m-3 w-full rounded-2xl bg-paper/95 p-6 text-ink backdrop-blur sm:ml-auto sm:max-w-[560px] lg:m-6 lg:p-8">
+              <div data-focus-panel="" className="relative m-3 flex w-full flex-col rounded-2xl bg-paper/95 p-6 text-ink backdrop-blur sm:ml-auto sm:max-w-[560px] lg:m-6 lg:p-8">
                 <h3 className="text-title xl:text-headline xl:leading-[1.1]">{area.title}</h3>
                 <p className="mt-4 text-base leading-[1.6] text-ink-soft">{area.text}</p>
-                <div className="mt-6">
+                <div className="mt-auto pt-6">
                   <PillLink href={area.href}>{area.ctaLabel}</PillLink>
                 </div>
               </div>

@@ -164,10 +164,32 @@ export function SiteHeader({ site }: { site: SiteContent }) {
               <CmsImage image={site.brand.logo} file="site" path="brand.logo" className="object-contain object-left" sizes="92px" priority />
             </Link>
             <span aria-hidden className="h-6 w-px shrink-0 bg-white/10" />
+            <button
+              type="button"
+              aria-label={sheet ? "Close menu" : "Open menu"}
+              aria-expanded={sheet}
+              aria-controls="mobile-menu"
+              onClick={() => (open ? close() : setOpen(true))}
+              className="relative grid size-10 shrink-0 place-items-center rounded-full text-ink outline-none focus-visible:ring-[3px] focus-visible:ring-signal/50 md:hidden"
+            >
+              <span aria-hidden className="relative block h-3 w-5">
+                {[0, 1, 2].map((line) => (
+                  <span
+                    key={line}
+                    className={cn(
+                      "absolute left-0 h-[1.5px] w-5 rounded-full bg-current transition-[top,rotate,opacity] duration-300 ease-out motion-reduce:transition-none",
+                      line === 0 && (sheet ? "top-[5px] rotate-45" : "top-0"),
+                      line === 1 && (sheet ? "top-[5px] opacity-0" : "top-[5px]"),
+                      line === 2 && (sheet ? "top-[5px] -rotate-45" : "top-[10px]"),
+                    )}
+                  />
+                ))}
+              </span>
+            </button>
             <div
               id="site-menu"
               className={cn(
-                "relative flex h-10 items-center justify-between overflow-hidden px-1 transition-[width] duration-300 ease-out motion-reduce:transition-none",
+                "relative hidden h-10 items-center justify-between overflow-hidden px-1 transition-[width] duration-300 ease-out motion-reduce:transition-none md:flex",
                 expanded ? "w-[480px]" : cue ? "w-28" : "w-14",
               )}
             >
@@ -266,7 +288,7 @@ export function SiteHeader({ site }: { site: SiteContent }) {
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
-          className="dark fixed inset-0 z-40 flex flex-col overflow-y-auto bg-black px-4 pt-28 pb-8 text-ink md:hidden"
+          className="fade-in dark fixed inset-0 z-40 flex flex-col overflow-y-auto bg-black/95 px-6 pt-28 pb-8 text-ink backdrop-blur-md md:hidden"
         >
           <nav aria-label="Main" className="flex-1">
             <ul className="flex flex-col border-b border-line">

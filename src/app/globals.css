@@ -305,6 +305,31 @@ html:not(.dark) .portal-invert {
 .rise-in {
   animation: rise-in 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in {
+  animation: fade-in 0.25s ease-out;
+}
+/* A short sideways push on a swipeable row, so the peeking card reads as "more this way". */
+@keyframes swipe-hint {
+  0%, 100% { transform: translateX(0); }
+  22% { transform: translateX(-44px); }
+  44% { transform: translateX(0); }
+  60% { transform: translateX(-18px); }
+  76% { transform: translateX(0); }
+}
+.swipe-hint > * {
+  animation: swipe-hint 1.5s cubic-bezier(0.45, 0, 0.2, 1);
+}
+@keyframes swipe-arrow {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+.swipe-arrow {
+  animation: swipe-arrow 1.2s ease-in-out infinite;
+}
 .softcom-color-reveal img {
   filter: grayscale(calc(1 - var(--reveal, 1)));
 }
@@ -323,6 +348,9 @@ header[data-hidden] {
 @media (prefers-reduced-motion: reduce) {
   .softcom-nudge,
   .rise-in,
+  .fade-in,
+  .swipe-hint > *,
+  .swipe-arrow,
   .portal-grain,
   .portal-pulse {
     animation: none;

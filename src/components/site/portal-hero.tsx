@@ -299,7 +299,7 @@ export function PortalHero({
           <p
             ref={statement}
             aria-hidden
-            className="max-w-[1140px] font-heading text-[clamp(2.25rem,4.2vw,3.75rem)] leading-[0.95] heading-type"
+            className="max-w-[1140px] font-heading text-[clamp(1.625rem,4.2vw,3.75rem)] leading-[1.05] heading-type md:leading-[0.95]"
           >
             {runs.map((run) =>
               [...run.text].map((char, index) =>
