@@ -59,20 +59,20 @@ export function FocusRail({ content }: { content: HomeContent["focusAreas"] }) {
           {content.items.map((area, i) => (
             <article
               key={area.title}
-              className="relative flex min-h-[min(560px,80svh)] w-[min(1176px,85vw)] shrink-0 snap-start flex-col items-end justify-end gap-3 overflow-hidden rounded-[2rem] lg:min-h-[min(720px,70svh)]"
+              className="relative flex w-[min(1176px,85vw)] shrink-0 snap-start flex-col overflow-hidden rounded-[2rem] bg-surface lg:min-h-[min(720px,70svh)] lg:items-end lg:justify-end lg:gap-3 lg:bg-transparent"
             >
-              <ColorReveal className="absolute inset-0">
+              <ColorReveal className="relative aspect-[4/3] w-full shrink-0 sm:aspect-[16/10] lg:absolute lg:inset-0 lg:aspect-auto">
                 <CmsImage image={area.image} file="home" path={`focusAreas.items.${i}.image`} sizes="(min-width: 1024px) 1176px, 85vw" />
               </ColorReveal>
               <span
                 className={
-                  "relative grid size-14 place-items-center rounded-2xl font-heading text-3xl heading-type lg:size-16 lg:text-4xl " +
+                  "absolute top-4 right-4 grid size-12 place-items-center rounded-2xl font-heading text-2xl heading-type lg:relative lg:top-auto lg:right-auto lg:size-16 lg:text-4xl " +
                   (CHIPS[i] ?? CHIPS[2])
                 }
               >
                 {area.number}
               </span>
-              <div data-focus-panel="" className="relative m-3 flex w-full flex-col rounded-2xl bg-paper/95 p-6 text-ink backdrop-blur sm:ml-auto sm:max-w-[560px] lg:m-6 lg:p-8">
+              <div data-focus-panel="" className="relative flex w-full flex-1 flex-col p-6 text-ink lg:m-6 lg:ml-auto lg:max-w-[560px] lg:flex-none lg:rounded-2xl lg:bg-paper/95 lg:p-8 lg:backdrop-blur">
                 <h3 className="text-title xl:text-headline xl:leading-[1.1]">{area.title}</h3>
                 <p className="mt-4 text-base leading-[1.6] text-ink-soft">{area.text}</p>
                 <div className="mt-auto pt-6">
