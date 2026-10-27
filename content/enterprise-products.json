@@ -25,7 +25,7 @@
         "tagline": "Audit beyond the limits of manual review.",
         "summary": "Compare what was declared with what the documents show is owed. Reckon reads each line, applies the tax rule, and shows where the two disagree.",
         "href": "/enterprise-products/reckon",
-        "color": "#004bff",
+        "color": "#991b1b",
         "logo": { "src": "", "alt": "Reckon logo" },
         "image": { "src": "/media/products/reckon-card.png", "alt": "Reckon dot-matrix artwork" }
       },
@@ -43,7 +43,7 @@
         "tagline": "An integrated platform for entrepreneurial growth.",
         "summary": "The platform entrepreneurial development initiatives run on. Members learn, verify, trade and apply for funding from one account.",
         "href": "/enterprise-products/lift",
-        "color": "#2563FF",
+        "color": "#004bff",
         "logo": { "src": "/media/products/lift-logo.png", "alt": "LIFT" },
         "image": { "src": "/media/products/lift-card.png", "alt": "Lift dot-matrix artwork" }
       }
