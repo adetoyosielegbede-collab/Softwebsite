@@ -1,12 +1,18 @@
 {
-  "seo": { "title": "Enterprise Products", "description": "Explore the proprietary products Softcom has built and the global platforms we implement." },
+  "seo": {
+    "title": "Enterprise Products",
+    "description": "Explore the proprietary products Softcom has built and the global platforms we implement."
+  },
   "hero": {
     "eyebrow": "",
     "title": "Enterprise Products",
     "text": "Explore the proprietary products we have built and the global platforms we implement.",
     "ctaLabel": "Start a conversation",
     "ctaHref": "/contact",
-    "backgroundImage": { "src": "", "alt": "" }
+    "backgroundImage": {
+      "src": "",
+      "alt": ""
+    }
   },
   "products": {
     "title": "Softcom Products",
@@ -17,8 +23,14 @@
         "summary": "Turn financial records into intelligence for complex investigations. Sentinel connects transactions across accounts and parties, and surfaces the flows that need a closer look.",
         "href": "/enterprise-products/sentinel",
         "color": "#2a2b30",
-        "logo": { "src": "", "alt": "Sentinel logo" },
-        "image": { "src": "/media/products/sentinel-card.png", "alt": "Sentinel dot-matrix artwork" }
+        "logo": {
+          "src": "",
+          "alt": "Sentinel logo"
+        },
+        "image": {
+          "src": "/media/products/sentinel-card.png",
+          "alt": "Sentinel dot-matrix artwork"
+        }
       },
       {
         "name": "Reckon",
@@ -26,8 +38,14 @@
         "summary": "Compare what was declared with what the documents show is owed. Reckon reads each line, applies the tax rule, and shows where the two disagree.",
         "href": "/enterprise-products/reckon",
         "color": "#991b1b",
-        "logo": { "src": "", "alt": "Reckon logo" },
-        "image": { "src": "/media/products/reckon-card.png", "alt": "Reckon dot-matrix artwork" }
+        "logo": {
+          "src": "",
+          "alt": "Reckon logo"
+        },
+        "image": {
+          "src": "/media/products/reckon-card.png",
+          "alt": "Reckon dot-matrix artwork"
+        }
       },
       {
         "name": "Useforms",
@@ -35,17 +53,29 @@
         "summary": "Collect text, images, location, direction and biometric information in structured submissions that document people, places and activities.",
         "href": "/enterprise-products/useforms",
         "color": "#d7c4a3",
-        "logo": { "src": "", "alt": "Useforms logo" },
-        "image": { "src": "/media/products/useforms-card.png", "alt": "Useforms logo on dot-matrix artwork" }
+        "logo": {
+          "src": "",
+          "alt": "Useforms logo"
+        },
+        "image": {
+          "src": "/media/products/useforms-card.png",
+          "alt": "Useforms logo on dot-matrix artwork"
+        }
       },
       {
         "name": "Lift",
         "tagline": "An integrated platform for entrepreneurial growth.",
-        "summary": "The platform entrepreneurial development initiatives run on. Members learn, verify, trade and apply for funding from one account.",
+        "summary": "An integrated platform for entrepreneurial growth.",
         "href": "/enterprise-products/lift",
         "color": "#004bff",
-        "logo": { "src": "/media/products/lift-logo.png", "alt": "LIFT" },
-        "image": { "src": "/media/products/lift-card.png", "alt": "Lift dot-matrix artwork" }
+        "logo": {
+          "src": "/media/products/lift-logo.png",
+          "alt": "LIFT"
+        },
+        "image": {
+          "src": "/media/products/lift-card.png",
+          "alt": "Lift dot-matrix artwork"
+        }
       }
     ]
   },
@@ -59,7 +89,10 @@
         "text": "Build and deploy public services through a low-code platform designed for government. Softcom works with Kitsoft to put Liquio into operation for ministries, departments and agencies, adapting delivery to local requirements and workflows.",
         "ctaLabel": "Explore Liquio by Kitsoft",
         "href": "/contact",
-        "logo": { "src": "", "alt": "Liquio by Kitsoft logo" }
+        "logo": {
+          "src": "",
+          "alt": "Liquio by Kitsoft logo"
+        }
       },
       {
         "name": "RTGS.global",
@@ -67,12 +100,18 @@
         "text": "Connect regulated financial institutions through infrastructure for real-time cross-border payments and foreign-exchange settlement. Softcom works with RTGS.global to support implementation for institutions in Nigeria and across Africa.",
         "ctaLabel": "Explore RTGS.global",
         "href": "/contact",
-        "logo": { "src": "", "alt": "RTGS.global logo" }
+        "logo": {
+          "src": "",
+          "alt": "RTGS.global logo"
+        }
       }
     ]
   },
   "cta": {
-    "image": { "src": "/images/market-aerial.jpg", "alt": "Aerial view of a busy open-air market in Lagos" },
+    "image": {
+      "src": "/images/market-aerial.jpg",
+      "alt": "Aerial view of a busy open-air market in Lagos"
+    },
     "title": "Find the technology that fits your work.",
     "text": "Tell us what you need to achieve. We’ll help you identify the relevant products, platforms and implementation support.",
     "ctaLabel": "Start a conversation",
