@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { CmsImage } from "@/components/cms/cms-image";
 import { CtaBanner, FrameMarks, PageHero } from "@/components/site/sections";
 import { PillLink } from "@/components/site/links";
+import { ScrollWords } from "@/components/site/scroll-words";
 import { getContent } from "@/lib/content";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -29,11 +30,8 @@ export default async function CareersPage() {
           />
 
           <div className="container-site grid grid-cols-1 gap-y-4 md:grid-cols-12 md:gap-x-6">
-            {page.intro.map((paragraph) => (
-              <div key={paragraph} className="md:col-span-8" data-reveal>
-                <p className="text-lede text-ink-soft">{paragraph}</p>
-              </div>
-            ))}
+            <ScrollWords paragraphs={page.intro} className="gap-4 md:col-span-8" paragraphClassName="text-lede" />
+
             {page.image.src ? (
               <div className="relative aspect-[4/3] overflow-hidden rounded-3xl md:col-span-8" data-reveal>
                 <CmsImage image={page.image} file="careers" path="image" sizes="(min-width: 1024px) 50vw, 100vw" />
