@@ -20,7 +20,7 @@
       {
         "name": "Sentinel",
         "tagline": "Financial intelligence for complex investigations.",
-        "summary": "Turn financial records into intelligence for complex investigations. Sentinel connects transactions across accounts and parties, and surfaces the flows that need a closer look.",
+        "summary": "Financial intelligence for complex investigations.",
         "href": "/enterprise-products/sentinel",
         "color": "#2a2b30",
         "logo": {
@@ -35,7 +35,7 @@
       {
         "name": "Reckon",
         "tagline": "Audit beyond the limits of manual review.",
-        "summary": "Compare what was declared with what the documents show is owed. Reckon reads each line, applies the tax rule, and shows where the two disagree.",
+        "summary": "Audit beyond the limits of manual review.",
         "href": "/enterprise-products/reckon",
         "color": "#991b1b",
         "logo": {
