@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CmsImage } from "@/components/cms/cms-image";
+import { ProductStory } from "@/components/site/product-story";
 import { CtaBanner, PageHero } from "@/components/site/sections";
 import { getContent } from "@/lib/content";
 import { PRODUCT_SLUGS } from "@/lib/cms/registry";
@@ -33,6 +34,10 @@ export default async function ProductPage({ params }: PageProps<"/enterprise-pro
   if (!product) notFound();
   const file = `products/${slug}`;
   const { hero } = product;
+
+  if (slug === "lift") {
+    return <ProductStory product={product} file={file} />;
+  }
 
   return (
     <>

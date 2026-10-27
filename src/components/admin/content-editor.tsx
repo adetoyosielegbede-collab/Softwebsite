@@ -189,19 +189,21 @@ function Field({
   }
 
   if (value && typeof value === "object") {
-    const entries = Object.entries(value as Record<string, unknown>);
+    const record = value as Record<string, unknown>;
+    const entries = Object.entries(record);
+    const titled = typeof record.title === "string" ? record.title.trim() : "";
     return (
       <fieldset id={path ? `field-${cssId(path)}` : undefined} className={cn("rounded-2xl border border-line p-4", focused && "border-signal/50")}>
-        <legend className="px-1 text-xs tracking-wide text-ink-soft uppercase">{label}</legend>
+        <legend className="px-1 text-xs tracking-wide text-ink-soft uppercase">{titled || label}</legend>
         <div className="grid gap-4">
           {entries.map(([key, child]) => (
             <Field
               key={key}
               value={child}
               path={path ? `${path}.${key}` : key}
-              label={humanize(key)}
+              label={key === "image" && titled ? titled : humanize(key)}
               focusPath={focusPath}
-              onChange={(next) => onChange({ ...(value as object), [key]: next })}
+              onChange={(next) => onChange({ ...record, [key]: next })}
             />
           ))}
         </div>
@@ -249,7 +251,7 @@ function ImageField({
         <label className="group relative grid h-36 w-full shrink-0 cursor-pointer place-items-center overflow-hidden rounded-xl bg-surface sm:w-56">
           {image.src ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={image.src} alt="" className={cn("size-full", path.includes("logo") ? "object-contain p-3" : "object-cover")} />
+            <img src={image.src} alt="" className={cn("size-full", path.includes("logo") || path.includes("figures") ? "object-contain p-2" : "object-cover")} />
           ) : (
             <span className="flex flex-col items-center gap-1 text-xs text-ink-faint">
               <ImagePlus className="size-5" /> No image

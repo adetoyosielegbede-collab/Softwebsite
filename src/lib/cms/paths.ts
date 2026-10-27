@@ -44,7 +44,17 @@ export function setAt<T>(root: T, path: string, value: unknown): T {
   return { ...container, [head]: next } as T;
 }
 
-export type ImageRef = { path: string; image: CmsImage };
+export type ImageRef = { path: string; image: CmsImage; name?: string };
+
+const IMAGE_KEYS = new Set(["image", "backgroundImage", "logo", "band"]);
+
+function imageName(record: Record<string, unknown>): string {
+  for (const key of ["title", "label", "name"] as const) {
+    const value = record[key];
+    if (typeof value === "string" && value.trim()) return value.trim();
+  }
+  return "";
+}
 
 export function collectImages(root: unknown, base = ""): ImageRef[] {
   if (isImageValue(root)) return [{ path: base, image: root }];
@@ -52,7 +62,15 @@ export function collectImages(root: unknown, base = ""): ImageRef[] {
     return root.flatMap((item, i) => collectImages(item, base ? `${base}.${i}` : String(i)));
   }
   if (root && typeof root === "object") {
-    return Object.entries(root).flatMap(([k, v]) => collectImages(v, base ? `${base}.${k}` : k));
+    const record = root as Record<string, unknown>;
+    const hint = imageName(record);
+    return Object.entries(record).flatMap(([key, value]) => {
+      const path = base ? `${base}.${key}` : key;
+      if (hint && IMAGE_KEYS.has(key) && isImageValue(value)) {
+        return [{ path, image: value, name: hint }];
+      }
+      return collectImages(value, path);
+    });
   }
   return [];
 }

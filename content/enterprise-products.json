@@ -43,8 +43,8 @@
         "tagline": "An integrated platform for entrepreneurial growth.",
         "summary": "The platform entrepreneurial development initiatives run on. Members learn, verify, trade and apply for funding from one account.",
         "href": "/enterprise-products/lift",
-        "color": "#1f6a5c",
-        "logo": { "src": "", "alt": "Lift logo" },
+        "color": "#2563FF",
+        "logo": { "src": "/media/products/lift-logo.png", "alt": "LIFT" },
         "image": { "src": "/media/products/lift-card.png", "alt": "Lift dot-matrix artwork" }
       }
     ]

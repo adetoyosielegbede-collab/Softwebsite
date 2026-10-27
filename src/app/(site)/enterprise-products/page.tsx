@@ -28,10 +28,12 @@ export default async function EnterpriseProductsPage() {
       />
 
       <section className="container-site pt-32 lg:pt-48">
-        <h2 className="text-headline mb-10 lg:mb-14" data-reveal>
-          {products.title}
-        </h2>
-        <ProductGrid items={products.items} />
+        <div className="mx-auto w-full max-w-5xl">
+          <h2 className="text-headline mb-10 text-center lg:mb-14" data-reveal>
+            {products.title}
+          </h2>
+          <ProductGrid items={products.items} />
+        </div>
       </section>
 
       <section className="container-site pt-28 lg:pt-40">

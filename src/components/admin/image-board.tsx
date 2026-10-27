@@ -31,7 +31,8 @@ export function ImageBoard({ slots, onChanged }: { slots: MediaSlot[]; onChanged
             group.label.toLowerCase().includes(q) ||
             img.path.toLowerCase().includes(q) ||
             img.image.alt.toLowerCase().includes(q) ||
-            img.image.src.toLowerCase().includes(q),
+            img.image.src.toLowerCase().includes(q) ||
+            (img.name ?? "").toLowerCase().includes(q),
         ),
       }))
       .filter((group) => group.images.length > 0);
@@ -126,7 +127,7 @@ export function ImageBoard({ slots, onChanged }: { slots: MediaSlot[]; onChanged
                     </label>
                     <div className="space-y-2 p-3">
                       <p className="truncate text-xs" title={image.path}>
-                        {slotLabel(image.path) || "Image"}
+                        {image.name || slotLabel(image.path) || "Image"}
                       </p>
                       <input
                         defaultValue={image.image.alt}
