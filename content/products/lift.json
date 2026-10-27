@@ -231,7 +231,10 @@
   "audience": {
     "eyebrow": "Who it is for",
     "title": "Built for those with a mandate to grow small businesses.",
-    "text": "State ministries of commerce and industry, national enterprise development agencies, development banks and MSME funds, foundations and development partners running entrepreneurship programs, and industry associations with members to serve."
+    "text": "State ministries of commerce and industry, national enterprise development agencies, development banks and MSME funds, foundations and development partners running entrepreneurship programs, and industry associations with members to serve.",
+    "closing": "Tell us who your members are and what you want them to reach. We will show you LIFT configured for your initiative.",
+    "ctaLabel": "Request a demonstration",
+    "ctaHref": "/contact"
   },
   "cta": {
     "image": {

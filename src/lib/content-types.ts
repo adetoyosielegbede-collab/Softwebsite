@@ -159,7 +159,7 @@ export type ProductContent = {
     points: { title: string; text: string }[];
     figures: ProductFigure[];
   }[];
-  audience: { eyebrow: string; title: string; text: string };
+  audience: { eyebrow: string; title: string; text: string; closing?: string; ctaLabel?: string; ctaHref?: string };
   cta: Cta;
 };
 

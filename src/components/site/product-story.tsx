@@ -1,5 +1,4 @@
 import { CmsImage } from "@/components/cms/cms-image";
-import { CtaBanner } from "@/components/site/sections";
 import { ArrowLink, PillLink } from "@/components/site/links";
 import type { ProductContent, ProductFigure } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
@@ -109,8 +108,8 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
       <div id="overview" className="scroll-mt-24">
         {product.blocks.map((block, b) => {
           if (!block.title) return null;
-          const screens = block.figures.filter((fig) => isScreen(fig));
-          const split = block.figures.length === 1 && screens.length === 1;
+          const beside = block.figures[0] && isScreen(block.figures[0]) ? block.figures[0] : null;
+          const stacked = beside ? block.figures.slice(1) : block.figures;
 
           return (
             <section key={`${block.number}-${b}`} id={`chapter-${b}`} className="scroll-mt-28 border-t border-line">
@@ -128,29 +127,34 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
                       ))}
                     </ul>
                   </>
-                ) : split ? (
-                  <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-x-16">
-                    <div className="lg:col-span-5">
-                      <ChapterCopy number={block.number} title={block.title} text={block.text} />
-                    </div>
-                    <div className="lg:col-span-7">
-                      <FigurePlate fig={block.figures[0]} file={file} path={`blocks.${b}.figures.0.image`} />
-                    </div>
-                  </div>
                 ) : (
                   <>
-                    <ChapterCopy number={block.number} title={block.title} text={block.text} />
-                    {block.figures.length > 0 && (
+                    {beside ? (
+                      <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-x-16">
+                        <div className="lg:col-span-5">
+                          <ChapterCopy number={block.number} title={block.title} text={block.text} />
+                        </div>
+                        <div className="lg:col-span-7">
+                          <FigurePlate fig={beside} file={file} path={`blocks.${b}.figures.0.image`} />
+                        </div>
+                      </div>
+                    ) : (
+                      <ChapterCopy number={block.number} title={block.title} text={block.text} />
+                    )}
+                    {stacked.length > 0 && (
                       <div className="mt-10 flex flex-col gap-12 lg:mt-14 lg:gap-16">
-                        {block.figures.map((fig, f) => (
-                          <FigurePlate
-                            key={fig.label}
-                            fig={fig}
-                            file={file}
-                            path={`blocks.${b}.figures.${f}.image`}
-                            wide={!isScreen(fig)}
-                          />
-                        ))}
+                        {stacked.map((fig, i) => {
+                          const f = beside ? i + 1 : i;
+                          return (
+                            <FigurePlate
+                              key={fig.label}
+                              fig={fig}
+                              file={file}
+                              path={`blocks.${b}.figures.${f}.image`}
+                              wide={!isScreen(fig)}
+                            />
+                          );
+                        })}
                       </div>
                     )}
                     {block.points.length > 0 && (
@@ -179,11 +183,17 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
             {product.audience.text ? (
               <p className="text-lede mt-6 max-w-2xl leading-[1.45] text-ink-soft">{product.audience.text}</p>
             ) : null}
+            {product.audience.closing ? (
+              <p className="text-lede mt-4 max-w-2xl leading-[1.45] text-ink-soft">{product.audience.closing}</p>
+            ) : null}
+            {product.audience.ctaLabel ? (
+              <div className="mt-8">
+                <PillLink href={product.audience.ctaHref ?? "/contact"}>{product.audience.ctaLabel}</PillLink>
+              </div>
+            ) : null}
           </div>
         </section>
       )}
-
-      <CtaBanner cta={product.cta} file={file} />
     </>
   );
 }
