@@ -1,73 +1,140 @@
 {
   "brand": {
     "name": "Softcom",
-    "logo": { "src": "/brand/softcom-logo-white.svg", "alt": "Softcom" },
+    "logo": {
+      "src": "/brand/softcom-logo-white.svg",
+      "alt": "Softcom"
+    },
     "tagline": "Technology for Organisations. Progress for Society."
   },
   "contact": {
     "email": "contact@softcom.xyz",
     "company": "Softcom Limited",
-    "addressLines": ["15B, Sasegbon Street", "GRA, Ikeja, Lagos", "Nigeria"]
+    "addressLines": [
+      "15B, Sasegbon Street",
+      "GRA, Ikeja, Lagos",
+      "Nigeria"
+    ]
   },
   "headerNav": [
     {
       "label": "About",
       "href": "/about",
       "links": [
-        { "label": "About", "href": "/about" },
-        { "label": "Leadership", "href": "/about#leadership" },
-        { "label": "Careers", "href": "/careers" }
+        {
+          "label": "About",
+          "href": "/about"
+        },
+        {
+          "label": "Leadership",
+          "href": "/about#leadership"
+        },
+        {
+          "label": "Careers",
+          "href": "/careers"
+        }
       ]
     },
     {
       "label": "Solutions",
       "href": "/solutions",
       "links": [
-        { "label": "Solutions", "href": "/solutions" },
-        { "label": "Enterprise Products", "href": "/enterprise-products" },
-        { "label": "Case Studies", "href": "/case-studies" }
+        {
+          "label": "Solutions",
+          "href": "/solutions"
+        },
+        {
+          "label": "Enterprise Products",
+          "href": "/enterprise-products"
+        },
+        {
+          "label": "Case Studies",
+          "href": "/case-studies"
+        }
       ]
     },
-    { "label": "Insights", "href": "/insights" },
-    { "label": "Contact", "href": "/contact" }
+    {
+      "label": "Insights",
+      "href": "/insights"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
   ],
   "menu": [
     {
       "title": "Company",
       "links": [
-        { "label": "About", "href": "/about" },
-        { "label": "Careers", "href": "/careers" }
+        {
+          "label": "About",
+          "href": "/about"
+        },
+        {
+          "label": "Careers",
+          "href": "/careers"
+        }
       ]
     },
     {
       "title": "What We Do",
       "links": [
-        { "label": "Solutions", "href": "/solutions" },
-        { "label": "Enterprise Products", "href": "/enterprise-products" },
-        { "label": "Case Studies", "href": "/case-studies" }
+        {
+          "label": "Solutions",
+          "href": "/solutions"
+        },
+        {
+          "label": "Enterprise Products",
+          "href": "/enterprise-products"
+        },
+        {
+          "label": "Case Studies",
+          "href": "/case-studies"
+        }
       ]
     },
     {
       "title": "Products",
       "links": [
-        { "label": "Lift", "href": "/enterprise-products/lift" },
-        { "label": "Reckon", "href": "/enterprise-products/reckon" },
-        { "label": "Sentinel", "href": "/enterprise-products/sentinel" },
-        { "label": "Useforms", "href": "/enterprise-products/useforms" }
+        {
+          "label": "Lift",
+          "href": "/enterprise-products/lift"
+        },
+        {
+          "label": "Reckon",
+          "href": "/enterprise-products/reckon"
+        },
+        {
+          "label": "Sentinel",
+          "href": "/enterprise-products/sentinel"
+        },
+        {
+          "label": "Useforms",
+          "href": "/enterprise-products/useforms"
+        }
       ]
     },
     {
       "title": "Resources",
       "links": [
-        { "label": "Insights", "href": "/insights" },
-        { "label": "Contact", "href": "/contact" }
+        {
+          "label": "Insights",
+          "href": "/insights"
+        },
+        {
+          "label": "Contact",
+          "href": "/contact"
+        }
       ]
     }
   ],
   "menuFeature": {
     "eyebrow": "Get in touch",
     "title": "Proud partner of potential.",
-    "image": { "src": "/images/partnership-handshake.jpg", "alt": "Two people shaking hands over a city at night" },
+    "image": {
+      "src": "/images/partnership-handshake.jpg",
+      "alt": "Two people shaking hands over a city at night"
+    },
     "ctaLabel": "Start a conversation",
     "ctaHref": "/contact"
   },
@@ -76,26 +143,150 @@
     "copyright": "© 2026 Softcom Limited. All rights reserved."
   },
   "stats": [
-    { "value": "20M+", "label": "People reached" },
-    { "value": "100+", "label": "Projects delivered" },
-    { "value": "30+", "label": "Organisations served" },
-    { "value": "19", "label": "Years of delivery" }
+    {
+      "value": "20M+",
+      "label": "People reached"
+    },
+    {
+      "value": "100+",
+      "label": "Projects delivered"
+    },
+    {
+      "value": "30+",
+      "label": "Organisations served"
+    },
+    {
+      "value": "19",
+      "label": "Years of delivery"
+    }
   ],
   "partners": [
-    { "name": "GB Foods", "logo": { "src": "/partners/gb-foods.svg", "alt": "GB Foods" }, "width": 94, "height": 55 },
-    { "name": "Ardova Plc", "logo": { "src": "/partners/ardova.png", "alt": "Ardova Plc" }, "width": 57, "height": 68 },
-    { "name": "Honeywell Flour Mills", "logo": { "src": "/partners/honeywell-flour-mills.png", "alt": "Honeywell Flour Mills" }, "width": 85, "height": 61 },
-    { "name": "MTN Nigeria", "logo": { "src": "/partners/mtn.svg", "alt": "MTN Nigeria" }, "width": 102, "height": 51 },
-    { "name": "Bank of Industry", "logo": { "src": "/partners/bank-of-industry.png", "alt": "Bank of Industry" }, "width": 162, "height": 32 },
-    { "name": "Rockefeller Philanthropy Advisors", "logo": { "src": "/partners/rockefeller-philanthropy-advisors.png", "alt": "Rockefeller Philanthropy Advisors" }, "width": 141, "height": 37 },
-    { "name": "GSK", "logo": { "src": "/partners/gsk.svg", "alt": "GSK" }, "width": 129, "height": 40 },
-    { "name": "FCCPC", "logo": { "src": "/partners/fccpc.png", "alt": "FCCPC" }, "width": 91, "height": 57 },
-    { "name": "NIBSS", "logo": { "src": "/partners/nibss.png", "alt": "NIBSS" }, "width": 99, "height": 52 },
-    { "name": "SPAR Nigeria", "logo": { "src": "/partners/spar.png", "alt": "SPAR Nigeria" }, "width": 136, "height": 38 },
-    { "name": "NAICOM", "logo": { "src": "/partners/naicom.png", "alt": "NAICOM" }, "width": 64, "height": 68 },
-    { "name": "NLNG", "logo": { "src": "/partners/nlng.png", "alt": "NLNG" }, "width": 84, "height": 62 },
-    { "name": "Office of the Secretary to the Government of the Federation", "logo": { "src": "/partners/osgf.png", "alt": "Office of the Secretary to the Government of the Federation" }, "width": 168, "height": 31 },
-    { "name": "ARM", "logo": { "src": "/partners/arm.png", "alt": "ARM" }, "width": 129, "height": 40 }
+    {
+      "name": "GB Foods",
+      "logo": {
+        "src": "/partners/gb-foods.svg",
+        "alt": "GB Foods"
+      },
+      "width": 94,
+      "height": 55
+    },
+    {
+      "name": "Ardova Plc",
+      "logo": {
+        "src": "/partners/ardova.png",
+        "alt": "Ardova Plc"
+      },
+      "width": 57,
+      "height": 68
+    },
+    {
+      "name": "Honeywell Flour Mills",
+      "logo": {
+        "src": "/partners/honeywell-flour-mills.png",
+        "alt": "Honeywell Flour Mills"
+      },
+      "width": 85,
+      "height": 61
+    },
+    {
+      "name": "MTN Nigeria",
+      "logo": {
+        "src": "/partners/mtn.svg",
+        "alt": "MTN Nigeria"
+      },
+      "width": 102,
+      "height": 51
+    },
+    {
+      "name": "Bank of Industry",
+      "logo": {
+        "src": "/partners/bank-of-industry.png",
+        "alt": "Bank of Industry"
+      },
+      "width": 162,
+      "height": 32
+    },
+    {
+      "name": "Rockefeller Philanthropy Advisors",
+      "logo": {
+        "src": "/partners/rockefeller-philanthropy-advisors.png",
+        "alt": "Rockefeller Philanthropy Advisors"
+      },
+      "width": 141,
+      "height": 37
+    },
+    {
+      "name": "GSK",
+      "logo": {
+        "src": "/partners/gsk.svg",
+        "alt": "GSK"
+      },
+      "width": 129,
+      "height": 40
+    },
+    {
+      "name": "FCCPC",
+      "logo": {
+        "src": "/partners/fccpc.png",
+        "alt": "FCCPC"
+      },
+      "width": 91,
+      "height": 57
+    },
+    {
+      "name": "NIBSS",
+      "logo": {
+        "src": "/partners/nibss.png",
+        "alt": "NIBSS"
+      },
+      "width": 99,
+      "height": 52
+    },
+    {
+      "name": "SPAR Nigeria",
+      "logo": {
+        "src": "/partners/spar.png",
+        "alt": "SPAR Nigeria"
+      },
+      "width": 136,
+      "height": 38
+    },
+    {
+      "name": "NAICOM",
+      "logo": {
+        "src": "/partners/naicom.png",
+        "alt": "NAICOM"
+      },
+      "width": 64,
+      "height": 68
+    },
+    {
+      "name": "NLNG",
+      "logo": {
+        "src": "/partners/nlng.png",
+        "alt": "NLNG"
+      },
+      "width": 84,
+      "height": 62
+    },
+    {
+      "name": "Office of the Secretary to the Government of the Federation",
+      "logo": {
+        "src": "/partners/osgf.png",
+        "alt": "Office of the Secretary to the Government of the Federation"
+      },
+      "width": 168,
+      "height": 31
+    },
+    {
+      "name": "ARM",
+      "logo": {
+        "src": "/partners/arm.png",
+        "alt": "ARM"
+      },
+      "width": 129,
+      "height": 40
+    }
   ],
   "typography": {
     "headingFont": "General Sans",
@@ -105,16 +296,34 @@
     "bodyWeight": "Regular",
     "bodyStyle": "Normal",
     "sizes": {
-      "display": { "desktopPx": 60, "mobilePx": 36 },
-      "headline": { "desktopPx": 50, "mobilePx": 32 },
-      "title": { "desktopPx": 30, "mobilePx": 24 },
-      "lede": { "desktopPx": 16, "mobilePx": 14 },
-      "body": { "desktopPx": 16, "mobilePx": 14 }
+      "display": {
+        "desktopPx": 60,
+        "mobilePx": 36
+      },
+      "headline": {
+        "desktopPx": 50,
+        "mobilePx": 32
+      },
+      "title": {
+        "desktopPx": 30,
+        "mobilePx": 24
+      },
+      "lede": {
+        "desktopPx": 20,
+        "mobilePx": 14
+      },
+      "body": {
+        "desktopPx": 18,
+        "mobilePx": 14
+      }
     }
   },
   "seo": {
     "title": "Softcom — Technology for Organisations. Progress for Society.",
     "description": "Softcom is a technology and innovation company with 19 years of experience building for public institutions, private organisations and development enablers.",
-    "shareImage": { "src": "/images/lagos-dusk.jpg", "alt": "Lagos at dusk across the lagoon" }
+    "shareImage": {
+      "src": "/images/lagos-dusk.jpg",
+      "alt": "Lagos at dusk across the lagoon"
+    }
   }
 }
