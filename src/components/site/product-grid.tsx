@@ -5,10 +5,16 @@ import { useLayoutEffect, useRef } from "react";
 import { CmsImage } from "@/components/cms/cms-image";
 import type { EnterpriseProductsContent } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
+import { createDitherWash } from "./dither-wash";
+import { smoothstep } from "./dither-math";
 
 type Item = EnterpriseProductsContent["products"]["items"][number];
 
 const FALLBACK_COLORS = ["#2a2b30", "#004bff", "#d7c4a3", "#2563FF"];
+
+/** Homepage wash progress where the cyan glyph band has risen through the card. */
+const WASH_AT = 0.64;
+const WASH_MS = 900;
 
 function inkFor(color: string) {
   const hex = color.trim().replace("#", "");
@@ -29,6 +35,151 @@ function isLift(product: Item) {
   return product.name.trim().toLowerCase() === "lift" || product.href.replace(/\/$/, "").endsWith("/lift");
 }
 
+function ProductCard({ product, index }: { product: Item; index: number }) {
+  const linkRef = useRef<HTMLAnchorElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const color = product.color || FALLBACK_COLORS[index % FALLBACK_COLORS.length];
+  const ink = inkFor(color);
+  const lift = isLift(product);
+
+  useLayoutEffect(() => {
+    const canvas = canvasRef.current;
+    const link = linkRef.current;
+    const field = canvas ? createDitherWash(canvas, 2, 4) : null;
+    if (!canvas || !link || !field) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let progress = 0;
+    let from = 0;
+    let to = 0;
+    let started = 0;
+    let frame = 0;
+    let over = false;
+    let focused = false;
+
+    const paint = (value: number) => {
+      field.resize();
+      field.draw(reduced.matches ? 0 : value);
+      canvas.dataset.wash = reduced.matches ? "0" : value.toFixed(3);
+    };
+
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - started) / WASH_MS);
+      progress = from + (to - from) * smoothstep(t);
+      paint(progress);
+      frame = t < 1 ? requestAnimationFrame(tick) : 0;
+    };
+
+    const go = (next: number) => {
+      if (reduced.matches) {
+        progress = 0;
+        paint(0);
+        return;
+      }
+      from = progress;
+      to = next;
+      started = performance.now();
+      if (!frame) frame = requestAnimationFrame(tick);
+    };
+
+    const sync = () => go(over || focused ? WASH_AT : 0);
+    const enter = () => {
+      over = true;
+      sync();
+    };
+    const leave = () => {
+      over = false;
+      sync();
+    };
+    const focus = () => {
+      focused = true;
+      sync();
+    };
+    const blur = () => {
+      focused = false;
+      sync();
+    };
+    const onReduce = () => {
+      if (!reduced.matches) return;
+      cancelAnimationFrame(frame);
+      frame = 0;
+      progress = 0;
+      paint(0);
+    };
+
+    paint(0);
+    const observer = new ResizeObserver(() => paint(progress));
+    observer.observe(canvas);
+    link.addEventListener("pointerenter", enter);
+    link.addEventListener("pointerleave", leave);
+    link.addEventListener("focus", focus);
+    link.addEventListener("blur", blur);
+    reduced.addEventListener("change", onReduce);
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      link.removeEventListener("pointerenter", enter);
+      link.removeEventListener("pointerleave", leave);
+      link.removeEventListener("focus", focus);
+      link.removeEventListener("blur", blur);
+      reduced.removeEventListener("change", onReduce);
+    };
+  }, []);
+
+  return (
+    <div data-product="" className="h-[268px] sm:h-[286px]">
+      <Link
+        ref={linkRef}
+        href={product.href}
+        className="relative flex h-full flex-col overflow-hidden rounded-[20px] px-5 py-5 md:px-6 md:py-6"
+        style={{ backgroundColor: color, color: ink }}
+      >
+        <span className="relative z-10 flex h-full min-h-0 flex-col">
+          {lift ? (
+            <>
+              <span className="block w-[min(176px,72%)]">
+                <CmsImage
+                  image={product.logo}
+                  file="enterprise-products"
+                  path={`products.items.${index}.logo`}
+                  fluid
+                  className="h-auto w-full"
+                  emptyClassName="min-h-14 w-full"
+                />
+              </span>
+              <span className="text-body mt-3 line-clamp-3">{product.summary || product.tagline}</span>
+              <span className="mt-auto inline-flex h-10 w-fit items-center rounded-full bg-white px-4 text-sm font-medium text-[#2563FF]">
+                Explore LIFT
+              </span>
+            </>
+          ) : (
+            <>
+              <span className="flex items-start justify-between gap-6">
+                <h3 className="text-title max-w-[12ch] text-balance">{product.name}</h3>
+                <span className={cn("relative size-9 shrink-0 md:size-11", !product.logo?.src && "hidden [.cms-editing_&]:block")}>
+                  <CmsImage
+                    image={product.logo}
+                    file="enterprise-products"
+                    path={`products.items.${index}.logo`}
+                    sizes="44px"
+                    className="object-contain"
+                    emptyClassName="absolute inset-0"
+                  />
+                </span>
+              </span>
+              <span className="mt-auto flex flex-col gap-3">
+                <span className="border-b border-current/20 pb-2 font-mono text-sm">{String(index + 1).padStart(2, "0")}</span>
+                <span className="text-body line-clamp-4 max-w-md">{product.summary || product.tagline}</span>
+              </span>
+            </>
+          )}
+        </span>
+        <canvas ref={canvasRef} aria-hidden className="pointer-events-none absolute inset-0 z-20 h-full w-full motion-reduce:hidden" />
+      </Link>
+    </div>
+  );
+}
+
 export function ProductGrid({ items }: { items: Item[] }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -42,7 +193,7 @@ export function ProductGrid({ items }: { items: Item[] }) {
     const paint = () => {
       frame = 0;
       const vh = window.innerHeight;
-      cards.forEach((card, index) => {
+      cards.forEach((card) => {
         if (reduced.matches) {
           card.style.transform = "";
           card.style.opacity = "1";
@@ -74,71 +225,9 @@ export function ProductGrid({ items }: { items: Item[] }) {
 
   return (
     <div ref={ref} className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
-      <style>{`
-        .lift-card, .lift-card .sc-up, .lift-card .sc-down { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
-        .lift-card:hover { transform: translateY(-6px) rotate(-1deg); }
-        .lift-card:hover .sc-up { transform: translate(-12px, -8px) rotate(-3deg); }
-        .lift-card:hover .sc-down { transform: translate(12px, 8px) rotate(2deg); }
-        @media (prefers-reduced-motion: reduce) {
-          .lift-card, .lift-card .sc-up, .lift-card .sc-down,
-          .lift-card:hover, .lift-card:hover .sc-up, .lift-card:hover .sc-down {
-            transform: none !important;
-            transition: none !important;
-          }
-        }
-      `}</style>
-      {items.map((product, index) => {
-        const color = product.color || FALLBACK_COLORS[index % FALLBACK_COLORS.length];
-        const ink = inkFor(color);
-        const lift = isLift(product);
-        return (
-          <div key={product.name} data-product="" className="h-[230px] sm:h-[248px]">
-            <Link
-              href={product.href}
-              className="lift-card flex h-full flex-col justify-between rounded-[20px] px-5 py-6 md:px-7 md:py-7"
-              style={{ backgroundColor: color, color: ink }}
-            >
-              {lift ? (
-                <span className="flex h-full flex-col items-center justify-center gap-5">
-                  <span className="sc-up block w-[min(220px,78%)]">
-                    <CmsImage
-                      image={product.logo}
-                      file="enterprise-products"
-                      path={`products.items.${index}.logo`}
-                      fluid
-                      className="h-auto w-full"
-                      emptyClassName="min-h-16 w-full"
-                    />
-                  </span>
-                  <span className="sc-down inline-flex h-10 items-center rounded-full bg-white px-4 text-sm font-medium text-[#2563FF]">
-                    Explore LIFT
-                  </span>
-                </span>
-              ) : (
-                <>
-                  <span className="sc-up flex items-start justify-between gap-6">
-                    <h3 className="text-title max-w-[12ch] text-balance">{product.name}</h3>
-                    <span className={cn("relative size-9 shrink-0 md:size-11", !product.logo?.src && "hidden [.cms-editing_&]:block")}>
-                      <CmsImage
-                        image={product.logo}
-                        file="enterprise-products"
-                        path={`products.items.${index}.logo`}
-                        sizes="44px"
-                        className="object-contain"
-                        emptyClassName="absolute inset-0"
-                      />
-                    </span>
-                  </span>
-                  <span className="sc-down flex flex-col gap-3">
-                    <span className="border-b border-current/20 pb-2 font-mono text-sm">{String(index + 1).padStart(2, "0")}</span>
-                    <span className="text-body line-clamp-4 max-w-md">{product.summary || product.tagline}</span>
-                  </span>
-                </>
-              )}
-            </Link>
-          </div>
-        );
-      })}
+      {items.map((product, index) => (
+        <ProductCard key={product.name} product={product} index={index} />
+      ))}
     </div>
   );
 }

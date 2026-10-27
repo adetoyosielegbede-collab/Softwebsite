@@ -7,7 +7,7 @@ type Cell = { x: number; y: number; col: number; row: number; threshold: number;
  * Progress rises from the bottom: a cyan glyph edge leads, and every cell
  * that has passed that edge settles into solid brand blue.
  */
-export function createDitherWash(canvas: HTMLCanvasElement, scale = 1) {
+export function createDitherWash(canvas: HTMLCanvasElement, scale = 1, noiseScale = 1) {
   const ctx = canvas.getContext("2d", { alpha: true });
   if (!ctx) return null;
 
@@ -41,7 +41,7 @@ export function createDitherWash(canvas: HTMLCanvasElement, scale = 1) {
           col,
           row,
           threshold: bayer8(col, row),
-          field: field(col, rows - 1 - row, fromBottom),
+          field: field(col * noiseScale, (rows - 1 - row) * noiseScale, fromBottom),
         });
       }
     }
@@ -61,7 +61,7 @@ export function createDitherWash(canvas: HTMLCanvasElement, scale = 1) {
       const fineRow = Math.floor(((row + 0.5) * glyph) / size);
       for (let col = 0; col < cols; col++) {
         const fineCol = Math.floor(((col + 0.5) * glyph) / size);
-        const cover = coverage(progress, field(fineCol, rows - 1 - row, fromBottom));
+        const cover = coverage(progress, field(fineCol * noiseScale, (rows - 1 - row) * noiseScale, fromBottom));
         if (!(cover > 0 && cover < FRONT && bayer8(col, row) < cover)) continue;
         const mark = glyphAt(col, row);
         if (mark === " ") continue;
