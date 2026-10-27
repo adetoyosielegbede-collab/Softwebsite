@@ -75,7 +75,7 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
           />
         ) : null}
         {hero.eyebrow ? <p className="label text-ink-soft">{hero.eyebrow}</p> : null}
-        <h1 className="text-display mt-5 max-w-4xl text-balance">{hero.title}</h1>
+        <h1 className={cn("text-display max-w-4xl text-balance", hero.eyebrow && "mt-5")}>{hero.title}</h1>
         <div className="mt-6 flex max-w-xl flex-col gap-4">
           {hero.text ? <p className="text-lede leading-[1.45] text-ink-soft">{hero.text}</p> : null}
           {product.overview.map((paragraph) => (
