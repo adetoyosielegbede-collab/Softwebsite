@@ -9,7 +9,8 @@
     "primaryHref": "/contact",
     "secondaryLabel": "Explore LIFT",
     "secondaryHref": "#overview",
-    "backgroundImage": { "src": "", "alt": "" }
+    "backgroundImage": { "src": "", "alt": "" },
+    "logo": { "src": "/media/products/lift-logo.png", "alt": "LIFT" }
   },
   "overview": [
     "A business owner signs up once, verifies in stages, and gets learning, events, a verified marketplace, funding, government registration and a public directory in one account. The organisation running the initiative publishes, reviews and reports from the same place."

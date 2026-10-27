@@ -149,6 +149,7 @@ export type ProductContent = {
     secondaryLabel: string;
     secondaryHref: string;
     backgroundImage: CmsImage;
+    logo?: CmsImage;
   };
   overview: string[];
   blocks: {

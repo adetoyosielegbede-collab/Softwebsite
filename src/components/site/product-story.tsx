@@ -65,6 +65,15 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
   return (
     <>
       <section className="container-site pt-28 pb-4 md:pt-36">
+        {hero.logo?.src ? (
+          <CmsImage
+            image={hero.logo}
+            file={file}
+            path="hero.logo"
+            fluid
+            className="mb-6 h-14 w-auto"
+          />
+        ) : null}
         {hero.eyebrow ? <p className="label text-ink-soft">{hero.eyebrow}</p> : null}
         <h1 className="text-display mt-5 max-w-4xl text-balance">{hero.title}</h1>
         <div className="mt-6 flex max-w-xl flex-col gap-4">
