@@ -7,7 +7,7 @@
     "text": "States, national agencies and development partners run initiatives to help small businesses start, formalise and grow. LIFT is the platform those initiatives run on.",
     "primaryLabel": "Request a demonstration",
     "primaryHref": "/contact",
-    "secondaryLabel": "Explore Lift",
+    "secondaryLabel": "Explore LIFT",
     "secondaryHref": "#overview",
     "backgroundImage": { "src": "", "alt": "" }
   },
@@ -26,7 +26,7 @@
     },
     {
       "number": "01",
-      "title": "The more a member verifies, the more opens.",
+      "title": "More verification. Greater access.",
       "text": "A new member browses. A verified individual learns, attends and buys. A verified business sells, lists, applies for funding and advertises. A business with a good record on the platform earns Trusted status, with featured placement and priority access, and keeps it only while the record holds.",
       "points": [],
       "figures": [
@@ -112,7 +112,7 @@
   ],
   "audience": {
     "eyebrow": "Who it is for",
-    "title": "Built for those with a mandate to grow small business.",
+    "title": "Built for those with a mandate to grow small businesses.",
     "text": "State ministries of commerce and industry, national enterprise development agencies, development banks and MSME funds, foundations and development partners running entrepreneurship programs, and industry associations with members to serve."
   },
   "cta": {

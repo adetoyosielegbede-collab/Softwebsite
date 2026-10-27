@@ -1,0 +1,205 @@
+import { CmsImage } from "@/components/cms/cms-image";
+import { CtaBanner } from "@/components/site/sections";
+import { ArrowLink, PillLink } from "@/components/site/links";
+import type { ProductContent, ProductFigure } from "@/lib/content-types";
+import { cn } from "@/lib/utils";
+
+/** Intrinsic sizes of the LIFT plates, so frames keep the real ratio. */
+const ASPECT: Record<string, string> = {
+  "/media/lift/screen-1.png": "902 / 523",
+  "/media/lift/screen-2.png": "890 / 576",
+  "/media/lift/screen-3.png": "891 / 486",
+  "/media/lift/screen-4.png": "891 / 497",
+  "/media/lift/screen-5.png": "891 / 554",
+  "/media/lift/figure-02.png": "2528 / 1126",
+  "/media/lift/figure-04.png": "2528 / 1132",
+  "/media/lift/figure-05.png": "2528 / 472",
+  "/media/lift/figure-07.png": "2528 / 820",
+  "/media/lift/figure-08.png": "2528 / 946",
+  "/media/lift/figure-11.png": "2528 / 460",
+};
+
+function isScreen(src: string) {
+  return src.includes("/screen-");
+}
+
+function FigurePlate({
+  fig,
+  file,
+  path,
+  priority,
+  wide,
+}: {
+  fig: ProductFigure;
+  file: string;
+  path: string;
+  priority?: boolean;
+  /** Diagrams read left to right, so they take the full measure. Screens stay near their native width. */
+  wide?: boolean;
+}) {
+  const src = fig.image.src;
+  const screen = isScreen(src);
+  return (
+    <figure className={cn("m-0", !wide && screen && "lg:max-w-[920px]")}>
+      <div
+        className={cn(
+          "overflow-hidden rounded-[1.25rem]",
+          screen ? "bg-white p-1.5 ring-1 ring-black/10 sm:p-2" : "bg-surface ring-1 ring-line",
+        )}
+      >
+        <div className="relative w-full" style={{ aspectRatio: ASPECT[src] ?? (screen ? "16 / 10" : "2 / 1") }}>
+          <CmsImage
+            image={fig.image}
+            file={file}
+            path={path}
+            sizes={wide || !screen ? "(min-width: 1440px) 1280px, 100vw" : "(min-width: 1024px) 720px, 100vw"}
+            priority={priority}
+            className="object-contain object-top"
+          />
+        </div>
+      </div>
+      <figcaption className="mt-4 flex flex-col gap-1 sm:max-w-3xl">
+        <p className="text-sm text-ink">
+          <span className="label text-ink-faint">{fig.label}</span>
+          <span className="mx-2 text-ink-faint" aria-hidden>
+            ·
+          </span>
+          {fig.title}
+        </p>
+        {fig.caption ? <p className="text-sm text-ink-soft">{fig.caption}</p> : null}
+      </figcaption>
+    </figure>
+  );
+}
+
+function ChapterCopy({ number, title, text }: { number?: string; title: string; text?: string }) {
+  return (
+    <header>
+      {number ? <p className="label text-signal">{number}</p> : null}
+      <h2 className={cn("text-headline max-w-[18ch] text-balance", number && "mt-4")}>{title}</h2>
+      {text ? <p className="text-lede mt-5 max-w-xl leading-[1.45] text-ink-soft">{text}</p> : null}
+    </header>
+  );
+}
+
+export function ProductStory({ product, file }: { product: ProductContent; file: string }) {
+  const { hero } = product;
+  const heroBlock = product.blocks.findIndex((block) => !block.title && block.figures.length > 0);
+  const heroFigures = heroBlock >= 0 ? product.blocks[heroBlock].figures : [];
+
+  return (
+    <>
+      <section className="container-site pt-28 pb-4 md:pt-36">
+        {hero.eyebrow ? <p className="label text-ink-soft">{hero.eyebrow}</p> : null}
+        <h1 className="text-display mt-5 max-w-4xl text-balance">{hero.title}</h1>
+        <div className="mt-6 flex max-w-xl flex-col gap-4">
+          {hero.text ? <p className="text-lede leading-[1.45] text-ink-soft">{hero.text}</p> : null}
+          {product.overview.map((paragraph) => (
+            <p key={paragraph} className="text-lede leading-[1.45] text-ink-soft">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+        {(hero.primaryLabel || hero.secondaryLabel) && (
+          <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
+            {hero.primaryLabel ? <PillLink href={hero.primaryHref}>{hero.primaryLabel}</PillLink> : null}
+            {hero.secondaryLabel ? <ArrowLink href={hero.secondaryHref}>{hero.secondaryLabel}</ArrowLink> : null}
+          </div>
+        )}
+      </section>
+
+      {heroFigures.length > 0 && (
+        <div className="container-site flex flex-col gap-12 pt-10 pb-6 lg:pt-14">
+          {heroFigures.map((fig, f) => (
+            <FigurePlate
+              key={fig.label}
+              fig={fig}
+              file={file}
+              path={`blocks.${heroBlock}.figures.${f}.image`}
+              priority={f === 0}
+            />
+          ))}
+        </div>
+      )}
+
+      <div id="overview" className="scroll-mt-24">
+        {product.blocks.map((block, b) => {
+          if (!block.title) return null;
+          const screens = block.figures.filter((fig) => isScreen(fig.image.src));
+          const split = block.figures.length === 1 && screens.length === 1;
+
+          return (
+            <section key={`${block.number}-${b}`} id={`chapter-${b}`} className="scroll-mt-28 border-t border-line">
+              <div className="container-site py-16 md:py-24 lg:py-28">
+                {block.points.length > 0 && block.figures.length === 0 ? (
+                  <>
+                    <ChapterCopy number={block.number} title={block.title} text={block.text} />
+                    <ul className="mt-12 grid gap-4 md:grid-cols-3">
+                      {block.points.map((point, p) => (
+                        <li key={point.title} className="flex flex-col gap-3 rounded-2xl bg-surface p-6 ring-1 ring-line md:p-8">
+                          <span className="label text-ink-faint">0{p + 1}</span>
+                          <h3 className="text-title text-[1.35rem]">{point.title}</h3>
+                          <p className="text-body leading-[1.45] text-ink-soft">{point.text}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ) : split ? (
+                  <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-x-16">
+                    <div className="lg:col-span-5">
+                      <ChapterCopy number={block.number} title={block.title} text={block.text} />
+                    </div>
+                    <div className="lg:col-span-7">
+                      <FigurePlate fig={block.figures[0]} file={file} path={`blocks.${b}.figures.0.image`} />
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <ChapterCopy number={block.number} title={block.title} text={block.text} />
+                    {block.figures.length > 0 && (
+                      <div className="mt-10 flex flex-col gap-12 lg:mt-14 lg:gap-16">
+                        {block.figures.map((fig, f) => (
+                          <FigurePlate
+                            key={fig.label}
+                            fig={fig}
+                            file={file}
+                            path={`blocks.${b}.figures.${f}.image`}
+                            wide={!isScreen(fig.image.src)}
+                          />
+                        ))}
+                      </div>
+                    )}
+                    {block.points.length > 0 && (
+                      <ul className="mt-12 grid gap-4 md:grid-cols-3">
+                        {block.points.map((point) => (
+                          <li key={point.title} className="rounded-2xl bg-surface p-6 ring-1 ring-line">
+                            <h3 className="text-title text-[1.35rem]">{point.title}</h3>
+                            <p className="text-body mt-3 leading-[1.45] text-ink-soft">{point.text}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                )}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+
+      {product.audience.title && (
+        <section className="border-t border-line">
+          <div className="container-site py-16 md:py-24 lg:py-28">
+            {product.audience.eyebrow ? <p className="label text-ink-soft">{product.audience.eyebrow}</p> : null}
+            <h2 className="text-headline mt-4 max-w-[18ch] text-balance">{product.audience.title}</h2>
+            {product.audience.text ? (
+              <p className="text-lede mt-6 max-w-2xl leading-[1.45] text-ink-soft">{product.audience.text}</p>
+            ) : null}
+          </div>
+        </section>
+      )}
+
+      <CtaBanner cta={product.cta} file={file} />
+    </>
+  );
+}
