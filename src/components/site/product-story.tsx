@@ -4,23 +4,8 @@ import { ArrowLink, PillLink } from "@/components/site/links";
 import type { ProductContent, ProductFigure } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
 
-/** Intrinsic sizes of the LIFT plates, so frames keep the real ratio. */
-const ASPECT: Record<string, string> = {
-  "/media/lift/screen-1.png": "902 / 523",
-  "/media/lift/screen-2.png": "890 / 576",
-  "/media/lift/screen-3.png": "891 / 486",
-  "/media/lift/screen-4.png": "891 / 497",
-  "/media/lift/screen-5.png": "891 / 554",
-  "/media/lift/figure-02.png": "2528 / 1126",
-  "/media/lift/figure-04.png": "2528 / 1132",
-  "/media/lift/figure-05.png": "2528 / 472",
-  "/media/lift/figure-07.png": "2528 / 820",
-  "/media/lift/figure-08.png": "2528 / 946",
-  "/media/lift/figure-11.png": "2528 / 460",
-};
-
-function isScreen(src: string) {
-  return src.includes("/screen-");
+function isScreen(fig: ProductFigure) {
+  return fig.source.startsWith("Product screen") || fig.image.src.includes("/screen-");
 }
 
 function FigurePlate({
@@ -37,8 +22,7 @@ function FigurePlate({
   /** Diagrams read left to right, so they take the full measure. Screens stay near their native width. */
   wide?: boolean;
 }) {
-  const src = fig.image.src;
-  const screen = isScreen(src);
+  const screen = isScreen(fig);
   return (
     <figure className={cn("m-0", !wide && screen && "lg:max-w-[920px]")}>
       <div
@@ -47,16 +31,7 @@ function FigurePlate({
           screen ? "bg-white p-1.5 ring-1 ring-black/10 sm:p-2" : "bg-surface ring-1 ring-line",
         )}
       >
-        <div className="relative w-full" style={{ aspectRatio: ASPECT[src] ?? (screen ? "16 / 10" : "2 / 1") }}>
-          <CmsImage
-            image={fig.image}
-            file={file}
-            path={path}
-            sizes={wide || !screen ? "(min-width: 1440px) 1280px, 100vw" : "(min-width: 1024px) 720px, 100vw"}
-            priority={priority}
-            className="object-contain object-top"
-          />
-        </div>
+        <CmsImage image={fig.image} file={file} path={path} priority={priority} fluid emptyClassName="min-h-40 w-full" />
       </div>
       <figcaption className="mt-4 flex flex-col gap-1 sm:max-w-3xl">
         <p className="text-sm text-ink">
@@ -125,7 +100,7 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
       <div id="overview" className="scroll-mt-24">
         {product.blocks.map((block, b) => {
           if (!block.title) return null;
-          const screens = block.figures.filter((fig) => isScreen(fig.image.src));
+          const screens = block.figures.filter((fig) => isScreen(fig));
           const split = block.figures.length === 1 && screens.length === 1;
 
           return (
@@ -164,7 +139,7 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
                             fig={fig}
                             file={file}
                             path={`blocks.${b}.figures.${f}.image`}
-                            wide={!isScreen(fig.image.src)}
+                            wide={!isScreen(fig)}
                           />
                         ))}
                       </div>

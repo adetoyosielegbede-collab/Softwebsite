@@ -16,9 +16,11 @@ type Props = {
   height?: number;
   /** Classes for the "Add image" placeholder shown in edit mode when the slot is empty. */
   emptyClassName?: string;
+  /** Draw at the file's own ratio, so a CMS replacement is not cropped into the previous frame. */
+  fluid?: boolean;
 };
 
-export function CmsImage({ image, file, path, className, sizes = "100vw", priority, width, height, emptyClassName }: Props) {
+export function CmsImage({ image, file, path, className, sizes = "100vw", priority, width, height, emptyClassName, fluid }: Props) {
   const slot = { "data-cms-file": file, "data-cms-path": path };
 
   if (!image?.src) {
@@ -34,6 +36,20 @@ export function CmsImage({ image, file, path, className, sizes = "100vw", priori
         <ImagePlus className="size-4" aria-hidden />
         Add image
       </span>
+    );
+  }
+
+  if (fluid) {
+    return (
+      // The file decides the height, including after a CMS replacement.
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        {...slot}
+        src={image.src}
+        alt={image.alt ?? ""}
+        style={image.position ? { objectPosition: image.position } : undefined}
+        className={cn("h-auto w-full", className)}
+      />
     );
   }
 
