@@ -44,7 +44,7 @@
       ]
     },
     {
-      "number": "01",
+      "number": "",
       "title": "More verification. Greater access.",
       "text": "A new member browses. A verified individual learns, attends and buys. A verified business sells, lists, applies for funding and advertises. A business with a good record on the platform earns Trusted status, with featured placement and priority access, and keeps it only while the record holds.",
       "points": [],
@@ -72,7 +72,7 @@
       ]
     },
     {
-      "number": "02",
+      "number": "",
       "title": "Six things a business needs, one account.",
       "text": "Most initiatives offer training on one site, grants on another and a directory nobody updates. LIFT puts six modules behind one profile. A member who verifies for the marketplace is already verified for a grant, a directory listing and a trademark search.",
       "points": [],
@@ -90,7 +90,7 @@
       ]
     },
     {
-      "number": "03",
+      "number": "",
       "title": "Verify in stages, not all at once.",
       "text": "Sign-up asks for a name, a phone number, an email and a national identification number. Identity verification is automated. Business verification checks registration, tax identification and documents, is reviewed by people, and takes two to three working days. Nothing is asked for before it is needed, and nothing already given is asked for twice.",
       "points": [],
@@ -108,7 +108,7 @@
       ]
     },
     {
-      "number": "04",
+      "number": "",
       "title": "Funding that members can see, and reach.",
       "text": "Grant and loan programs from government agencies, development banks and financial institutions are listed in one place, with amounts, eligibility and closing dates. A verified individual can read and save a program and see whether they qualify. A verified business applies, with most of the form already filled from the profile. Trusted members enter a priority review queue.",
       "points": [],
@@ -136,7 +136,7 @@
       ]
     },
     {
-      "number": "05",
+      "number": "",
       "title": "A marketplace for entrepreneurs, from entrepreneurs.",
       "text": "Members buy from each other. A tailor sources fabric from a textile trader on the platform; a food processor buys packaging from a verified supplier two states away. Every seller is a verified business, every buyer is a member of the initiative, and payment is held by the platform until the buyer confirms delivery. Sellers manage products, orders and payouts from the account they use for everything else.",
       "points": [],
@@ -154,7 +154,7 @@
       ]
     },
     {
-      "number": "06",
+      "number": "",
       "title": "A directory that stays current, because members keep it.",
       "text": "Every verified business gets a listing, maintained by the business itself. Visitors filter by sector, state, stage and verification. Trusted members are featured at the top. For the initiative, the directory is a live register of who is in it and what they do.",
       "points": [],
@@ -172,7 +172,7 @@
       ]
     },
     {
-      "number": "07",
+      "number": "",
       "title": "Events, courses and community in the same place.",
       "text": "Masterclasses, workshops and summits with RSVP and capacity. Courses with certificates, recommended from the member’s sector and record. A forum where members ask each other. Trusted members see events first.",
       "points": [],
@@ -190,7 +190,7 @@
       ]
     },
     {
-      "number": "08",
+      "number": "",
       "title": "For the organisation running the initiative.",
       "text": "LIFT is built to be run, not just launched. The sponsoring organisation publishes programs, events and resources, reviews business verifications, sees applications as they arrive, and places sponsored content in front of the right tier. Every member action is on one record, so reporting on reach, verification rates and funding disbursed is a query, not a survey.",
       "points": [
@@ -210,7 +210,7 @@
       "figures": []
     },
     {
-      "number": "09",
+      "number": "",
       "title": "One product. Your initiative’s name on it.",
       "text": "The tiers, modules and rules are shared across every deployment. The brand, colour, type and content are configuration. A state ministry, a national agency and a development partner can each run LIFT as their own initiative.",
       "points": [],
