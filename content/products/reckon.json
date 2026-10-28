@@ -10,7 +10,7 @@
     "secondaryLabel": "Explore Reckon",
     "secondaryHref": "#overview",
     "backgroundImage": { "src": "", "alt": "" },
-    "logo": { "src": "/media/products/reckon-logo.png", "alt": "Reckon" }
+    "logo": { "src": "/media/products/reckon-logo-red.png", "alt": "Reckon" }
   },
   "overview": [
     "Reckon reads every one of those documents, works out the tax each line should have attracted, and shows the officer where the two disagree: the figure, the document it came from and the tax rule applied."

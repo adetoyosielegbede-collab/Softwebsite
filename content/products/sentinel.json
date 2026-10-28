@@ -10,7 +10,7 @@
     "secondaryLabel": "Explore Sentinel",
     "secondaryHref": "#overview",
     "backgroundImage": { "src": "", "alt": "" },
-    "logo": { "src": "/media/products/sentinel-logo.png", "alt": "Sentinel" }
+    "logo": { "src": "/media/products/sentinel-logo-green.png", "alt": "Sentinel" }
   },
   "overview": [],
   "blocks": [
