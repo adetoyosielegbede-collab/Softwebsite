@@ -199,6 +199,9 @@ export type InsightsContent = {
   cta: Cta;
 };
 
+/** A paper figure. `after` is the paragraph index it follows; omitted, it follows the last paragraph. */
+export type PostFigure = CmsImage & { after?: number };
+
 export type Post = {
   slug: string;
   title: string;
@@ -207,10 +210,15 @@ export type Post = {
   featured: boolean;
   published: boolean;
   excerpt: string;
+  /** Card and listing image. */
   image: CmsImage;
+  /** Article plate under the title. Falls back to `image`. */
+  heroImage?: CmsImage;
   body: string[];
+  /** Figure placed after the opening paragraphs. */
+  bodyFigure?: CmsImage;
   /** Named parts of the write-up, after the opening paragraphs. */
-  sections?: { title: string; paragraphs: string[] }[];
+  sections?: { title: string; paragraphs: string[]; figures?: PostFigure[] }[];
 };
 
 export type PostsContent = { items: Post[] };

@@ -12,10 +12,18 @@
         "src": "/images/lagos-dusk.jpg",
         "alt": "A canoe on the Lagos lagoon at dusk, with a lit bridge and the city skyline"
       },
+      "heroImage": {
+        "src": "/media/insights/cover.jpg",
+        "alt": "One living picture of a state, linking markets, settlements, estates, motor parks, clinics and schools, marked include, earn and grow, beside a lagoon"
+      },
       "body": [
         "A state that cannot see its economy cannot grow it, tax it fairly, or put it in front of an investor. Most states still plan and tax from a partial, dated picture. Markets, motor parks and informal settlements move faster than the last survey, and the next plan starts from what the state once knew.",
         "State IGR reached about NGN 4.15 trillion in 2025. Lagos raised about 45% of it. The lowest-earning states raised between NGN 15 billion and NGN 21 billion. Lagos tied an 18.5% rise in its own IGR that year to seeing more of the economy: geo-tagging, and tax records linked to company registration. The gap between states is not only size. It is visibility. What a state cannot see, it cannot tax, and a programme reaches the places already on the map."
       ],
+      "bodyFigure": {
+        "src": "/media/insights/igr-gap.jpg",
+        "alt": "Bar chart of 2025 internally generated revenue. Lagos 1,870 billion naira, the average of other states 65, the lowest state 15"
+      },
       "sections": [
         {
           "title": "A picture the state owns",
@@ -24,6 +32,13 @@
             "Personal data stays with the state. What can be shared onward is aggregated insight.",
             "A dashboard says what already happened. This picture should say why, and what to do next. How many children are out of school, and where. Why one market earns more than another. Where a new clinic reaches people who have none. Whether a drainage project actually cut the flooding. The question can be asked in English, Yoruba, Hausa, Igbo or Pidgin, on the web, a phone, WhatsApp or USSD. Every answer shows its sources, and how sure it is.",
             "The same measure can be split by gender, age, disability, income and place. The test of the work is whether the poorest fifth of communities improves faster than the richest."
+          ],
+          "figures": [
+            {
+              "src": "/media/insights/infrastructure.jpg",
+              "alt": "How the infrastructure works. Field capture, ministry systems, maps, aggregated telecom and payments, and citizen reports feed a verified knowledge graph, which briefs the executive council, ministries, the revenue service and subscribers",
+              "after": 1
+            }
           ]
         },
         {
@@ -31,6 +46,12 @@
           "paragraphs": [
             "The 2025 tax reforms, and the pressure on federal allocations, push a state toward revenue it raises itself. A base that has not been measured is a base that cannot grow. Reading a survey against an audit against a register used to take a team months. It can now be asked in a sentence. Investors already compare states on evidence. And in a city that is still being built, the last census is the wrong map.",
             "The cycle most states still run is plan, budget, spend, survey, report, shelve. Each survey is a one-off. The state pays again to learn what it once knew."
+          ],
+          "figures": [
+            {
+              "src": "/media/insights/planning-cycle.jpg",
+              "alt": "The planning cycle in most states: plan, budget, spend, survey, report, then shelve. The next plan starts from data already years old"
+            }
           ]
         },
         {
@@ -39,6 +60,18 @@
             "The pieces exist elsewhere, and the counting has already been done here. Andhra Pradesh runs 55 databases across 41 departments from the centre of government. Lagos credits digital reforms for tax revenue that rose from NGN 678 billion in 2023 to NGN 1.44 trillion in 2025. Ordnance Survey, owned by the British government, serves more than 5,000 organisations from one authoritative map. The value of reused public data in Europe is projected to grow from EUR 52 billion in 2018 to EUR 194 billion by 2030.",
             "Know Lagos gathered data in markets, informal settlements and motor parks, the hardest places in a megacity to count. Each record is time-stamped, checked against its location, and scored for accuracy. It is accepted or rejected as it comes in. A state does not take this statewide until that accuracy passes 90%.",
             "An illustrative model for a large state, paid for by subscriptions, API licences and commissioned studies, breaks even in year 3 and returns revenue from year 4. The state owns the platform and the data, keeps a share of what the platform earns, and sells only aggregated insight. Once markets and parks are mapped, the revenue service can also see a base it does not have today. That gain goes straight to IGR, and it sits outside the model."
+          ],
+          "figures": [
+            {
+              "src": "/media/insights/lagos-tax.jpg",
+              "alt": "Lagos State tax revenue: 678 billion naira in 2023, 1,045 in 2024, and 1,443 in 2025",
+              "after": 0
+            },
+            {
+              "src": "/media/insights/five-year.jpg",
+              "alt": "Illustrative five-year model for a large state. Platform revenue passes cost in year 3 and reaches 700 million naira in year 5",
+              "after": 2
+            }
           ]
         },
         {
