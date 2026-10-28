@@ -44,33 +44,35 @@ function ProductCard({ product, index }: { product: Item; index: number }) {
         className="product-card relative flex h-full flex-col overflow-hidden rounded-[20px] px-5 py-5 md:px-6 md:py-6"
         style={{ backgroundColor: color, color: ink }}
       >
-        <span className="flex h-full flex-col items-center justify-center gap-4 text-center">
-          <span className="block w-[min(230px,84%)]">
-            {hasLogo ? (
-              <CmsImage
-                image={product.logo}
-                file="enterprise-products"
-                path={`products.items.${index}.logo`}
-                fluid
-                className="h-auto w-full"
-                emptyClassName="min-h-12 w-full"
-              />
-            ) : (
-              <>
-                <h3 className="text-title text-balance">{product.name}</h3>
+        <span className="flex h-full w-full flex-col items-center text-center">
+          <span className="flex w-full flex-1 flex-col items-center justify-center gap-4">
+            <span className="flex h-24 w-[min(230px,84%)] items-center justify-center">
+              {hasLogo ? (
                 <CmsImage
                   image={product.logo}
                   file="enterprise-products"
                   path={`products.items.${index}.logo`}
                   fluid
-                  emptyClassName="mt-3 min-h-12 w-full"
+                  className="h-auto w-auto max-h-full max-w-full object-contain"
+                  emptyClassName="min-h-12 w-full"
                 />
-              </>
-            )}
+              ) : (
+                <>
+                  <h3 className="text-title text-balance">{product.name}</h3>
+                  <CmsImage
+                    image={product.logo}
+                    file="enterprise-products"
+                    path={`products.items.${index}.logo`}
+                    fluid
+                    emptyClassName="mt-3 min-h-12 w-full"
+                  />
+                </>
+              )}
+            </span>
+            <span className="text-body line-clamp-3 max-w-[32ch]">{product.summary || product.tagline}</span>
           </span>
-          <span className="text-body line-clamp-3 max-w-[32ch]">{product.summary || product.tagline}</span>
           <span
-            className="inline-flex h-10 items-center rounded-full px-4 text-sm font-medium"
+            className="mt-4 inline-flex h-10 shrink-0 items-center rounded-full px-4 text-sm font-medium"
             style={lightCard ? { backgroundColor: "#0c0c0d", color: "#ffffff" } : { backgroundColor: "#ffffff", color }}
           >
             {exploreLabel(product)}
