@@ -71,7 +71,8 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
             path="hero.logo"
             fluid
             className={cn(
-              "mb-6 h-14 w-auto",
+              "mb-6 w-auto",
+              hero.logo.src.includes("useforms-logo") ? "h-8" : "h-14",
               (/\/(sentinel|reckon)-logo\.png$/.test(hero.logo.src) ||
                 hero.logo.src.includes("useforms-logo-white")) &&
                 "light:brightness-0",
