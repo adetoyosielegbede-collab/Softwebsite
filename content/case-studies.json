@@ -1,68 +1,165 @@
 {
-  "seo": { "title": "Case Studies", "description": "Real engagements. Measurable outcomes." },
+  "seo": {
+    "title": "Case Studies",
+    "description": "Eight engagements for named clients, across government, financial inclusion, agriculture, consumer goods, and energy."
+  },
   "hero": {
     "eyebrow": "Case Studies",
     "title": "Real engagements. Measurable outcomes.",
-    "text": "A portfolio of real engagements — spanning government, financial services, consumer goods, and agriculture — each delivering measurable, lasting outcomes.",
+    "text": "Eight engagements for named clients, across government, financial inclusion, agriculture, consumer goods, and energy. Each one measured by the people it reached.",
     "ctaLabel": "Start a conversation",
     "ctaHref": "/contact",
     "backgroundImage": { "src": "", "alt": "" }
   },
-  "filters": ["Government", "Financial Inclusion", "FMCG", "Agriculture"],
+  "filters": ["Government", "Financial Inclusion", "Agriculture", "FMCG", "Energy"],
   "items": [
     {
-      "title": "A National Digital Platform for 500,000 Young Nigerians",
-      "text": "Nigeria faced an acute youth unemployment crisis — nearly 50% of graduates were unemployed or unemployable. Past government interventions struggled with inefficiency, poor reach, and weak accountability. The challenge: recruit, train, deploy, and pay half a million young people fairly and on time, across all 36 states.",
+      "title": "Empowering the Nigerian Youth",
+      "text": "Nigeria faced an urgent youth unemployment crisis. Nearly 50% of graduates were unemployed or unemployable, and earlier interventions struggled with inefficiency, poor reach, and weak accountability. The task was to recruit, train, deploy, and pay 500,000 young people fairly and on time, across all 36 states.",
+      "solution": "Softcom designed and deployed a nationwide digital platform for recruitment, training, work tracking, and payments. Digital identity, mobile access, and real-time data kept the programme transparent and inclusive in every state.",
+      "impact": [
+        "500,000 young Nigerians engaged in meaningful work",
+        "On-time payment processing at national scale",
+        "New skills and incomes for households and communities"
+      ],
+      "takeaway": "Complex national challenges can be met with simple, scalable technology that puts people at the centre.",
       "tag": "Government",
       "metric": "500k",
-      "metricLabel": "Youth Engaged",
-      "client": "Federal Government of Nigeria",
-      "image": { "src": "", "alt": "" }
+      "metricLabel": "Youth engaged",
+      "client": "Bank of Industry",
+      "image": { "src": "", "alt": "" },
+      "logo": { "src": "/partners/bank-of-industry.png", "alt": "Bank of Industry" }
     },
     {
-      "title": "Connecting Directly with 12 Million Coca-Cola Consumers",
-      "text": "Millions of Nigerians drank Coca-Cola daily, yet the company had limited visibility into who those consumers were or how to reward loyalty beyond traditional retail channels. A direct consumer database was needed — built at scale, fast.",
-      "tag": "FMCG",
-      "metric": "12M",
-      "metricLabel": "Consumers Identified",
-      "client": "Coca-Cola Nigeria",
-      "image": { "src": "", "alt": "" }
-    },
-    {
-      "title": "Conditional Cash Transfers to Nigeria's Poorest Households",
-      "text": "Over 100 million Nigerians are classified as multidimensionally poor. The Federal Government needed to deliver targeted support to the poorest households — encouraging education, immunisation, and family planning — while reaching riverine and hard-to-access rural communities with full transparency.",
+      "title": "Delivering Conditional Cash Transfers to Nigeria's Poorest Households",
+      "text": "More than 100 million Nigerians are multidimensionally poor, according to the World Bank. The Federal Government, through the National Cash Transfer Office, needed to deliver cash, products, and incentives to the poorest households, and to encourage education, immunisation, and family planning, including in riverine and hard-to-reach communities.",
+      "solution": "Softcom built a digital disbursement platform and ran it in more than four states. The system handled enrolment, identity verification, and payment, so support reached the right households. Community agents were hired and trained in each location, which created local jobs and trust.",
+      "impact": [
+        "Over 190,000 beneficiaries received support",
+        "Real-time tracking kept the programme accountable",
+        "Local employment through community agent networks",
+        "Better access to education, healthcare, and family welfare"
+      ],
+      "takeaway": "Technology and a local presence together can reach households the formal system misses.",
       "tag": "Government",
       "metric": "190k+",
-      "metricLabel": "Beneficiaries Reached",
-      "client": "National Cash Transfer Office / FGN",
-      "image": { "src": "", "alt": "" }
+      "metricLabel": "Beneficiaries reached",
+      "client": "National Cash Transfer Office",
+      "image": { "src": "", "alt": "" },
+      "logo": { "src": "/media/clients/ncto.jpg", "alt": "National Cash Transfer Office" },
+      "logoPlate": "light"
     },
     {
-      "title": "Digital Micro-Lending to 1.2 Million Nigerian Traders",
-      "text": "Millions of Nigerian informal traders had no credit history, no bank account, and no access to formal lending — making them invisible to the financial system. The Bank of Industry needed to reach them directly, at scale, with verifiable identity and instant disbursement.",
+      "title": "Enabling Financial Support and Inclusion for Nigeria's Micro Traders",
+      "text": "Through the Government Enterprise and Empowerment Programme (GEEP), the Bank of Industry set out to lend from NGN 10,000 to informal traders, then raise the amount when a loan was repaid. Most of those traders worked in open markets, without bank accounts or access to formal finance.",
+      "solution": "Softcom powered TraderMoni fulfilment on Eyowo. After a trader was identified and enumerated, the loan was paid to their mobile number. Dropping the first zero turned that number into a NUBAN, so an unbanked trader had a working account.",
+      "impact": [
+        "Over 1.2 million micro traders received digital loans",
+        "Over 300,000 gained formal financial services for the first time",
+        "Loan disbursement stayed transparent through Eyowo"
+      ],
+      "takeaway": "A phone number became a working account, and a first step into formal finance.",
       "tag": "Financial Inclusion",
       "metric": "1.2M",
-      "metricLabel": "Traders Reached",
-      "client": "Bank of Industry / Federal Government of Nigeria",
-      "image": { "src": "", "alt": "" }
+      "metricLabel": "Traders reached",
+      "client": "Bank of Industry",
+      "image": { "src": "", "alt": "" },
+      "logo": { "src": "/partners/bank-of-industry.png", "alt": "Bank of Industry" }
     },
     {
-      "title": "Digitising the Agricultural Value Chain for West Africa's Largest Tomato Processor",
-      "text": "GB Foods operates the largest tomato processing factory in West Africa in Kebbi State, sourcing from 1,500 hectares of farm and 5,000+ out-grower farmers. Before production could scale, they needed a reliable way to identify, verify, and profile thousands of smallholder farmers.",
+      "title": "Digitising Agricultural Value Chains for Sustainable Sourcing",
+      "text": "GB Foods runs the largest tomato processing factory in West Africa, in Kebbi State. The plant draws on a 1,500-hectare farm and more than 5,000 out-growers. Before that network could scale, the company needed to identify and verify farmers and map their farms.",
+      "solution": "Softcom identified more than 13,000 farmers and recorded biodata, farm size, family situation, and proximity to water and roads. GB Foods could see who could supply the factory, and where.",
+      "impact": [
+        "Over 13,000 farmers identified and verified",
+        "A clearer view of farm location and capacity",
+        "Better decisions on out-grower expansion",
+        "Stronger traceability across Kebbi State"
+      ],
+      "takeaway": "A supply chain becomes manageable once every farm and farmer is on the record.",
       "tag": "Agriculture",
       "metric": "13k+",
-      "metricLabel": "Farmers Profiled",
+      "metricLabel": "Farmers profiled",
       "client": "GB Foods Nigeria",
-      "image": { "src": "", "alt": "" }
+      "image": { "src": "", "alt": "" },
+      "logo": { "src": "/partners/gb-foods.svg", "alt": "GB Foods" },
+      "logoPlate": "light"
     },
     {
-      "title": "Building a Direct Consumer Relationship for Trophy Beer",
-      "text": "AB InBev needed to understand and directly engage their Trophy Beer consumer base in Nigeria's informal beer market — a largely anonymous audience transacting through informal distribution channels with no direct brand-to-consumer connection.",
+      "title": "Automating Dairy Farmer Management and Payments",
+      "text": "Sebore International Farms, makers of Admiral'A Yoghurt, wanted to onboard and pay thousands of rural smallholder dairy farmers. Most had limited access to finance and no digital identity.",
+      "solution": "Softcom deployed a Farm Management System covering biodata, BVN, biometrics, and household location. Eyowo paid farmers instantly when milk was collected. Agents used DataBeaver to enrol, verify, and capture data in the field, and Hausa training materials explained the platform to farmers.",
+      "impact": [
+        "Over 2,400 smallholder dairy farmers onboarded and verified",
+        "Farmer management and payments digitised end to end",
+        "Instant, traceable payments for milk collected",
+        "Hausa training materials so farmers could adopt the platform",
+        "Clearer, more accountable operations for Sebore Farms"
+      ],
+      "takeaway": "Every collection and every payment can be visible, including for farmers the banking system does not yet reach.",
+      "tag": "Agriculture",
+      "metric": "2,400",
+      "metricLabel": "Farmers onboarded",
+      "client": "Sebore Farms",
+      "image": { "src": "", "alt": "" },
+      "logo": { "src": "/media/clients/sebore.png", "alt": "Sebore Farms" },
+      "logoPlate": "light"
+    },
+    {
+      "title": "Connecting with 12 Million Consumers through Digital Engagement",
+      "text": "Millions of Nigerians drank Coca-Cola every day, but the company could not see who they were or reach them beyond retail. It needed a consumer database, and a way to reward loyalty at scale.",
+      "solution": "Softcom built the infrastructure for Coca-Cola's Under-the-Crown campaign. A unique code sat under the crown. The drinker dialled a USSD short code, entered the crown code, answered a short survey, and received airtime immediately. The platform tied into manufacturing data and every mobile network.",
+      "impact": [
+        "Over 12 million consumers identified and profiled",
+        "Airtime rewards delivered automatically, in real time",
+        "A consumer database for targeted engagement and promotions",
+        "A measurable connection between the brand and the person who bought the drink"
+      ],
+      "takeaway": "A code under a crown became a direct relationship with millions of drinkers.",
+      "tag": "FMCG",
+      "metric": "12M",
+      "metricLabel": "Consumers identified",
+      "client": "Coca-Cola Nigeria",
+      "image": { "src": "", "alt": "" },
+      "logo": { "src": "/media/clients/coca-cola.svg", "alt": "Coca-Cola" },
+      "logoPlate": "light"
+    },
+    {
+      "title": "Driving Consumer Insight and Loyalty through Digital Engagement",
+      "text": "AB InBev, makers of Trophy Beer, had nationwide sales and little visibility of who was buying. The company needed to identify drinkers, reward loyalty, and turn that into insight for marketing and distribution.",
+      "solution": "Softcom implemented Under-the-Crown for Trophy. Each bottle carried a unique code under the crown. A drinker dialled a USSD code, entered it, answered a short survey, and received airtime or another incentive at once. The system sat on the manufacturing workflow, processed millions of entries, and paid incentives on every network.",
+      "impact": [
+        "Over 4 million consumers identified and engaged",
+        "Instant incentives for verified Trophy drinkers",
+        "Consumer data for more precise campaigns",
+        "A stronger direct connection between Trophy and the people who drink it"
+      ],
+      "takeaway": "An everyday purchase became a source of insight, and a reason to come back.",
       "tag": "FMCG",
       "metric": "4M",
-      "metricLabel": "Consumers Engaged",
-      "client": "AB InBev Nigeria — Trophy Beer",
-      "image": { "src": "", "alt": "" }
+      "metricLabel": "Consumers engaged",
+      "client": "AB InBev",
+      "image": { "src": "", "alt": "" },
+      "logo": { "src": "/media/clients/ab-inbev.svg", "alt": "AB InBev" },
+      "logoPlate": "light"
+    },
+    {
+      "title": "Reconnecting Consumers to Legacy Lubricant Brands through Digital Engagement",
+      "text": "After acquiring lubricant businesses, Ardova Plc found legacy brands such as Visco 2000 and Super V disconnected from the people who bought them. The company needed to reintroduce those brands, incentivise purchase, and see who was buying and where.",
+      "solution": "Softcom ran a nationwide engagement platform. Unique codes were printed on labels and generated inside the manufacturing flow. Buyers dialled a USSD code and received airtime or cash at once. The system validated codes, paid the incentives, and reported engagement and location in real time.",
+      "impact": [
+        "Thousands of customers identified and engaged nationwide",
+        "Instant airtime and cash for verified buyers",
+        "Behaviour insights that sharpened marketing spend",
+        "Legacy brands reconnected with the people who buy them"
+      ],
+      "takeaway": "A code on the label brought Visco 2000 and Super V back into direct contact with the buyer.",
+      "tag": "Energy",
+      "metric": "Thousands",
+      "metricLabel": "Customers engaged",
+      "client": "Ardova Plc",
+      "image": { "src": "", "alt": "" },
+      "logo": { "src": "/partners/ardova.png", "alt": "Ardova Plc" }
     }
   ],
   "band": { "src": "/images/pos-agent.jpg", "alt": "A point-of-sale agent serving a customer", "position": "50% 40%" },

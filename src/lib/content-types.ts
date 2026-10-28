@@ -163,11 +163,28 @@ export type ProductContent = {
   cta: Cta;
 };
 
+export type CaseStudyItem = {
+  title: string;
+  /** The challenge, shown on the card and at the top of the study. */
+  text: string;
+  solution: string;
+  impact: string[];
+  takeaway: string;
+  tag: string;
+  metric: string;
+  metricLabel: string;
+  client: string;
+  image: CmsImage;
+  logo: CmsImage;
+  /** "light" sets the mark on a white plate so dark ink stays readable on the dark card. */
+  logoPlate?: "light";
+};
+
 export type CaseStudiesContent = {
   seo: Seo;
   hero: Hero;
   filters: string[];
-  items: { title: string; text: string; tag: string; metric: string; metricLabel: string; client: string; image: CmsImage }[];
+  items: CaseStudyItem[];
   band: CmsImage;
   cta: Cta;
 };

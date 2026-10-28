@@ -17,6 +17,32 @@ function studyId(index: number) {
   return `study-${index}`;
 }
 
+function ClientLogo({ item, index, tone }: { item: Item; index: number; tone: "card" | "sheet" }) {
+  if (!item.logo?.src) return null;
+  const light = item.logoPlate === "light";
+  return (
+    <span
+      className={cn(
+        "inline-flex max-w-[9.75rem] items-center justify-center",
+        light && "rounded-md bg-white px-2 py-1.5 ring-1 ring-black/10",
+        !light && tone === "sheet" && "rounded-md bg-neutral-950 px-2.5 py-1.5 ring-1 ring-white/15",
+      )}
+    >
+      <CmsImage
+        image={item.logo}
+        file="case-studies"
+        path={`items.${index}.logo`}
+        fluid
+        className={cn(
+          "w-auto object-contain",
+          tone === "sheet" ? "h-14 max-w-[10.5rem]" : "h-12 max-w-[9.25rem]",
+        )}
+        emptyClassName="hidden"
+      />
+    </span>
+  );
+}
+
 export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["items"]; filters: string[] }) {
   const [filter, setFilter] = useState("All");
   const [current, setCurrent] = useState(0);
@@ -178,10 +204,43 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
                 </div>
                 <div className="col-span-2 border-line p-4 sm:col-span-1 sm:border-b-0">
                   <dt className="label text-ink-faint">Client</dt>
+                  <dd className="mt-3">
+                    <ClientLogo item={openItem} index={selected} tone="sheet" />
+                  </dd>
                   <dd className="text-body mt-2">{openItem.client}</dd>
                 </div>
               </dl>
-              <p className="text-body mt-6 text-ink-soft">{openItem.text}</p>
+              <div className="mt-8 space-y-6">
+                <section>
+                  <h3 className="label text-ink-faint">Challenge</h3>
+                  <p className="text-body mt-2 text-ink-soft">{openItem.text}</p>
+                </section>
+                {openItem.solution ? (
+                  <section>
+                    <h3 className="label text-ink-faint">Solution</h3>
+                    <p className="text-body mt-2 text-ink-soft">{openItem.solution}</p>
+                  </section>
+                ) : null}
+                {openItem.impact?.length ? (
+                  <section>
+                    <h3 className="label text-ink-faint">Impact</h3>
+                    <ul className="mt-3 space-y-2.5">
+                      {openItem.impact.map((point) => (
+                        <li key={point} className="text-body flex gap-3 text-ink-soft">
+                          <span aria-hidden className="mt-[0.55em] size-1.5 shrink-0 rounded-full bg-signal" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                ) : null}
+                {openItem.takeaway ? (
+                  <section className="rounded-2xl bg-surface p-4 ring-1 ring-line">
+                    <h3 className="label text-ink-faint">Takeaway</h3>
+                    <p className="text-body mt-2">{openItem.takeaway}</p>
+                  </section>
+                ) : null}
+              </div>
             </article>
           ) : null}
         </SheetContent>
@@ -235,7 +294,7 @@ function PinnedMark({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <div className="pointer-events-none absolute inset-x-0 top-1/2 z-10 -translate-y-1/2 pr-4 text-right md:pr-8">
+    <div className="pointer-events-none absolute top-1/2 right-0 z-10 w-[min(46%,13.5rem)] -translate-y-1/2 pr-4 text-right md:pr-8">
       <div ref={ref}>{children}</div>
     </div>
   );
@@ -248,7 +307,7 @@ function StudyCard({ item, index, total, onOpen }: { item: Item; index: number; 
       id={studyId(index)}
       data-study=""
       data-index={index}
-      className="group relative h-[300px] scroll-mt-36 overflow-hidden rounded-[20px] md:h-[360px]"
+      className="group relative h-[400px] scroll-mt-36 overflow-hidden rounded-[20px] md:h-[420px]"
     >
       <div className="absolute inset-0 overflow-hidden rounded-[20px] bg-neutral-950">
         <CmsImage
@@ -268,10 +327,10 @@ function StudyCard({ item, index, total, onOpen }: { item: Item; index: number; 
 
       <div className="relative flex h-full flex-col p-4 text-white md:p-6">
         <div className="flex items-start justify-between gap-4">
-          <h2 className="max-w-[24ch] font-heading text-xl leading-none heading-type md:text-2xl">{item.title}</h2>
+          <h2 className="line-clamp-3 max-w-[24ch] font-heading text-xl leading-none heading-type md:text-2xl">{item.title}</h2>
           <span className="label shrink-0 text-white/70">{number}</span>
         </div>
-        <p className="mt-3 max-w-[36ch] border-t border-white/25 pt-3 text-[0.8125rem] leading-[1.35] text-white/70">{excerpt(item.text)}</p>
+        <p className="mt-3 line-clamp-3 max-w-[36ch] border-t border-white/25 pt-3 text-[0.8125rem] leading-[1.35] text-white/70">{excerpt(item.text)}</p>
         <button
           type="button"
           data-open-study=""
@@ -282,13 +341,23 @@ function StudyCard({ item, index, total, onOpen }: { item: Item; index: number; 
         </button>
 
         <PinnedMark>
-          <p className="font-heading text-[2.25rem] leading-[0.95] heading-type text-signal md:text-[2.75rem]">{item.metric}</p>
+          <p
+            className={cn(
+              "font-heading leading-[0.95] heading-type text-signal",
+              item.metric.length > 7 ? "text-[1.65rem] md:text-[2.15rem]" : "text-[2.25rem] md:text-[2.75rem]",
+            )}
+          >
+            {item.metric}
+          </p>
           <p className="label mt-1 text-white/60">{item.metricLabel}</p>
         </PinnedMark>
 
         <div className="mt-auto flex items-end justify-between gap-4">
           <p className="label text-white/55">{item.tag}</p>
-          <p className="max-w-[220px] text-right font-mono text-[0.75rem] leading-snug text-white/80">{item.client}</p>
+          <div className="flex max-w-[11rem] shrink-0 flex-col items-end gap-1.5">
+            <ClientLogo item={item} index={index} tone="card" />
+            <p className="text-right font-mono text-[0.7rem] leading-snug text-white/75">{item.client}</p>
+          </div>
         </div>
       </div>
     </li>
