@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 type Item = EnterpriseProductsContent["products"]["items"][number];
 
-const FALLBACK_COLORS = ["#2a2b30", "#991b1b", "#d7c4a3", "#004bff"];
+const FALLBACK_COLORS = ["#2a2b30", "#991b1b", "#ffffff", "#004bff"];
 
 function inkFor(color: string) {
   const hex = color.trim().replace("#", "");
@@ -29,10 +29,15 @@ function isLift(product: Item) {
   return product.name.trim().toLowerCase() === "lift" || product.href.replace(/\/$/, "").endsWith("/lift");
 }
 
+function isUseforms(product: Item) {
+  return product.name.trim().toLowerCase() === "useforms" || product.href.replace(/\/$/, "").endsWith("/useforms");
+}
+
 function ProductCard({ product, index }: { product: Item; index: number }) {
   const color = product.color || FALLBACK_COLORS[index % FALLBACK_COLORS.length];
   const ink = inkFor(color);
   const lift = isLift(product);
+  const useforms = isUseforms(product);
 
   return (
     <div data-product="" className="h-[268px] sm:h-[286px]">
@@ -41,7 +46,21 @@ function ProductCard({ product, index }: { product: Item; index: number }) {
         className="product-card relative flex h-full flex-col overflow-hidden rounded-[20px] px-5 py-5 md:px-6 md:py-6"
         style={{ backgroundColor: color, color: ink }}
       >
-        {lift ? (
+        {useforms ? (
+          <span className="flex h-full flex-col items-center justify-center gap-6 text-center">
+            <span className="block w-[min(250px,86%)]">
+              <CmsImage
+                image={product.logo}
+                file="enterprise-products"
+                path={`products.items.${index}.logo`}
+                fluid
+                className="h-auto w-full"
+                emptyClassName="min-h-12 w-full"
+              />
+            </span>
+            <span className="text-body line-clamp-3 max-w-[28ch]">{product.summary || product.tagline}</span>
+          </span>
+        ) : lift ? (
           <span className="flex h-full flex-col items-center justify-center gap-4 text-center">
             <span className="block w-[min(200px,76%)]">
               <CmsImage
@@ -105,7 +124,7 @@ export function ProductGrid({ items }: { items: Item[] }) {
         }
         const rect = card.getBoundingClientRect();
         const center = rect.top + rect.height / 2;
-        const passed = clamp((vh * 0.72 - center) / (vh * 0.55) + 0.5);
+        const passed = clamp((vh * 1.05 - center) / (vh * 0.3));
         const rise = (1 - passed) * 28;
         card.style.opacity = String(0.55 + passed * 0.45);
         card.style.transform = `translateY(${rise}px)`;

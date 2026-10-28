@@ -52,10 +52,10 @@
         "tagline": "Collect data in all its forms.",
         "summary": "Collect data in all its forms.",
         "href": "/enterprise-products/useforms",
-        "color": "#d7c4a3",
+        "color": "#ffffff",
         "logo": {
-          "src": "",
-          "alt": "Useforms logo"
+          "src": "/media/products/useforms-logo.svg",
+          "alt": "Useforms"
         },
         "image": {
           "src": "/media/products/useforms-card.png",
