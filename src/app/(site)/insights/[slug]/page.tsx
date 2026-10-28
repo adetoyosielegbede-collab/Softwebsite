@@ -94,7 +94,7 @@ export default async function InsightArticlePage({ params }: PageProps<"/insight
 
         <div className="container-site mt-16 flex flex-col gap-16 md:mt-24">
           {hero.src ? (
-            <div className="overflow-clip rounded-2xl bg-white ring-1 ring-black/10">
+            <div className="mx-auto w-full max-w-3xl overflow-clip rounded-2xl bg-white ring-1 ring-black/10">
               <CmsImage
                 image={hero}
                 file="posts"
