@@ -2,14 +2,15 @@
   "seo": { "title": "Reckon", "description": "Reckon compares what was declared with what is owed, line by line." },
   "name": "Reckon",
   "hero": {
-    "eyebrow": "Softcom Product · Applied Intelligence",
+    "eyebrow": "",
     "title": "What was declared vs what is owed. Spot the difference.",
     "text": "A tax return says what a company declared; however, the documents filed show what is owed.",
     "primaryLabel": "Request a demonstration",
     "primaryHref": "/contact",
     "secondaryLabel": "Explore Reckon",
     "secondaryHref": "#overview",
-    "backgroundImage": { "src": "", "alt": "" }
+    "backgroundImage": { "src": "", "alt": "" },
+    "logo": { "src": "/media/products/reckon-logo.png", "alt": "Reckon" }
   },
   "overview": [
     "Reckon reads every one of those documents, works out the tax each line should have attracted, and shows the officer where the two disagree: the figure, the document it came from and the tax rule applied."
@@ -25,7 +26,7 @@
       ]
     },
     {
-      "number": "01",
+      "number": "",
       "title": "Most of what is missed was never looked for.",
       "text": "A liability rarely hides in one document. It shows where the general ledger, the bank statement and the return disagree, and those three are seldom put side by side. Reckon compares every line of every document, so a check that takes an officer a week happens in seconds.",
       "points": [],
@@ -34,7 +35,7 @@
       ]
     },
     {
-      "number": "02",
+      "number": "",
       "title": "Start with what the taxpayer already filed.",
       "text": "Returns, general ledgers, trial balances, financial statements, schedules and bank statements, in PDF, Excel or scanned form. Reckon reads them into one chart of accounts and maps every line to the tax areas it falls under.",
       "points": [],
@@ -43,7 +44,7 @@
       ]
     },
     {
-      "number": "03",
+      "number": "",
       "title": "Every line, tested.",
       "text": "For each line Reckon classifies what it is, computes what the applicable rule expects, and compares that with what was declared and what was remitted. A fee posted to the interest ledger is still a fee, and is tested as one. Differences above the materiality threshold for the industry become exceptions.",
       "points": [],
@@ -52,7 +53,7 @@
       ]
     },
     {
-      "number": "04",
+      "number": "",
       "title": "Patterns across years, not just lines.",
       "text": "Reckon keeps the taxpayer’s history as one profile. A series of short agreements that together make one long borrowing, or receipts that reconcile within a year but not across years, are tested as a matter of course.",
       "points": [],
@@ -61,7 +62,7 @@
       ]
     },
     {
-      "number": "05",
+      "number": "",
       "title": "The officer decides.",
       "text": "Reckon raises exceptions; it does not raise findings. Every exception is reviewed by an officer, who raises a finding or dismisses it with a reason. The rules that produce exceptions are configuration the administration maintains itself, so two teams examining the same taxpayer reach the same result. AI is used to read scanned and unstructured input, and the exception says where.",
       "points": [],
@@ -70,7 +71,7 @@
       ]
     },
     {
-      "number": "06",
+      "number": "",
       "title": "A finding that survives objection.",
       "text": "Each finding keeps the document version, the line, the rule version, the officer’s review and the supervisor’s approval. The same record is produced at reconciliation or before a tribunal, and stays with the case when officers move.",
       "points": [],
@@ -79,7 +80,7 @@
       ]
     },
     {
-      "number": "07",
+      "number": "",
       "title": "One engine. Desk review, audit, investigation.",
       "text": "Desk review runs on every filing as it arrives and clears or escalates it without an officer’s time. Audit takes selected cases through evidence requests, fieldwork and findings. Investigation works at transaction level for enforcement. The rules and the taxpayer record are shared; the workflow, people and depth are not.",
       "points": [],
@@ -91,7 +92,10 @@
   "audience": {
     "eyebrow": "Who it is for",
     "title": "Built for those with a mandate to collect.",
-    "text": "Revenue administrations and large-taxpayer offices, state internal revenue services, tax audit and investigation units, and the audit firms acting for them. Reckon reads from existing systems of record; write-back is approved by a person and logged."
+    "text": "Revenue administrations and large-taxpayer offices, state internal revenue services, tax audit and investigation units, and the audit firms acting for them. Reckon reads from existing systems of record; write-back is approved by a person and logged.",
+    "closing": "Tell us which filings you review and what your audits need to establish. We will run Reckon on records you select, against criteria you set.",
+    "ctaLabel": "Request a demonstration",
+    "ctaHref": "/contact"
   },
   "cta": {
     "image": { "src": "/images/market-aerial.jpg", "alt": "Aerial view of a busy open-air market in Lagos" },

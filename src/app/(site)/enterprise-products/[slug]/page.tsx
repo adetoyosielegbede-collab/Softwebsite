@@ -35,7 +35,7 @@ export default async function ProductPage({ params }: PageProps<"/enterprise-pro
   const file = `products/${slug}`;
   const { hero } = product;
 
-  if (slug === "lift") {
+  if (slug === "lift" || slug === "reckon" || slug === "sentinel") {
     return <ProductStory product={product} file={file} />;
   }
 

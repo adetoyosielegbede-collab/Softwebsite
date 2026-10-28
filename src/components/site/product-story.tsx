@@ -70,7 +70,11 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
             file={file}
             path="hero.logo"
             fluid
-            className="mb-6 h-14 w-auto"
+            className={cn(
+              "mb-6 h-14 w-auto",
+              // White wordmarks disappear on the light paper. The LIFT badge already carries its own blue.
+              !hero.logo.src.includes("lift-logo") && "light:brightness-0",
+            )}
           />
         ) : null}
         {hero.eyebrow ? <p className="label text-ink-soft">{hero.eyebrow}</p> : null}
