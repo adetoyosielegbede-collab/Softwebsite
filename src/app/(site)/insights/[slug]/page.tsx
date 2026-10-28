@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { InsightArticle } from "@/components/site/insight-article";
+import { ArrowLeft } from "lucide-react";
+import { CmsImage } from "@/components/cms/cms-image";
+import { CtaBanner } from "@/components/site/sections";
 import { getContent } from "@/lib/content";
+import { formatDate } from "@/lib/format";
 
 export async function generateStaticParams() {
   const { items } = await getContent("posts");
@@ -27,6 +31,50 @@ export default async function InsightArticlePage({ params }: PageProps<"/insight
   const [{ items }, insights] = await Promise.all([getContent("posts"), getContent("insights")]);
   const index = items.findIndex((p) => p.slug === slug && p.published);
   if (index === -1) notFound();
+  const post = items[index];
+  const sections = post.sections ?? [];
 
-  return <InsightArticle post={items[index]} index={index} cta={insights.cta} />;
+  return (
+    <>
+      <article className="container-site pt-32 pb-8 lg:pt-40">
+        <Link href="/insights" className="inline-flex items-center gap-2 text-xs text-ink-soft transition-colors hover:text-accent-ink">
+          <ArrowLeft className="size-3.5" /> Insights
+        </Link>
+        <div className="mt-8 flex flex-wrap items-center gap-4 text-xs text-ink-soft">
+          <span className="rounded-full bg-ink/5 px-3 py-1 ring-1 ring-line">{post.category}</span>
+          <time dateTime={post.date}>{formatDate(post.date)}</time>
+        </div>
+        <h1 className="text-display mt-6 max-w-4xl">{post.title}</h1>
+        {post.image.src ? (
+          <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-3xl">
+            <CmsImage image={post.image} file="posts" path={`items.${index}.image`} priority sizes="(min-width: 1440px) 1360px, 100vw" />
+          </div>
+        ) : null}
+        <div className="mx-auto mt-12 max-w-2xl">
+          {post.body.length > 0 ? (
+            <div className="text-body space-y-6 text-ink-soft">
+              {post.body.map((paragraph) => (
+                <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+              ))}
+            </div>
+          ) : null}
+          {sections.length > 0 ? (
+            <div className="mt-14 flex flex-col gap-14">
+              {sections.map((section) => (
+                <section key={section.title}>
+                  <h2 className="text-title text-ink">{section.title}</h2>
+                  <div className="text-body mt-4 space-y-6 text-ink-soft">
+                    {section.paragraphs.map((paragraph) => (
+                      <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      </article>
+      <CtaBanner cta={insights.cta} file="insights" />
+    </>
+  );
 }

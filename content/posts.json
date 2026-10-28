@@ -3,8 +3,6 @@
     {
       "slug": "know-your-state",
       "title": "Know Your State",
-      "kicker": "Potential Papers · No. 002",
-      "author": "Omoseindemi Olobayo",
       "category": "Potential Papers",
       "date": "2026-09",
       "featured": true,
@@ -14,418 +12,49 @@
         "src": "/images/lagos-dusk.jpg",
         "alt": "A canoe on the Lagos lagoon at dusk, with a lit bridge and the city skyline"
       },
-      "hero": { "backgroundImage": { "src": "", "alt": "" } },
       "body": [
-        "Most states plan, tax and invest with a partial, dated view of their own economy.",
-        "The answer is permanent intelligence infrastructure: verified data on six kinds of place, read by AI that answers leaders in plain words."
+        "A state that cannot see its economy cannot grow it, tax it fairly, or put it in front of an investor. Most states still plan and tax from a partial, dated picture. Markets, motor parks and informal settlements move faster than the last survey, and the next plan starts from what the state once knew.",
+        "State IGR reached about NGN 4.15 trillion in 2025. Lagos raised about 45% of it. The lowest-earning states raised between NGN 15 billion and NGN 21 billion. Lagos tied an 18.5% rise in its own IGR that year to seeing more of the economy: geo-tagging, and tax records linked to company registration. The gap between states is not only size. It is visibility. What a state cannot see, it cannot tax, and a programme reaches the places already on the map."
       ],
       "sections": [
         {
-          "id": "summary",
-          "number": "Summary",
-          "title": "The paper in one minute",
-          "lead": "Written for governors and state executive councils, and the development partners and foundations that back them.",
-          "blocks": [
-            {
-              "kind": "steps",
-              "items": [
-                { "label": "1 minute", "title": "Cover and summary", "text": "The argument, and the five claims it rests on." },
-                { "label": "10 minutes", "title": "Sections 1 to 4", "text": "What is left on the table, what is proposed, why this year, and what proves it." },
-                { "label": "25 minutes", "title": "The full paper", "text": "What each leader gains, what sinks efforts like this, and where to start this week." }
-              ]
-            },
-            {
-              "kind": "points",
-              "items": [
-                { "title": "A partial view", "text": "Most states plan, tax and invest with a partial, dated view of their own economy." },
-                { "title": "It shows in revenue", "text": "One state raises about 45% of all state IGR. The lowest raise under 1% each." },
-                { "title": "A living picture", "text": "Permanent intelligence infrastructure: verified data on six kinds of place, read by AI that answers leaders in plain words." },
-                { "title": "Already in the field", "text": "The method is tested in a megacity pilot across markets, informal settlements and motor parks." },
-                { "title": "It pays its way", "text": "An illustrative model for a large state breaks even in year 3 and returns revenue from year 4." }
-              ]
-            }
+          "title": "A picture the state owns",
+          "paragraphs": [
+            "The work is a permanent picture of the state, owned by the state, that a leader can question in plain words. Field teams record markets and business clusters, informal settlements, motor parks and corridors, residential estates, schools and clinics, and the ports, industry and coast the state depends on. Ministry records for tax, residents and land connect to that picture, with maps and satellite. Telecom and payments come in aggregated only. A citizen can report, and a report that checks out is rewarded.",
+            "Personal data stays with the state. What can be shared onward is aggregated insight.",
+            "A dashboard says what already happened. This picture should say why, and what to do next. How many children are out of school, and where. Why one market earns more than another. Where a new clinic reaches people who have none. Whether a drainage project actually cut the flooding. The question can be asked in English, Yoruba, Hausa, Igbo or Pidgin, on the web, a phone, WhatsApp or USSD. Every answer shows its sources, and how sure it is.",
+            "The same measure can be split by gender, age, disability, income and place. The test of the work is whether the poorest fifth of communities improves faster than the richest."
           ]
         },
         {
-          "id": "potential",
-          "number": "01",
-          "title": "The Potential",
-          "lead": "A state that cannot see its economy cannot grow it, tax it fairly, or sell it to investors.",
-          "blocks": [
-            {
-              "kind": "prose",
-              "paragraphs": [
-                "State IGR reached about NGN 4.15 trillion in 2025. Lagos alone raised about 45% of it. The lowest-earning states raised between NGN 15 billion and NGN 21 billion each. The distance is not only economic size. It is also how well each state can see, measure and act on its own economy.",
-                "Lagos shows what visibility is worth. The state tied an 18.5% rise in IGR in 2025 to digital reforms, including geo-tagging and linking tax records to company registration data. Most states do not yet have that picture. Much of their economy, from markets to motor parks, is informal and uncounted."
-              ]
-            },
-            {
-              "kind": "stats",
-              "caption": "The IGR gap between Nigerian states, NGN billion, 2025. The other-state average is calculated from the 2025 aggregate of about NGN 4.147 trillion. Source: BudgIT data, analysed by BusinessDay.",
-              "items": [
-                { "value": "NGN 1.87tn", "label": "Lagos" },
-                { "value": "NGN 65bn", "label": "Other states, average" },
-                { "value": "NGN 15bn", "label": "Lowest state" }
-              ]
-            },
-            {
-              "kind": "points",
-              "items": [
-                { "title": "Revenue unseen", "text": "Businesses and assets that exist, and appear in no record." },
-                { "title": "Investment lost", "text": "Investors choose states that can show them evidence." },
-                { "title": "Spending that misses", "text": "Programmes reach the visible, not the neediest." }
-              ]
-            },
-            {
-              "kind": "note",
-              "title": "The prize",
-              "text": "The most comprehensively understood state in Nigeria, and the first to turn that knowledge into revenue."
-            }
+          "title": "Why this year",
+          "paragraphs": [
+            "The 2025 tax reforms, and the pressure on federal allocations, push a state toward revenue it raises itself. A base that has not been measured is a base that cannot grow. Reading a survey against an audit against a register used to take a team months. It can now be asked in a sentence. Investors already compare states on evidence. And in a city that is still being built, the last census is the wrong map.",
+            "The cycle most states still run is plan, budget, spend, survey, report, shelve. Each survey is a one-off. The state pays again to learn what it once knew."
           ]
         },
         {
-          "id": "idea",
-          "number": "02",
-          "title": "The Idea",
-          "lead": "Permanent intelligence infrastructure: a living picture of the state that leaders can question, and that earns its keep.",
-          "blocks": [
-            {
-              "kind": "steps",
-              "items": [
-                { "label": "Capture", "title": "Field and existing systems", "text": "Verified, time-stamped field capture. MDA records for tax, residents and land. Maps and satellite for land use and flood risk. Telecom and payments, aggregated only. Citizen reports, verified and rewarded." },
-                { "label": "Reason", "title": "One state picture", "text": "Verified data, scored for accuracy. A knowledge graph of places, people and flows. AI synthesis that answers in plain words." },
-                { "label": "Use and earn", "title": "Decisions, then revenue", "text": "Briefs and alerts for the executive council. Planning, targeting and budgets for MDAs. A full base for the revenue service. Subscribers who pay for insight and APIs." }
-              ]
-            },
-            {
-              "kind": "note",
-              "title": "Ownership",
-              "text": "The state owns the data. Personal data is never sold."
-            },
-            {
-              "kind": "points",
-              "items": [
-                { "title": "Markets and business clusters", "text": "Revenue, jobs, trade and digital adoption." },
-                { "title": "Informal settlements", "text": "Housing, sanitation, water, health and schooling." },
-                { "title": "Motor parks and corridors", "text": "People and goods, safety and levies." },
-                { "title": "Residential estates", "text": "Power, waste, security and whether services hold." },
-                { "title": "Social and civic places", "text": "Schools, clinics and community venues." },
-                { "title": "Economic and coastal zones", "text": "Ports, industry, tourism and climate risk." }
-              ]
-            },
-            {
-              "kind": "prose",
-              "paragraphs": [
-                "Together, the six kinds of place show how people in the state live, move, trade and connect, mapped to every pillar of the state development plan.",
-                "Dashboards show what happened. Synthesis explains why, and what to do next. Leaders ask in English, Yoruba, Hausa, Igbo or Pidgin, by web, mobile, WhatsApp or USSD. Every answer shows its sources and how confident it is."
-              ]
-            },
-            {
-              "kind": "table",
-              "caption": "Seven questions a state can finally answer.",
-              "columns": ["Kind", "The question", "A leader can ask"],
-              "rows": [
-                ["Descriptive", "What is happening?", "How many children are out of school, and where are they?"],
-                ["Diagnostic", "Why is it happening?", "Why do some markets earn far more than others?"],
-                ["Comparative", "How do places differ?", "How does service access in settlements compare with estates?"],
-                ["Predictive", "What will happen?", "If transport costs rise 20%, what happens to market prices?"],
-                ["Prescriptive", "What should we do?", "Where should new clinics go to reach the most underserved?"],
-                ["Impact", "Did it work?", "Did the drainage project cut flooding and illness?"],
-                ["Equity", "Who is left behind?", "Where is the earnings gap between women and men widest?"]
-              ]
-            },
-            {
-              "kind": "points",
-              "items": [
-                { "title": "Gender", "text": "Every measure is broken down, so the average is not the only number." },
-                { "title": "Age", "text": "Children, working age and older people stay visible in the same picture." },
-                { "title": "Disability", "text": "Access is counted for people the average would hide." },
-                { "title": "Income", "text": "The test of success: the poorest fifth of communities improves faster than the richest fifth." },
-                { "title": "Location", "text": "A ward can be seen against the state, not only as a line in a state total." }
-              ]
-            },
-            {
-              "kind": "note",
-              "title": "What it is not",
-              "text": "Not a surveillance system, not a sale of personal data, and not another dashboard nobody opens."
-            }
+          "title": "What already proves it",
+          "paragraphs": [
+            "The pieces exist elsewhere, and the counting has already been done here. Andhra Pradesh runs 55 databases across 41 departments from the centre of government. Lagos credits digital reforms for tax revenue that rose from NGN 678 billion in 2023 to NGN 1.44 trillion in 2025. Ordnance Survey, owned by the British government, serves more than 5,000 organisations from one authoritative map. The value of reused public data in Europe is projected to grow from EUR 52 billion in 2018 to EUR 194 billion by 2030.",
+            "Know Lagos gathered data in markets, informal settlements and motor parks, the hardest places in a megacity to count. Each record is time-stamped, checked against its location, and scored for accuracy. It is accepted or rejected as it comes in. A state does not take this statewide until that accuracy passes 90%.",
+            "An illustrative model for a large state, paid for by subscriptions, API licences and commissioned studies, breaks even in year 3 and returns revenue from year 4. The state owns the platform and the data, keeps a share of what the platform earns, and sells only aggregated insight. Once markets and parks are mapped, the revenue service can also see a base it does not have today. That gain goes straight to IGR, and it sits outside the model."
           ]
         },
         {
-          "id": "now",
-          "number": "03",
-          "title": "Why It Matters Now",
-          "lead": "Four shifts make this the right year to build, and waiting costs more each year.",
-          "blocks": [
-            {
-              "kind": "points",
-              "items": [
-                { "title": "Revenue must come from within", "text": "With the national tax reforms signed in 2025 and pressure on federal allocations, a state needs its own revenue base. That base has to be measured before it can grow." },
-                { "title": "AI makes synthesis affordable", "text": "Work that once took an analyst team months, such as reading surveys, audits and records together, can now be done in minutes and asked in plain words." },
-                { "title": "Investors ask for evidence", "text": "Capital compares states on data. A state that can show demand, footfall and infrastructure gaps wins the meeting." },
-                { "title": "Cities outgrow their maps", "text": "Fast urban growth means the last census is already wrong. Informal settlements and markets change faster than records do." }
-              ]
-            },
-            {
-              "kind": "prose",
-              "paragraphs": [
-                "In most states the planning cycle still runs plan, budget, spend, survey, report, shelve. Each survey is a one-off. The next plan starts from data already years old. The state pays again to learn what it once knew."
-              ]
-            },
-            {
-              "kind": "note",
-              "title": "Funders are already backing this kind of infrastructure",
-              "text": "In February 2026, officials in Andhra Pradesh briefed Bill Gates on the state's data lake and real-time governance centre."
-            }
+          "title": "What a leader can show",
+          "paragraphs": [
+            "A governor has one term to show what changed. Finance is asked for revenue without a new tax. Planning is asked to use facts that are still current. The revenue service is asked to widen the base without guessing who is in it. A statistics bureau is asked for numbers people will trust. A foundation or an anchor company is asked where the money went, and what it changed. One picture serves all of them.",
+            "A project ends with the administration that commissioned it. A state's knowledge of itself keeps paying the next one.",
+            "The work fails in familiar ways. A new government drops it. The data is thin, and trust goes with it. Communities refuse to be counted. A confident answer points a decision the wrong way. It holds when it is anchored in law, the method is published, the places being counted help design it, each answer shows how sure it is, and personal data stays under the NDPA."
           ]
         },
         {
-          "id": "works",
-          "number": "04",
-          "title": "Why It Works",
-          "lead": "The parts are proven elsewhere, and the field method is proven here.",
-          "blocks": [
-            {
-              "kind": "table",
-              "caption": "Four precedents, and what they teach.",
-              "columns": ["Precedent", "What it shows", "The lesson"],
-              "rows": [
-                ["Andhra Pradesh, Real-Time Governance Society", "By 2026 its state data lake joined 55 databases across 41 departments and agencies.", "Run it from the centre of government."],
-                ["Lagos State, digital tax reform", "Tax revenue rose from NGN 678 billion in 2023 to NGN 1.44 trillion in 2025, which the state credited to digital reforms.", "Better data moves revenue."],
-                ["Great Britain, Ordnance Survey", "A government-owned company whose map data serves more than 5,000 organisations.", "Authoritative public data can be a business."],
-                ["European Union, public sector information", "Direct economic value of reused public data is projected to grow from EUR 52 billion in 2018 to EUR 194 billion by 2030.", "Value grows every time data is reused."]
-              ]
-            },
-            {
-              "kind": "stats",
-              "caption": "Lagos State tax revenue, NGN billion. Source: Lagos State Ministry of Finance, ministerial press briefing, May 2026. The same briefing reported state IGR of NGN 1.58 trillion in 2024 and NGN 1.87 trillion in 2025.",
-              "items": [
-                { "value": "NGN 678bn", "label": "Tax revenue, 2023" },
-                { "value": "NGN 1.05tn", "label": "Tax revenue, 2024" },
-                { "value": "NGN 1.44tn", "label": "Tax revenue, 2025" }
-              ]
-            },
-            {
-              "kind": "prose",
-              "paragraphs": [
-                "Softcom's Know Lagos pilot gathered data in markets, informal settlements and motor parks, the hardest places in a megacity to count. Every record is time-stamped, location-checked and scored for accuracy, then accepted or rejected in real time. Statewide rollout waits until accuracy passes 90%."
-              ]
-            },
-            {
-              "kind": "table",
-              "caption": "Illustrative five-year model for a large state, NGN million. Subscriptions average about NGN 4 million a year, growing from 12 anchor partners to 150 subscribers, plus API licences and commissioned studies. Year 1 cost includes the build. Break-even is year 3. These figures are an illustration, not a forecast for any one state.",
-              "columns": ["Year", "Cost", "Platform revenue"],
-              "rows": [
-                ["Year 1", "300", "50"],
-                ["Year 2", "200", "180"],
-                ["Year 3", "280", "350"],
-                ["Year 4", "320", "500"],
-                ["Year 5", "350", "700"]
-              ]
-            },
-            {
-              "kind": "table",
-              "caption": "Who funds what, and what each gets back.",
-              "columns": ["Funder", "What they fund", "What they get"],
-              "rows": [
-                ["State government", "Core platform, field teams, first-year build", "Ownership of all data, a 30% revenue share, and better decisions"],
-                ["About 12 anchor companies", "Early subscriptions and counterpart funding", "First access to intelligence and custom dashboards"],
-                ["Foundations and development partners", "The inclusion layer, community validation, skills", "Precise targeting and measured results for their programmes"],
-                ["Subscribers and API users", "Tiered subscriptions, API licences, commissioned studies", "Current, local insight for investment and expansion"]
-              ]
-            },
-            {
-              "kind": "prose",
-              "paragraphs": [
-                "Mapping market and park revenue shows the revenue service its real base. That gain goes straight to IGR and is not counted in the model above."
-              ]
-            },
-            {
-              "kind": "note",
-              "title": "The guardrails",
-              "text": "The state owns the data and the platform. Only aggregated insight is sold, and 5% of revenue funds ongoing innovation."
-            }
-          ]
-        },
-        {
-          "id": "you",
-          "number": "05",
-          "title": "What It Means for You",
-          "lead": "Each leader is judged on something the platform makes easier to show.",
-          "blocks": [
-            {
-              "kind": "table",
-              "columns": ["If you are", "You are pressed to", "The platform gives you"],
-              "rows": [
-                ["The Governor", "Deliver visible results within one term", "Evidence behind every major decision, and a record of what changed"],
-                ["Commissioner for Finance or Budget", "Grow revenue without new taxes", "Maps of where revenue is being missed, and forecasts built on real activity"],
-                ["Commissioner for Economic Planning", "Plan on current facts", "A live picture across every domain of the state plan"],
-                ["Head of the state revenue service", "Widen the tax base fairly", "Businesses and property that exist but are not yet on record"],
-                ["Head of a state statistics bureau", "Produce trusted, current official data", "A permanent field and quality engine in place of one-off surveys"],
-                ["A foundation, partner or anchor company", "Invest where impact and returns can be shown", "Granular evidence for targeting, market entry and measuring results"]
-              ]
-            },
-            {
-              "kind": "note",
-              "title": "The leader's dividend",
-              "text": "Leave behind a state that knows itself. Projects end with an administration. A state's knowledge of itself keeps paying back to whoever governs next."
-            }
-          ]
-        },
-        {
-          "id": "risks",
-          "number": "06",
-          "title": "Where It Goes Wrong",
-          "lead": "Six risks, rated and answered before a single enumerator goes out.",
-          "blocks": [
-            {
-              "kind": "table",
-              "columns": ["Risk", "Rating", "The answer"],
-              "rows": [
-                ["A new administration drops the platform", "Impact high, likelihood medium", "Anchor it in law, show value across parties, and brief the House of Assembly."],
-                ["Revenue grows slower than planned", "Impact high, likelihood medium", "Several revenue lines, cautious budgets, and a state backstop."],
-                ["Weak data destroys credibility", "Impact high, likelihood medium", "Layered quality checks, a published method, and community validation."],
-                ["Communities resist being counted", "Impact medium, likelihood medium", "Co-design, visible local benefits, and rewarded citizen reporting."],
-                ["A breach or misuse of personal data", "Impact high, likelihood low", "An ethics committee, anonymisation, audits, and NDPA compliance."],
-                ["A confident insight leads to a bad decision", "Impact high, likelihood medium", "Show confidence levels, flag gaps, and peer-review major findings."]
-              ]
-            },
-            {
-              "kind": "note",
-              "title": "Field note",
-              "text": "The first question matters more than the first dashboard. Pick one decision the Governor must make this quarter and answer it with evidence no one had before. That single answer wins more support than any launch event."
-            }
-          ]
-        },
-        {
-          "id": "success",
-          "number": "07",
-          "title": "What Success Requires",
-          "lead": "Five conditions, a 36-month roadmap, and results you can hold us to.",
-          "blocks": [
-            {
-              "kind": "points",
-              "items": [
-                { "title": "A sponsor at the top", "text": "A steering committee led by the planning commissioner reports to the Governor every quarter." },
-                { "title": "A data-sharing order", "text": "An executive order and MOUs require every MDA to share data on common standards." },
-                { "title": "Anchors signed early", "text": "About 12 anchor companies commit before field work begins." },
-                { "title": "Independent oversight", "text": "A governance board with civil society, an ethics committee and a privacy officer, under the NDPA 2023." },
-                { "title": "A quality gate", "text": "No statewide rollout until field data passes 90% accuracy." }
-              ]
-            },
-            {
-              "kind": "steps",
-              "items": [
-                { "label": "Months 1 to 6", "title": "Foundation", "text": "Governance in place. 50 enumerators trained. A pilot in 7 places. A working platform. Anchor partners signed." },
-                { "label": "Months 7 to 18", "title": "Expansion", "text": "200 or more enumerators. 100 or more markets, 50 or more settlements, 30 or more parks. All MDAs on the platform. First paying subscribers." },
-                { "label": "Months 19 to 36", "title": "Maturity", "text": "Full statewide coverage. Repeat surveys that track change. Early-warning alerts. A platform that sustains itself." }
-              ]
-            },
-            {
-              "kind": "points",
-              "items": [
-                { "title": "Decisions", "text": "Decisions informed by the platform." },
-                { "title": "Quality", "text": "Data accuracy and freshness." },
-                { "title": "Cost covered", "text": "The share of cost covered by revenue." },
-                { "title": "The gap", "text": "The distance between the best-served and worst-served places." }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "who",
-          "number": "08",
-          "title": "Who It's For",
-          "lead": "If a row describes your state or institution, this paper was written for you. The types are illustrative, not endorsements.",
-          "blocks": [
-            {
-              "kind": "table",
-              "columns": ["Who", "Potential unlocked", "You're ready if", "First step"],
-              "rows": [
-                ["Megacity and high-revenue states. Lagos-type, a small group.", "Become the best-understood state in Africa", "You already run digital tax systems", "Commission full coverage"],
-                ["Fast-growing revenue states. 15 states grew IGR over 50% in 2024.", "Lock in growth with a wider, fairer base", "Revenue is rising faster than your data", "Pilot in two local areas"],
-                ["Allocation-dependent states. Most of the 36 states.", "Build own revenue on a measured economy", "IGR is a small share of your budget", "Adopt the proven model"],
-                ["Statistics bureaus and planning ministries. 36 states and the FCT.", "Move from one-off surveys to a live engine", "You run periodic field surveys", "Digitise field capture"],
-                ["Foundations and development partners.", "Fund state systems with measurable results", "You fund state-level programmes", "Fund the inclusion layer"],
-                ["Anchor companies. Banks, telcos, consumer goods, property, logistics.", "Granular insight for growth and risk", "You buy market research today", "Join as an anchor subscriber"]
-              ]
-            },
-            {
-              "kind": "prose",
-              "paragraphs": [
-                "Each new state adopts a tested method, platform and governance model, so it starts faster and costs less. The 15 states that grew IGR by more than 50% between 2023 and 2024 are from BudgIT's State of States 2025."
-              ]
-            }
-          ]
-        },
-        {
-          "id": "stand",
-          "number": "09",
-          "title": "Where You Stand",
-          "lead": "Place your state on the ladder. Most states start on rung 1 or 2.",
-          "blocks": [
-            {
-              "kind": "points",
-              "items": [
-                { "title": "4 · Intelligent", "text": "Leaders ask questions in plain words, and data earns revenue." },
-                { "title": "3 · Connected", "text": "MDAs share data on one platform with common standards." },
-                { "title": "2 · Dashboards", "text": "Some MDAs have dashboards, but they are not connected." },
-                { "title": "1 · Reports", "text": "Data lives in PDFs and one-off surveys." }
-              ]
-            },
-            {
-              "kind": "note",
-              "title": "Eighteen months",
-              "text": "The platform is designed to move a state up two rungs within 18 months."
-            }
-          ]
-        },
-        {
-          "id": "start",
-          "number": "10",
-          "title": "Where to Start",
-          "lead": "Three questions to put to your executive council this week.",
-          "blocks": [
-            {
-              "kind": "points",
-              "items": [
-                { "title": "What can we not answer?", "text": "What questions about our state can we not answer today?" },
-                { "title": "What is missing?", "text": "Which markets, settlements and parks are missing from our records?" },
-                { "title": "Who would pay?", "text": "Which companies would pay for better insight on our state?" }
-              ]
-            },
-            {
-              "kind": "prose",
-              "paragraphs": [
-                "If the answers are uncomfortable, that is where we begin."
-              ]
-            },
-            {
-              "kind": "note",
-              "title": "Omoseindemi Olobayo",
-              "text": "+234 904 999 9993 · seinde@softcom.xyz · softcom.xyz"
-            }
-          ]
-        },
-        {
-          "id": "notes",
-          "number": "Notes",
-          "title": "Notes and sources",
-          "lead": "This paper sets out an idea for discussion. The financial model, targets and funding shares are illustrative. Institution types are examples of categories, not named partners or endorsements.",
-          "blocks": [
-            {
-              "kind": "prose",
-              "paragraphs": [
-                "1. BudgIT state budget implementation data, analysed by BusinessDay (September 2026): aggregate state IGR of NGN 4.147 trillion in 2025, Lagos share of about 45%, and the lowest-earning states. The other-state average is calculated from these figures.",
-                "2. Lagos State Ministry of Finance, ministerial press briefing (May 2026), reported by The Guardian, Vanguard and Champion: IGR of NGN 1.58 trillion in 2024 and NGN 1.87 trillion in 2025; tax revenue of NGN 678 billion (2023), NGN 1.045 trillion (2024) and NGN 1.443 trillion (2025).",
-                "3. BudgIT, State of States 2025: 15 states grew IGR by more than 50% between 2023 and 2024.",
-                "4. IMPRI (August 2026) on Andhra Pradesh's Real-Time Governance Society and State Data Lake; News on AIR (February 2026) on the Bill Gates visit.",
-                "5. Ordnance Survey annual reports, including 2025–26, and Insider Media (2022) on customer reach.",
-                "6. European Commission, open data policy: projected direct economic value of public sector information. The EU's European Data Market study (2025) put data monetisation in the EU27 at EUR 29.5 billion in 2024.",
-                "7. Softcom, Know Lagos executive proposal and scoping framework (2025 to 2026). The five-year model, funding shares and roadmap are drawn from this work and shown as illustrations.",
-                "How to cite: Softcom (2026). Know Your State. Softcom Potential Papers, No. 002. Lagos: Softcom Limited. Author: Omoseindemi Olobayo."
-              ]
-            }
+          "title": "Where to start",
+          "paragraphs": [
+            "Pick one decision the governor has to make this quarter, and answer it with evidence nobody had. That single answer does more than a launch.",
+            "Three questions for the executive council this week. What can we not answer about our state today? Which markets, settlements and parks are missing from the records? Which companies would pay for a better picture? If the answers are uncomfortable, that is where the work begins.",
+            "Omoseindemi Olobayo, +234 904 999 9993, seinde@softcom.xyz."
           ]
         }
       ]
