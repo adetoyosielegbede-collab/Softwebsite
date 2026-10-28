@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useLayoutEffect, useRef } from "react";
 import { CmsImage } from "@/components/cms/cms-image";
 import type { EnterpriseProductsContent } from "@/lib/content-types";
-import { cn } from "@/lib/utils";
 
 type Item = EnterpriseProductsContent["products"]["items"][number];
 
@@ -25,19 +24,18 @@ function clamp(n: number) {
   return Math.max(0, Math.min(1, n));
 }
 
-function isLift(product: Item) {
-  return product.name.trim().toLowerCase() === "lift" || product.href.replace(/\/$/, "").endsWith("/lift");
-}
-
-function isUseforms(product: Item) {
-  return product.name.trim().toLowerCase() === "useforms" || product.href.replace(/\/$/, "").endsWith("/useforms");
+function exploreLabel(product: Item) {
+  if (product.name.trim().toLowerCase() === "lift" || product.href.replace(/\/$/, "").endsWith("/lift")) {
+    return "Explore LIFT";
+  }
+  return `Explore ${product.name}`;
 }
 
 function ProductCard({ product, index }: { product: Item; index: number }) {
   const color = product.color || FALLBACK_COLORS[index % FALLBACK_COLORS.length];
   const ink = inkFor(color);
-  const lift = isLift(product);
-  const useforms = isUseforms(product);
+  const lightCard = ink === "#0c0c0d";
+  const hasLogo = Boolean(product.logo?.src);
 
   return (
     <div data-product="" className="h-[268px] sm:h-[286px]">
@@ -46,9 +44,9 @@ function ProductCard({ product, index }: { product: Item; index: number }) {
         className="product-card relative flex h-full flex-col overflow-hidden rounded-[20px] px-5 py-5 md:px-6 md:py-6"
         style={{ backgroundColor: color, color: ink }}
       >
-        {useforms ? (
-          <span className="flex h-full flex-col items-center justify-center gap-6 text-center">
-            <span className="block w-[min(250px,86%)]">
+        <span className="flex h-full flex-col items-center justify-center gap-4 text-center">
+          <span className="block w-[min(230px,84%)]">
+            {hasLogo ? (
               <CmsImage
                 image={product.logo}
                 file="enterprise-products"
@@ -57,47 +55,27 @@ function ProductCard({ product, index }: { product: Item; index: number }) {
                 className="h-auto w-full"
                 emptyClassName="min-h-12 w-full"
               />
-            </span>
-            <span className="text-body line-clamp-3 max-w-[28ch]">{product.summary || product.tagline}</span>
-          </span>
-        ) : lift ? (
-          <span className="flex h-full flex-col items-center justify-center gap-4 text-center">
-            <span className="block w-[min(200px,76%)]">
-              <CmsImage
-                image={product.logo}
-                file="enterprise-products"
-                path={`products.items.${index}.logo`}
-                fluid
-                className="h-auto w-full"
-                emptyClassName="min-h-14 w-full"
-              />
-            </span>
-            <span className="text-body line-clamp-3">{product.summary || product.tagline}</span>
-            <span className="inline-flex h-10 items-center rounded-full bg-white px-4 text-sm font-medium text-[#004bff]">
-              Explore LIFT
-            </span>
-          </span>
-        ) : (
-          <span className="flex h-full flex-col">
-            <span className="flex items-start justify-between gap-6">
-              <h3 className="text-title max-w-[12ch] text-balance">{product.name}</h3>
-              <span className={cn("relative size-9 shrink-0 md:size-11", !product.logo?.src && "hidden [.cms-editing_&]:block")}>
+            ) : (
+              <>
+                <h3 className="text-title text-balance">{product.name}</h3>
                 <CmsImage
                   image={product.logo}
                   file="enterprise-products"
                   path={`products.items.${index}.logo`}
-                  sizes="44px"
-                  className="object-contain"
-                  emptyClassName="absolute inset-0"
+                  fluid
+                  emptyClassName="mt-3 min-h-12 w-full"
                 />
-              </span>
-            </span>
-            <span className="mt-auto flex flex-col gap-3">
-              <span className="border-b border-current/20 pb-2 font-mono text-sm">{String(index + 1).padStart(2, "0")}</span>
-              <span className="text-body line-clamp-4 max-w-md">{product.summary || product.tagline}</span>
-            </span>
+              </>
+            )}
           </span>
-        )}
+          <span className="text-body line-clamp-3 max-w-[32ch]">{product.summary || product.tagline}</span>
+          <span
+            className="inline-flex h-10 items-center rounded-full px-4 text-sm font-medium"
+            style={lightCard ? { backgroundColor: "#0c0c0d", color: "#ffffff" } : { backgroundColor: "#ffffff", color }}
+          >
+            {exploreLabel(product)}
+          </span>
+        </span>
       </Link>
     </div>
   );
@@ -124,7 +102,7 @@ export function ProductGrid({ items }: { items: Item[] }) {
         }
         const rect = card.getBoundingClientRect();
         const center = rect.top + rect.height / 2;
-        const passed = clamp((vh * 1.05 - center) / (vh * 0.3));
+        const passed = clamp((vh * 1.2 - center) / (vh * 0.22));
         const rise = (1 - passed) * 28;
         card.style.opacity = String(0.55 + passed * 0.45);
         card.style.transform = `translateY(${rise}px)`;

@@ -24,8 +24,8 @@
         "href": "/enterprise-products/sentinel",
         "color": "#2a2b30",
         "logo": {
-          "src": "",
-          "alt": "Sentinel logo"
+          "src": "/media/products/sentinel-logo.png",
+          "alt": "Sentinel"
         },
         "image": {
           "src": "/media/products/sentinel-card.png",
@@ -39,8 +39,8 @@
         "href": "/enterprise-products/reckon",
         "color": "#991b1b",
         "logo": {
-          "src": "",
-          "alt": "Reckon logo"
+          "src": "/media/products/reckon-logo.png",
+          "alt": "Reckon"
         },
         "image": {
           "src": "/media/products/reckon-card.png",
