@@ -72,7 +72,7 @@ function ProductCard({ product, index }: { product: Item; index: number }) {
             <span className="text-body line-clamp-3 max-w-[32ch]">{product.summary || product.tagline}</span>
           </span>
           <span
-            className="mt-4 inline-flex h-10 shrink-0 items-center rounded-full px-4 text-sm font-medium"
+            className="mt-4 inline-flex h-10 w-40 shrink-0 items-center justify-center rounded-full px-4 text-sm font-medium"
             style={lightCard ? { backgroundColor: "#0c0c0d", color: "#ffffff" } : { backgroundColor: "#ffffff", color }}
           >
             {exploreLabel(product)}
