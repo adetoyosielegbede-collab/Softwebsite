@@ -199,6 +199,24 @@ export type InsightsContent = {
   cta: Cta;
 };
 
+export type InsightPoint = { title: string; text: string };
+
+export type InsightBlock =
+  | { kind: "prose"; paragraphs: string[] }
+  | { kind: "points"; items: InsightPoint[] }
+  | { kind: "stats"; caption?: string; items: { value: string; label: string }[] }
+  | { kind: "table"; caption?: string; columns: string[]; rows: string[][] }
+  | { kind: "steps"; items: { label: string; title: string; text: string }[] }
+  | { kind: "note"; title: string; text: string };
+
+export type InsightSection = {
+  id: string;
+  number: string;
+  title: string;
+  lead: string;
+  blocks: InsightBlock[];
+};
+
 export type Post = {
   slug: string;
   title: string;
@@ -207,8 +225,14 @@ export type Post = {
   featured: boolean;
   published: boolean;
   excerpt: string;
+  /** Series line shown above the title, for example "Potential Papers · No. 002". */
+  kicker?: string;
+  author?: string;
   image: CmsImage;
+  /** Optional photograph for the article hero. Empty keeps the same field as other inner pages. */
+  hero?: { backgroundImage: CmsImage };
   body: string[];
+  sections?: InsightSection[];
 };
 
 export type PostsContent = { items: Post[] };

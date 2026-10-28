@@ -3,12 +3,12 @@
   "hero": {
     "eyebrow": "",
     "title": "Research, analysis, & perspectives from the field.",
-    "text": "Thinking from Softcom's practice leads, on digital transformation, data strategy, government technology, and the forces shaping Africa's technology landscape.",
+    "text": "Ideas for leaders and the institutions they lead, drawn from Softcom's work with governments and the technology that serves them.",
     "ctaLabel": "Start a conversation",
     "ctaHref": "/contact",
     "backgroundImage": { "src": "", "alt": "" }
   },
-  "categories": ["Digital Strategy", "Data", "Government Tech", "Leadership", "Strategy"],
+  "categories": ["Potential Papers", "Digital Strategy", "Data", "Government Tech", "Leadership", "Strategy"],
   "featuredTitle": "Featured Insight",
   "moreTitle": "More insights",
   "emptyText": "No insights in this category yet. Check back soon.",
