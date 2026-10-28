@@ -1,17 +1,29 @@
 {
-  "seo": { "title": "Useforms", "description": "Collect data in all its forms with Useforms." },
+  "seo": {
+    "title": "Useforms",
+    "description": "Ask anything, anywhere. Useforms collects the answer, the payment, and the detail a decision needs."
+  },
   "name": "Useforms",
   "hero": {
-    "eyebrow": "Softcom Product · Digital Infrastructure",
-    "title": "Collect data in all its forms.",
-    "text": "Equip teams to collect and submit text, images, location, direction, biometric information and more. Bring observations and supporting evidence together in structured submissions that document people, places and activities.",
+    "eyebrow": "",
+    "title": "Ask anything, anywhere. Easily.",
+    "text": "A simple way to create a form and get a response. Faster than pen and paper.",
     "primaryLabel": "Request a demonstration",
     "primaryHref": "/contact",
-    "secondaryLabel": "",
-    "secondaryHref": "",
-    "backgroundImage": { "src": "", "alt": "" }
+    "secondaryLabel": "Explore Useforms",
+    "secondaryHref": "#overview",
+    "backgroundImage": {
+      "src": "",
+      "alt": ""
+    },
+    "logo": {
+      "src": "/media/products/useforms-logo-white.svg",
+      "alt": "Useforms"
+    }
   },
-  "overview": [],
+  "overview": [
+    "Useforms is the tool people and businesses turn to when they need an answer. A guest list. An order from a social post. The requirement a customer just stated. The feedback that says what to do next. The form is easy to make, and the answer comes back in a shape you can use."
+  ],
   "blocks": [
     {
       "number": "",
@@ -19,21 +31,106 @@
       "text": "",
       "points": [],
       "figures": [
-        { "label": "Useforms", "title": "Structured submissions from the field.", "caption": "Text, images, location, direction and biometric information in one record.", "image": { "src": "/media/products/useforms-card.png", "alt": "Useforms logo" }, "source": "Product artwork" }
+        {
+          "label": "Useforms / 01",
+          "title": "Every form in one place.",
+          "caption": "Folders, workspaces, and the responses already coming in.",
+          "image": {
+            "src": "/media/useforms/forms-library.jpg",
+            "alt": "Useforms library of folders and forms"
+          },
+          "source": "Product screen · Useforms"
+        }
       ]
+    },
+    {
+      "number": "",
+      "title": "A form for the thing you need to know.",
+      "text": "Collect guest details and take payment for an event. Lease a property. Sell and receive orders on social media. Ask for feedback and learn who the customer is. Put the form on a website, on Facebook, LinkedIn, Instagram, or X, or send it as a link. It also works where there is no connection.",
+      "points": [],
+      "figures": []
+    },
+    {
+      "number": "",
+      "title": "Ask the question that gets a useful answer.",
+      "text": "Ask why, what, or how, and get a direct answer back. Rate an idea, an option, a person, or a service, and ask again when you need to. Templates cover customer feedback, employee surveys, and opinion polls. Responses stay in folders, move to Power BI or Google Sheets, leave through one API, or download as a CSV.",
+      "points": [],
+      "figures": [
+        {
+          "label": "Useforms / 02",
+          "title": "The question, on the form.",
+          "caption": "Write it, set the limits, and say whether an answer is required.",
+          "image": {
+            "src": "/media/useforms/form-builder.jpg",
+            "alt": "Useforms question editor"
+          },
+          "source": "Product screen · Useforms"
+        }
+      ]
+    },
+    {
+      "number": "",
+      "title": "Get paid, and take the details with the payment.",
+      "text": "Sell a product or a service, or accept a donation, and ask for a name, an email, and a phone number in the same form. Consent comes first. Local or international, the terms are yours: how many orders you will take, and the hours you will take them.",
+      "points": [],
+      "figures": [
+        {
+          "label": "Useforms / 03",
+          "title": "A payment on the form.",
+          "caption": "The amount, the currency, and the question that sits with them.",
+          "image": {
+            "src": "/media/useforms/payment.jpg",
+            "alt": "Useforms payment question with an amount in naira"
+          },
+          "source": "Product screen · Useforms"
+        }
+      ]
+    },
+    {
+      "number": "",
+      "title": "Take the request exactly as the customer made it.",
+      "text": "Capture what they want, when they want it, and where it should go, and record consent on every request. Share a link, place the form on a site or a social page, or collect it on the go. Limit how many requests you accept, and only during business hours. The record lands in a folder, a sheet, another app, or a file you download.",
+      "points": [],
+      "figures": []
+    },
+    {
+      "number": "",
+      "title": "Collect what a decision needs.",
+      "text": "A short answer when speed matters. A picture, a video, or a document when the answer has to show itself. Useforms records when and where it was collected.",
+      "points": [
+        {
+          "title": "Set the standard",
+          "text": "Format the form so errors are harder to make. Collect only what you need, stop when you have enough, and reject or suspend what falls short."
+        },
+        {
+          "title": "Read it where it lands",
+          "text": "Bar charts, pie charts, and the responses beside them, including where the data came from. Filter with a teammate down to the answers that matter."
+        },
+        {
+          "title": "Move it on",
+          "text": "Power BI or Google Sheets over time, any app through one API, or a CSV. Start from a template for leads, hiring, volunteers, or market research."
+        }
+      ],
+      "figures": []
     }
   ],
   "audience": {
-    "eyebrow": "",
-    "title": "",
-    "text": ""
+    "eyebrow": "Who it is for",
+    "title": "Built for anyone who needs an answer.",
+    "text": "Individuals and businesses asking a personal question or a commercial one. Events, property, sales, customer feedback, orders, hiring, and research.",
+    "closing": "Tell us what you need to ask, and where the answers should land. We will show you Useforms set up for that work.",
+    "ctaLabel": "Request a demonstration",
+    "ctaHref": "/contact"
   },
   "cta": {
-    "image": { "src": "/images/market-aerial.jpg", "alt": "Aerial view of a busy open-air market in Lagos" },
-    "title": "Find the technology that fits your work.",
-    "text": "Tell us what you need to achieve. We’ll help you identify the relevant products, platforms and implementation support.",
-    "ctaLabel": "Start a conversation",
+    "image": {
+      "src": "/images/market-aerial.jpg",
+      "alt": "Aerial view of a busy open-air market in Lagos"
+    },
+    "title": "Want to know more about Useforms?",
+    "text": "Tell us what you need to ask, and where the answers should land. We will show you Useforms set up for that work.",
+    "ctaLabel": "Request a demonstration",
     "ctaHref": "/contact",
-    "layout": "center"
+    "layout": "split"
   }
 }

@@ -72,7 +72,9 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
             fluid
             className={cn(
               "mb-6 h-14 w-auto",
-              /\/(sentinel|reckon)-logo\.png$/.test(hero.logo.src) && "light:brightness-0",
+              (/\/(sentinel|reckon)-logo\.png$/.test(hero.logo.src) ||
+                hero.logo.src.includes("useforms-logo-white")) &&
+                "light:brightness-0",
             )}
           />
         ) : null}
