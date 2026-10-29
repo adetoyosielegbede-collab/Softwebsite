@@ -30,7 +30,7 @@ Fonts are set under **Header, footer & shared → Typography**: a font, weight a
 
 Font sizes live under **Typography → Sizes**: a desktop and a mobile size in pixels for each text style (Display, Headline, Title, Lede, Body). Changing one updates every heading or paragraph that uses that style across the site. The Solutions intro also has its own **Text style** and **Font size** under Solutions → Intro; leave the font size at 0 to follow the chosen style.
 
-Contact-form messages are listed under **Messages**.
+Contact-form messages are listed under **Messages** when the site is running on this machine. On the deployed site they are emailed instead. See [Deploying](#deploying).
 
 ## Content files
 
@@ -67,5 +67,15 @@ Vercel's filesystem is read-only, so the CMS cannot save files there on its own.
 | `NEXT_PUBLIC_SITE_URL` | The public URL, used for links and social cards. |
 
 With those set, every save and upload is committed to the repository, and the next deployment serves it. Without them the CMS still opens, but a banner explains that saves will not persist.
+
+The contact form emails the enquiry through [Resend](https://resend.com). Until these are set on the Vercel project, a visitor sees an error instead of “Message sent”, and can still use the address on the page.
+
+| Variable | Value |
+| --- | --- |
+| `RESEND_API_KEY` | API key from Resend. |
+| `CONTACT_FROM` | A sender on a domain you have verified there, usually `Softcom <contact@softcom.xyz>`. |
+| `CONTACT_TO` | Inbox that should receive the form. Defaults to the address in `content/site.json` (`contact@softcom.xyz`). Separate extra addresses with commas. |
+
+In Resend, add `softcom.xyz` and publish the SPF and DKIM records it gives you at the domain’s DNS. Reply goes to the visitor’s own address.
 
 Copy `.env.example` to `.env.local` for local overrides. `.env.local` is not committed.
