@@ -135,6 +135,7 @@ export type ContactMessage = {
   email: string;
   phone?: string;
   company?: string;
+  reason?: string;
   message: string;
 };
 

@@ -10,6 +10,7 @@ type Message = {
   email: string;
   phone?: string;
   company?: string;
+  reason?: string;
   message: string;
 };
 
@@ -60,6 +61,7 @@ export function MessageList() {
                 {m.email}
               </a>
               {m.phone ? ` · ${m.phone}` : ""}
+              {m.reason ? ` · ${m.reason}` : ""}
             </p>
             <p className="mt-3 text-sm leading-relaxed whitespace-pre-wrap">{m.message}</p>
           </li>

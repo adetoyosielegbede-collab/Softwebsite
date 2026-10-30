@@ -1,8 +1,9 @@
 import { randomUUID } from "node:crypto";
 import { contactMailConfigured, sendContactEmail } from "@/lib/contact-mail";
 import { appendMessage, readBundledContent, storageMode } from "@/lib/cms/storage";
+import type { ContactContent } from "@/lib/content-types";
 
-type Body = Partial<Record<"name" | "email" | "phone" | "company" | "message", string>>;
+type Body = Partial<Record<"name" | "email" | "phone" | "company" | "reason" | "message", string>>;
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -10,10 +11,14 @@ export async function POST(request: Request) {
   const body = (await request.json().catch(() => ({}))) as Body;
   const name = body.name?.trim() ?? "";
   const email = body.email?.trim() ?? "";
+  const reason = body.reason?.trim() ?? "";
   const message = body.message?.trim() ?? "";
+  const contact = await readBundledContent<ContactContent>("contact");
+  const allowed = new Set(contact.form.reasons);
   const errors: Record<string, string> = {};
   if (!name) errors.name = "Please tell us your name.";
   if (!EMAIL.test(email)) errors.email = "Please enter a valid email address.";
+  if (!allowed.has(reason)) errors.reason = "Please choose a reason.";
   if (message.length < 10) errors.message = "Please write a little more about what you need.";
   if (Object.keys(errors).length) return Response.json({ errors }, { status: 422 });
 
@@ -24,6 +29,7 @@ export async function POST(request: Request) {
     email: email.slice(0, 200),
     phone: body.phone?.trim().slice(0, 50) || undefined,
     company: body.company?.trim().slice(0, 200) || undefined,
+    reason,
     message: message.slice(0, 5000),
   };
 

@@ -5,6 +5,7 @@ export type ContactMail = {
   email: string;
   phone?: string;
   company?: string;
+  reason: string;
   message: string;
 };
 
@@ -29,6 +30,7 @@ export async function sendContactEmail(entry: ContactMail, fallbackTo: string) {
   const to = recipients(fallbackTo);
   const from = process.env.CONTACT_FROM?.trim() || `Softcom <${fallbackTo}>`;
   const details = [
+    `Reason: ${entry.reason}`,
     `Email: ${entry.email}`,
     entry.phone ? `Phone: ${entry.phone}` : "",
     entry.company ? `Company: ${entry.company}` : "",
@@ -44,7 +46,7 @@ export async function sendContactEmail(entry: ContactMail, fallbackTo: string) {
       from,
       to,
       reply_to: entry.email,
-      subject: `Website message from ${entry.name}`,
+      subject: `${entry.reason} from ${entry.name}`,
       text: [`${entry.name} wrote through the Softcom website.`, "", ...details, "", entry.message].join("\n"),
     }),
   });

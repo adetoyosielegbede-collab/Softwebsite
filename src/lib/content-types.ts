@@ -245,23 +245,25 @@ export type ContactContent = {
   title: string;
   text: string;
   image: CmsImage;
-  form: Record<
-    | "title"
-    | "nameLabel"
-    | "namePlaceholder"
-    | "emailLabel"
-    | "emailPlaceholder"
-    | "phoneLabel"
-    | "phonePlaceholder"
-    | "companyLabel"
-    | "companyPlaceholder"
-    | "messageLabel"
-    | "messagePlaceholder"
-    | "submitLabel"
-    | "successTitle"
-    | "successText",
-    string
-  >;
+  form: {
+    title: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    phoneLabel: string;
+    phonePlaceholder: string;
+    companyLabel: string;
+    companyPlaceholder: string;
+    reasonLabel: string;
+    reasonPlaceholder: string;
+    reasons: string[];
+    messageLabel: string;
+    messagePlaceholder: string;
+    submitLabel: string;
+    successTitle: string;
+    successText: string;
+  };
   getInTouchTitle: string;
 };
 

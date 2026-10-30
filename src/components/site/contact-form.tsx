@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Loader2 } from "lucide-react";
+import { ChevronDown, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -66,6 +66,31 @@ export function ContactForm({ form }: { form: Fields }) {
         {field("email", form.emailLabel, form.emailPlaceholder, "email")}
         {field("phone", form.phoneLabel, form.phonePlaceholder, "tel")}
         {field("company", form.companyLabel, form.companyPlaceholder)}
+      </div>
+      <div className="mt-5 space-y-2">
+        <Label htmlFor="reason" className="text-sm font-medium">
+          {form.reasonLabel}
+        </Label>
+        <div className="relative">
+          <select
+            id="reason"
+            name="reason"
+            defaultValue=""
+            aria-invalid={Boolean(errors.reason)}
+            className="h-12 w-full appearance-none rounded-full border border-line-strong bg-line-strong/30 px-4 pr-10 text-sm text-ink outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 aria-invalid:border-destructive"
+          >
+            <option value="" disabled>
+              {form.reasonPlaceholder}
+            </option>
+            {form.reasons.map((reason) => (
+              <option key={reason} value={reason}>
+                {reason}
+              </option>
+            ))}
+          </select>
+          <ChevronDown className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-ink-soft" aria-hidden />
+        </div>
+        {errors.reason && <p className="text-xs text-destructive">{errors.reason}</p>}
       </div>
       <div className="mt-5 space-y-2">
         <Label htmlFor="message" className="text-sm font-medium">
