@@ -82,7 +82,7 @@
   "intelligence": {
     "number": "",
     "title": "Applied Intelligence",
-    "lead": "We build intelligence systems around the questions organisations need to answer and the work they need to carry out.",
+    "lead": "We build intelligence systems around the questions organisations need to answer and the work they need to carry out. Each system reflects the mandate of its users, the evidence they need, and the decisions they must make.",
     "eyebrow": "Five kinds of intelligence",
     "intro": "Across documents, records and datasets, our technology makes it possible to examine information at a depth and scale that manual review cannot sustain. It helps people connect evidence, investigate activity, understand relationships and determine what requires action.",
     "items": [
@@ -149,7 +149,7 @@
     "entrustTitle": "What you can entrust to us",
     "entrustText": "Our involvement follows the initiative’s needs. We deliver directly, manage partners or combine both, with clear responsibility for execution and results.",
     "entrustItems": [
-      "Initiative design",
+      "Programme design",
       "Participant recruitment",
       "Technology deployment",
       "Field operations",
