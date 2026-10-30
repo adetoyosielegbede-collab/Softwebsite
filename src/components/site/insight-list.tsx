@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils";
 export function InsightList({
   posts,
   categories,
-  featuredTitle,
-  moreTitle,
+  featuredTitle: _featuredTitle,
+  moreTitle: _moreTitle,
   emptyText,
 }: {
   posts: (Post & { index: number })[];
@@ -22,6 +22,7 @@ export function InsightList({
   const matching = posts.filter((p) => active === "All" || p.category === active);
   const featured = matching.find((p) => p.featured) ?? (active === "All" ? matching[0] : undefined);
   const rest = matching.filter((p) => p !== featured);
+  const ordered = featured ? [featured, ...rest] : matching;
 
   return (
     <>
@@ -43,20 +44,16 @@ export function InsightList({
         ))}
       </div>
       {matching.length === 0 && <p className="mt-12 text-sm text-ink-soft">{emptyText}</p>}
-      {featured && (
-        <div className="mt-12">
-          <h2 className="text-headline mb-6">{featuredTitle}</h2>
-          <InsightCard post={featured} index={featured.index} size="featured" />
-        </div>
-      )}
-      {rest.length > 0 && (
-        <div className="mt-16">
-          <h2 className="text-headline mb-6">{moreTitle}</h2>
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-            {rest.map((post) => (
-              <InsightCard key={post.slug} post={post} index={post.index} />
-            ))}
-          </div>
+      {ordered.length > 0 && (
+        <div
+          className={cn(
+            "mt-12 grid gap-x-10 gap-y-12",
+            ordered.length > 2 ? "md:grid-cols-2 lg:grid-cols-3" : "md:grid-cols-2",
+          )}
+        >
+          {ordered.map((post) => (
+            <InsightCard key={post.slug} post={post} index={post.index} />
+          ))}
         </div>
       )}
     </>
