@@ -9,13 +9,19 @@
     "text": "Softcom is for people who question assumptions, see possibilities and take responsibility for turning ideas into working solutions.",
     "ctaLabel": "See open roles",
     "ctaHref": "#roles",
-    "backgroundImage": { "src": "", "alt": "" }
+    "backgroundImage": {
+      "src": "",
+      "alt": ""
+    }
   },
   "intro": [
     "Original thinking matters here. So does ownership: working through difficult problems, raising issues early and following through. We look for people who care enough about the outcome to act, learn and improve.",
     "In return, expect exceptional peers—people with depth in their disciplines whose capabilities complement yours. Colleagues who challenge your thinking, contribute answers you would not reach alone and bring the same sense of ownership to the work."
   ],
-  "image": { "src": "", "alt": "" },
+  "image": {
+    "src": "",
+    "alt": ""
+  },
   "openRoles": {
     "title": "Open roles",
     "emptyText": "There are no open roles listed right now. If you would like to introduce yourself, we would be glad to hear from you.",
@@ -31,7 +37,10 @@
     ]
   },
   "cta": {
-    "image": { "src": "/images/partnership-handshake.jpg", "alt": "Two people shaking hands over a city at night" },
+    "image": {
+      "src": "/uploads/partner-2-hf-20261030-112953-aba8ff8a-9069-41ae--05bafb.jpg",
+      "alt": "Two people shaking hands over a city at night"
+    },
     "title": "Proud partner of potential.",
     "text": "What can we achieve together?",
     "ctaLabel": "Start a conversation",
