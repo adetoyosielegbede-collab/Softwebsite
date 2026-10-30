@@ -3,7 +3,8 @@ import Link from "next/link";
 import { CmsImage } from "@/components/cms/cms-image";
 import { ColorReveal } from "@/components/site/color-reveal";
 import { ArrowLink, PillLink } from "@/components/site/links";
-import { CtaBanner, PageHero, Stats } from "@/components/site/sections";
+import { LineReveal } from "@/components/site/line-reveal";
+import { CtaBanner, PageHero } from "@/components/site/sections";
 import { getContent, getPublishedPosts } from "@/lib/content";
 import { formatDate } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -14,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function AboutPage() {
-  const [about, site, posts] = await Promise.all([getContent("about"), getContent("site"), getPublishedPosts()]);
+  const [about, posts] = await Promise.all([getContent("about"), getPublishedPosts()]);
   const { hero, story, journey, values, leadership, buildWithUs, news } = about;
 
   return (
@@ -47,9 +48,7 @@ export default async function AboutPage() {
           <div className="md:sticky md:top-32">
             <p className="label mb-5 text-ink-soft">{journey.eyebrow}</p>
             <h2 className="text-headline">{journey.title}</h2>
-            <p className="label mt-8 text-ink-faint">
-              {journey.range} · {String(journey.items.length).padStart(2, "0")}
-            </p>
+            <p className="label mt-8 text-ink-faint">{journey.range}</p>
           </div>
         </div>
         <ol className="relative border-b border-line md:col-span-8">
@@ -135,18 +134,24 @@ export default async function AboutPage() {
       </section>
 
       <section className="container-site pt-24 lg:pt-24">
-        <Stats stats={site.stats} />
-      </section>
-
-      <section className="container-site grid items-start gap-6 pt-24 md:grid-cols-12 lg:pt-24">
-        <h2 className="text-headline md:col-span-7" data-reveal>
-          {buildWithUs.title}
-        </h2>
-        <div className="flex max-w-md flex-col items-start gap-6 md:col-span-4 md:col-start-9" data-reveal>
-          <p className="text-body text-ink-soft">{buildWithUs.text}</p>
-          <div className="mt-8 flex flex-wrap items-center gap-6">
-            <PillLink href={buildWithUs.primaryHref}>{buildWithUs.primaryLabel}</PillLink>
-            <ArrowLink href={buildWithUs.secondaryHref}>{buildWithUs.secondaryLabel}</ArrowLink>
+        <div className="grid items-start gap-6 md:grid-cols-12 md:gap-x-6">
+          <LineReveal className="text-headline md:col-span-6">{buildWithUs.title}</LineReveal>
+          <div className="flex max-w-md flex-col items-start gap-6 md:col-span-5 md:col-start-8" data-reveal>
+            <p className="text-body text-ink-soft">{buildWithUs.text}</p>
+            <div className="flex w-full flex-nowrap items-stretch gap-3">
+              <PillLink
+                href={buildWithUs.primaryHref}
+                className="h-auto min-h-10 min-w-0 flex-1 whitespace-normal px-4 py-2 text-center text-sm leading-snug"
+              >
+                {buildWithUs.primaryLabel}
+              </PillLink>
+              <PillLink
+                href={buildWithUs.secondaryHref}
+                className="h-auto min-h-10 min-w-0 flex-1 whitespace-normal px-4 py-2 text-center text-sm leading-snug"
+              >
+                {buildWithUs.secondaryLabel}
+              </PillLink>
+            </div>
           </div>
         </div>
       </section>
@@ -157,7 +162,7 @@ export default async function AboutPage() {
             <p className="label mb-5 text-ink-soft">{news.eyebrow}</p>
             <h2 className="text-headline">{news.title}</h2>
           </div>
-          <p className="text-body max-w-md text-ink-soft md:col-span-4 md:col-start-9">{news.text}</p>
+          {news.text ? <p className="text-body max-w-md text-ink-soft md:col-span-4 md:col-start-9">{news.text}</p> : null}
         </div>
         <ul className="border-t border-line">
           {posts.slice(0, 5).map((post) => (

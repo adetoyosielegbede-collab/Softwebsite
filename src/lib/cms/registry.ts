@@ -14,6 +14,7 @@ export const CONTENT_FILES: ContentFile[] = [
   { id: "case-studies", label: "Case Studies", group: "Pages", href: "/case-studies" },
   { id: "insights", label: "Insights", group: "Pages", href: "/insights" },
   { id: "careers", label: "Careers", group: "Pages", href: "/careers" },
+  { id: "alumni", label: "Alumni", group: "Pages", href: "/alumni" },
   { id: "contact", label: "Contact", group: "Pages", href: "/contact" },
   { id: "products/lift", label: "Lift", group: "Products", href: "/enterprise-products/lift" },
   { id: "products/reckon", label: "Reckon", group: "Products", href: "/enterprise-products/reckon" },

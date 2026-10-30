@@ -267,6 +267,41 @@ export type ContactContent = {
   getInTouchTitle: string;
 };
 
+export type AlumniContent = {
+  seo: Seo;
+  hero: {
+    title: string;
+    subtext: string;
+    paragraphs: string[];
+    ctaLabel: string;
+    ctaHref: string;
+    backgroundImage: CmsImage;
+  };
+  join: {
+    title: string;
+    text: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    yearsLabel: string;
+    joinedLabel: string;
+    leftLabel: string;
+    joinedPlaceholder: string;
+    leftPlaceholder: string;
+    roleLabel: string;
+    rolePlaceholder: string;
+    nowLabel: string;
+    nowPlaceholder: string;
+    hopeLabel: string;
+    hopePlaceholder: string;
+    consentLabel: string;
+    submitLabel: string;
+    successTitle: string;
+    successText: string;
+  };
+};
+
 export type ContentMap = {
   site: SiteContent;
   home: HomeContent;
@@ -277,6 +312,7 @@ export type ContentMap = {
   insights: InsightsContent;
   posts: PostsContent;
   careers: CareersContent;
+  alumni: AlumniContent;
   contact: ContactContent;
   "products/lift": ProductContent;
   "products/reckon": ProductContent;

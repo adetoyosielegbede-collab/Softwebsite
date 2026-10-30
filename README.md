@@ -46,6 +46,7 @@ Contact-form messages are listed under **Messages** when the site is running on 
 | `content/insights.json` | Insights page framing |
 | `content/posts.json` | Insight articles |
 | `content/careers.json` | Careers, including open roles |
+| `content/alumni.json` | Alumni page and the join form |
 | `content/contact.json` | Contact page and form labels |
 
 An image is an object: `{ "src": "/images/example.jpg", "alt": "What it shows" }`. `src` is a path in `public/` or a full URL. Uploads land in `public/uploads/`.

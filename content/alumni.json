@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "Alumni",
+    "description": "The Softcom Alumni Network invites former colleagues to reconnect and stay part of the Softcom story."
+  },
+  "hero": {
+    "title": "You are part of the Softcom story.",
+    "subtext": "Across teams, roles and generations, people have brought their knowledge, effort and ideas to Softcom. They helped build the company, and their contributions remain part of it.",
+    "paragraphs": [
+      "The Softcom Alumni Network invites you to reconnect with former colleagues and help shape a community that supports what comes next, for one another and for Softcom.",
+      "Whether you joined at the beginning or more recently, whatever your role and wherever you are today, you are welcome."
+    ],
+    "ctaLabel": "Explore our alumni community",
+    "ctaHref": "#join",
+    "backgroundImage": {
+      "src": "/images/alumni-hero.jpg",
+      "alt": "a canoe on calm water at dusk, with the Lagos skyline and a cable-stayed bridge behind it"
+    }
+  },
+  "join": {
+    "title": "Join the alumni network",
+    "text": "If you have worked at Softcom, you are welcome here. Share your details and tell us what you would like from the community.",
+    "nameLabel": "Full name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "yearsLabel": "When did you work at Softcom?",
+    "joinedLabel": "Joining year",
+    "leftLabel": "Leaving year",
+    "joinedPlaceholder": "2012",
+    "leftPlaceholder": "2018",
+    "roleLabel": "Your team or role at Softcom",
+    "rolePlaceholder": "Team or role",
+    "nowLabel": "What are you doing now? (Optional.)",
+    "nowPlaceholder": "Where your work has taken you",
+    "hopeLabel": "What would you like this community to make possible? (Optional).",
+    "hopePlaceholder": "What you hope the network can do",
+    "consentLabel": "I agree to receive communications about the Softcom Alumni Network.",
+    "submitLabel": "Join the network",
+    "successTitle": "You are on the list",
+    "successText": "Thank you. We will be in touch about the Softcom Alumni Network."
+  }
+}

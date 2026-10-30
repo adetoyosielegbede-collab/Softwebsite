@@ -32,6 +32,10 @@
         {
           "label": "Careers",
           "href": "/careers"
+        },
+        {
+          "label": "Alumni",
+          "href": "/alumni"
         }
       ]
     },
@@ -73,6 +77,10 @@
         {
           "label": "Careers",
           "href": "/careers"
+        },
+        {
+          "label": "Alumni",
+          "href": "/alumni"
         }
       ]
     },

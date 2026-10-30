@@ -171,12 +171,12 @@
     "primaryLabel": "Explore careers at Softcom",
     "primaryHref": "/careers",
     "secondaryLabel": "Explore our alumni community",
-    "secondaryHref": "/contact"
+    "secondaryHref": "/alumni"
   },
   "news": {
     "eyebrow": "News",
     "title": "Latest news",
-    "text": "Updates from across Softcom",
+    "text": "",
     "ctaLabel": "View all news",
     "ctaHref": "/insights"
   },

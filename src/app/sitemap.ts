@@ -15,6 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/insights",
     ...posts.map((post) => `/insights/${post.slug}`),
     "/careers",
+    "/alumni",
     "/contact",
   ];
   return paths.map((path) => ({ url: `${base}${path}`, changeFrequency: "weekly", priority: path === "" ? 1 : 0.7 }));
