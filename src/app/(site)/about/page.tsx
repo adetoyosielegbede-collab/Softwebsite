@@ -136,18 +136,18 @@ export default async function AboutPage() {
       <section className="container-site pt-24 lg:pt-24">
         <div className="grid items-start gap-6 md:grid-cols-12 md:gap-x-6">
           <LineReveal className="text-headline md:col-span-6">{buildWithUs.title}</LineReveal>
-          <div className="flex max-w-md flex-col items-start gap-6 md:col-span-5 md:col-start-8" data-reveal>
-            <p className="text-body text-ink-soft">{buildWithUs.text}</p>
-            <div className="flex w-full flex-nowrap items-stretch gap-3">
+          <div className="flex flex-col items-start gap-6 md:col-span-6 md:col-start-7" data-reveal>
+            <p className="text-body max-w-md text-ink-soft">{buildWithUs.text}</p>
+            <div className="grid w-full grid-cols-2 gap-2 sm:flex sm:w-auto sm:gap-3">
               <PillLink
                 href={buildWithUs.primaryHref}
-                className="h-auto min-h-10 min-w-0 flex-1 whitespace-normal px-4 py-2 text-center text-sm leading-snug"
+                className="h-10 justify-center px-2 text-[11px] whitespace-nowrap sm:w-72 sm:px-4 sm:text-sm"
               >
                 {buildWithUs.primaryLabel}
               </PillLink>
               <PillLink
                 href={buildWithUs.secondaryHref}
-                className="h-auto min-h-10 min-w-0 flex-1 whitespace-normal px-4 py-2 text-center text-sm leading-snug"
+                className="h-10 justify-center px-2 text-[11px] whitespace-nowrap sm:w-72 sm:px-4 sm:text-sm"
               >
                 {buildWithUs.secondaryLabel}
               </PillLink>
