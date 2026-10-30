@@ -15,7 +15,7 @@ export default async function AlumniPage() {
 
   return (
     <>
-      <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
+      <section className="relative isolate flex min-h-[100svh] flex-col justify-start overflow-hidden pt-28 pb-16 md:pt-36 md:pb-20">
         <div className="absolute inset-0">
           <CmsImage
             image={hero.backgroundImage}
