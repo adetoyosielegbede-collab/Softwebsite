@@ -13,8 +13,9 @@
     "ctaLabel": "Explore our alumni community",
     "ctaHref": "#join",
     "backgroundImage": {
-      "src": "/images/alumni-hero.jpg",
-      "alt": "a canoe on calm water at dusk, with the Lagos skyline and a cable-stayed bridge behind it"
+      "src": "/images/alumni-group.jpg",
+      "alt": "Softcom people gathered on a plaza in front of a white hotel with a glass arch",
+      "position": "center 58%"
     }
   },
   "join": {

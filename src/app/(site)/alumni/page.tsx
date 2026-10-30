@@ -26,7 +26,8 @@ export default async function AlumniPage() {
             className="object-cover"
           />
         </div>
-        <div aria-hidden className="absolute inset-0 bg-black/60" />
+        <div aria-hidden className="absolute inset-0 bg-black/45" />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/40 to-black/55" />
         <div className="container-site relative z-10 text-white">
           <div className="max-w-xl">
             <h1 className="text-display text-balance">{hero.title}</h1>
