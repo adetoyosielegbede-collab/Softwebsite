@@ -26,7 +26,7 @@ Text, lists, stats, open roles and articles are edited from the page list in the
 
 The homepage hero has an **Image mode** switch under **Home → Hero**. Off, the portal opens onto the Progress for Society headline and sentence. On, it opens onto the **Background image** uploaded just below the switch.
 
-Fonts are set under **Header, footer & shared → Typography**: a font, weight and style for headings, and the same for body text. The choices are General Sans, Inter, DM Sans, Manrope, Space Grotesk, IBM Plex Sans, Fraunces and Source Serif. General Sans ships in Regular and Medium only, so other weights and italic in that font are drawn by the browser.
+The site is set in Space Grotesk. Fonts can be changed under **Header, footer & shared → Typography**: a font, weight and style for headings, and the same for body text. The choices are General Sans, Inter, DM Sans, Manrope, Space Grotesk, IBM Plex Sans, Fraunces and Source Serif. General Sans ships in Regular and Medium only, so other weights and italic in that font are drawn by the browser.
 
 Font sizes live under **Typography → Sizes**: a desktop and a mobile size in pixels for each text style (Display, Headline, Title, Lede, Body). Changing one updates every heading or paragraph that uses that style across the site. The Solutions intro also has its own **Text style** and **Font size** under Solutions → Intro; leave the font size at 0 to follow the chosen style.
 

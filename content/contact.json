@@ -1,9 +1,15 @@
 {
-  "seo": { "title": "Contact", "description": "Talk to Softcom about what you want to achieve." },
+  "seo": {
+    "title": "Contact",
+    "description": "Talk to Softcom about what you want to achieve."
+  },
   "badge": "Contact",
-  "title": "Let’s talk.",
+  "title": "Let’s talk",
   "text": "Whether you have a specific project in mind or just want to explore how Softcom can help, we are always open to a conversation.",
-  "image": { "src": "", "alt": "" },
+  "image": {
+    "src": "",
+    "alt": ""
+  },
   "form": {
     "title": "Send us a Message",
     "nameLabel": "Name",

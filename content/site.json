@@ -5,7 +5,7 @@
       "src": "/brand/softcom-logo-white.svg",
       "alt": "Softcom"
     },
-    "tagline": "Technology for Organisations. Progress for Society."
+    "tagline": "Technology for organisations, progress for society"
   },
   "contact": {
     "email": "contact@softcom.xyz",
@@ -130,9 +130,9 @@
   ],
   "menuFeature": {
     "eyebrow": "Get in touch",
-    "title": "Proud partner of potential.",
+    "title": "Proud partner of potential",
     "image": {
-      "src": "/images/partnership-handshake.jpg",
+      "src": "/uploads/partner-2-hf-20261030-112953-aba8ff8a-9069-41ae--b009f7.jpg",
       "alt": "Two people shaking hands over a city at night"
     },
     "ctaLabel": "Start a conversation",
@@ -289,10 +289,10 @@
     }
   ],
   "typography": {
-    "headingFont": "General Sans",
+    "headingFont": "Space Grotesk",
     "headingWeight": "Medium",
     "headingStyle": "Normal",
-    "bodyFont": "General Sans",
+    "bodyFont": "Space Grotesk",
     "bodyWeight": "Regular",
     "bodyStyle": "Normal",
     "sizes": {
@@ -319,7 +319,7 @@
     }
   },
   "seo": {
-    "title": "Softcom — Technology for Organisations. Progress for Society.",
+    "title": "Softcom, technology for organisations, progress for society",
     "description": "Softcom is a technology and innovation company with 19 years of experience building for public institutions, private organisations and development enablers.",
     "shareImage": {
       "src": "/images/lagos-dusk.jpg",

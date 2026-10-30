@@ -6,7 +6,7 @@
   "name": "Useforms",
   "hero": {
     "eyebrow": "",
-    "title": "Ask anything, anywhere. Easily.",
+    "title": "Ask anything, anywhere, easily",
     "text": "A simple way to create a form and get a response. Faster than pen and paper.",
     "primaryLabel": "Request a demonstration",
     "primaryHref": "/contact",
@@ -33,7 +33,7 @@
       "figures": [
         {
           "label": "Useforms / 01",
-          "title": "Every form in one place.",
+          "title": "Every form in one place",
           "caption": "Folders, workspaces, and the responses already coming in.",
           "image": {
             "src": "/media/useforms/forms-library.jpg",
@@ -45,20 +45,20 @@
     },
     {
       "number": "",
-      "title": "A form for the thing you need to know.",
+      "title": "A form for the thing you need to know",
       "text": "Collect guest details and take payment for an event. Lease a property. Sell and receive orders on social media. Ask for feedback and learn who the customer is. Put the form on a website, on Facebook, LinkedIn, Instagram, or X, or send it as a link. It also works where there is no connection.",
       "points": [],
       "figures": []
     },
     {
       "number": "",
-      "title": "Ask the question that gets a useful answer.",
+      "title": "Ask the question that gets a useful answer",
       "text": "Ask why, what, or how, and get a direct answer back. Rate an idea, an option, a person, or a service, and ask again when you need to. Templates cover customer feedback, employee surveys, and opinion polls. Responses stay in folders, move to Power BI or Google Sheets, leave through one API, or download as a CSV.",
       "points": [],
       "figures": [
         {
           "label": "Useforms / 02",
-          "title": "The question, on the form.",
+          "title": "The question, on the form",
           "caption": "Write it, set the limits, and say whether an answer is required.",
           "image": {
             "src": "/media/useforms/form-builder.jpg",
@@ -70,13 +70,13 @@
     },
     {
       "number": "",
-      "title": "Get paid, and take the details with the payment.",
+      "title": "Get paid, and take the details with the payment",
       "text": "Sell a product or a service, or accept a donation, and ask for a name, an email, and a phone number in the same form. Consent comes first. Local or international, the terms are yours: how many orders you will take, and the hours you will take them.",
       "points": [],
       "figures": [
         {
           "label": "Useforms / 03",
-          "title": "A payment on the form.",
+          "title": "A payment on the form",
           "caption": "The amount, the currency, and the question that sits with them.",
           "image": {
             "src": "/media/useforms/payment.jpg",
@@ -88,14 +88,14 @@
     },
     {
       "number": "",
-      "title": "Take the request exactly as the customer made it.",
+      "title": "Take the request exactly as the customer made it",
       "text": "Capture what they want, when they want it, and where it should go, and record consent on every request. Share a link, place the form on a site or a social page, or collect it on the go. Limit how many requests you accept, and only during business hours. The record lands in a folder, a sheet, another app, or a file you download.",
       "points": [],
       "figures": []
     },
     {
       "number": "",
-      "title": "Collect what a decision needs.",
+      "title": "Collect what a decision needs",
       "text": "A short answer when speed matters. A picture, a video, or a document when the answer has to show itself. Useforms records when and where it was collected.",
       "points": [
         {
@@ -116,7 +116,7 @@
   ],
   "audience": {
     "eyebrow": "Who it is for",
-    "title": "Built for anyone who needs an answer.",
+    "title": "Built for anyone who needs an answer",
     "text": "Individuals and businesses asking a personal question or a commercial one. Events, property, sales, customer feedback, orders, hiring, and research.",
     "closing": "Tell us what you need to ask, and where the answers should land. We will show you Useforms set up for that work.",
     "ctaLabel": "Request a demonstration",

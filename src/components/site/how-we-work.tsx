@@ -86,7 +86,7 @@ export function HowWeWork({ content }: { content: HomeContent["howWeWork"] }) {
   }, [count]);
 
   return (
-    <div ref={pin} className="relative h-auto md:h-[320vh]">
+    <div ref={pin} className="relative h-auto md:h-[210vh]">
       <div className="md:sticky md:top-0 md:h-svh md:overflow-hidden">
         <div
           ref={heading}

@@ -95,7 +95,6 @@ export function CtaBanner({ cta, file, path = "cta", className }: { cta: Cta; fi
           )}
         >
           <div className={cn("flex flex-col gap-6", split ? "max-w-md" : "items-center")}>
-            <span className="size-4 rounded-full bg-signal shadow-[0_0_30px_rgba(0,255,255,0.7)]" aria-hidden />
             <h2 className="text-headline max-w-[598px] text-center">{cta.title}</h2>
           </div>
           <div className={cn("flex flex-col gap-6", split ? "max-w-sm" : "items-center")}>
@@ -109,9 +108,9 @@ export function CtaBanner({ cta, file, path = "cta", className }: { cta: Cta; fi
   );
 }
 
-export function Stats({ stats, count = false }: { stats: SiteContent["stats"]; count?: boolean }) {
+export function Stats({ stats, count = false, lined = true }: { stats: SiteContent["stats"]; count?: boolean; lined?: boolean }) {
   return (
-    <dl className="grid grid-cols-2 gap-x-6 gap-y-10 border-t border-line pt-10 lg:grid-cols-4">
+    <dl className={cn("grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4", lined && "border-t border-line pt-10")}>
       {stats.map((s, i) => (
         <div key={s.label} data-reveal style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}>
           <dd className="font-heading text-[2.25rem] leading-[0.95] heading-type md:text-[3.75rem]">
@@ -158,19 +157,11 @@ export function SectionNumber({ children }: { children: React.ReactNode }) {
   return <p className="font-mono text-xs text-ink-soft">{children}</p>;
 }
 
-/** Registration crosses that sit on the top edge of a homepage section. */
+/** A hairline that marks the start of a section. */
 export function FrameMarks() {
   return (
-    <div aria-hidden className="container-site pointer-events-none relative h-5">
-      <svg viewBox="0 0 20 20" className="absolute top-0 left-0 size-5 text-line-strong">
-        <path d="M0.5 0v20M0 10h10" stroke="currentColor" />
-      </svg>
-      <svg viewBox="0 0 20 20" className="absolute top-0 left-1/2 hidden size-5 -translate-x-1/2 text-line-strong md:block">
-        <path d="M10 0v20M0 10h20" stroke="currentColor" />
-      </svg>
-      <svg viewBox="0 0 20 20" className="absolute top-0 right-0 size-5 text-line-strong">
-        <path d="M19.5 0v20M10 10h10" stroke="currentColor" />
-      </svg>
+    <div aria-hidden className="container-site">
+      <div className="h-px bg-line" />
     </div>
   );
 }

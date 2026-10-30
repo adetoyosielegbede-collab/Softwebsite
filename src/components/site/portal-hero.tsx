@@ -10,7 +10,6 @@ import { ArrowLink, PillLink } from "./links";
 
 const BLUE = "#004bff";
 const CYAN = "#00ffff";
-const GLYPHS = ["▖", "▗", "▘", "▝", "▚", "▞", "▙", "▟"];
 const WASH_IN: [number, number] = [0.08, 0.24];
 const SCRAMBLE: [number, number] = [0.22, 0.4];
 const ACTIONS: [number, number] = [0.36, 0.44];
@@ -124,6 +123,9 @@ export function PortalHero({
         sceneEl.style.maskImage = "none";
         sceneEl.style.webkitMaskImage = "none";
         if (statement.current) statement.current.style.opacity = "1";
+        chars.forEach((el) => {
+          el.style.opacity = "1";
+        });
         if (actions.current) {
           actions.current.style.opacity = "1";
           actions.current.style.transform = "none";
@@ -179,12 +181,9 @@ export function PortalHero({
 
       field?.resize();
       field?.draw(washAmount);
-      const cursor = range(washP, SCRAMBLE) * (chars.length + 14);
+      const cursor = range(washP, SCRAMBLE) * (chars.length + 8);
       for (let i = 0; i < chars.length; i++) {
-        const state = i < cursor - 14 ? "done" : i < cursor ? "scramble" : "hidden";
-        const el = chars[i];
-        if (el.dataset.state !== state) el.dataset.state = state;
-        if (state === "scramble") el.dataset.glyph = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+        chars[i].style.opacity = String(clamp01(cursor - i));
       }
       if (statement.current) statement.current.style.opacity = "1";
       const actionAmount = smoothstep(range(washP, ACTIONS));
@@ -309,11 +308,7 @@ export function PortalHero({
                   <span
                     key={`${run.text}-${index}`}
                     data-ch=""
-                    data-state="hidden"
-                    className={
-                      "relative data-[state=hidden]:text-transparent data-[state=scramble]:text-transparent after:pointer-events-none after:absolute after:inset-0 after:text-signal data-[state=scramble]:after:content-[attr(data-glyph)] " +
-                      (run.accent ? "text-signal" : "")
-                    }
+                    className={"opacity-0 motion-reduce:opacity-100 " + (run.accent ? "text-signal" : "")}
                   >
                     {char}
                   </span>

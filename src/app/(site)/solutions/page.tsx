@@ -77,7 +77,7 @@ export default async function SolutionsPage() {
         </div>
       </section>
 
-      <section className="pt-28 lg:pt-40">
+      <section className="pt-20 lg:pt-28">
         <div className="container-site">
           <SectionHeader id="applied-intelligence" number={intel.number} title={intel.title} lead={intel.lead} />
         </div>
@@ -103,7 +103,7 @@ export default async function SolutionsPage() {
         </div>
       </section>
 
-      <section className="container-site pt-28 lg:pt-40">
+      <section className="container-site pt-20 lg:pt-28">
         <SectionHeader id="powering-initiatives" number={init.number} title={init.title} lead={init.lead} />
         <figure className="relative mt-16 overflow-hidden rounded-3xl bg-night" data-reveal>
           <figcaption className="eyebrow absolute top-5 right-6 z-10 text-signal/80">{init.figureLabel}</figcaption>

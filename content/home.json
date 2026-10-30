@@ -22,7 +22,7 @@
       "alt": "Lagos at dusk across the lagoon, a fisherman in a canoe",
       "position": "50% 60%"
     },
-    "title": "Stronger organisations build a more prosperous society.",
+    "title": "Stronger organisations build a more prosperous society",
     "text": "We build the technology and capabilities that help Organisations work better, decide better and serve the people who depend on them.",
     "ctaLabel": "Our story",
     "ctaHref": "/about"
@@ -71,11 +71,11 @@
     "items": [
       {
         "title": "Public Institutions",
-        "text": "We work with public institutions on the technology and systems needed to serve people, support oversight and coordinate delivery. Our approach considers the mandate, the operating environment and the people the solution must reach.",
+        "text": "We work with public institutions on the technology and systems needed to serve people, support oversight and coordinate delivery across the mandate, the operating environment and the communities the work must reach.",
         "tags": [
-          "Government MDAs",
-          "Regulators",
-          "Law Enforcement Agencies"
+          "Federal MDAs",
+          "State Governments",
+          "Regulators"
         ],
         "icon": {
           "src": "/media/home/audience-public-institutions.svg",
@@ -84,12 +84,13 @@
       },
       {
         "title": "Private Organisations",
-        "text": "We help businesses apply technology to the priorities that shape their performance. From enterprise systems to intelligence and digital services, we connect technical capability with the organisation’s commercial ambitions.",
+        "text": "We help businesses apply technology to the priorities that shape their performance, from enterprise systems and intelligence to digital services, always tied to the organisation’s commercial ambitions and how it operates day to day.",
         "tags": [
-          "Financial Services",
-          "FMCG",
-          "Oil & Gas",
-          "Education"
+          "FSI",
+          "Telco",
+          "Retail",
+          "Education",
+          "Oil & Gas"
         ],
         "icon": {
           "src": "/media/home/audience-private-organisations.svg",
@@ -98,11 +99,11 @@
       },
       {
         "title": "Development Enablers",
-        "text": "Local understanding, coordinated implementation and visibility into results are essential to development work. Our technology and delivery expertise help development organisations reach intended beneficiaries, follow progress and respond to what they learn.",
+        "text": "We help development organisations reach the people they intend to serve, follow progress and respond to what they learn, bringing local understanding, coordinated implementation and a clear view of results to the work.",
         "tags": [
           "Multilateral Organisations",
           "Cooperatives",
-          "Non-Profit Foundations"
+          "Foundations"
         ],
         "icon": {
           "src": "/media/home/audience-development-enablers.svg",
@@ -120,18 +121,18 @@
     "items": [
       {
         "label": "Technology",
-        "title": "Technology to make it happen.",
+        "title": "Technology to make it happen",
         "text": "Our engineers consider the organisation’s existing systems, operating conditions and future requirements. These inform what to build, what to integrate and how the different parts should work together."
       },
       {
         "label": "Expertise",
-        "title": "Expertise to make it work.",
+        "title": "Expertise to make it work",
         "text": "Putting technology to work requires clear responsibilities, prepared teams and processes that support its use. Depending on the engagement, our involvement can extend to change management, ongoing operations and impact assessment."
       },
       {
         "label": "People",
-        "title": "People behind the work.",
-        "text": "Softcom’s experience lives in its people: the knowledge they have developed, the challenges they have worked through and the standards they bring to each engagement."
+        "title": "People behind the work",
+        "text": "Softcom’s experience lives in its people, in the knowledge they have developed, the challenges they have worked through and the standards they bring to each engagement."
       }
     ],
     "ctaLabel": "Discuss what you want to achieve",
@@ -148,7 +149,7 @@
       "src": "/uploads/partner-2-hf-20261030-112953-aba8ff8a-9069-41ae--b009f7.jpg",
       "alt": "Two people shaking hands "
     },
-    "title": "Proud partner of potential.",
+    "title": "Proud partner of potential",
     "text": "What can we achieve together?",
     "ctaLabel": "Start a conversation",
     "ctaHref": "/contact",

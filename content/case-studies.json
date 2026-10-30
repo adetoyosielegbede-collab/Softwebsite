@@ -5,13 +5,22 @@
   },
   "hero": {
     "eyebrow": "Case Studies",
-    "title": "Real engagements. Measurable outcomes.",
+    "title": "Real engagements, measurable outcomes",
     "text": "Eight engagements for named clients, across government, financial inclusion, agriculture, consumer goods, and energy. Each one measured by the people it reached.",
     "ctaLabel": "Start a conversation",
     "ctaHref": "/contact",
-    "backgroundImage": { "src": "", "alt": "" }
+    "backgroundImage": {
+      "src": "",
+      "alt": ""
+    }
   },
-  "filters": ["Government", "Financial Inclusion", "Agriculture", "FMCG", "Energy"],
+  "filters": [
+    "Government",
+    "Financial Inclusion",
+    "Agriculture",
+    "FMCG",
+    "Energy"
+  ],
   "items": [
     {
       "title": "Empowering the Nigerian Youth",
@@ -27,8 +36,14 @@
       "metric": "500k",
       "metricLabel": "Youth engaged",
       "client": "Bank of Industry",
-      "image": { "src": "", "alt": "" },
-      "logo": { "src": "/partners/bank-of-industry.png", "alt": "Bank of Industry" }
+      "image": {
+        "src": "",
+        "alt": ""
+      },
+      "logo": {
+        "src": "/partners/bank-of-industry.png",
+        "alt": "Bank of Industry"
+      }
     },
     {
       "title": "Delivering Conditional Cash Transfers to Nigeria's Poorest Households",
@@ -45,8 +60,14 @@
       "metric": "190k+",
       "metricLabel": "Beneficiaries reached",
       "client": "National Cash Transfer Office",
-      "image": { "src": "", "alt": "" },
-      "logo": { "src": "/media/clients/ncto.jpg", "alt": "National Cash Transfer Office" },
+      "image": {
+        "src": "",
+        "alt": ""
+      },
+      "logo": {
+        "src": "/media/clients/ncto.jpg",
+        "alt": "National Cash Transfer Office"
+      },
       "logoPlate": "light"
     },
     {
@@ -63,8 +84,14 @@
       "metric": "1.2M",
       "metricLabel": "Traders reached",
       "client": "Bank of Industry",
-      "image": { "src": "", "alt": "" },
-      "logo": { "src": "/partners/bank-of-industry.png", "alt": "Bank of Industry" }
+      "image": {
+        "src": "",
+        "alt": ""
+      },
+      "logo": {
+        "src": "/partners/bank-of-industry.png",
+        "alt": "Bank of Industry"
+      }
     },
     {
       "title": "Digitising Agricultural Value Chains for Sustainable Sourcing",
@@ -81,8 +108,14 @@
       "metric": "13k+",
       "metricLabel": "Farmers profiled",
       "client": "GB Foods Nigeria",
-      "image": { "src": "", "alt": "" },
-      "logo": { "src": "/partners/gb-foods.svg", "alt": "GB Foods" },
+      "image": {
+        "src": "",
+        "alt": ""
+      },
+      "logo": {
+        "src": "/partners/gb-foods.svg",
+        "alt": "GB Foods"
+      },
       "logoPlate": "light"
     },
     {
@@ -101,8 +134,14 @@
       "metric": "2,400",
       "metricLabel": "Farmers onboarded",
       "client": "Sebore Farms",
-      "image": { "src": "", "alt": "" },
-      "logo": { "src": "/media/clients/sebore.png", "alt": "Sebore Farms" },
+      "image": {
+        "src": "",
+        "alt": ""
+      },
+      "logo": {
+        "src": "/media/clients/sebore.png",
+        "alt": "Sebore Farms"
+      },
       "logoPlate": "light"
     },
     {
@@ -120,8 +159,14 @@
       "metric": "12M",
       "metricLabel": "Consumers identified",
       "client": "Coca-Cola Nigeria",
-      "image": { "src": "", "alt": "" },
-      "logo": { "src": "/media/clients/coca-cola.svg", "alt": "Coca-Cola" },
+      "image": {
+        "src": "",
+        "alt": ""
+      },
+      "logo": {
+        "src": "/media/clients/coca-cola.svg",
+        "alt": "Coca-Cola"
+      },
       "logoPlate": "light"
     },
     {
@@ -139,8 +184,14 @@
       "metric": "4M",
       "metricLabel": "Consumers engaged",
       "client": "AB InBev",
-      "image": { "src": "", "alt": "" },
-      "logo": { "src": "/media/clients/ab-inbev.svg", "alt": "AB InBev" },
+      "image": {
+        "src": "",
+        "alt": ""
+      },
+      "logo": {
+        "src": "/media/clients/ab-inbev.svg",
+        "alt": "AB InBev"
+      },
       "logoPlate": "light"
     },
     {
@@ -158,14 +209,27 @@
       "metric": "Thousands",
       "metricLabel": "Customers engaged",
       "client": "Ardova Plc",
-      "image": { "src": "", "alt": "" },
-      "logo": { "src": "/partners/ardova.png", "alt": "Ardova Plc" }
+      "image": {
+        "src": "",
+        "alt": ""
+      },
+      "logo": {
+        "src": "/partners/ardova.png",
+        "alt": "Ardova Plc"
+      }
     }
   ],
-  "band": { "src": "/images/pos-agent.jpg", "alt": "A point-of-sale agent serving a customer", "position": "50% 40%" },
+  "band": {
+    "src": "/images/pos-agent.jpg",
+    "alt": "A point-of-sale agent serving a customer",
+    "position": "50% 40%"
+  },
   "cta": {
-    "image": { "src": "/images/market-aerial.jpg", "alt": "Aerial view of a busy open-air market in Lagos" },
-    "title": "Build with us.",
+    "image": {
+      "src": "/images/market-aerial.jpg",
+      "alt": "Aerial view of a busy open-air market in Lagos"
+    },
+    "title": "Build with us",
     "text": "Bring original thinking, an innovator’s mindset and a strong sense of ownership. Work alongside exceptional peers whose expertise complements yours and expands what you can achieve.",
     "ctaLabel": "Explore careers at Softcom",
     "ctaHref": "/careers",

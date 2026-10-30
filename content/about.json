@@ -5,7 +5,7 @@
   },
   "hero": {
     "eyebrow": "About Softcom",
-    "title": "Technology that matters.",
+    "title": "Technology that matters",
     "text": "Softcom is a technology and innovation company with 19 years of experience building digital products, enterprise systems and large-scale initiatives for public institutions, private organisations and development enablers.",
     "ctaLabel": "Meet our leadership",
     "ctaHref": "#leadership",
@@ -15,11 +15,11 @@
     }
   },
   "story": {
-    "title": "Built from a conviction about Africa’s potential.",
+    "title": "Built from a conviction about Africa’s potential",
     "paragraphs": [
       "Softcom was founded in 2007 with a mission to give many people a path to growth, achievement and fulfilment.",
-      "When technology was largely associated with global giants, solving an everyday problem with software showed us what was possible. We took that same approach into enterprises: understand what they wanted to achieve and build the answers they needed.",
-      "Today, our mission remains the same - to help organisations, our people and the communities we reach achieve more. Their progress gives purpose to ours."
+      "When technology was largely associated with global giants, solving an everyday problem with software showed us what was possible. We took that same approach into enterprises, to understand what they wanted to achieve and build the answers they needed.",
+      "Today, our mission remains the same, to help organisations, our people and the communities we reach achieve more. Their progress gives purpose to ours."
     ],
     "image": {
       "src": "",
@@ -166,7 +166,7 @@
     ]
   },
   "buildWithUs": {
-    "title": "Build with us.",
+    "title": "Build with us",
     "text": "Bring original thinking, an innovator’s mindset and a strong sense of ownership. Work alongside exceptional peers whose expertise complements yours and expands what you can achieve.",
     "primaryLabel": "Explore careers at Softcom",
     "primaryHref": "/careers",
@@ -176,7 +176,7 @@
   "news": {
     "eyebrow": "News",
     "title": "Latest news",
-    "text": "Updates from across Softcom.",
+    "text": "Updates from across Softcom",
     "ctaLabel": "View all news",
     "ctaHref": "/insights"
   },
@@ -185,7 +185,7 @@
       "src": "/uploads/partner-2-hf-20261030-112953-aba8ff8a-9069-41ae--856d49.jpg",
       "alt": "Two people shaking hands over a city at night"
     },
-    "title": "Proud partner of potential.",
+    "title": "Proud partner of potential",
     "text": "What can we achieve together?",
     "ctaLabel": "Start a conversation",
     "ctaHref": "/contact",

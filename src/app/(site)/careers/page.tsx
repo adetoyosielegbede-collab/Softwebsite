@@ -43,7 +43,7 @@ export default async function CareersPage() {
         <section className="flex scroll-mt-24 flex-col gap-10 md:gap-16">
           <FrameMarks />
           <div className="container-site">
-            <div className="grid grid-cols-1 gap-y-6 border-t border-line pt-12 md:grid-cols-12 md:gap-x-6" data-reveal>
+            <div className="grid grid-cols-1 gap-y-6 pt-12 md:grid-cols-12 md:gap-x-6" data-reveal>
               <h2 className="text-headline text-balance text-ink md:col-span-6">{page.work.title}</h2>
               <div className="flex flex-col gap-4 md:col-span-5 md:col-start-8">
                 {page.work.paragraphs.map((paragraph) => (

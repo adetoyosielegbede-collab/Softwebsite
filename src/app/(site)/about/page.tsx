@@ -28,11 +28,11 @@ export default async function AboutPage() {
         field="armillary"
       />
 
-      <section className="container-site grid gap-10 pt-32 md:grid-cols-12 lg:pt-48">
+      <section className="container-site grid gap-10 pt-24 md:grid-cols-12 lg:pt-24">
         <h2 className="text-headline md:col-span-5" data-reveal>
           {story.title}
         </h2>
-        <div className="text-body flex flex-col gap-4 text-ink-soft md:col-span-6 md:col-start-7 md:pt-10" data-reveal>
+        <div className="text-body flex flex-col gap-4 text-ink-soft md:col-span-6 md:col-start-7" data-reveal>
           {story.paragraphs.map((p) => (
             <p key={p}>{p}</p>
           ))}
@@ -42,7 +42,7 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section id="journey" className="container-site grid scroll-mt-24 gap-y-12 pt-32 md:grid-cols-12 md:gap-x-6 lg:pt-48">
+      <section id="journey" className="container-site grid scroll-mt-24 gap-y-12 pt-24 md:grid-cols-12 md:gap-x-6 lg:pt-24">
         <div className="md:col-span-4">
           <div className="md:sticky md:top-32">
             <p className="label mb-5 text-ink-soft">{journey.eyebrow}</p>
@@ -86,7 +86,7 @@ export default async function AboutPage() {
         </ol>
       </section>
 
-      <section className="container-site pt-32 lg:pt-48">
+      <section className="container-site pt-24 lg:pt-24">
         <h2 className="text-headline mb-12 md:mb-20" data-reveal>
           {values.title}
         </h2>
@@ -103,7 +103,7 @@ export default async function AboutPage() {
         </ol>
       </section>
 
-      <section className="container-site pt-32 lg:pt-48">
+      <section className="container-site pt-24 lg:pt-24">
         <h2 id="leadership" className="text-headline mb-12 scroll-mt-24 md:mb-20" data-reveal>
           {leadership.title}
         </h2>
@@ -134,11 +134,11 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section className="container-site pt-24 lg:pt-32">
+      <section className="container-site pt-24 lg:pt-24">
         <Stats stats={site.stats} />
       </section>
 
-      <section className="container-site grid gap-6 pt-32 md:grid-cols-12 md:items-end lg:pt-48">
+      <section className="container-site grid items-start gap-6 pt-24 md:grid-cols-12 lg:pt-24">
         <h2 className="text-headline md:col-span-7" data-reveal>
           {buildWithUs.title}
         </h2>
@@ -151,8 +151,8 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section className="container-site pt-32 lg:pt-48">
-        <div className="mb-12 grid gap-6 md:mb-20 md:grid-cols-12 md:items-end">
+      <section className="container-site pt-24 lg:pt-24">
+        <div className="mb-10 grid items-start gap-6 md:grid-cols-12">
           <div className="md:col-span-7">
             <p className="label mb-5 text-ink-soft">{news.eyebrow}</p>
             <h2 className="text-headline">{news.title}</h2>

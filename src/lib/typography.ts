@@ -52,10 +52,10 @@ export const DEFAULT_SIZES: Typography["sizes"] = {
 };
 
 export const DEFAULT_TYPOGRAPHY: Typography = {
-  headingFont: "General Sans",
+  headingFont: "Space Grotesk",
   headingWeight: "Medium",
   headingStyle: "Normal",
-  bodyFont: "General Sans",
+  bodyFont: "Space Grotesk",
   bodyWeight: "Regular",
   bodyStyle: "Normal",
   sizes: DEFAULT_SIZES,

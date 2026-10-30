@@ -1,11 +1,11 @@
 {
   "seo": {
     "title": "Solutions",
-    "description": "Technology and expertise for your most important work: digital infrastructure, applied intelligence and powering initiatives."
+    "description": "Technology and expertise for your most important work, across digital infrastructure, applied intelligence and powering initiatives."
   },
   "hero": {
     "eyebrow": "",
-    "title": "Technology and expertise for your most important work.",
+    "title": "Technology and expertise for your most important work",
     "text": "",
     "ctaLabel": "Start a conversation",
     "ctaHref": "/contact",
@@ -120,7 +120,7 @@
       },
       {
         "title": "Societal Intelligence",
-        "text": "Build a connected understanding of a society, state or jurisdiction: its people, institutions, resources and economic activity. Reveal local differences, opportunities and issues requiring attention to inform the work of governments, investors and development organisations.",
+        "text": "Build a connected understanding of a society, state or jurisdiction, including its people, institutions, resources and economic activity. Reveal local differences, opportunities and issues requiring attention to inform the work of governments, investors and development organisations.",
         "image": {
           "src": "/media/solutions/intelligence-societal.png",
           "alt": "Isometric illustration of a grid of districts with one highlighted"
@@ -140,7 +140,7 @@
   "initiatives": {
     "number": "",
     "title": "Powering Initiatives",
-    "lead": "Softcom brings its full capability to complex initiatives including research, design, technology, people and operational expertise. Our involvement follows the initiative’s needs. We deliver directly, manage partners or combine both, with clear responsibility for execution and results.",
+    "lead": "Softcom brings its full capability to complex initiatives, including research, design, technology, people and operational expertise. Our involvement follows the initiative’s needs. We deliver directly, manage partners or combine both, with clear responsibility for execution and results.",
     "figureLabel": "An initiative in the field",
     "figure": {
       "src": "/media/solutions/initiative-in-the-field.png",
