@@ -15,7 +15,7 @@ export default async function AlumniPage() {
 
   return (
     <>
-      <section className="relative isolate flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-0 pt-28 pb-16 text-center md:pt-36 md:pb-20">
+      <section className="relative isolate flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-0 pt-24 pb-20 text-center md:pt-28 md:pb-28">
         <div className="absolute inset-0">
           <CmsImage
             image={hero.backgroundImage}
@@ -28,10 +28,10 @@ export default async function AlumniPage() {
         </div>
         <div aria-hidden className="absolute inset-0 bg-black/45" />
         <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/40 to-black/55" />
-        <div className="container-site relative z-10 text-white">
+        <div className="container-site relative z-10 -translate-y-6 text-white md:-translate-y-10">
           <div className="mx-auto flex max-w-2xl flex-col items-center">
             <h1 className="text-display text-balance">{hero.title}</h1>
-            <p className="text-lede mt-6 text-white/90">{hero.subtext}</p>
+            <p className="text-body mt-6 text-white/90">{hero.subtext}</p>
             <div className="text-body mt-6 flex flex-col gap-4 text-white/80">
               {hero.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
