@@ -33,12 +33,14 @@ function Field({
   label,
   onChange,
   focusPath,
+  file,
 }: {
   value: unknown;
   path: string;
   label: string;
   onChange: (next: unknown) => void;
   focusPath?: string;
+  file?: string;
 }) {
   const focused = focusPath && (focusPath === path || focusPath.startsWith(`${path}.`));
 
@@ -116,9 +118,15 @@ function Field({
   }
 
   if (typeof value === "boolean") {
+    const homepageFeature = file === "posts" && path.endsWith(".featured");
     return (
       <label className="flex items-center justify-between gap-4 rounded-xl border border-line bg-paper px-3 py-2.5 text-sm">
-        {label}
+        <span>
+          {homepageFeature ? "Featured on the homepage" : label}
+          {homepageFeature ? (
+            <span className="mt-1 block text-xs font-normal text-ink-faint">Two at a time. Only a published insight appears on the homepage.</span>
+          ) : null}
+        </span>
         <input type="checkbox" checked={value} onChange={(e) => onChange(e.target.checked)} className="size-4 accent-signal" />
       </label>
     );
@@ -159,6 +167,7 @@ function Field({
                     path={`${path}.${i}`}
                     label={`#${i + 1}`}
                     focusPath={focusPath}
+                    file={file}
                     onChange={(next) => onChange(value.map((v, j) => (j === i ? next : v)))}
                   />
                 )}
@@ -203,6 +212,7 @@ function Field({
               path={path ? `${path}.${key}` : key}
               label={key === "image" && titled ? titled : humanize(key)}
               focusPath={focusPath}
+              file={file}
               onChange={(next) => onChange({ ...record, [key]: next })}
             />
           ))}
@@ -322,6 +332,12 @@ function cssId(path: string) {
   return path.replace(/[^a-z0-9]+/gi, "-");
 }
 
+function featuredCount(data: unknown) {
+  const items = (data as { items?: { featured?: boolean }[] } | null)?.items;
+  if (!Array.isArray(items)) return 0;
+  return items.filter((item) => item?.featured).length;
+}
+
 export function ContentEditor({ file, data, focusPath, onSaved }: Props) {
   const [draft, setDraft] = useState(data);
   const [saving, setSaving] = useState(false);
@@ -366,7 +382,22 @@ export function ContentEditor({ file, data, focusPath, onSaved }: Props) {
           </button>
         </div>
       </div>
-      <Field value={draft} path="" label="Content" focusPath={focusPath} onChange={setDraft} />
+      <Field
+        value={draft}
+        path=""
+        label="Content"
+        focusPath={focusPath}
+        file={file}
+        onChange={(next) => {
+          if (file === "posts" && featuredCount(next) > 2) {
+            toast.error("Only two insights can be featured at a time.", {
+              description: "Unfeature one before featuring another. Featured insights are the ones on the homepage.",
+            });
+            return;
+          }
+          setDraft(next);
+        }}
+      />
     </div>
   );
 }

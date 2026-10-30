@@ -14,7 +14,7 @@ const band = "flex scroll-mt-24 flex-col gap-8 pt-20 md:gap-12 lg:pt-28";
 
 export default async function HomePage() {
   const [home, site, posts] = await Promise.all([getContent("home"), getContent("site"), getPublishedPosts()]);
-  const articles = posts.slice(0, 2);
+  const articles = posts.filter((post) => post.featured).slice(0, 2);
 
   return (
     <>

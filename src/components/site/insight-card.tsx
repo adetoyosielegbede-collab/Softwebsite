@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Star } from "lucide-react";
 import { CmsImage } from "@/components/cms/cms-image";
 import { ColorReveal } from "@/components/site/color-reveal";
 import { formatDate } from "@/lib/format";
@@ -40,6 +41,12 @@ export function InsightCard({
           className={cn("transition-transform duration-700 group-hover:scale-[1.03]", lead && "object-left")}
           emptyClassName="absolute inset-0 rounded-2xl"
         />
+        {post.featured ? (
+          <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-black/70 px-2.5 py-1 text-[11px] font-medium text-white">
+            <Star className="size-3.5 fill-signal text-signal" aria-hidden />
+            Featured
+          </span>
+        ) : null}
       </ColorReveal>
       <div className={cn(!featured && !lead && "mt-4", lead && "flex flex-col gap-6")}>
         <div
