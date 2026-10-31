@@ -17,7 +17,7 @@ function studyId(index: number) {
   return `study-${index}`;
 }
 
-function ClientLogo({ item, index, tone }: { item: Item; index: number; tone: "card" | "sheet" }) {
+function ClientLogo({ item, index }: { item: Item; index: number }) {
   if (!item.logo?.src) return null;
   const light = item.logoPlate === "light";
   return (
@@ -25,7 +25,6 @@ function ClientLogo({ item, index, tone }: { item: Item; index: number; tone: "c
       className={cn(
         "inline-flex max-w-[9.75rem] items-center justify-center",
         light && "rounded-md bg-white px-2 py-1.5 ring-1 ring-black/10",
-        !light && tone === "sheet" && "rounded-md bg-neutral-950 px-2.5 py-1.5 ring-1 ring-white/15",
       )}
     >
       <CmsImage
@@ -33,10 +32,7 @@ function ClientLogo({ item, index, tone }: { item: Item; index: number; tone: "c
         file="case-studies"
         path={`items.${index}.logo`}
         fluid
-        className={cn(
-          "w-auto object-contain",
-          tone === "sheet" ? "h-14 max-w-[10.5rem]" : "h-12 max-w-[9.25rem]",
-        )}
+        className="h-12 max-w-[9.25rem] w-auto object-contain"
         emptyClassName="hidden"
       />
     </span>
@@ -204,9 +200,6 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
                 </div>
                 <div className="col-span-2 border-line p-4 sm:col-span-1 sm:border-b-0">
                   <dt className="label text-ink-faint">Client</dt>
-                  <dd className="mt-3">
-                    <ClientLogo item={openItem} index={selected} tone="sheet" />
-                  </dd>
                   <dd className="text-body mt-2">{openItem.client}</dd>
                 </div>
               </dl>
@@ -355,7 +348,7 @@ function StudyCard({ item, index, total, onOpen }: { item: Item; index: number; 
         <div className="mt-auto flex items-end justify-between gap-4">
           <p className="label text-white/55">{item.tag}</p>
           <div className="flex max-w-[11rem] shrink-0 flex-col items-end gap-1.5">
-            <ClientLogo item={item} index={index} tone="card" />
+            <ClientLogo item={item} index={index} />
             <p className="text-right font-mono text-[0.7rem] leading-snug text-white/75">{item.client}</p>
           </div>
         </div>
