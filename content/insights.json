@@ -26,13 +26,13 @@
   "emptyText": "No insights in this category yet. Check back soon.",
   "cta": {
     "image": {
-      "src": "/images/market-aerial.jpg",
-      "alt": "Aerial view of a busy open-air market in Lagos"
+      "src": "/uploads/partner-2-hf-20261030-112953-aba8ff8a-9069-41ae--856d49.jpg",
+      "alt": "Two people shaking hands over a city at night"
     },
-    "title": "Build with us",
-    "text": "Bring original thinking, an innovator’s mindset and a strong sense of ownership. Work alongside exceptional peers whose expertise complements yours and expands what you can achieve.",
-    "ctaLabel": "Explore careers at Softcom",
-    "ctaHref": "/careers",
+    "title": "Proud partner of potential",
+    "text": "What can we achieve together?",
+    "ctaLabel": "Start a conversation",
+    "ctaHref": "/contact",
     "layout": "center"
   }
 }
