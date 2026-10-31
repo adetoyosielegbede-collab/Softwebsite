@@ -65,10 +65,9 @@
         "alt": ""
       },
       "logo": {
-        "src": "/media/clients/ncto.jpg",
+        "src": "/media/clients/ncto-mono.png",
         "alt": "National Cash Transfer Office"
-      },
-      "logoPlate": "light"
+      }
     },
     {
       "title": "Enabling Financial Support and Inclusion for Nigeria's Micro Traders",
@@ -115,8 +114,7 @@
       "logo": {
         "src": "/partners/gb-foods.svg",
         "alt": "GB Foods"
-      },
-      "logoPlate": "light"
+      }
     },
     {
       "title": "Automating Dairy Farmer Management and Payments",
@@ -139,10 +137,9 @@
         "alt": ""
       },
       "logo": {
-        "src": "/media/clients/sebore.png",
+        "src": "/media/clients/sebore-mono.png",
         "alt": "Sebore Farms"
-      },
-      "logoPlate": "light"
+      }
     },
     {
       "title": "Connecting with 12 Million Consumers through Digital Engagement",
@@ -166,8 +163,7 @@
       "logo": {
         "src": "/media/clients/coca-cola.svg",
         "alt": "Coca-Cola"
-      },
-      "logoPlate": "light"
+      }
     },
     {
       "title": "Driving Consumer Insight and Loyalty through Digital Engagement",
@@ -191,8 +187,7 @@
       "logo": {
         "src": "/media/clients/ab-inbev.svg",
         "alt": "AB InBev"
-      },
-      "logoPlate": "light"
+      }
     },
     {
       "title": "Reconnecting Consumers to Legacy Lubricant Brands through Digital Engagement",

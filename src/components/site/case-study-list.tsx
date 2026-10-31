@@ -19,20 +19,14 @@ function studyId(index: number) {
 
 function ClientLogo({ item, index }: { item: Item; index: number }) {
   if (!item.logo?.src) return null;
-  const light = item.logoPlate === "light";
   return (
-    <span
-      className={cn(
-        "inline-flex max-w-[9.75rem] items-center justify-center",
-        light && "rounded-md bg-white px-2 py-1.5 ring-1 ring-black/10",
-      )}
-    >
+    <span className="inline-flex max-w-[9.75rem] items-center justify-center">
       <CmsImage
         image={item.logo}
         file="case-studies"
         path={`items.${index}.logo`}
         fluid
-        className="h-12 max-w-[9.25rem] w-auto object-contain"
+        className="h-12 max-w-[9.25rem] w-auto object-contain brightness-0 invert"
         emptyClassName="hidden"
       />
     </span>
