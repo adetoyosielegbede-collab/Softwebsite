@@ -42,7 +42,7 @@ const CYAN = "#00ffff";
 const MASKS: Record<Variant, string> = {
   band: "linear-gradient(to bottom, transparent 0%, #000 18%, #000 76%, transparent 100%)",
   armillary: "radial-gradient(ellipse 76% 70% at 50% 44%, #000 0%, #000 36%, transparent 74%)",
-  portals: "radial-gradient(ellipse 92% 72% at 50% 46%, #000 0%, #000 48%, transparent 80%)",
+  portals: "linear-gradient(to bottom, transparent 0%, #000 10%, #000 72%, transparent 96%)",
 };
 
 export function TorusField({ variant = "band", className }: { variant?: Variant; className?: string }) {
@@ -119,32 +119,54 @@ export function TorusField({ variant = "band", className }: { variant?: Variant;
       }
     };
 
-    const drawFlakes = () => {
-      const focal = height / 2 / Math.tan(30 * DEG);
-      const camZ = 15;
-      const z = 12.2;
-      const dist = camZ - z;
-      const scale = focal / dist;
-      ctx.fillStyle = BLUE;
-      for (let i = 0; i < 42; i++) {
-        const p = (time * 0.18 + i / 42) % 1;
-        const fade = Math.sin(p * Math.PI);
-        const x = -4.6 + p * 9.2;
-        const y = 0.15 + Math.sin(p * Math.PI * 2 + i * 1.7) * 0.42;
-        const sx = width / 2 + x * scale;
-        const sy = height / 2 - y * scale;
-        const size = Math.max(1.15, (0.05 * 140) / dist) * (0.55 + fade * 0.7);
-        ctx.globalAlpha = 0.2 + 0.75 * fade;
-        ctx.fillRect(sx - size / 2, sy - size / 2, size, size);
+    const drawDisc = (cx: number, cy: number, radius: number, spin: number, tilt: number, ink: string) => {
+      const cyaw = Math.cos(spin);
+      const syaw = Math.sin(spin);
+      const ctilt = Math.cos(tilt);
+      const stilt = Math.sin(tilt);
+      const fit = radius / 4;
+      const count = ORBIT.length / 3;
+      ctx.fillStyle = ink;
+      for (let i = 0; i < count; i++) {
+        const x = ORBIT[i * 3];
+        const y = ORBIT[i * 3 + 1];
+        const z = ORBIT[i * 3 + 2];
+        const x1 = x * cyaw + z * syaw;
+        const z1 = -x * syaw + z * cyaw;
+        const y2 = y * ctilt - z1 * stilt;
+        const z2 = y * stilt + z1 * ctilt;
+        const depth = (z2 + 4) / 8;
+        ctx.globalAlpha = 0.28 + 0.72 * depth;
+        const size = 1.15 + depth * 1.15;
+        ctx.fillRect(cx + x1 * fit - size / 2, cy - y2 * fit - size / 2, size, size);
       }
     };
 
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
       if (variant === "portals") {
-        drawRing(ORBIT, { rx: time * 0.85, ry: 0.62, rz: 0.28, ox: -4.6, oy: 0.15, oz: 12.2 }, BLUE, 0.95, 150);
-        drawRing(ORBIT, { rx: -time * 0.72, ry: -0.48, rz: 0.18, ox: 4.6, oy: 0.15, oz: 12.2 }, CYAN, 0.95, 150);
-        drawFlakes();
+        const narrow = width < 768;
+        const radius = Math.max(32, Math.min(width * (narrow ? 0.11 : 0.078), narrow ? 72 : 118));
+        const gap = Math.max(36, radius * 0.85);
+        const cx = width / 2;
+        const cy = height * (narrow ? 0.32 : 0.34);
+        const left = cx - radius - gap / 2;
+        const right = cx + radius + gap / 2;
+        drawDisc(left, cy, radius, time * 0.7, 0.62, BLUE);
+        drawDisc(right, cy, radius, -time * 0.55, 0.62, CYAN);
+        const from = left + radius * 0.62;
+        const to = right - radius * 0.62;
+        ctx.fillStyle = BLUE;
+        const flakes = 34;
+        for (let i = 0; i < flakes; i++) {
+          const p = (time * 0.28 + i / flakes) % 1;
+          const fade = Math.sin(p * Math.PI);
+          const x = from + (to - from) * p;
+          const y = cy + Math.sin(p * Math.PI * 2 + i * 0.7) * radius * 0.16;
+          const size = 1.6 + fade * 1.5;
+          ctx.globalAlpha = 0.25 + 0.75 * fade;
+          ctx.fillRect(x - size / 2, y - size / 2, size, size);
+        }
         ctx.globalAlpha = 1;
         return;
       }

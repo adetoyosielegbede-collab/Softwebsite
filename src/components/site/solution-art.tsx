@@ -60,55 +60,65 @@ export function DigitalInfrastructureBoard({
 }) {
   const theme = useArtTheme();
   const root = useRef<HTMLDivElement>(null);
+  const items = useRef<(HTMLLIElement | null)[]>([]);
   const [step, setStep] = useState(1);
-  const [auto, setAuto] = useState(true);
   const html = svgs.board.replace("th-glass", theme);
-  const active = steps[step - 1];
 
   useEffect(() => {
-    if (root.current) applyBoardStep(root.current, step);
+    root.current?.querySelectorAll<HTMLElement>("[data-board]").forEach((board) => applyBoardStep(board, step));
   }, [step, theme, html]);
 
   useEffect(() => {
-    if (!auto) return;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) return;
-    const id = window.setInterval(() => setStep((current) => (current % 3) + 1), 3500);
-    return () => window.clearInterval(id);
-  }, [auto]);
+    const nodes = items.current.filter((node): node is HTMLLIElement => Boolean(node));
+    if (!nodes.length) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setStep(Number((entry.target as HTMLElement).dataset.index) + 1);
+        }
+      },
+      { rootMargin: "-42% 0px -42% 0px" },
+    );
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, [steps.length]);
+
+  const board = () => (
+    <div data-board="" className="sc-di mx-auto w-full max-w-[640px]" dangerouslySetInnerHTML={{ __html: html }} />
+  );
 
   return (
-    <div>
-      <div ref={root} className="sc-di" dangerouslySetInnerHTML={{ __html: html }} />
-      <div className="mt-6 flex flex-wrap gap-2">
-        {steps.slice(0, 3).map((item, index) => {
-          const n = index + 1;
-          const on = n === step;
-          return (
-            <button
-              key={item.title}
-              type="button"
-              aria-pressed={on}
-              onClick={() => {
-                setAuto(false);
-                setStep(n);
-              }}
-              className={cn(
-                "rounded-full px-3 py-1 text-[11px] transition-colors",
-                on ? "bg-ink text-paper" : "bg-surface-raised text-ink-soft hover:text-ink",
-              )}
-            >
-              {String(n).padStart(2, "0")} {item.label}
-            </button>
-          );
-        })}
-      </div>
-      {active ? (
-        <div className="mt-6 max-w-xl">
-          <h3 className="font-heading text-xl heading-type">{active.title}</h3>
-          <p className="text-body mt-3 text-ink-soft">{active.text}</p>
+    <div ref={root}>
+      <div className="sticky top-16 z-10 bg-background py-2 lg:hidden">{board()}</div>
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-14">
+      <ol>
+        {steps.slice(0, 3).map((item, index) => (
+          <li
+            key={item.title}
+            ref={(node) => {
+              items.current[index] = node;
+            }}
+            data-index={index}
+            className="flex min-h-[70vh] flex-col justify-center py-10 lg:min-h-[76vh] lg:py-0"
+          >
+            <p className="label text-ink-faint">
+              {String(index + 1).padStart(2, "0")} — {item.label}
+            </p>
+            <h3 className={cn("text-title mt-3 transition-colors duration-500", index + 1 === step ? "text-ink" : "lg:text-ink-faint")}>
+              {item.title}
+            </h3>
+            <p className={cn("text-body mt-3 max-w-md transition-colors duration-500", index + 1 === step ? "text-ink-soft" : "lg:text-ink-faint")}>
+              {item.text}
+            </p>
+          </li>
+        ))}
+      </ol>
+      <div className="hidden lg:block">
+        <div className="sticky top-[max(5.5rem,calc(50vh-200px))]">
+          {board()}
         </div>
-      ) : null}
+      </div>
+      </div>
     </div>
   );
 }

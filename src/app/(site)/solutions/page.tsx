@@ -58,13 +58,18 @@ export default async function SolutionsPage() {
         <p className="text-title mx-auto mt-20 max-w-2xl text-center" data-reveal>
           {infra.statement}
         </p>
-        <div className="mt-12 grid gap-4 md:grid-cols-2">
+        <div className="mt-16 flex flex-col gap-14 lg:gap-20">
           {infra.cards.map((card, index) => (
-            <article key={card.title} className="flex flex-col rounded-3xl bg-surface p-6 lg:p-8" data-reveal>
-              <SolutionArt id={index === 0 ? "build" : "rails"} className="mb-8" />
-              <p className="eyebrow">{card.eyebrow}</p>
-              <h3 className="text-headline mt-4">{card.title}</h3>
-              <p className="text-body mt-5 text-ink-soft">{card.text}</p>
+            <article key={card.title} className="grid items-center gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(240px,0.85fr)] lg:gap-12" data-reveal>
+              <div>
+                <p className="eyebrow">{card.eyebrow}</p>
+                <h3 className="text-headline mt-3 max-w-[16ch]">{card.title}</h3>
+                <p className="text-body mt-4 max-w-[48ch] text-ink-soft">{card.text}</p>
+              </div>
+              <SolutionArt
+                id={index === 0 ? "build" : "rails"}
+                className={index === 0 ? "mx-auto w-full max-w-[298px]" : "mx-auto w-full max-w-[370px]"}
+              />
             </article>
           ))}
         </div>

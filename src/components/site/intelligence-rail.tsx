@@ -92,8 +92,8 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
               key={item.title}
               className="flex w-[82vw] shrink-0 snap-start flex-col overflow-clip rounded-3xl bg-surface sm:w-[420px] lg:w-[440px]"
             >
-              <div data-rail-art="" className="px-4 pt-6">
-                {ARTS[i] ? <SolutionArt id={ARTS[i]} /> : null}
+              <div data-rail-art="" className="flex justify-center px-6 pt-6">
+                {ARTS[i] ? <SolutionArt id={ARTS[i]} className="w-full max-w-[228px]" /> : null}
               </div>
               <div data-rail-text="" className="flex flex-1 flex-col gap-3 p-6 lg:p-8">
                 <span className="font-mono text-xs text-ink-soft tabular-nums">{String(i + 1).padStart(2, "0")}</span>
