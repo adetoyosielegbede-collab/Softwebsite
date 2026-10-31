@@ -1,0 +1,196 @@
+/* Softcom illustrations. Scoped: .sc-di .sc-ai .sc-pi .sc-bi. Each wrapper contains one <svg class="iso th-glass|th-light|th-dark">. */
+/* di */
+.sc-di{display:block}
+.sc-di > svg{display:block;width:100%;height:auto;overflow:visible}
+.sc-di .th-dark{--bg:#0A0A0A;--panel:#0E1013;--pbd:#1D2025;--ink:#F3F3F1;--mute:#9097A1;--dim:#6A717C;--sf:#16191E;--st:#111317;--sl:#0D0F12;--sr:#0A0B0E;--bt:#1F232A;--bl:#171A1F;--br:#111317;--ln:#2C313A;--ln2:#4A515E;--grid:#1B1E24;--zone:#13161B;--road:#0C0D10;--win:#3B424E;--a:#3462FF;--at:#4570FF;--al:#2A4FE0;--ar:#1C38A8;--aln:#93A9FF;--azone:#121C42;--pp:#A7AEB8;--shd:rgba(0,0,0,.5);--tt:#22272E;--tl:#1A1E23;--tr:#14171B;--door:#0B0C0F;--card:#15171B;--cbd:#2A2E36}
+.sc-di .th-light{--bg:#F4F3EF;--panel:#FFFFFF;--pbd:#E4E2DC;--ink:#111111;--mute:#5E5C56;--dim:#8E8B83;--sf:#FBFAF8;--st:#F1EFEA;--sl:#E6E3DD;--sr:#DAD7D0;--bt:#FFFFFF;--bl:#EFEDE8;--br:#E1DED7;--ln:#C4C0B7;--ln2:#8A867E;--grid:#F0EEE9;--zone:#F5F4F0;--road:#ECEAE5;--win:#BDB9B0;--a:#1F4BF5;--at:#4A6DFF;--al:#1F4BF5;--ar:#1739C2;--aln:#1F4BF5;--azone:#E8EDFF;--pp:#4C4A45;--shd:rgba(0,0,0,.12);--tt:#E7E5DF;--tl:#DAD7D0;--tr:#CECAC2;--door:#D2CEC6;--card:#FFFFFF;--cbd:#E4E2DC}
+.sc-di .th-glass{--bg:#F2F5F4;--panel:#FAFCFB;--pbd:#E1E8E5;--ink:#0F1A17;--mute:#56635F;--dim:#86928E;--sf:rgba(16,185,129,.05);--st:rgba(16,185,129,.07);--sl:rgba(16,185,129,.12);--sr:rgba(16,185,129,.2);--bt:rgba(255,255,255,.62);--bl:rgba(205,224,218,.45);--br:rgba(160,190,181,.42);--ln:rgba(30,80,66,.22);--ln2:rgba(24,70,58,.5);--grid:rgba(30,80,66,.07);--zone:rgba(16,185,129,.04);--road:rgba(255,255,255,.92);--win:rgba(24,70,58,.28);--a:#1F4BF5;--at:rgba(31,75,245,.28);--al:rgba(31,75,245,.2);--ar:rgba(31,75,245,.36);--aln:rgba(31,75,245,.85);--azone:rgba(31,75,245,.05);--azone2:rgba(31,75,245,.13);--zln:rgba(31,75,245,.35);--pp:#3A524B;--shd:rgba(20,80,60,.14);--tt:rgba(16,185,129,.3);--tl:rgba(16,185,129,.42);--tr:rgba(16,185,129,.55);--door:rgba(24,70,58,.18);--card:rgba(255,255,255,.74);--cbd:rgba(24,70,58,.12);--crop:rgba(16,185,129,.22);--bds:rgba(255,255,255,.9);--ban:rgba(31,75,245,.45);--rec:rgba(255,255,255,.7)}
+.sc-di .th-glass .h-g{--a:#047857;--at:rgba(16,185,129,.3);--al:rgba(16,185,129,.22);--ar:rgba(16,185,129,.4);--aln:rgba(4,120,87,.85);--azone:rgba(16,185,129,.06);--azone2:rgba(16,185,129,.16);--zln:rgba(14,159,110,.4)}
+.sc-di .th-glass .h-a{--a:#B45309;--at:rgba(245,158,11,.3);--al:rgba(245,158,11,.22);--ar:rgba(245,158,11,.4);--aln:rgba(180,83,9,.85);--azone:rgba(245,158,11,.07);--azone2:rgba(245,158,11,.17);--zln:rgba(217,119,6,.4)}
+.sc-di .th-glass .zone.h-g,.sc-di .th-glass .zone.h-a,.sc-di .th-glass .zone.h-b{fill:var(--azone);stroke:var(--zln)}
+.sc-di .th-glass .zone.on{fill:var(--azone2);stroke:var(--a)}
+.sc-di .th-glass .dist.off{opacity:.5}
+.sc-di .iso rect,.sc-di .iso path,.sc-di .iso line,.sc-di .iso circle,.sc-di .iso ellipse{vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round;stroke-width:1;transition:fill .4s,stroke .4s,opacity .4s}
+.sc-di .sf{fill:var(--sf);stroke:var(--ln)}
+.sc-di .st{fill:var(--st);stroke:var(--ln)}
+.sc-di .sl{fill:var(--sl);stroke:var(--ln)}
+.sc-di .sr{fill:var(--sr);stroke:var(--ln)}
+.sc-di .bt{fill:var(--bt);stroke:var(--ln2)}
+.sc-di .bl{fill:var(--bl);stroke:var(--ln2)}
+.sc-di .br{fill:var(--br);stroke:var(--ln2)}
+.sc-di .at{fill:var(--at);stroke:var(--aln)}
+.sc-di .al{fill:var(--al);stroke:var(--aln)}
+.sc-di .ar{fill:var(--ar);stroke:var(--aln)}
+.sc-di .tt{fill:var(--tt);stroke:var(--ln2)}
+.sc-di .tl{fill:var(--tl);stroke:var(--ln2)}
+.sc-di .tr{fill:var(--tr);stroke:var(--ln2)}
+.sc-di .trunk{stroke:var(--ln2)}
+.sc-di .grid{fill:none;stroke:var(--grid)}
+.sc-di .zone{fill:var(--zone);stroke:var(--ln)}
+.sc-di .zone.on{fill:var(--azone);stroke:var(--a)}
+.sc-di .road{fill:var(--road);stroke:var(--ln)}
+.sc-di .dash{fill:none;stroke:var(--ln2);stroke-dasharray:3 5}
+.sc-di .win{fill:none;stroke:var(--win)}
+.sc-di .wind{fill:none;stroke:var(--win);stroke-dasharray:5 3}
+.sc-di .door,.sc-di .glass{fill:var(--door);stroke:var(--ln2)}
+.sc-di .cross{fill:none;stroke:var(--a);stroke-width:2 !important}
+.sc-di .pp{fill:var(--pp)}
+.sc-di .shd{fill:var(--shd)}
+.sc-di .flow{fill:none;stroke:var(--a);stroke-width:2 !important;stroke-dasharray:6 5;animation:di-dashrun 1.2s linear infinite}
+.sc-di .flow.off{opacity:0}
+.sc-di .link{fill:none;stroke:var(--ln2);stroke-dasharray:2 4}
+.sc-di .link.on{stroke:var(--a);stroke-dasharray:none}
+.sc-di .ldot{fill:var(--ln2)}
+.sc-di .ldot.on{fill:var(--a)}
+.sc-di .ring{fill:none;stroke:var(--a);stroke-width:1.5 !important;animation:di-pulse 2s ease-in-out infinite}
+.sc-di .lead{fill:none;stroke:var(--a)}
+.sc-di .dot{fill:var(--a)}
+.sc-di .hide{opacity:0}
+.sc-di .dist{transition:opacity .45s}
+.sc-di .dist.off{opacity:.36}
+.sc-di .on .k.bt{fill:var(--at);stroke:var(--aln)}
+.sc-di .on .k.bl{fill:var(--al);stroke:var(--aln)}
+.sc-di .on .k.br{fill:var(--ar);stroke:var(--aln)}
+.sc-di .on .k.pp{fill:var(--a)}
+.sc-di .on .k.door,.sc-di .on .k.glass{fill:var(--a);stroke:var(--aln)}
+@keyframes di-dashrun{to{stroke-dashoffset:-22}}
+@keyframes di-runx{0%{transform:translate(0,0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translate(40px,20px);opacity:0}}
+@keyframes di-runy{0%{transform:translate(0,0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translate(-40px,20px);opacity:0}}
+@keyframes di-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.sc-di .run-x{animation:di-runx 3.2s linear infinite}
+.sc-di .run-y{animation:di-runy 3.2s linear infinite}
+.sc-di .d2{animation-delay:1.1s}
+.sc-di .d3{animation-delay:2.2s}
+@media (prefers-reduced-motion:reduce){.sc-di .flow,.sc-di .run-x,.sc-di .run-y,.sc-di .ring{animation:none}}
+/* ai */
+.sc-ai{display:block}
+.sc-ai > svg{display:block;width:100%;height:auto;overflow:visible}
+.sc-ai .th-dark{--bg:#0A0A0A;--panel:#0E1013;--pbd:#1D2025;--ink:#F3F3F1;--mute:#9097A1;--sf:#16191E;--sl:#0D0F12;--sr:#0A0B0E;--bt:#1F232A;--bl:#171A1F;--br:#111317;--ln:#2C313A;--ln2:#4A515E;--win:#3B424E;--a:#3462FF;--at:#4570FF;--al:#2A4FE0;--ar:#1C38A8;--aln:#93A9FF;--azone:#121C42;--pp:#A7AEB8;--shd:rgba(0,0,0,.5);--card:#141518;--rec:#1A1D23}
+.sc-ai .th-light{--bg:#F4F3EF;--panel:#F7F6F2;--pbd:#E4E2DC;--ink:#111111;--mute:#5E5C56;--sf:#FFFFFF;--sl:#E6E3DD;--sr:#DAD7D0;--bt:#FFFFFF;--bl:#EFEDE8;--br:#E1DED7;--ln:#C4C0B7;--ln2:#8A867E;--win:#BDB9B0;--a:#1F4BF5;--at:#4A6DFF;--al:#1F4BF5;--ar:#1739C2;--aln:#1F4BF5;--azone:#E8EDFF;--pp:#4C4A45;--shd:rgba(0,0,0,.12);--card:#FFFFFF;--rec:#F4F3EF}
+.sc-ai .th-glass{--bg:#F2F5F4;--panel:#F6FAF8;--pbd:#E1E8E5;--ink:#0F1A17;--mute:#56635F;--sf:rgba(16,185,129,.06);--sl:rgba(16,185,129,.12);--sr:rgba(16,185,129,.2);--bt:rgba(255,255,255,.62);--bl:rgba(205,224,218,.45);--br:rgba(160,190,181,.42);--ln:rgba(30,80,66,.22);--ln2:rgba(24,70,58,.5);--win:rgba(24,70,58,.28);--a:#1F4BF5;--at:rgba(31,75,245,.28);--al:rgba(31,75,245,.2);--ar:rgba(31,75,245,.36);--aln:rgba(31,75,245,.85);--azone:rgba(31,75,245,.1);--pp:#3A524B;--shd:rgba(20,80,60,.14);--card:rgba(255,255,255,.8);--rec:rgba(255,255,255,.7)}
+.sc-ai .th-glass .h-g{--a:#047857;--at:rgba(16,185,129,.3);--al:rgba(16,185,129,.22);--ar:rgba(16,185,129,.4);--aln:rgba(4,120,87,.85);--azone:rgba(16,185,129,.14)}
+.sc-ai .th-glass .h-a{--a:#B45309;--at:rgba(245,158,11,.3);--al:rgba(245,158,11,.22);--ar:rgba(245,158,11,.4);--aln:rgba(180,83,9,.85);--azone:rgba(245,158,11,.16)}
+.sc-ai .iso rect,.sc-ai .iso path,.sc-ai .iso line,.sc-ai .iso circle,.sc-ai .iso ellipse{vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round;stroke-width:1}
+.sc-ai .sf{fill:var(--sf);stroke:var(--ln)}
+.sc-ai .sl{fill:var(--sl);stroke:var(--ln)}
+.sc-ai .sr{fill:var(--sr);stroke:var(--ln)}
+.sc-ai .bt{fill:var(--bt);stroke:var(--ln2)}
+.sc-ai .bl{fill:var(--bl);stroke:var(--ln2)}
+.sc-ai .br{fill:var(--br);stroke:var(--ln2)}
+.sc-ai .at{fill:var(--at);stroke:var(--aln)}
+.sc-ai .al{fill:var(--al);stroke:var(--aln)}
+.sc-ai .ar{fill:var(--ar);stroke:var(--aln)}
+.sc-ai .rec{fill:var(--rec);stroke:var(--ln2)}
+.sc-ai .win{fill:none;stroke:var(--win)}
+.sc-ai .wl{fill:none;stroke:rgba(255,255,255,.75)}
+.sc-ai .door{fill:var(--sr);stroke:var(--ln2)}
+.sc-ai .slot{fill:none;stroke:var(--a);stroke-dasharray:3 2}
+.sc-ai .edge{fill:none;stroke:var(--ln2)}
+.sc-ai .catch{fill:none;stroke:var(--ln2);stroke-dasharray:2 3}
+.sc-ai .ozone{fill:var(--azone);stroke:var(--a);stroke-dasharray:4 3}
+.sc-ai .ghost{fill:none;stroke:var(--a);stroke-dasharray:3 2}
+.sc-ai .scr{fill:var(--azone);stroke:var(--a)}
+.sc-ai .scrl{fill:none;stroke:var(--a)}
+.sc-ai .pp{fill:var(--pp)}
+.sc-ai .pa{fill:var(--a)}
+.sc-ai .shd{fill:var(--shd)}
+.sc-ai .dot{fill:var(--a)}
+.sc-ai .ring{fill:none;stroke:var(--a)}
+.sc-ai .lead{fill:none;stroke:var(--a);stroke-dasharray:2 3}
+.sc-ai .flow{fill:none;stroke:var(--a);stroke-width:1.75 !important;stroke-dasharray:4 4;animation:ai-dashrun 1.1s linear infinite}
+.sc-ai .scanbar{fill:var(--a);opacity:.85}
+.sc-ai .scan{animation:ai-scan 4s ease-in-out infinite alternate}
+@keyframes ai-dashrun{to{stroke-dashoffset:-16}}
+@keyframes ai-scan{from{transform:translate(0,0)}to{transform:translate(0,90px)}}
+@media (prefers-reduced-motion:reduce){.sc-ai .flow,.sc-ai .scan{animation:none}}
+/* pi */
+.sc-pi{display:block}
+.sc-pi > svg{display:block;width:100%;height:auto;overflow:visible}
+.sc-pi .th-dark{--bg:#0A0A0A;--panel:#0E1013;--pbd:#1D2025;--ink:#F3F3F1;--mute:#9097A1;--sf:#16191E;--st:#111317;--sl:#0D0F12;--sr:#0A0B0E;--bt:#1F232A;--bl:#171A1F;--br:#111317;--ln:#2C313A;--ln2:#4A515E;--grid:#1B1E24;--zone:#13161B;--road:#0C0D10;--win:#3B424E;--a:#3462FF;--at:#4570FF;--al:#2A4FE0;--ar:#1C38A8;--aln:#93A9FF;--azone:#121C42;--pp:#A7AEB8;--shd:rgba(0,0,0,.5);--tt:#22272E;--tl:#1A1E23;--tr:#14171B;--door:#0B0C0F;--card:#15171B;--cbd:#2A2E36;--crop:#1C2127;--bds:#2A2F37;--ban:#4A515E}
+.sc-pi .th-light{--bg:#F4F3EF;--panel:#FFFFFF;--pbd:#E4E2DC;--ink:#111111;--mute:#5E5C56;--sf:#FBFAF8;--st:#F1EFEA;--sl:#E6E3DD;--sr:#DAD7D0;--bt:#FFFFFF;--bl:#EFEDE8;--br:#E1DED7;--ln:#C4C0B7;--ln2:#8A867E;--grid:#F0EEE9;--zone:#F5F4F0;--road:#ECEAE5;--win:#BDB9B0;--a:#1F4BF5;--at:#4A6DFF;--al:#1F4BF5;--ar:#1739C2;--aln:#1F4BF5;--azone:#E8EDFF;--pp:#4C4A45;--shd:rgba(0,0,0,.12);--tt:#E7E5DF;--tl:#DAD7D0;--tr:#CECAC2;--door:#D2CEC6;--card:#FFFFFF;--cbd:#E4E2DC;--crop:#E4E2DA;--bds:#FFFFFF;--ban:#8A867E}
+.sc-pi .th-glass{--bg:#F2F5F4;--panel:#FAFCFB;--pbd:#E1E8E5;--ink:#0F1A17;--mute:#56635F;--sf:rgba(16,185,129,.05);--st:rgba(16,185,129,.07);--sl:rgba(16,185,129,.12);--sr:rgba(16,185,129,.2);--bt:rgba(255,255,255,.62);--bl:rgba(205,224,218,.45);--br:rgba(160,190,181,.42);--ln:rgba(30,80,66,.22);--ln2:rgba(24,70,58,.5);--grid:rgba(30,80,66,.07);--zone:rgba(16,185,129,.04);--road:rgba(255,255,255,.92);--win:rgba(24,70,58,.28);--a:#1F4BF5;--at:rgba(31,75,245,.28);--al:rgba(31,75,245,.2);--ar:rgba(31,75,245,.36);--aln:rgba(31,75,245,.85);--azone:rgba(31,75,245,.07);--zln:rgba(31,75,245,.35);--pp:#3A524B;--shd:rgba(20,80,60,.14);--tt:rgba(16,185,129,.3);--tl:rgba(16,185,129,.42);--tr:rgba(16,185,129,.55);--door:rgba(24,70,58,.18);--card:rgba(255,255,255,.74);--cbd:rgba(24,70,58,.12);--crop:rgba(16,185,129,.24);--bds:rgba(255,255,255,.9);--ban:rgba(31,75,245,.45)}
+.sc-pi .th-glass .h-g{--a:#047857;--at:rgba(16,185,129,.3);--al:rgba(16,185,129,.22);--ar:rgba(16,185,129,.4);--aln:rgba(4,120,87,.85);--azone:rgba(16,185,129,.07);--zln:rgba(14,159,110,.4)}
+.sc-pi .th-glass .h-a{--a:#B45309;--at:rgba(245,158,11,.32);--al:rgba(245,158,11,.24);--ar:rgba(245,158,11,.42);--aln:rgba(180,83,9,.85);--azone:rgba(245,158,11,.08);--zln:rgba(217,119,6,.4)}
+.sc-pi .th-glass .zone.h-g,.sc-pi .th-glass .zone.h-a,.sc-pi .th-glass .zone.h-b{fill:var(--azone);stroke:var(--zln)}
+.sc-pi .iso rect,.sc-pi .iso path,.sc-pi .iso line,.sc-pi .iso circle,.sc-pi .iso ellipse{vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round;stroke-width:1}
+.sc-pi .sf{fill:var(--sf);stroke:var(--ln)}
+.sc-pi .st{fill:var(--st);stroke:var(--ln)}
+.sc-pi .sl{fill:var(--sl);stroke:var(--ln)}
+.sc-pi .sr{fill:var(--sr);stroke:var(--ln)}
+.sc-pi .bt{fill:var(--bt);stroke:var(--ln2)}
+.sc-pi .bl{fill:var(--bl);stroke:var(--ln2)}
+.sc-pi .br{fill:var(--br);stroke:var(--ln2)}
+.sc-pi .at{fill:var(--at);stroke:var(--aln)}
+.sc-pi .al{fill:var(--al);stroke:var(--aln)}
+.sc-pi .ar{fill:var(--ar);stroke:var(--aln)}
+.sc-pi .tt{fill:var(--tt);stroke:var(--ln2)}
+.sc-pi .tl{fill:var(--tl);stroke:var(--ln2)}
+.sc-pi .tr{fill:var(--tr);stroke:var(--ln2)}
+.sc-pi .trunk{stroke:var(--ln2)}
+.sc-pi .grid{fill:none;stroke:var(--grid)}
+.sc-pi .zone{fill:var(--zone);stroke:var(--ln)}
+.sc-pi .hubz{fill:var(--azone);stroke:var(--a)}
+.sc-pi .road{fill:var(--road);stroke:var(--ln)}
+.sc-pi .dash{fill:none;stroke:var(--ln2);stroke-dasharray:3 5}
+.sc-pi .crop{fill:var(--crop)}
+.sc-pi .win{fill:none;stroke:var(--win)}
+.sc-pi .wind{fill:none;stroke:var(--win);stroke-dasharray:5 3}
+.sc-pi .wl{fill:none;stroke:rgba(255,255,255,.75)}
+.sc-pi .door,.sc-pi .glass{fill:var(--door);stroke:var(--ln2)}
+.sc-pi .bds{fill:var(--bds);stroke:var(--ln2)}
+.sc-pi .ban{fill:var(--ban);stroke:var(--ln2)}
+.sc-pi .cross{fill:none;stroke:var(--a);stroke-width:2 !important}
+.sc-pi .pp{fill:var(--pp)}
+.sc-pi .pa{fill:var(--a)}
+.sc-pi .shd{fill:var(--shd)}
+.sc-pi .flow{fill:none;stroke:var(--a);stroke-width:2 !important;stroke-dasharray:6 5;animation:pi-dashrun 1.2s linear infinite}
+.sc-pi .link{fill:none;stroke:var(--ln2);stroke-dasharray:2 4}
+.sc-pi .ldot{fill:var(--ln2)}
+.sc-pi .ring{fill:none;stroke:var(--a);stroke-width:1.5 !important;animation:pi-pulse 2s ease-in-out infinite}
+.sc-pi .lead{fill:none;stroke:var(--a)}
+.sc-pi .dot{fill:var(--a)}
+@keyframes pi-dashrun{to{stroke-dashoffset:-22}}
+@keyframes pi-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.sc-pi .flow,.sc-pi .ring{animation:none}}
+/* bi */
+.sc-bi{display:block}
+.sc-bi > svg{display:block;width:100%;height:auto;overflow:visible}
+.sc-bi .th-dark{--bg:#0A0A0A;--panel:#0E1013;--pbd:#1D2025;--ink:#F3F3F1;--mute:#9097A1;--sf:#16191E;--sl:#0D0F12;--sr:#0A0B0E;--bt:#1F232A;--bl:#171A1F;--br:#111317;--ln:#2C313A;--ln2:#4A515E;--zone:#13161B;--win:#3B424E;--a:#3462FF;--at:#4570FF;--al:#2A4FE0;--ar:#1C38A8;--aln:#93A9FF;--card:#141518}
+.sc-bi .th-light{--bg:#F4F3EF;--panel:#F7F6F2;--pbd:#E4E2DC;--ink:#111111;--mute:#5E5C56;--sf:#FFFFFF;--sl:#E6E3DD;--sr:#DAD7D0;--bt:#FFFFFF;--bl:#EFEDE8;--br:#E1DED7;--ln:#C4C0B7;--ln2:#8A867E;--zone:#F5F4F0;--win:#BDB9B0;--a:#1F4BF5;--at:#4A6DFF;--al:#1F4BF5;--ar:#1739C2;--aln:#1F4BF5;--card:#FFFFFF}
+.sc-bi .th-glass{--bg:#F2F5F4;--panel:#F6FAF8;--pbd:#E1E8E5;--ink:#0F1A17;--mute:#56635F;--sf:rgba(16,185,129,.06);--sl:rgba(16,185,129,.12);--sr:rgba(16,185,129,.2);--bt:rgba(255,255,255,.62);--bl:rgba(205,224,218,.45);--br:rgba(160,190,181,.42);--ln:rgba(30,80,66,.22);--ln2:rgba(24,70,58,.5);--zone:rgba(16,185,129,.08);--win:rgba(24,70,58,.28);--a:#1F4BF5;--at:rgba(31,75,245,.3);--al:rgba(31,75,245,.22);--ar:rgba(31,75,245,.38);--aln:rgba(31,75,245,.85);--card:rgba(255,255,255,.8)}
+.sc-bi .iso rect,.sc-bi .iso path,.sc-bi .iso line{vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round;stroke-width:1}
+.sc-bi .sf{fill:var(--sf);stroke:var(--ln)}
+.sc-bi .sl{fill:var(--sl);stroke:var(--ln)}
+.sc-bi .sr{fill:var(--sr);stroke:var(--ln)}
+.sc-bi .bt{fill:var(--bt);stroke:var(--ln2)}
+.sc-bi .bl{fill:var(--bl);stroke:var(--ln2)}
+.sc-bi .br{fill:var(--br);stroke:var(--ln2)}
+.sc-bi .at{fill:var(--at);stroke:var(--aln)}
+.sc-bi .al{fill:var(--al);stroke:var(--aln)}
+.sc-bi .ar{fill:var(--ar);stroke:var(--aln)}
+.sc-bi .zone{fill:var(--zone);stroke:var(--ln)}
+.sc-bi .win{fill:none;stroke:var(--win)}
+.sc-bi .wl{fill:none;stroke:rgba(255,255,255,.8)}
+.sc-bi .flow{fill:none;stroke:var(--a);stroke-width:1.75 !important;stroke-dasharray:4 4;animation:bi-dashrun 1.1s linear infinite}
+.sc-bi .f1{opacity:.28}
+.sc-bi .f2{opacity:.6}
+.sc-bi .wpt{fill:#355DF6;stroke:rgba(255,255,255,.55)}
+.sc-bi .wpl{fill:#2A54F3;stroke:rgba(255,255,255,.55)}
+.sc-bi .wpr{fill:#1A41D4;stroke:rgba(255,255,255,.55)}
+.sc-bi .wt{fill:#5073F7;stroke:rgba(255,255,255,.85)}
+.sc-bi .wl2{fill:#3A61F6;stroke:rgba(255,255,255,.85)}
+.sc-bi .wr{fill:#1C45E1;stroke:rgba(255,255,255,.85)}
+.sc-bi .wd{stroke-dasharray:3 2}
+.sc-bi .wkt{fill:#FFFFFF;stroke:#FFFFFF}
+.sc-bi .wkl{fill:#E3E9FF;stroke:#FFFFFF}
+.sc-bi .wkr{fill:#C3D0FF;stroke:#FFFFFF}
+.sc-bi .wgrid{fill:none;stroke:rgba(255,255,255,.14)}
+.sc-bi .wslot{fill:none;stroke:#FFFFFF;stroke-dasharray:4 3}
+.sc-bi .wguide{stroke:rgba(255,255,255,.75);stroke-dasharray:3 3}
+@keyframes bi-dashrun{to{stroke-dashoffset:-16}}
+@keyframes bi-runy{0%{transform:translate(0,0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translate(-40px,20px);opacity:0}}
+@keyframes bi-drop{0%,100%{transform:translate(0,0)}50%{transform:translate(0,8px)}}
+.sc-bi .run-y{animation:bi-runy 3s linear infinite}
+.sc-bi .d2{animation-delay:1.5s}
+.sc-bi .drop{animation:bi-drop 3.6s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.sc-bi .flow,.sc-bi .run-y,.sc-bi .drop{animation:none}}

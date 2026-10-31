@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
  * Dotted torus fields for interior heroes.
  * `band` is the Insights ring: one tube rolling behind the title.
  * `armillary` is the About field: one ring, drawn in black and grey.
+ * `portals` is the Solutions field: two rings, blue on the left and cyan on the right.
  */
 const MAJOR = 3;
 const MINOR = 1;
@@ -33,11 +34,15 @@ function buildPoints(tubular: number, radial: number) {
 const POINTS = buildPoints(160, 64);
 const ORBIT = buildPoints(120, 46);
 
-type Variant = "band" | "armillary";
+type Variant = "band" | "armillary" | "portals";
+
+const BLUE = "#004bff";
+const CYAN = "#00ffff";
 
 const MASKS: Record<Variant, string> = {
   band: "linear-gradient(to bottom, transparent 0%, #000 18%, #000 76%, transparent 100%)",
   armillary: "radial-gradient(ellipse 76% 70% at 50% 44%, #000 0%, #000 36%, transparent 74%)",
+  portals: "radial-gradient(ellipse 92% 72% at 50% 46%, #000 0%, #000 48%, transparent 80%)",
 };
 
 export function TorusField({ variant = "band", className }: { variant?: Variant; className?: string }) {
@@ -109,13 +114,40 @@ export function TorusField({ variant = "band", className }: { variant?: Variant;
         const sy1 = height / 2 - wy * scale;
         if (sx1 < -12 || sy1 < -12 || sx1 > width + 12 || sy1 > height + 12) continue;
         const raw = Math.max(1.05, (0.04 * attenuation) / dist);
-        const size = variant === "armillary" ? Math.min(2.2, raw) : raw;
+        const size = variant === "band" ? raw : Math.min(2.2, raw);
         ctx.fillRect(sx1 - size / 2, sy1 - size / 2, size, size);
+      }
+    };
+
+    const drawFlakes = () => {
+      const focal = height / 2 / Math.tan(30 * DEG);
+      const camZ = 15;
+      const z = 12.2;
+      const dist = camZ - z;
+      const scale = focal / dist;
+      ctx.fillStyle = BLUE;
+      for (let i = 0; i < 42; i++) {
+        const p = (time * 0.18 + i / 42) % 1;
+        const fade = Math.sin(p * Math.PI);
+        const x = -4.6 + p * 9.2;
+        const y = 0.15 + Math.sin(p * Math.PI * 2 + i * 1.7) * 0.42;
+        const sx = width / 2 + x * scale;
+        const sy = height / 2 - y * scale;
+        const size = Math.max(1.15, (0.05 * 140) / dist) * (0.55 + fade * 0.7);
+        ctx.globalAlpha = 0.2 + 0.75 * fade;
+        ctx.fillRect(sx - size / 2, sy - size / 2, size, size);
       }
     };
 
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
+      if (variant === "portals") {
+        drawRing(ORBIT, { rx: time * 0.85, ry: 0.62, rz: 0.28, ox: -4.6, oy: 0.15, oz: 12.2 }, BLUE, 0.95, 150);
+        drawRing(ORBIT, { rx: -time * 0.72, ry: -0.48, rz: 0.18, ox: 4.6, oy: 0.15, oz: 12.2 }, CYAN, 0.95, 150);
+        drawFlakes();
+        ctx.globalAlpha = 1;
+        return;
+      }
       if (variant === "armillary") {
         const sway = Math.sin(time * 0.55);
         drawRing(

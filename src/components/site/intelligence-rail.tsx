@@ -2,11 +2,13 @@
 
 import { useEffect, useRef } from "react";
 import type { SolutionsContent } from "@/lib/content-types";
-import { intelligenceSvgs, isoDefs } from "./iso-art";
+import { SolutionArt, type SolutionArtId } from "./solution-art";
 import { SwipeCue } from "./swipe-cue";
 import { useEqualHeights, useSwipeHint } from "./swipe-rail";
 
 type Item = SolutionsContent["intelligence"]["items"][number];
+
+const ARTS: SolutionArtId[] = ["audit", "financial", "market", "regulatory", "societal"];
 
 /** Intro panel and five intelligence cards on one row. Large screens scrub the row sideways. */
 export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; intro: string; items: Item[] }) {
@@ -76,7 +78,6 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
       <div className="container-site mb-4 flex justify-end lg:hidden">
         <SwipeCue hidden={swiped} />
       </div>
-      <div className="iso softcom-line" aria-hidden dangerouslySetInnerHTML={{ __html: isoDefs }} />
       <div className="lg:motion-safe:sticky lg:motion-safe:top-0 lg:motion-safe:flex lg:motion-safe:h-svh lg:motion-safe:items-center lg:motion-safe:overflow-hidden">
         <div
           ref={row}
@@ -91,10 +92,8 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
               key={item.title}
               className="flex w-[82vw] shrink-0 snap-start flex-col overflow-clip rounded-3xl bg-surface sm:w-[420px] lg:w-[440px]"
             >
-              <div data-rail-art="" className="iso softcom-line line-panel px-6 pt-6">
-                {intelligenceSvgs[i] ? (
-                  <div dangerouslySetInnerHTML={{ __html: intelligenceSvgs[i] }} />
-                ) : null}
+              <div data-rail-art="" className="px-4 pt-6">
+                {ARTS[i] ? <SolutionArt id={ARTS[i]} /> : null}
               </div>
               <div data-rail-text="" className="flex flex-1 flex-col gap-3 p-6 lg:p-8">
                 <span className="font-mono text-xs text-ink-soft tabular-nums">{String(i + 1).padStart(2, "0")}</span>
