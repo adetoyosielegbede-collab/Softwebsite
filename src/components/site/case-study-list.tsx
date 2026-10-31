@@ -100,27 +100,27 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
 
   return (
     <>
+      <div role="tablist" aria-label="Filter case studies" className="mb-8 flex flex-wrap gap-2">
+        {["All", ...filters].map((option) => (
+          <button
+            key={option}
+            type="button"
+            role="tab"
+            aria-selected={option === filter}
+            onClick={() => setFilter(option)}
+            className={cn(
+              "rounded-full px-3.5 py-1.5 text-xs transition-colors",
+              option === filter ? "bg-ink text-paper" : "bg-surface-raised text-ink-soft hover:text-ink",
+            )}
+          >
+            {option}
+          </button>
+        ))}
+      </div>
       <div className="lg:flex lg:items-stretch lg:gap-12">
         <aside className="lg:w-[210px] lg:shrink-0">
           <div className="sticky top-24 z-20 bg-paper/90 pb-4 backdrop-blur-md lg:pb-0">
-            <div role="tablist" aria-label="Filter case studies" className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 lg:mx-0 lg:flex-wrap lg:px-0">
-              {["All", ...filters].map((option) => (
-                <button
-                  key={option}
-                  type="button"
-                  role="tab"
-                  aria-selected={option === filter}
-                  onClick={() => setFilter(option)}
-                  className={cn(
-                    "shrink-0 rounded-full px-3 py-1 text-[11px] transition-colors",
-                    option === filter ? "bg-ink text-paper" : "bg-surface-raised text-ink-soft hover:text-ink",
-                  )}
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
-            <nav aria-label="Case studies" className="mt-4">
+            <nav aria-label="Case studies">
               <ul className="no-scrollbar -mx-5 flex gap-4 overflow-x-auto px-5 lg:mx-0 lg:flex-col lg:gap-2 lg:overflow-visible lg:px-0">
                 {visible.map(({ item, index }) => {
                   const on = index === current;
