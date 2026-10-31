@@ -6,7 +6,7 @@ import { ArrowLink, PillLink } from "@/components/site/links";
 import { LineReveal } from "@/components/site/line-reveal";
 import { CtaBanner, PageHero } from "@/components/site/sections";
 import { getContent, getPublishedPosts } from "@/lib/content";
-import { formatDate } from "@/lib/format";
+import { formatMonthYear } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -174,7 +174,7 @@ export default async function AboutPage() {
                 <span className="font-heading text-lg heading-type md:col-span-7 lg:text-xl">{post.title}</span>
                 <span className="text-sm text-ink-soft md:col-span-2 md:col-start-9">{post.category}</span>
                 <time dateTime={post.date} className="text-sm whitespace-nowrap text-ink-soft md:col-span-2 md:text-right">
-                  {formatDate(post.date)}
+                  {formatMonthYear(post.date)}
                 </time>
               </Link>
             </li>

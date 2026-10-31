@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Star } from "lucide-react";
 import { CmsImage } from "@/components/cms/cms-image";
 import { ColorReveal } from "@/components/site/color-reveal";
-import { formatDate } from "@/lib/format";
+import { formatMonthYear } from "@/lib/format";
 import type { Post } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
 
@@ -54,7 +54,7 @@ export function InsightCard({
         >
           <span className={lead ? "text-ink" : undefined}>{post.category}</span>
           <time dateTime={post.date} className={lead ? "text-ink-soft" : undefined}>
-            {formatDate(post.date)}
+            {formatMonthYear(post.date)}
           </time>
         </div>
         {lead ? (

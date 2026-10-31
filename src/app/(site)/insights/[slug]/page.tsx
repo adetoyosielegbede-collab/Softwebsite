@@ -6,7 +6,7 @@ import { CmsImage } from "@/components/cms/cms-image";
 import { CtaBanner } from "@/components/site/sections";
 import { getContent } from "@/lib/content";
 import type { CmsImage as CmsImageValue, Post, PostFigure } from "@/lib/content-types";
-import { formatDate } from "@/lib/format";
+import { formatMonthYear } from "@/lib/format";
 
 export async function generateStaticParams() {
   const { items } = await getContent("posts");
@@ -86,7 +86,7 @@ export default async function InsightArticlePage({ params }: PageProps<"/insight
           <p className="label text-ink-soft">
             {post.category}
             <span aria-hidden> · </span>
-            <time dateTime={post.date}>{formatDate(post.date)}</time>
+            <time dateTime={post.date}>{formatMonthYear(post.date)}</time>
           </p>
           <h1 className="text-display mt-6 max-w-[18ch] text-balance text-ink">{post.title}</h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-pretty text-ink-soft">{post.excerpt}</p>
