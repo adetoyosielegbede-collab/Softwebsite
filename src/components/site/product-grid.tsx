@@ -69,7 +69,7 @@ function ProductCard({ product, index }: { product: Item; index: number }) {
                 </>
               )}
             </span>
-            <span className="text-body line-clamp-3 max-w-[32ch]">{product.summary || product.tagline}</span>
+            <span className="line-clamp-3 max-w-[32ch] text-[12px] leading-[1.35] md:text-sm">{product.summary || product.tagline}</span>
           </span>
           <span
             className="mt-4 inline-flex h-10 w-40 shrink-0 items-center justify-center rounded-full px-4 text-sm font-medium"
