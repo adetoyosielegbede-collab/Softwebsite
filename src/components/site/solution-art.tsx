@@ -154,7 +154,7 @@ export function DigitalInfrastructureBoard({
   }, [shown.length]);
 
   return (
-    <div ref={track} className="relative mt-6 lg:mt-8">
+    <div ref={track} className="relative mt-12 lg:mt-16">
       <div ref={stage}>
         <div className="grid w-full items-start gap-8 lg:grid-cols-[minmax(0,0.35fr)_minmax(0,0.65fr)] lg:gap-10 xl:gap-14">
           <div>
