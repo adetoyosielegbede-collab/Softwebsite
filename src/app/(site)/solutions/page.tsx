@@ -34,7 +34,7 @@ export default async function SolutionsPage() {
       <SolutionsHero hero={hero} />
 
       <section className="container-site pt-20 pb-24 lg:pt-28 lg:pb-32">
-        <div className="max-w-4xl lg:ml-auto lg:w-2/3">
+        <div className="max-w-4xl text-left">
           <span className="mb-6 inline-block rounded-full bg-signal px-2.5 py-1 text-xs font-medium text-black">{intro.badge}</span>
           <ScrollWords
             paragraphs={intro.paragraphs}
