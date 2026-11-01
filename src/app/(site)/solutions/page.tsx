@@ -56,16 +56,6 @@ export default async function SolutionsPage() {
         <p className="text-title mx-auto mt-20 max-w-2xl text-center" data-reveal>
           {infra.statement}
         </p>
-        <div className="mt-12 grid gap-4 md:grid-cols-2">
-          {infra.cards.map((card, index) => (
-            <article key={card.title} className="flex flex-col rounded-3xl bg-surface p-6 lg:p-8" data-reveal>
-              <SolutionArt id={index === 0 ? "build" : "rails"} className="mb-8" />
-              <p className="eyebrow">{card.eyebrow}</p>
-              <h3 className="text-headline mt-4">{card.title}</h3>
-              <p className="text-body mt-5 text-ink-soft">{card.text}</p>
-            </article>
-          ))}
-        </div>
         <div className="mt-8 text-center">
           <PillLink href={infra.ctaHref}>{infra.ctaLabel}</PillLink>
         </div>
@@ -76,7 +66,7 @@ export default async function SolutionsPage() {
           <SectionHeader id="applied-intelligence" number={intel.number} title={intel.title} lead={intel.lead} />
         </div>
         <IntelligenceRail eyebrow={intel.eyebrow} intro={intel.intro} items={intel.items} />
-        <div className="container-site mt-12">
+        <div className="container-site mt-12 text-center">
           <PillLink href={intel.ctaHref}>{intel.ctaLabel}</PillLink>
         </div>
       </section>
@@ -97,6 +87,19 @@ export default async function SolutionsPage() {
               {init.ctaLabel}
             </PillLink>
           </div>
+        </div>
+      </section>
+
+      <section className="container-site pt-20 lg:pt-28">
+        <div className="grid gap-4 md:grid-cols-2">
+          {infra.cards.map((card, index) => (
+            <article key={card.title} className="flex flex-col rounded-3xl bg-surface p-6 lg:p-8" data-reveal>
+              <SolutionArt id={index === 0 ? "build" : "rails"} className="mb-8" />
+              <p className="eyebrow">{card.eyebrow}</p>
+              <h3 className="text-headline mt-4">{card.title}</h3>
+              <p className="text-body mt-5 text-ink-soft">{card.text}</p>
+            </article>
+          ))}
         </div>
       </section>
 

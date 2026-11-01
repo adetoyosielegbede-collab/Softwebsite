@@ -14,7 +14,6 @@ const ARTS: SolutionArtId[] = ["audit", "financial", "market", "regulatory", "so
 export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; intro: string; items: Item[] }) {
   const track = useRef<HTMLDivElement>(null);
   const row = useRef<HTMLDivElement>(null);
-  const bar = useRef<HTMLDivElement>(null);
   const lead = useRef<HTMLDivElement>(null);
   const swiped = useSwipeHint(row);
   useEqualHeights(row, "[data-rail-art]");
@@ -53,14 +52,12 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
       if (!media.matches) {
         scroller.style.transform = "";
         outer.style.height = "";
-        if (bar.current) bar.current.style.transform = "scaleX(0)";
         return;
       }
       const distance = Math.max(0, scroller.scrollWidth - window.innerWidth);
       outer.style.height = `${window.innerHeight + distance}px`;
       const progress = Math.max(0, Math.min(1, -outer.getBoundingClientRect().top / Math.max(1, distance)));
       scroller.style.transform = `translate3d(${(-distance * progress).toFixed(2)}px,0,0)`;
-      if (bar.current) bar.current.style.transform = `scaleX(${progress.toFixed(4)})`;
     };
     update();
     window.addEventListener("scroll", update, { passive: true });
@@ -93,7 +90,7 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
               className="flex w-[82vw] shrink-0 snap-start flex-col overflow-clip rounded-3xl bg-surface sm:w-[420px] lg:w-[440px]"
             >
               <div data-rail-art="" className="px-4 pt-6">
-                {ARTS[i] ? <SolutionArt id={ARTS[i]} /> : null}
+                {ARTS[i] ? <SolutionArt id={ARTS[i]} palette="light" /> : null}
               </div>
               <div data-rail-text="" className="flex flex-1 flex-col gap-3 p-6 lg:p-8">
                 <span className="font-mono text-xs text-ink-soft tabular-nums">{String(i + 1).padStart(2, "0")}</span>
@@ -102,9 +99,6 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
               </div>
             </article>
           ))}
-        </div>
-        <div className="absolute inset-x-10 bottom-8 hidden h-px bg-line lg:motion-safe:block" aria-hidden>
-          <div ref={bar} className="h-px origin-left bg-accent-ink" style={{ transform: "scaleX(0)" }} />
         </div>
       </div>
     </div>
