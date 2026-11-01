@@ -77,7 +77,7 @@ function InfrastructureArt({
     if (root.current) applyBoardStep(root.current, step);
   }, [step, theme, html]);
   return (
-    <div className={cn("rounded-[1.75rem] bg-surface px-3 py-6 sm:px-5 sm:py-8 lg:px-6 lg:py-10", className)}>
+    <div className={cn("rounded-[1.75rem] bg-surface px-2 py-4 sm:px-4 sm:py-5 lg:px-5 lg:py-6", className)}>
       <div ref={root} className="sc-di" data-di-step={step} dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );
@@ -132,6 +132,11 @@ export function DigitalInfrastructureBoard({
         return;
       }
 
+      stageEl.style.position = "";
+      stageEl.style.top = "";
+      stageEl.style.height = "";
+      stageEl.style.display = "";
+      stageEl.style.alignItems = "";
       nodes.forEach((node) => {
         node.style.height = "";
       });
@@ -141,14 +146,13 @@ export function DigitalInfrastructureBoard({
       });
       frameEl.style.height = `${height}px`;
       frameEl.style.overflow = "hidden";
-      const distance = window.innerHeight * (nodes.length - 1);
-      trackEl.style.height = `${window.innerHeight + distance}px`;
+      const distance = Math.round(window.innerHeight * 0.62) * (nodes.length - 1);
+      const stageHeight = stageEl.offsetHeight;
+      trackEl.style.height = `${stageHeight + distance}px`;
       stageEl.style.position = "sticky";
-      stageEl.style.top = "0px";
-      stageEl.style.height = `${window.innerHeight}px`;
-      stageEl.style.display = "flex";
-      stageEl.style.alignItems = "center";
-      const progress = Math.max(0, Math.min(1, -trackEl.getBoundingClientRect().top / Math.max(1, distance)));
+      stageEl.style.top = "5rem";
+      const stickyTop = parseFloat(getComputedStyle(stageEl).top) || 0;
+      const progress = Math.max(0, Math.min(1, (stickyTop - trackEl.getBoundingClientRect().top) / Math.max(1, distance)));
       const exact = progress * (nodes.length - 1);
       const index = Math.round(exact);
       copyEl.style.transform = `translate3d(0, ${(-exact * height).toFixed(2)}px, 0)`;
@@ -179,25 +183,25 @@ export function DigitalInfrastructureBoard({
   }, [shown.length]);
 
   return (
-    <div ref={track} className="relative mt-16 lg:mt-24">
+    <div ref={track} className="relative mt-6 lg:mt-8">
       <div ref={stage}>
-        <div className="grid w-full items-center gap-10 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:gap-16 xl:gap-24">
+        <div className="grid w-full items-start gap-8 lg:grid-cols-[minmax(0,0.3fr)_minmax(0,0.7fr)] lg:gap-10 xl:gap-14">
           <div>
-            <h3 className="text-headline max-w-[14ch]">{heading}</h3>
-            <p className="text-body mt-5 max-w-[42ch] leading-normal text-ink-soft">{intro}</p>
-            <div ref={frame} className="mt-8 border-t border-line">
+            <h3 className="font-heading text-[1.65rem] leading-[1.08] heading-type sm:text-[1.85rem]">{heading}</h3>
+            <p className="mt-3 text-sm leading-normal text-ink-soft sm:text-[0.9375rem]">{intro}</p>
+            <div ref={frame} className="mt-5 border-t border-line">
               <div ref={copy}>
                 {shown.map((item, index) => {
                   const n = index + 1;
                   const on = n === step;
                   return (
-                    <div key={item.title} className={cn("border-b py-6", on ? "border-accent-ink" : "border-line")}>
+                    <div key={item.title} className={cn("border-b py-4", on ? "border-accent-ink" : "border-line")}>
                       <p className={cn("font-mono text-xs tabular-nums", on ? "text-accent-ink" : "text-ink-faint")}>
                         {String(n).padStart(2, "0")}
                       </p>
-                      <h4 className="mt-2 font-heading text-2xl leading-none heading-type">{item.title}</h4>
-                      <p className="text-body mt-3 max-w-[46ch] leading-normal text-ink-soft">{item.text}</p>
-                      <InfrastructureArt step={n} theme={theme} className="mt-6 lg:hidden" />
+                      <h4 className="mt-1.5 font-heading text-lg leading-none heading-type">{item.title}</h4>
+                      <p className="mt-2 text-sm leading-normal text-ink-soft">{item.text}</p>
+                      <InfrastructureArt step={n} theme={theme} className="mt-5 lg:hidden" />
                     </div>
                   );
                 })}

@@ -47,7 +47,7 @@ export default async function SolutionsPage() {
       <section className="container-site">
         <SectionHeader id="digital-infrastructure" number={infra.number} title={infra.title} lead={infra.lead} />
         <DigitalInfrastructureBoard heading={infra.subTitle} intro={infra.subText} steps={infra.steps} />
-        <p className="text-title mx-auto mt-20 max-w-2xl text-center" data-reveal>
+        <p className="text-title mx-auto mt-8 max-w-2xl text-center lg:mt-10" data-reveal>
           {infra.statement}
         </p>
         <div className="mt-8 text-center">
