@@ -85,19 +85,8 @@ export default async function SolutionsPage() {
 
       <section className="container-site pt-20 lg:pt-28">
         <SectionHeader id="powering-initiatives" number={init.number} title={init.title} lead={init.lead} />
-        <div className="mt-16 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <SolutionArt id="field" />
-          <div>
-            <h3 className="text-headline">{init.entrustTitle}</h3>
-            <ol className="mt-6 border-t border-line">
-              {init.entrustItems.map((item, i) => (
-                <li key={item} className="flex items-baseline gap-6 border-b border-line py-4">
-                  <span className="font-mono text-[11px] text-ink-faint">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="text-title">{item}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
+        <div className="mt-12 overflow-x-auto lg:mt-16">
+          <SolutionArt id="field" palette="light" className="min-w-[1090px]" />
         </div>
 
         <div className="mt-20 rounded-3xl bg-brand p-6 text-white sm:p-10" data-reveal>

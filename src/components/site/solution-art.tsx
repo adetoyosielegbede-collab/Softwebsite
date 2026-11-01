@@ -19,21 +19,30 @@ const SCOPE = {
   rails: "sc-bi",
 } as const;
 
-function useArtTheme() {
-  const [theme, setTheme] = useState<"th-glass" | "th-dark">("th-glass");
+function useArtTheme(palette: "glass" | "light" = "glass") {
+  const light = palette === "light" ? "th-light" : "th-glass";
+  const [theme, setTheme] = useState<"th-glass" | "th-light" | "th-dark">(light);
   useEffect(() => {
     const root = document.documentElement;
-    const read = () => setTheme(root.classList.contains("dark") ? "th-dark" : "th-glass");
+    const read = () => setTheme(root.classList.contains("dark") ? "th-dark" : light);
     read();
     const observer = new MutationObserver(read);
     observer.observe(root, { attributes: true, attributeFilter: ["class"] });
     return () => observer.disconnect();
-  }, []);
+  }, [light]);
   return theme;
 }
 
-export function SolutionArt({ id, className }: { id: SolutionArtId; className?: string }) {
-  const theme = useArtTheme();
+export function SolutionArt({
+  id,
+  className,
+  palette = "glass",
+}: {
+  id: SolutionArtId;
+  className?: string;
+  palette?: "glass" | "light";
+}) {
+  const theme = useArtTheme(palette);
   const html = svgs[id].replace("th-glass", theme);
   return (
     <div className={cn(SCOPE[id], className)} dangerouslySetInnerHTML={{ __html: html }} />
