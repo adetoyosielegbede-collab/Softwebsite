@@ -60,6 +60,9 @@ function applyBoardStep(root: HTMLElement, step: number) {
       if (!on) el.classList.add("hide");
     } else if (on) el.classList.add("on");
   });
+  root.querySelectorAll<HTMLElement>("[data-n]").forEach((el) => {
+    el.textContent = String(step);
+  });
 }
 
 function InfrastructureArt({
@@ -72,13 +75,16 @@ function InfrastructureArt({
   className?: string;
 }) {
   const root = useRef<HTMLDivElement>(null);
-  const html = svgs.board.replace("th-glass", theme);
   useEffect(() => {
     if (root.current) applyBoardStep(root.current, step);
-  }, [step, theme, html]);
+  }, [step, theme]);
   return (
-    <div className={cn("rounded-[1.75rem] bg-surface px-2 py-4 sm:px-4 sm:py-5 lg:px-5 lg:py-6", className)}>
-      <div ref={root} className="sc-di" data-di-step={step} dangerouslySetInnerHTML={{ __html: html }} />
+    <div className={className}>
+      <div className="sc-di di-scale">
+        <div ref={root} className={cn("di-frame", theme)} data-di-step={step}>
+          <div className="di-board" dangerouslySetInnerHTML={{ __html: svgs.board }} />
+        </div>
+      </div>
     </div>
   );
 }
@@ -121,13 +127,13 @@ export function DigitalInfrastructureBoard({
         release();
         return;
       }
-      const distance = Math.round(window.innerHeight * 0.7) * (nodes.length - 1);
+      const distance = Math.round(window.innerHeight * 0.75) * nodes.length;
       trackEl.style.height = `${stageEl.offsetHeight + distance}px`;
       stageEl.style.position = "sticky";
       stageEl.style.top = "5rem";
       const stickyTop = parseFloat(getComputedStyle(stageEl).top) || 0;
       const progress = Math.max(0, Math.min(1, (stickyTop - trackEl.getBoundingClientRect().top) / distance));
-      const index = Math.round(progress * (nodes.length - 1));
+      const index = Math.min(nodes.length - 1, Math.floor(progress * nodes.length + 1e-6));
       nodes.forEach((node, i) => {
         node.style.opacity = String(i === index ? 1 : 0.42);
       });
@@ -156,22 +162,27 @@ export function DigitalInfrastructureBoard({
   return (
     <div ref={track} className="relative mt-12 lg:mt-16">
       <div ref={stage}>
-        <div className="grid w-full items-start gap-8 lg:grid-cols-[minmax(0,0.35fr)_minmax(0,0.65fr)] lg:gap-10 xl:gap-14">
+        <div className="grid w-full items-start gap-8 lg:grid-cols-[minmax(16rem,400px)_minmax(0,1fr)] lg:gap-10">
           <div>
-            <h3 className="font-heading text-[1.65rem] leading-[1.08] heading-type sm:text-[1.85rem]">{heading}</h3>
-            <p className="mt-3 text-sm leading-normal text-ink-soft sm:text-[0.9375rem]">{intro}</p>
-            <div className="mt-5 border-t border-line">
+            <h3 className="font-heading text-[2rem] leading-[1.1] heading-type lg:text-[2.5rem]">{heading}</h3>
+            <p className="mt-5 text-base leading-[1.55] text-ink-soft">{intro}</p>
+            <div className="mt-9 border-t border-line">
               <div>
                 {shown.map((item, index) => {
                   const n = index + 1;
                   const on = n === step;
                   return (
-                    <div key={item.title} data-di-copy="" className={cn("border-b py-4", on ? "border-accent-ink" : "border-line")}>
+                    <div
+                      key={item.title}
+                      data-di-copy=""
+                      data-on={on ? "" : undefined}
+                      className="relative border-b border-line py-5 transition-opacity duration-500 after:absolute after:inset-x-0 after:-bottom-px after:h-px after:origin-left after:scale-x-0 after:bg-accent-ink after:transition-transform after:duration-700 data-[on]:after:scale-x-100"
+                    >
                       <p className={cn("font-mono text-xs tabular-nums", on ? "text-accent-ink" : "text-ink-faint")}>
                         {String(n).padStart(2, "0")}
                       </p>
-                      <h4 className="mt-1.5 font-heading text-lg leading-none heading-type">{item.title}</h4>
-                      <p className="mt-2 text-sm leading-normal text-ink-soft">{item.text}</p>
+                      <h4 className={cn("mt-2 font-heading text-2xl leading-none heading-type transition-colors duration-500", on ? "text-ink" : "text-ink-soft")}>{item.title}</h4>
+                      <p className="mt-2.5 text-base leading-[1.55] text-ink-soft">{item.text}</p>
                       <InfrastructureArt step={n} theme={theme} className="mt-5 lg:hidden" />
                     </div>
                   );
