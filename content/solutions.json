@@ -27,7 +27,7 @@
     }
   },
   "infrastructure": {
-    "number": "",
+    "number": "01",
     "title": "Digital Infrastructure",
     "lead": "We build the digital rails and connected systems that enable institutions to operate, people to access services and participants to transact at scale.",
     "subTitle": "Connecting the essential parts of an operation",
@@ -80,7 +80,7 @@
     "ctaHref": "/enterprise-products"
   },
   "intelligence": {
-    "number": "",
+    "number": "02",
     "title": "Applied Intelligence",
     "lead": "We build intelligence systems around the questions organisations need to answer and the work they need to carry out. Each system reflects the mandate of its users, the evidence they need, and the decisions they must make.",
     "eyebrow": "Five kinds of intelligence",
@@ -138,7 +138,7 @@
     "ctaHref": "/enterprise-products"
   },
   "initiatives": {
-    "number": "",
+    "number": "03",
     "title": "Powering Initiatives",
     "lead": "Softcom brings its full capability to complex initiatives, including research, design, technology, people and operational expertise.",
     "figureLabel": "An initiative in the field",

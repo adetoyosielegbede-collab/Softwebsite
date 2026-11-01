@@ -17,12 +17,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
 function SectionHeader({ id, number, title, lead }: { id: string; number: string; title: string; lead: string }) {
   return (
-    <div id={id} className="grid scroll-mt-24 gap-4 border-t border-line pt-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]" data-reveal>
+    <div id={id} className="scroll-mt-24 border-t border-line pt-8 text-center" data-reveal>
       <SectionNumber>{number}</SectionNumber>
-      <div>
-        <h2 className="text-headline">{title}</h2>
-        <p className="text-lede mt-4 max-w-[52ch] text-accent-ink">{lead}</p>
-      </div>
+      <h2 className="text-headline mt-4">{title}</h2>
+      <p className="text-lede mx-auto mt-4 max-w-3xl text-balance text-accent-ink">{lead}</p>
     </div>
   );
 }
@@ -84,11 +82,7 @@ export default async function SolutionsPage() {
       </section>
 
       <section className="container-site pt-20 lg:pt-28">
-        <div id="powering-initiatives" className="scroll-mt-24 border-t border-line pt-8 text-center" data-reveal>
-          <SectionNumber>{init.number}</SectionNumber>
-          <h2 className="text-headline mt-4">{init.title}</h2>
-          <p className="text-lede mx-auto mt-4 max-w-3xl text-balance text-accent-ink">{init.lead}</p>
-        </div>
+        <SectionHeader id="powering-initiatives" number={init.number} title={init.title} lead={init.lead} />
         <div className="mx-auto mt-8 w-full max-w-[1000px] lg:mt-10">
           <SolutionArt id="field" palette="light" />
         </div>
