@@ -48,7 +48,7 @@ export function InsightCard({
           </span>
         ) : null}
       </ColorReveal>
-      <div className={cn(!featured && !lead && "mt-4", lead && "flex flex-col gap-6")}>
+      <div className={cn(!featured && !lead && "@container mt-4", lead && "flex flex-col gap-6")}>
         <div
           className={`label flex items-start justify-between gap-4 ${lead ? "text-ink" : "text-ink-soft"}`}
         >
@@ -67,7 +67,7 @@ export function InsightCard({
             <h3
               className={cn(
                 "mt-3 transition-colors group-hover:text-accent-ink",
-                featured ? "text-headline" : "text-title md:min-h-[5.625rem]",
+                featured ? "text-headline" : "text-title md:text-[clamp(0.875rem,3.6cqw,1.375rem)] md:leading-none",
               )}
             >
               {post.title}
