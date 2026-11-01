@@ -77,6 +77,19 @@ export default async function SolutionsPage() {
           <SolutionArt id="field" palette="light" />
         </div>
 
+        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:mt-20">
+          {infra.cards.map((card, index) => (
+            <article key={card.title} className="@container flex flex-col rounded-3xl bg-surface p-6 lg:p-8" data-reveal>
+              <div className="mb-8 flex aspect-[298/185] items-end">
+                <SolutionArt id={index === 0 ? "build" : "rails"} className="w-full" />
+              </div>
+              <p className="eyebrow">{card.eyebrow}</p>
+              <h3 className="mt-4 font-heading text-[clamp(1.125rem,4.6cqw,1.75rem)] leading-none whitespace-nowrap heading-type">{card.title}</h3>
+              <p className="text-body mt-5 text-ink-soft">{card.text}</p>
+            </article>
+          ))}
+        </div>
+
         <div className="mt-20 rounded-3xl bg-brand p-6 text-white sm:p-10" data-reveal>
           <span className="inline-block rounded-full bg-white px-2.5 py-1 text-[11px] font-medium text-black">{init.phasesBadge}</span>
           <h3 className="text-headline mt-4">{init.phasesTitle}</h3>
@@ -87,19 +100,6 @@ export default async function SolutionsPage() {
               {init.ctaLabel}
             </PillLink>
           </div>
-        </div>
-      </section>
-
-      <section className="container-site pt-20 lg:pt-28">
-        <div className="grid gap-4 md:grid-cols-2">
-          {infra.cards.map((card, index) => (
-            <article key={card.title} className="flex flex-col rounded-3xl bg-surface p-6 lg:p-8" data-reveal>
-              <SolutionArt id={index === 0 ? "build" : "rails"} className="mb-8" />
-              <p className="eyebrow">{card.eyebrow}</p>
-              <h3 className="text-headline mt-4">{card.title}</h3>
-              <p className="text-body mt-5 text-ink-soft">{card.text}</p>
-            </article>
-          ))}
         </div>
       </section>
 
