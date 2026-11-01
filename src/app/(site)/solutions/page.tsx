@@ -81,7 +81,7 @@ export default async function SolutionsPage() {
           {infra.cards.map((card, index) => (
             <article key={card.title} className="@container flex flex-col rounded-3xl bg-surface p-6 lg:p-8" data-reveal>
               <div className="mb-8 flex aspect-[298/185] items-end">
-                <SolutionArt id={index === 0 ? "build" : "rails"} className="w-full" />
+                <SolutionArt id={index === 0 ? "build" : "rails"} palette="light" className="w-full" />
               </div>
               <p className="eyebrow">{card.eyebrow}</p>
               <h3 className="mt-4 font-heading text-[clamp(1.125rem,4.6cqw,1.75rem)] leading-none whitespace-nowrap heading-type">{card.title}</h3>
