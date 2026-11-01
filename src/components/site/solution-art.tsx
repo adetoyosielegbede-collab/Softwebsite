@@ -94,9 +94,6 @@ export function DigitalInfrastructureBoard({
 }) {
   const theme = useArtTheme("light");
   const track = useRef<HTMLDivElement>(null);
-  const stage = useRef<HTMLDivElement>(null);
-  const frame = useRef<HTMLDivElement>(null);
-  const copy = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState(1);
   const shown = steps.slice(0, 3);
 
@@ -108,59 +105,20 @@ export function DigitalInfrastructureBoard({
     const apply = () => {
       frameId = 0;
       const trackEl = track.current;
-      const stageEl = stage.current;
-      const frameEl = frame.current;
-      const copyEl = copy.current;
-      if (!trackEl || !stageEl || !frameEl || !copyEl) return;
-      const nodes = [...copyEl.children] as HTMLElement[];
-      const scrub = media.matches && nodes.length > 1;
-
-      if (!scrub) {
-        trackEl.style.height = "";
-        stageEl.style.position = "";
-        stageEl.style.top = "";
-        stageEl.style.height = "";
-        stageEl.style.display = "";
-        stageEl.style.alignItems = "";
-        frameEl.style.height = "";
-        frameEl.style.overflow = "";
-        copyEl.style.transform = "";
-        nodes.forEach((node) => {
-          node.style.height = "";
-          node.style.opacity = "";
-        });
-        return;
-      }
-
-      stageEl.style.position = "";
-      stageEl.style.top = "";
-      stageEl.style.height = "";
-      stageEl.style.display = "";
-      stageEl.style.alignItems = "";
-      nodes.forEach((node) => {
-        node.style.height = "";
+      if (!trackEl || !media.matches) return;
+      const nodes = [...trackEl.querySelectorAll<HTMLElement>("[data-di-copy]")];
+      const focal = window.innerHeight * 0.36;
+      let best = 0;
+      let bestDist = Number.POSITIVE_INFINITY;
+      nodes.forEach((node, index) => {
+        const rect = node.getBoundingClientRect();
+        const dist = Math.abs((rect.top + rect.bottom) / 2 - focal);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = index;
+        }
       });
-      const height = Math.max(...nodes.map((node) => node.offsetHeight));
-      nodes.forEach((node) => {
-        node.style.height = `${height}px`;
-      });
-      frameEl.style.height = `${height}px`;
-      frameEl.style.overflow = "hidden";
-      const distance = Math.round(window.innerHeight * 0.62) * (nodes.length - 1);
-      const stageHeight = stageEl.offsetHeight;
-      trackEl.style.height = `${stageHeight + distance}px`;
-      stageEl.style.position = "sticky";
-      stageEl.style.top = "5rem";
-      const stickyTop = parseFloat(getComputedStyle(stageEl).top) || 0;
-      const progress = Math.max(0, Math.min(1, (stickyTop - trackEl.getBoundingClientRect().top) / Math.max(1, distance)));
-      const exact = progress * (nodes.length - 1);
-      const index = Math.round(exact);
-      copyEl.style.transform = `translate3d(0, ${(-exact * height).toFixed(2)}px, 0)`;
-      nodes.forEach((node, i) => {
-        const distanceFrom = Math.abs(i - exact);
-        node.style.opacity = String(1 - Math.min(1, distanceFrom) * 0.62);
-      });
-      const next = index + 1;
+      const next = best + 1;
       if (current !== next) {
         current = next;
         setStep(next);
@@ -184,18 +142,18 @@ export function DigitalInfrastructureBoard({
 
   return (
     <div ref={track} className="relative mt-6 lg:mt-8">
-      <div ref={stage}>
-        <div className="grid w-full items-start gap-8 lg:grid-cols-[minmax(0,0.3fr)_minmax(0,0.7fr)] lg:gap-10 xl:gap-14">
+      <div>
+        <div className="grid w-full items-start gap-8 lg:grid-cols-[minmax(0,0.35fr)_minmax(0,0.65fr)] lg:gap-10 xl:gap-14">
           <div>
             <h3 className="font-heading text-[1.65rem] leading-[1.08] heading-type sm:text-[1.85rem]">{heading}</h3>
             <p className="mt-3 text-sm leading-normal text-ink-soft sm:text-[0.9375rem]">{intro}</p>
-            <div ref={frame} className="mt-5 border-t border-line">
-              <div ref={copy}>
+            <div className="mt-5 border-t border-line">
+              <div>
                 {shown.map((item, index) => {
                   const n = index + 1;
                   const on = n === step;
                   return (
-                    <div key={item.title} className={cn("border-b py-4", on ? "border-accent-ink" : "border-line")}>
+                    <div key={item.title} data-di-copy="" className={cn("border-b py-4", on ? "border-accent-ink" : "border-line")}>
                       <p className={cn("font-mono text-xs tabular-nums", on ? "text-accent-ink" : "text-ink-faint")}>
                         {String(n).padStart(2, "0")}
                       </p>
