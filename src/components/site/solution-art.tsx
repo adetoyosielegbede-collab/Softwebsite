@@ -63,8 +63,16 @@ function applyBoardStep(root: HTMLElement, step: number) {
 }
 
 export function DigitalInfrastructureBoard({
+  number,
+  eyebrow,
+  heading,
+  intro,
   steps,
 }: {
+  number: string;
+  eyebrow: string;
+  heading: string;
+  intro: string;
   steps: { label: string; title: string; text: string }[];
 }) {
   const theme = useArtTheme();
@@ -72,7 +80,7 @@ export function DigitalInfrastructureBoard({
   const [step, setStep] = useState(1);
   const [auto, setAuto] = useState(true);
   const html = svgs.board.replace("th-glass", theme);
-  const active = steps[step - 1];
+  const shown = steps.slice(0, 3);
 
   useEffect(() => {
     if (root.current) applyBoardStep(root.current, step);
@@ -82,42 +90,50 @@ export function DigitalInfrastructureBoard({
     if (!auto) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) return;
-    const id = window.setInterval(() => setStep((current) => (current % 3) + 1), 3500);
+    const id = window.setInterval(() => setStep((current) => (current % shown.length) + 1), 3500);
     return () => window.clearInterval(id);
-  }, [auto]);
+  }, [auto, shown.length]);
 
   return (
-    <div>
-      <div ref={root} className="sc-di" dangerouslySetInnerHTML={{ __html: html }} />
-      <div className="mt-6 flex flex-wrap gap-2">
-        {steps.slice(0, 3).map((item, index) => {
-          const n = index + 1;
-          const on = n === step;
-          return (
-            <button
-              key={item.title}
-              type="button"
-              aria-pressed={on}
-              onClick={() => {
-                setAuto(false);
-                setStep(n);
-              }}
-              className={cn(
-                "rounded-full px-3 py-1 text-[11px] transition-colors",
-                on ? "bg-ink text-paper" : "bg-surface-raised text-ink-soft hover:text-ink",
-              )}
-            >
-              {String(n).padStart(2, "0")} {item.label}
-            </button>
-          );
-        })}
+    <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-x-14 xl:grid-cols-[minmax(0,1.42fr)_minmax(0,0.72fr)] xl:gap-x-20">
+      <div className="order-2 rounded-[1.75rem] bg-surface px-3 py-6 sm:px-5 sm:py-8 lg:order-1 lg:px-6 lg:py-10">
+        <div ref={root} className="sc-di" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
-      {active ? (
-        <div className="mt-6 max-w-xl">
-          <h3 className="font-heading text-xl heading-type">{active.title}</h3>
-          <p className="text-body mt-3 text-ink-soft">{active.text}</p>
+      <div className="order-1 lg:order-2 lg:pt-3">
+        <p className="eyebrow">
+          <span className="mr-3 tabular-nums">{number}</span>
+          {eyebrow}
+        </p>
+        <h2 className="text-headline mt-5">{heading}</h2>
+        <p className="text-body mt-5 max-w-[42ch] leading-normal text-ink-soft">{intro}</p>
+        <div className="mt-8 border-t border-line">
+          {shown.map((item, index) => {
+            const n = index + 1;
+            const on = n === step;
+            return (
+              <button
+                key={item.title}
+                type="button"
+                aria-pressed={on}
+                onClick={() => {
+                  setAuto(false);
+                  setStep(n);
+                }}
+                className={cn(
+                  "block w-full border-b py-6 text-left transition-colors",
+                  on ? "border-accent-ink" : "border-line",
+                )}
+              >
+                <span className={cn("font-mono text-xs tabular-nums", on ? "text-accent-ink" : "text-ink-faint")}>
+                  {String(n).padStart(2, "0")}
+                </span>
+                <span className="mt-2 block font-heading text-2xl leading-none heading-type">{item.title}</span>
+                <span className="text-body mt-3 block leading-normal text-ink-soft">{item.text}</span>
+              </button>
+            );
+          })}
         </div>
-      ) : null}
+      </div>
     </div>
   );
 }
