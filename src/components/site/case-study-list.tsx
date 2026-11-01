@@ -314,7 +314,7 @@ function StudyCard({ item, index, total, onOpen }: { item: Item; index: number; 
 
       <div className="relative flex h-full flex-col p-4 text-white md:p-6">
         <div className="flex items-start justify-between gap-4">
-          <h2 className="line-clamp-3 max-w-[24ch] font-heading text-xl leading-none heading-type md:text-2xl">{item.title}</h2>
+          <h2 className="line-clamp-3 h-[3.75rem] max-w-[24ch] font-heading text-xl leading-none heading-type md:h-[4.5rem] md:text-2xl">{item.title}</h2>
           <span className="label shrink-0 text-white/70">{number}</span>
         </div>
         <p className="mt-3 line-clamp-3 max-w-[36ch] border-t border-white/25 pt-3 text-[0.8125rem] leading-[1.35] text-white/70">{excerpt(item.text)}</p>
