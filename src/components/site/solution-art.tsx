@@ -94,6 +94,7 @@ export function DigitalInfrastructureBoard({
 }) {
   const theme = useArtTheme("light");
   const track = useRef<HTMLDivElement>(null);
+  const stage = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState(1);
   const shown = steps.slice(0, 3);
 
@@ -105,20 +106,32 @@ export function DigitalInfrastructureBoard({
     const apply = () => {
       frameId = 0;
       const trackEl = track.current;
-      if (!trackEl || !media.matches) return;
+      const stageEl = stage.current;
+      if (!trackEl || !stageEl) return;
       const nodes = [...trackEl.querySelectorAll<HTMLElement>("[data-di-copy]")];
-      const focal = window.innerHeight * 0.36;
-      let best = 0;
-      let bestDist = Number.POSITIVE_INFINITY;
-      nodes.forEach((node, index) => {
-        const rect = node.getBoundingClientRect();
-        const dist = Math.abs((rect.top + rect.bottom) / 2 - focal);
-        if (dist < bestDist) {
-          bestDist = dist;
-          best = index;
-        }
+      const release = () => {
+        trackEl.style.height = "";
+        stageEl.style.position = "";
+        stageEl.style.top = "";
+        nodes.forEach((node) => {
+          node.style.opacity = "";
+        });
+      };
+      if (!media.matches || nodes.length < 2) {
+        release();
+        return;
+      }
+      const distance = Math.round(window.innerHeight * 0.7) * (nodes.length - 1);
+      trackEl.style.height = `${stageEl.offsetHeight + distance}px`;
+      stageEl.style.position = "sticky";
+      stageEl.style.top = "5rem";
+      const stickyTop = parseFloat(getComputedStyle(stageEl).top) || 0;
+      const progress = Math.max(0, Math.min(1, (stickyTop - trackEl.getBoundingClientRect().top) / distance));
+      const index = Math.round(progress * (nodes.length - 1));
+      nodes.forEach((node, i) => {
+        node.style.opacity = String(i === index ? 1 : 0.42);
       });
-      const next = best + 1;
+      const next = index + 1;
       if (current !== next) {
         current = next;
         setStep(next);
@@ -142,7 +155,7 @@ export function DigitalInfrastructureBoard({
 
   return (
     <div ref={track} className="relative mt-6 lg:mt-8">
-      <div>
+      <div ref={stage}>
         <div className="grid w-full items-start gap-8 lg:grid-cols-[minmax(0,0.35fr)_minmax(0,0.65fr)] lg:gap-10 xl:gap-14">
           <div>
             <h3 className="font-heading text-[1.65rem] leading-[1.08] heading-type sm:text-[1.85rem]">{heading}</h3>
@@ -167,9 +180,7 @@ export function DigitalInfrastructureBoard({
             </div>
           </div>
           <div className="hidden lg:block">
-            <div className="lg:sticky lg:top-28">
-              <InfrastructureArt step={step} theme={theme} />
-            </div>
+            <InfrastructureArt step={step} theme={theme} />
           </div>
         </div>
       </div>
