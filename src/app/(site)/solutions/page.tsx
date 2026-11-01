@@ -71,10 +71,10 @@ export default async function SolutionsPage() {
           <SolutionArt id="field" palette="light" />
         </div>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:mt-20">
+        <div className="mx-auto mt-16 grid w-full max-w-[80%] gap-4 md:grid-cols-2 lg:mt-20">
           {infra.cards.map((card, index) => (
             <article key={card.title} className="@container flex flex-col rounded-3xl bg-surface p-6 lg:p-8" data-reveal>
-              <div className="mb-8 flex w-[60%] aspect-[298/185] items-end">
+              <div className="mx-auto mb-8 flex aspect-[298/185] w-[60%] items-end">
                 <SolutionArt id={index === 0 ? "build" : "rails"} palette="light" className="w-full" />
               </div>
               <p className="eyebrow">{card.eyebrow}</p>
