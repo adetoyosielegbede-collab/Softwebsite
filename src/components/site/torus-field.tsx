@@ -37,7 +37,9 @@ const ORBIT = buildPoints(120, 46);
 type Variant = "band" | "armillary" | "portals";
 
 const BLUE = "#004bff";
-const CYAN = "#00ffff";
+// Electric cyan holds on the dark page. On the light page it is nearly the same luminance as the paper, so the right ring disappears.
+const CYAN_ON_DARK = "#00ffff";
+const CYAN_ON_LIGHT = "#007385";
 
 const MASKS: Record<Variant, string> = {
   band: "linear-gradient(to bottom, transparent 0%, #000 18%, #000 76%, transparent 100%)",
@@ -63,6 +65,7 @@ export function TorusField({ variant = "band", className }: { variant?: Variant;
     };
 
     let color = readColor();
+    let cyan = CYAN_ON_LIGHT;
     let width = 0;
     let height = 0;
     let raf = 0;
@@ -143,7 +146,7 @@ export function TorusField({ variant = "band", className }: { variant?: Variant;
       ctx.clearRect(0, 0, width, height);
       if (variant === "portals") {
         drawRing(ORBIT, { rx: time * 0.85, ry: 0.62, rz: 0.28, ox: -4.6, oy: 0.15, oz: 12.2 }, BLUE, 0.95, 150);
-        drawRing(ORBIT, { rx: -time * 0.72, ry: -0.48, rz: 0.18, ox: 4.6, oy: 0.15, oz: 12.2 }, CYAN, 0.95, 150);
+        drawRing(ORBIT, { rx: -time * 0.72, ry: -0.48, rz: 0.18, ox: 4.6, oy: 0.15, oz: 12.2 }, cyan, 0.95, 150);
         drawFlakes();
         ctx.globalAlpha = 1;
         return;
@@ -167,6 +170,7 @@ export function TorusField({ variant = "band", className }: { variant?: Variant;
 
     const paintTheme = () => {
       color = readColor();
+      cyan = document.documentElement.classList.contains("dark") ? CYAN_ON_DARK : CYAN_ON_LIGHT;
       draw();
     };
     const ro = new ResizeObserver(() => {
@@ -177,7 +181,7 @@ export function TorusField({ variant = "band", className }: { variant?: Variant;
     const mo = new MutationObserver(paintTheme);
     mo.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
     resize();
-    draw();
+    paintTheme();
 
     const loop = (now: number) => {
       raf = requestAnimationFrame(loop);
