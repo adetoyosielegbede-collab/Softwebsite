@@ -84,9 +84,13 @@ export default async function SolutionsPage() {
       </section>
 
       <section className="container-site pt-20 lg:pt-28">
-        <SectionHeader id="powering-initiatives" number={init.number} title={init.title} lead={init.lead} />
-        <div className="mt-12 overflow-x-auto lg:mt-16">
-          <SolutionArt id="field" palette="light" className="min-w-[1090px]" />
+        <div id="powering-initiatives" className="scroll-mt-24 border-t border-line pt-8 text-center" data-reveal>
+          <SectionNumber>{init.number}</SectionNumber>
+          <h2 className="text-headline mt-4">{init.title}</h2>
+          <p className="text-lede mx-auto mt-4 max-w-3xl text-balance text-accent-ink">{init.lead}</p>
+        </div>
+        <div className="mx-auto mt-8 w-full max-w-[1000px] lg:mt-10">
+          <SolutionArt id="field" palette="light" />
         </div>
 
         <div className="mt-20 rounded-3xl bg-brand p-6 text-white sm:p-10" data-reveal>
