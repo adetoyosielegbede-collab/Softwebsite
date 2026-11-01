@@ -64,7 +64,12 @@ export function InsightCard({
           </div>
         ) : (
           <>
-            <h3 className={`${featured ? "text-headline" : "text-title"} mt-3 transition-colors group-hover:text-accent-ink`}>
+            <h3
+              className={cn(
+                "mt-3 transition-colors group-hover:text-accent-ink",
+                featured ? "text-headline" : "text-title md:min-h-[5.625rem]",
+              )}
+            >
               {post.title}
             </h3>
             <p className="text-body mt-3 text-ink-soft">{post.excerpt}</p>
