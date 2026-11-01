@@ -87,7 +87,7 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
           {items.map((item, i) => (
             <article
               key={item.title}
-              className="flex w-[82vw] shrink-0 snap-start flex-col overflow-clip rounded-3xl bg-surface sm:w-[420px] lg:w-[440px]"
+              className="flex w-[82vw] shrink-0 snap-start flex-col overflow-clip rounded-3xl bg-paper sm:w-[420px] lg:w-[440px]"
             >
               <div data-rail-art="" className="px-4 pt-6">
                 {ARTS[i] ? <SolutionArt id={ARTS[i]} palette="light" /> : null}

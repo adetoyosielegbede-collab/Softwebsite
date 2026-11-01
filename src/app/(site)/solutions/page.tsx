@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 function SectionHeader({ id, number, title, lead }: { id: string; number: string; title: string; lead: string }) {
   return (
-    <div id={id} className="scroll-mt-24 border-t border-line pt-8 text-center" data-reveal>
+    <div id={id} className="scroll-mt-24 pt-8 text-center" data-reveal>
       <SectionNumber>{number}</SectionNumber>
       <h2 className="text-headline mt-4">{title}</h2>
       <p className="text-lede mx-auto mt-4 max-w-3xl text-balance text-accent-ink">{lead}</p>
@@ -44,29 +44,29 @@ export default async function SolutionsPage() {
         </div>
       </section>
 
-      <section className="container-site">
-        <SectionHeader id="digital-infrastructure" number={infra.number} title={infra.title} lead={infra.lead} />
-        <DigitalInfrastructureBoard heading={infra.subTitle} intro={infra.subText} steps={infra.steps} />
-        <p className="text-title mx-auto mt-8 max-w-2xl text-center lg:mt-10" data-reveal>
-          {infra.statement}
-        </p>
-        <div className="mt-8 text-center">
-          <PillLink href={infra.ctaHref}>{infra.ctaLabel}</PillLink>
+      <section className="border-t border-line bg-paper pb-20 lg:pb-28">
+        <div className="container-site">
+          <SectionHeader id="digital-infrastructure" number={infra.number} title={infra.title} lead={infra.lead} />
+          <DigitalInfrastructureBoard heading={infra.subTitle} intro={infra.subText} steps={infra.steps} />
+          <p className="text-title mx-auto mt-8 max-w-2xl text-center lg:mt-10" data-reveal>
+            {infra.statement}
+          </p>
+          <div className="mt-8 text-center">
+            <PillLink href={infra.ctaHref}>{infra.ctaLabel}</PillLink>
+          </div>
         </div>
       </section>
 
-      <section className="pt-20 lg:pt-28">
+      <section className="border-t border-line bg-surface pb-20 lg:pb-28">
         <div className="container-site">
           <SectionHeader id="applied-intelligence" number={intel.number} title={intel.title} lead={intel.lead} />
         </div>
         <IntelligenceRail eyebrow={intel.eyebrow} intro={intel.intro} items={intel.items} />
-        <div className="container-site mt-12 text-center">
-          <PillLink href={intel.ctaHref}>{intel.ctaLabel}</PillLink>
-        </div>
       </section>
 
-      <section className="container-site pt-20 lg:pt-28">
-        <SectionHeader id="powering-initiatives" number={init.number} title={init.title} lead={init.lead} />
+      <section className="border-t border-line bg-paper">
+        <div className="container-site">
+          <SectionHeader id="powering-initiatives" number={init.number} title={init.title} lead={init.lead} />
         <div className="mx-auto mt-8 w-full max-w-[1000px] lg:mt-10">
           <SolutionArt id="field" palette="light" />
         </div>
@@ -94,6 +94,7 @@ export default async function SolutionsPage() {
               {init.ctaLabel}
             </PillLink>
           </div>
+        </div>
         </div>
       </section>
 
