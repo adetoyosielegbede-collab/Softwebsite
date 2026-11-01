@@ -198,6 +198,19 @@
 .sc-bi .wgrid{fill:none;stroke:rgba(255,255,255,.14)}
 .sc-bi .wslot{fill:none;stroke:#FFFFFF;stroke-dasharray:4 3}
 .sc-bi .wguide{stroke:rgba(255,255,255,.75);stroke-dasharray:3 3}
+/* The source drawing hard-codes one blue platform for every theme. On the light page that reads as the dark version, so the platform and seated modules take the light surfaces and the module being lowered stays the accent. */
+.sc-bi .th-light .wpt{fill:#E8EDFF;stroke:#C5D0F5}
+.sc-bi .th-light .wpl{fill:#D5DFFF;stroke:#C5D0F5}
+.sc-bi .th-light .wpr{fill:#C5D0F5;stroke:#B7C4F2}
+.sc-bi .th-light .wt{fill:#FFFFFF;stroke:var(--ln2)}
+.sc-bi .th-light .wl2{fill:#EFEDE8;stroke:var(--ln2)}
+.sc-bi .th-light .wr{fill:#E1DED7;stroke:var(--ln2)}
+.sc-bi .th-light .wkt{fill:#4A6DFF;stroke:#FFFFFF}
+.sc-bi .th-light .wkl{fill:#1F4BF5;stroke:#FFFFFF}
+.sc-bi .th-light .wkr{fill:#1739C2;stroke:#FFFFFF}
+.sc-bi .th-light .wgrid{stroke:rgba(31,75,245,.4)}
+.sc-bi .th-light .wslot{stroke:#1F4BF5}
+.sc-bi .th-light .wguide{stroke:#1F4BF5}
 @keyframes bi-dashrun{to{stroke-dashoffset:-16}}
 @keyframes bi-runy{0%{transform:translate(0,0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translate(-40px,20px);opacity:0}}
 @keyframes bi-drop{0%,100%{transform:translate(0,0)}50%{transform:translate(0,8px)}}
