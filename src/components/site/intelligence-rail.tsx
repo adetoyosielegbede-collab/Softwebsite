@@ -126,7 +126,7 @@ export function IntelligenceRail({
           >
           <div
             ref={lead}
-            className="flex w-[82vw] shrink-0 snap-start flex-col justify-end gap-5 rounded-3xl p-2 sm:w-[420px] lg:w-[460px] lg:justify-center lg:gap-6 lg:p-8 lg:pb-16"
+            className="flex w-[82vw] shrink-0 snap-start flex-col justify-end gap-5 rounded-3xl p-2 sm:w-[420px] lg:w-[460px] lg:gap-6 lg:p-8 lg:pb-24"
           >
             <span className="label">{eyebrow} →</span>
             <p className="text-xl leading-[1.4] text-ink lg:text-2xl">{intro}</p>
