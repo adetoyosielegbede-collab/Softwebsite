@@ -21,11 +21,16 @@ function isCurrent(pathname: string, href: string) {
   return path === "/" ? pathname === "/" : pathname === path;
 }
 
+function sectionId(href: string) {
+  return href.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "") || "section";
+}
+
 export function SiteHeader({ site }: { site: SiteContent }) {
   const pathname = usePathname();
   const items = site.headerNav ?? [];
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
+  const [mobileSection, setMobileSection] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
   const [cue, setCue] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -39,6 +44,7 @@ export function SiteHeader({ site }: { site: SiteContent }) {
     window.clearTimeout(closeTimer.current);
     setOpen(false);
     setActive(null);
+    setMobileSection(null);
   };
 
   const onNavClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -130,7 +136,10 @@ export function SiteHeader({ site }: { site: SiteContent }) {
   }, [open, active]);
 
   useEffect(() => {
-    if (!sheet) return;
+    if (!sheet) {
+      setMobileSection(null);
+      return;
+    }
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
@@ -169,7 +178,11 @@ export function SiteHeader({ site }: { site: SiteContent }) {
               aria-label={sheet ? "Close menu" : "Open menu"}
               aria-expanded={sheet}
               aria-controls="mobile-menu"
-              onClick={() => (open ? close() : setOpen(true))}
+              onClick={() => {
+                setMobile(true);
+                if (open) close();
+                else setOpen(true);
+              }}
               className="relative grid size-10 shrink-0 place-items-center rounded-full text-ink outline-none focus-visible:ring-[3px] focus-visible:ring-signal/50 md:hidden"
             >
               <span aria-hidden className="relative block h-3 w-5">
@@ -293,26 +306,56 @@ export function SiteHeader({ site }: { site: SiteContent }) {
           <nav aria-label="Main" className="flex-1">
             <ul className="flex flex-col border-b border-line">
               {items.map((item, index) => {
-                const current = isCurrent(pathname, item.href);
+                const current =
+                  isCurrent(pathname, item.href) || item.links?.some((link) => isCurrent(pathname, link.href));
+                const hasChildren = Boolean(item.links && item.links.length > 0);
+                const sectionOpen = mobileSection === item.href;
                 return (
                   <li key={item.href} className="border-t border-line" style={{ animationDelay: `${50 + index * 60}ms` }}>
-                    <Link
-                      href={item.href}
-                      onClick={close}
-                      aria-current={current ? "page" : undefined}
-                      className={cn(
-                        "rise-in flex items-center justify-between gap-4 py-4 font-heading text-[2rem] leading-none heading-type",
-                        current ? "text-signal" : "text-ink",
+                    <div className="rise-in flex items-center gap-2 py-4">
+                      <Link
+                        href={item.href}
+                        onClick={close}
+                        aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
+                        className={cn(
+                          "min-w-0 flex-1 font-heading text-[2rem] leading-none heading-type",
+                          current ? "text-signal" : "text-ink",
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                      {hasChildren ? (
+                        <button
+                          type="button"
+                          aria-expanded={sectionOpen}
+                          aria-controls={`mobile-section-${sectionId(item.href)}`}
+                          aria-label={sectionOpen ? `Hide ${item.label} pages` : `Show ${item.label} pages`}
+                          onClick={() => setMobileSection(sectionOpen ? null : item.href)}
+                          className="grid size-11 shrink-0 place-items-center rounded-full text-ink outline-none transition-colors hover:text-signal focus-visible:ring-[3px] focus-visible:ring-signal/50"
+                        >
+                          <span aria-hidden className="relative block size-5">
+                            <span className="absolute top-1/2 left-0 h-[1.5px] w-5 -translate-y-1/2 rounded-full bg-current" />
+                            <span
+                              className={cn(
+                                "absolute top-0 left-1/2 h-5 w-[1.5px] -translate-x-1/2 rounded-full bg-current transition-transform duration-200 ease-out motion-reduce:transition-none",
+                                sectionOpen && "scale-y-0",
+                              )}
+                            />
+                          </span>
+                        </button>
+                      ) : (
+                        <span aria-hidden className="grid size-11 shrink-0 place-items-center text-xl text-ink/50">
+                          →
+                        </span>
                       )}
-                    >
-                      {item.label}
-                      <span aria-hidden className="text-xl">
-                        →
-                      </span>
-                    </Link>
-                    {item.links && item.links.length > 0 ? (
-                      <ul className="-mt-1 flex flex-col pb-3">
-                        {item.links.map((link) => {
+                    </div>
+                    {hasChildren ? (
+                      <ul
+                        id={`mobile-section-${sectionId(item.href)}`}
+                        hidden={!sectionOpen}
+                        className={cn("flex flex-col pb-3", !sectionOpen && "hidden")}
+                      >
+                        {item.links!.map((link) => {
                           const here = isCurrent(pathname, link.href);
                           return (
                             <li key={link.href}>
