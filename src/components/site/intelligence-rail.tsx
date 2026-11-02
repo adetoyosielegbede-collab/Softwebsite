@@ -10,8 +10,9 @@ type Item = SolutionsContent["intelligence"]["items"][number];
 
 const ARTS: SolutionArtId[] = ["audit", "financial", "market", "regulatory", "societal"];
 
-/** Intro panel and five intelligence cards on one sideways row. */
+/** Intro panel and five intelligence cards. Large screens slide the row sideways as you scroll. */
 export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; intro: string; items: Item[] }) {
+  const track = useRef<HTMLDivElement>(null);
   const row = useRef<HTMLDivElement>(null);
   const lead = useRef<HTMLDivElement>(null);
   const swiped = useSwipeHint(row);
@@ -42,15 +43,44 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
     };
   }, []);
 
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 1024px) and (prefers-reduced-motion: no-preference)");
+    const update = () => {
+      const outer = track.current;
+      const scroller = row.current;
+      const stage = scroller?.parentElement;
+      if (!outer || !scroller || !stage) return;
+      if (!media.matches) {
+        scroller.style.transform = "";
+        outer.style.height = "";
+        return;
+      }
+      const distance = Math.max(0, scroller.scrollWidth - window.innerWidth);
+      outer.style.height = `${stage.offsetHeight + distance}px`;
+      const stickyTop = parseFloat(getComputedStyle(stage).top) || 0;
+      const progress = Math.max(0, Math.min(1, (stickyTop - outer.getBoundingClientRect().top) / Math.max(1, distance)));
+      scroller.style.transform = `translate3d(${(-distance * progress).toFixed(2)}px,0,0)`;
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    media.addEventListener("change", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+      media.removeEventListener("change", update);
+    };
+  }, []);
+
   return (
-    <div className="relative mt-12 lg:mt-16">
+    <div ref={track} className="relative mt-12 lg:mt-16">
       <div className="container-site mb-4 flex justify-end lg:hidden">
         <SwipeCue hidden={swiped} />
       </div>
-      <div>
+      <div className="lg:motion-safe:sticky lg:motion-safe:top-20 lg:motion-safe:overflow-hidden">
         <div
           ref={row}
-          className="flex snap-x snap-mandatory items-stretch gap-2.5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:px-8 lg:px-10 [&::-webkit-scrollbar]:hidden"
+          className="flex snap-x snap-mandatory items-stretch gap-2.5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:px-8 lg:px-10 [&::-webkit-scrollbar]:hidden lg:motion-safe:w-max lg:motion-safe:snap-none lg:motion-safe:overflow-visible lg:motion-safe:pb-0"
         >
           <div ref={lead} className="flex w-[82vw] shrink-0 snap-start flex-col justify-end gap-6 rounded-3xl p-2 sm:w-[420px] lg:w-[460px] lg:p-8">
             <span className="label">{eyebrow} →</span>
