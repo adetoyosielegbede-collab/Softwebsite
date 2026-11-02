@@ -183,13 +183,13 @@
   },
   "cta": {
     "image": {
-      "src": "/uploads/partner-2-hf-20261030-112953-aba8ff8a-9069-41ae--613b80.jpg",
-      "alt": "Aerial view of a busy open-air market in Lagos"
+      "src": "/uploads/partner-2-hf-20261030-112953-aba8ff8a-9069-41ae--856d49.jpg",
+      "alt": "Two people shaking hands over a city at night"
     },
-    "title": "Not sure where to start?",
-    "text": "Most of our engagements begin with a conversation. Tell us what you’re trying to solve; we will tell you honestly whether we can help.",
+    "title": "Proud partner of potential",
+    "text": "What can we achieve together?",
     "ctaLabel": "Start a conversation",
     "ctaHref": "/contact",
-    "layout": "split"
+    "layout": "center"
   }
 }
