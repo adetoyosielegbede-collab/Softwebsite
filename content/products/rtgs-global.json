@@ -1,0 +1,139 @@
+{
+  "seo": {
+    "title": "RTGS.global",
+    "description": "Connect your institution to infrastructure for cross-border payments and foreign-exchange settlement. Softcom works with RTGS.global to support implementation for financial institutions in Nigeria and across Africa."
+  },
+  "name": "RTGS.global",
+  "hero": {
+    "eyebrow": "Partner platform · Digital Infrastructure",
+    "title": "Cross-border payments. Real-time settlement.",
+    "text": "Connect your institution to infrastructure for cross-border payments and foreign-exchange settlement. Softcom works with RTGS.global to support implementation for financial institutions in Nigeria and across Africa.",
+    "primaryLabel": "Discuss an implementation",
+    "primaryHref": "/contact",
+    "secondaryLabel": "Explore the platform",
+    "secondaryHref": "https://developers.rtgs.global/participant-integration-guide/overview/",
+    "backgroundImage": {
+      "src": "",
+      "alt": ""
+    }
+  },
+  "overview": [],
+  "blocks": [
+    {
+      "number": "",
+      "title": "",
+      "text": "",
+      "points": [],
+      "figures": [
+        {
+          "label": "RTGS.global / 01",
+          "title": "Connect payment operations to shared settlement infrastructure.",
+          "caption": "A conceptual view of participating institutions, the network and Funds Controllers.",
+          "image": {
+            "src": "/media/rtgs/figure-01.png",
+            "alt": "Conceptual network diagram connecting institutions through RTGS.global and Funds Controllers"
+          },
+          "source": "Concept illustration · Softcom"
+        }
+      ]
+    },
+    {
+      "number": "",
+      "title": "Connect the payment. Complete the settlement.",
+      "text": "RTGS.global provides a real-time gross settlement network for financial institutions. It supports linked settlement across two currencies and cross-border customer payments through participating Funds Controllers.",
+      "points": [
+        {
+          "title": "Settle foreign exchange",
+          "text": "Link the two sides of an agreed FX trade for payment-versus-payment settlement. Matching instructions and sufficient funds allow the network to complete the exchange and confirm the result."
+        },
+        {
+          "title": "Deliver cross-border payments",
+          "text": "Initiate payments to overseas beneficiaries through Funds Controllers on the network. Onward delivery is handled by the relevant Funds Controller."
+        },
+        {
+          "title": "Keep operations informed",
+          "text": "Bring payment-status notifications, transaction information and network balances into your institution’s workflows through API integration."
+        }
+      ],
+      "figures": []
+    },
+    {
+      "number": "",
+      "title": "From agreed trade to confirmed settlement.",
+      "text": "Counterparties agree a trade, submit their instructions and receive confirmation when settlement completes. The connection brings the settlement process into the institution’s existing operations.",
+      "points": [],
+      "figures": [
+        {
+          "label": "RTGS.global / 02",
+          "title": "Two payment instructions. One linked FX settlement.",
+          "caption": "Payment-versus-payment settlement after counterparties have agreed a trade.",
+          "image": {
+            "src": "/media/rtgs/figure-02.png",
+            "alt": "Three-step flow from agreeing a trade to linking instructions and confirming settlement"
+          },
+          "source": "Concept illustration · Softcom"
+        }
+      ]
+    },
+    {
+      "number": "",
+      "title": "Global infrastructure. Local implementation.",
+      "text": "RTGS.global provides the network. Softcom works with your institution and the platform team to connect it to the systems, processes and operating requirements that make it usable locally.",
+      "points": [
+        {
+          "title": "Define the requirement",
+          "text": "Establish the payment or settlement use case, intended counterparties and the institutional systems involved."
+        },
+        {
+          "title": "Integrate and validate",
+          "text": "Connect the relevant workflows and support testing through the platform’s integration environments."
+        },
+        {
+          "title": "Prepare for operation",
+          "text": "Coordinate implementation around onboarding, operating responsibilities and the requirements of the institution and its network partners."
+        }
+      ],
+      "figures": []
+    }
+  ],
+  "audience": {
+    "eyebrow": "Who it is for",
+    "title": "For institutions moving value across borders.",
+    "text": "For banks and other eligible regulated financial institutions seeking to develop cross-border payment and settlement capabilities. Available currencies, corridors and services depend on network participation, counterparties and applicable requirements.",
+    "closing": "Tell us where you need to move value and how your institution operates today.",
+    "ctaLabel": "Discuss an implementation",
+    "ctaHref": "/contact"
+  },
+  "references": {
+    "title": "Platform references",
+    "links": [
+      {
+        "label": "Platform overview",
+        "href": "https://developers.rtgs.global/participant-integration-guide/overview/"
+      },
+      {
+        "label": "Link and Settle",
+        "href": "https://developers.rtgs.global/product-services/link-and-settle/"
+      },
+      {
+        "label": "Cross-border customer payments",
+        "href": "https://developers.rtgs.global/product-services/"
+      },
+      {
+        "label": "Integration journey",
+        "href": "https://developers.rtgs.global/participant-integration-guide/overview/"
+      }
+    ]
+  },
+  "cta": {
+    "image": {
+      "src": "/uploads/partner-2-hf-20261030-112953-aba8ff8a-9069-41ae--856d49.jpg",
+      "alt": "Two people shaking hands over a city at night"
+    },
+    "title": "Proud partner of potential",
+    "text": "What can we achieve together?",
+    "ctaLabel": "Start a conversation",
+    "ctaHref": "/contact",
+    "layout": "center"
+  }
+}

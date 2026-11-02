@@ -88,7 +88,7 @@
         "tagline": "The foundation for digital government services",
         "text": "Build and deploy public services through a low-code platform designed for government. Softcom works with Kitsoft to put Liquio into operation for ministries, departments and agencies, adapting delivery to local requirements and workflows.",
         "ctaLabel": "Explore Liquio by Kitsoft",
-        "href": "/contact",
+        "href": "/enterprise-products/liquio",
         "logo": {
           "src": "",
           "alt": "Liquio by Kitsoft logo"
@@ -99,7 +99,7 @@
         "tagline": "Infrastructure for cross-border payments and settlement",
         "text": "Connect regulated financial institutions through infrastructure for real-time cross-border payments and foreign-exchange settlement. Softcom works with RTGS.global to support implementation for institutions in Nigeria and across Africa.",
         "ctaLabel": "Explore RTGS.global",
-        "href": "/contact",
+        "href": "/enterprise-products/rtgs-global",
         "logo": {
           "src": "",
           "alt": "RTGS.global logo"

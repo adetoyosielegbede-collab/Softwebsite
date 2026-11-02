@@ -20,10 +20,12 @@ export const CONTENT_FILES: ContentFile[] = [
   { id: "products/reckon", label: "Reckon", group: "Products", href: "/enterprise-products/reckon" },
   { id: "products/sentinel", label: "Sentinel", group: "Products", href: "/enterprise-products/sentinel" },
   { id: "products/useforms", label: "Useforms", group: "Products", href: "/enterprise-products/useforms" },
+  { id: "products/liquio", label: "Liquio by Kitsoft", group: "Products", href: "/enterprise-products/liquio" },
+  { id: "products/rtgs-global", label: "RTGS.global", group: "Products", href: "/enterprise-products/rtgs-global" },
   { id: "posts", label: "Insight articles", group: "Collections", href: "/insights" },
 ];
 
-export const PRODUCT_SLUGS = ["lift", "reckon", "sentinel", "useforms"] as const;
+export const PRODUCT_SLUGS = ["lift", "reckon", "sentinel", "useforms", "liquio", "rtgs-global"] as const;
 
 export function isContentFile(id: string): boolean {
   return CONTENT_FILES.some((f) => f.id === id);

@@ -1,0 +1,138 @@
+{
+  "seo": {
+    "title": "Liquio by Kitsoft",
+    "description": "Design, launch and evolve digital public services on a shared low-code foundation. Softcom works with Kitsoft to implement Liquio for ministries, departments and agencies."
+  },
+  "name": "Liquio by Kitsoft",
+  "hero": {
+    "eyebrow": "Partner platform · Digital Infrastructure",
+    "title": "Public services, built to work together.",
+    "text": "Design, launch and evolve digital public services on a shared low-code foundation. Softcom works with Kitsoft to implement Liquio for ministries, departments and agencies, connecting service delivery with the systems and workflows behind it.",
+    "primaryLabel": "Explore Liquio with Softcom",
+    "primaryHref": "/contact",
+    "secondaryLabel": "Explore the platform",
+    "secondaryHref": "https://www.liquio.tech/",
+    "backgroundImage": {
+      "src": "",
+      "alt": ""
+    }
+  },
+  "overview": [],
+  "blocks": [
+    {
+      "number": "",
+      "title": "",
+      "text": "",
+      "points": [],
+      "figures": [
+        {
+          "label": "Liquio / 01",
+          "title": "One foundation. Services across departments.",
+          "caption": "Shared platform capabilities connect the public-facing service with the work behind it.",
+          "image": {
+            "src": "/media/liquio/figure-01.png",
+            "alt": "Conceptual diagram connecting citizens, businesses and public-service teams to Liquio"
+          },
+          "source": "Concept illustration · Softcom"
+        }
+      ]
+    },
+    {
+      "number": "",
+      "title": "Build beyond the online form.",
+      "text": "A digital service needs the application, information and institutional work behind it to connect. Liquio provides tools for building services and integrating government systems, with less manual coding.",
+      "points": [
+        {
+          "title": "Design the service",
+          "text": "Use the service builder to create digital services around an institution’s requirements, reusing platform components across applications."
+        },
+        {
+          "title": "Connect the information",
+          "text": "Bring registers, datasets and existing systems into the service through APIs. Put the information required for delivery within reach of the teams and processes that need it."
+        },
+        {
+          "title": "Evolve the operation",
+          "text": "Update services as rules and processes change. A shared platform allows teams to develop services in parallel and build on work already done."
+        }
+      ],
+      "figures": []
+    },
+    {
+      "number": "",
+      "title": "From application to completed service.",
+      "text": "Shape the journey around what citizens and businesses need, and what the institution must do to serve them. Connect information capture, checks, reviews and service delivery in one designed workflow.",
+      "points": [],
+      "figures": [
+        {
+          "label": "Liquio / 02",
+          "title": "Connect every stage of a public service.",
+          "caption": "An illustrative application journey, configured around the institution’s requirements.",
+          "image": {
+            "src": "/media/liquio/figure-02.png",
+            "alt": "Four-step public service journey from apply and check to review and deliver"
+          },
+          "source": "Concept illustration · Softcom"
+        }
+      ]
+    },
+    {
+      "number": "",
+      "title": "Kitsoft’s platform. Softcom’s local delivery.",
+      "text": "Softcom brings the service context, implementation and integration expertise needed to put Liquio to work for local institutions.",
+      "points": [
+        {
+          "title": "Understand the service",
+          "text": "Work through the institution’s mandate, service requirements, existing systems and the needs of its users."
+        },
+        {
+          "title": "Configure and connect",
+          "text": "Translate those requirements into services and workflows, integrating the records and systems the service depends on."
+        },
+        {
+          "title": "Prepare for use",
+          "text": "Support deployment, team readiness and adoption, with responsibilities and ongoing support defined around the engagement."
+        }
+      ],
+      "figures": []
+    },
+    {
+      "number": "",
+      "title": "A foundation your institution can build on.",
+      "text": "Liquio’s open-source Community Edition, documentation and training options support institutions that want to retain the ability to develop and maintain their services with their chosen teams.",
+      "points": [],
+      "figures": []
+    }
+  ],
+  "audience": {
+    "eyebrow": "Who it is for",
+    "title": "Which public service should work better?",
+    "text": "For ministries, departments, agencies and governments developing individual services or a shared digital-service platform.",
+    "closing": "Tell us what your institution needs to deliver and the systems it must work with.",
+    "ctaLabel": "Explore Liquio with Softcom",
+    "ctaHref": "/contact"
+  },
+  "references": {
+    "title": "Platform references",
+    "links": [
+      {
+        "label": "Liquio platform",
+        "href": "https://www.liquio.tech/"
+      },
+      {
+        "label": "Kitsoft on Liquio Community Edition",
+        "href": "https://kitsoft.eu/news/kitsoft-has-opened-the-code-of-the-platform-for-launching-public-services-liquio"
+      }
+    ]
+  },
+  "cta": {
+    "image": {
+      "src": "/uploads/partner-2-hf-20261030-112953-aba8ff8a-9069-41ae--856d49.jpg",
+      "alt": "Two people shaking hands over a city at night"
+    },
+    "title": "Proud partner of potential",
+    "text": "What can we achieve together?",
+    "ctaLabel": "Start a conversation",
+    "ctaHref": "/contact",
+    "layout": "center"
+  }
+}

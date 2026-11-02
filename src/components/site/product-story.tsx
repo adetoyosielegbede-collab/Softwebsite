@@ -200,6 +200,21 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
           </div>
         </section>
       )}
+
+      {product.references?.links.length ? (
+        <section className="border-t border-line">
+          <div className="container-site py-12 md:py-16">
+            <p className="label text-ink-soft">{product.references.title}</p>
+            <ul className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-3">
+              {product.references.links.map((link) => (
+                <li key={link.href + link.label}>
+                  <ArrowLink href={link.href}>{link.label}</ArrowLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
     </>
   );
 }

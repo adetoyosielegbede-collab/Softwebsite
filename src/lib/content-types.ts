@@ -160,6 +160,7 @@ export type ProductContent = {
     figures: ProductFigure[];
   }[];
   audience: { eyebrow: string; title: string; text: string; closing?: string; ctaLabel?: string; ctaHref?: string };
+  references?: { title: string; links: { label: string; href: string }[] };
   cta: Cta;
 };
 
@@ -318,4 +319,6 @@ export type ContentMap = {
   "products/reckon": ProductContent;
   "products/sentinel": ProductContent;
   "products/useforms": ProductContent;
+  "products/liquio": ProductContent;
+  "products/rtgs-global": ProductContent;
 };
