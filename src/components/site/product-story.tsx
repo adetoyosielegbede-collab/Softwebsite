@@ -1,5 +1,4 @@
 import { CmsImage } from "@/components/cms/cms-image";
-import { DeliverTimeline } from "@/components/site/deliver-timeline";
 import { ArrowLink, PillLink } from "@/components/site/links";
 import { isPartnerDiagram } from "@/components/site/partner-diagram-ids";
 import { PartnerDiagram } from "@/components/site/partner-diagrams";
@@ -200,19 +199,24 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
       {product.closePair?.panels.length ? (
         <section className="border-t border-line">
           <div className="container-site py-16 md:py-24 lg:py-28">
-            <div className="rounded-3xl bg-brand p-6 text-white sm:p-10">
-              <DeliverTimeline phases={product.closePair.panels} />
-              {(product.audience.closing || product.audience.ctaLabel) && (
-                <div className="mt-12 flex flex-col gap-6 border-t border-white/25 pt-8 sm:flex-row sm:items-center sm:justify-between">
-                  {product.audience.closing ? <p className="text-title max-w-xl">{product.audience.closing}</p> : <span />}
-                  {product.audience.ctaLabel ? (
-                    <PillLink href={product.audience.ctaHref ?? "/contact"} className="bg-white text-black hover:bg-signal">
-                      {product.audience.ctaLabel}
-                    </PillLink>
-                  ) : null}
-                </div>
-              )}
+            <div className="grid gap-4 md:grid-cols-2">
+              {product.closePair.panels.map((panel) => (
+                <article key={panel.title} className="flex flex-col rounded-3xl bg-surface p-6 lg:p-8">
+                  <h2 className="text-headline max-w-[16ch] text-balance">{panel.title}</h2>
+                  <p className="text-body mt-5 flex-1 leading-[1.45] text-ink-soft">{panel.text}</p>
+                </article>
+              ))}
             </div>
+            {(product.audience.closing || product.audience.ctaLabel) && (
+              <div className="mt-8 flex flex-col items-center gap-5 text-center sm:mt-10">
+                {product.audience.closing ? (
+                  <p className="text-lede max-w-2xl leading-[1.45] text-ink-soft">{product.audience.closing}</p>
+                ) : null}
+                {product.audience.ctaLabel ? (
+                  <PillLink href={product.audience.ctaHref ?? "/contact"}>{product.audience.ctaLabel}</PillLink>
+                ) : null}
+              </div>
+            )}
           </div>
         </section>
       ) : product.audience.title ? (
