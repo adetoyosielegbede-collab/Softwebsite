@@ -1,6 +1,7 @@
 import { CmsImage } from "@/components/cms/cms-image";
 import { ArrowLink, PillLink } from "@/components/site/links";
-import { isPartnerDiagram, PartnerDiagram } from "@/components/site/partner-diagrams";
+import { isPartnerDiagram } from "@/components/site/partner-diagram-ids";
+import { PartnerDiagram } from "@/components/site/partner-diagrams";
 import type { ProductContent, ProductFigure } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
 
