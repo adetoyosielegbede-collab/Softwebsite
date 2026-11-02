@@ -1,5 +1,6 @@
 import { CmsImage } from "@/components/cms/cms-image";
 import { ArrowLink, PillLink } from "@/components/site/links";
+import { isPartnerDiagram, PartnerDiagram } from "@/components/site/partner-diagrams";
 import type { ProductContent, ProductFigure } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
 
@@ -22,6 +23,19 @@ function FigurePlate({
   wide?: boolean;
 }) {
   const screen = isScreen(fig);
+  const drawn = isPartnerDiagram(fig.diagram);
+
+  if (drawn) {
+    return (
+      <figure className="m-0">
+        <PartnerDiagram id={fig.diagram!} />
+        <figcaption className="sr-only">
+          {fig.label}. {fig.title}. {fig.caption}
+        </figcaption>
+      </figure>
+    );
+  }
+
   return (
     <figure className={cn("m-0", !wide && screen && "lg:max-w-[920px]")}>
       <div

@@ -135,7 +135,15 @@ export type EnterpriseProductsContent = {
   cta: Cta;
 };
 
-export type ProductFigure = { label: string; title: string; caption: string; image: CmsImage; source: string };
+export type ProductFigure = {
+  label: string;
+  title: string;
+  caption: string;
+  image: CmsImage;
+  source: string;
+  /** Drawn board id from partner-diagrams, used instead of the raster when set. */
+  diagram?: string;
+};
 
 export type ProductContent = {
   seo: Seo;

@@ -29,8 +29,9 @@
           "label": "Liquio / 01",
           "title": "One foundation. Services across departments.",
           "caption": "Shared platform capabilities connect the public-facing service with the work behind it.",
+          "diagram": "liquio-foundation",
           "image": {
-            "src": "/media/liquio/figure-01.png",
+            "src": "",
             "alt": "Conceptual diagram connecting citizens, businesses and public-service teams to Liquio"
           },
           "source": "Concept illustration · Softcom"
@@ -67,8 +68,9 @@
           "label": "Liquio / 02",
           "title": "Connect every stage of a public service.",
           "caption": "An illustrative application journey, configured around the institution’s requirements.",
+          "diagram": "liquio-journey",
           "image": {
-            "src": "/media/liquio/figure-02.png",
+            "src": "",
             "alt": "Four-step public service journey from apply and check to review and deliver"
           },
           "source": "Concept illustration · Softcom"
