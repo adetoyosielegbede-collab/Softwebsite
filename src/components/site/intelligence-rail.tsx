@@ -55,7 +55,8 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
         outer.style.height = "";
         return;
       }
-      const distance = Math.max(0, scroller.scrollWidth - window.innerWidth);
+      const distance = Math.max(0, scroller.scrollWidth - stage.clientWidth);
+      // The stage fills the screen, so the next section cannot rise until the row has finished sliding.
       outer.style.height = `${stage.offsetHeight + distance}px`;
       const stickyTop = parseFloat(getComputedStyle(stage).top) || 0;
       const progress = Math.max(0, Math.min(1, (stickyTop - outer.getBoundingClientRect().top) / Math.max(1, distance)));
@@ -77,7 +78,7 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
       <div className="container-site mb-4 flex justify-end lg:hidden">
         <SwipeCue hidden={swiped} />
       </div>
-      <div className="lg:motion-safe:sticky lg:motion-safe:top-20 lg:motion-safe:overflow-hidden">
+      <div className="lg:motion-safe:sticky lg:motion-safe:top-0 lg:motion-safe:flex lg:motion-safe:h-svh lg:motion-safe:items-start lg:motion-safe:overflow-hidden lg:motion-safe:bg-surface lg:motion-safe:pt-8">
         <div
           ref={row}
           className="flex snap-x snap-mandatory items-stretch gap-2.5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:px-8 lg:px-10 [&::-webkit-scrollbar]:hidden lg:motion-safe:w-max lg:motion-safe:snap-none lg:motion-safe:overflow-visible lg:motion-safe:pb-0"
