@@ -57,11 +57,17 @@ export default async function SolutionsPage() {
         </div>
       </section>
 
-      <section className="border-t border-line bg-surface pb-20 lg:pb-28">
-        <div className="container-site">
-          <SectionHeader id="applied-intelligence" number={intel.number} title={intel.title} lead={intel.lead} />
-        </div>
-        <IntelligenceRail eyebrow={intel.eyebrow} intro={intel.intro} items={intel.items} />
+      <section className="border-t border-line bg-surface pb-8 lg:pb-12">
+        <IntelligenceRail
+          header={
+            <div className="container-site">
+              <SectionHeader id="applied-intelligence" number={intel.number} title={intel.title} lead={intel.lead} />
+            </div>
+          }
+          eyebrow={intel.eyebrow}
+          intro={intel.intro}
+          items={intel.items}
+        />
       </section>
 
       <section className="border-t border-line bg-paper">

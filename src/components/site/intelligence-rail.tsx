@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import type { SolutionsContent } from "@/lib/content-types";
 import { SolutionArt, type SolutionArtId } from "./solution-art";
 import { SwipeCue } from "./swipe-cue";
@@ -10,9 +10,10 @@ type Item = SolutionsContent["intelligence"]["items"][number];
 
 const ARTS: SolutionArtId[] = ["audit", "financial", "market", "regulatory", "societal"];
 
-/** Intro panel and five intelligence cards. Large screens slide the row sideways as you scroll. */
-export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; intro: string; items: Item[] }) {
+/** Intro panel and five intelligence cards. Large screens pin the section, then slide the row sideways. */
+export function IntelligenceRail({ header, eyebrow, intro, items }: { header?: ReactNode; eyebrow: string; intro: string; items: Item[] }) {
   const track = useRef<HTMLDivElement>(null);
+  const clip = useRef<HTMLDivElement>(null);
   const row = useRef<HTMLDivElement>(null);
   const lead = useRef<HTMLDivElement>(null);
   const veil = useRef<HTMLDivElement>(null);
@@ -49,37 +50,47 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
     const update = () => {
       const outer = track.current;
       const scroller = row.current;
-      const stage = scroller?.parentElement;
-      if (!outer || !scroller || !stage) return;
+      const frame = clip.current;
+      const stage = frame?.parentElement;
+      if (!outer || !scroller || !frame || !stage) return;
       const cover = veil.current;
+      const heading = stage.querySelector<HTMLElement>("[data-intel-header]");
       if (!media.matches) {
         scroller.style.transform = "";
         outer.style.height = "";
         outer.style.marginTop = "";
         stage.style.top = "";
+        frame?.style.removeProperty("height");
         if (cover) cover.style.display = "none";
         return;
       }
-      const distance = Math.max(0, scroller.scrollWidth - stage.clientWidth);
-      // Sit the cards fully on screen. The extra margin lets the lead leave before they lock.
-      const inset = Math.min(96, Math.max(48, Math.round((window.innerHeight - stage.offsetHeight) / 2)));
-      stage.style.top = `${inset}px`;
-      outer.style.marginTop = `${inset + 40}px`;
-      outer.style.height = `${stage.offsetHeight + distance}px`;
-      const progress = Math.max(0, Math.min(1, (inset - outer.getBoundingClientRect().top) / Math.max(1, distance)));
-      scroller.style.transform = `translate3d(${(-distance * progress).toFixed(2)}px,0,0)`;
+      const naturalH = scroller.offsetHeight;
+      const gap = parseFloat(getComputedStyle(frame).marginTop) || 0;
+      const available = window.innerHeight - (heading?.offsetHeight ?? 0) - gap - 16;
+      const scale = Math.min(1, available / Math.max(1, naturalH));
+      frame.style.height = `${Math.round(naturalH * scale)}px`;
+      const width = frame.clientWidth || window.innerWidth;
+      const travel = Math.max(0, scroller.scrollWidth * scale - width);
+      outer.style.height = `${stage.offsetHeight + travel}px`;
+      const progress = travel === 0 ? 0 : Math.max(0, Math.min(1, -outer.getBoundingClientRect().top / travel));
+      const shift = scale === 0 ? 0 : -progress * (scroller.scrollWidth - width / scale);
+      scroller.style.transformOrigin = "top left";
+      scroller.style.transform = `scale(${scale}) translate3d(${shift.toFixed(2)}px,0,0)`;
       if (cover) {
         const bottom = stage.getBoundingClientRect().bottom;
-        const pinned = progress > 0 && progress < 1 && bottom < window.innerHeight - 8;
+        const pinned = stage.getBoundingClientRect().top <= 1 && progress < 1 && bottom < window.innerHeight - 8;
         cover.style.display = pinned ? "block" : "none";
         cover.style.top = `${Math.max(0, bottom)}px`;
       }
     };
     update();
+    const observer = new ResizeObserver(update);
+    if (row.current) observer.observe(row.current);
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
     media.addEventListener("change", update);
     return () => {
+      observer.disconnect();
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
       media.removeEventListener("change", update);
@@ -87,15 +98,17 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
   }, []);
 
   return (
-    <div ref={track} className="relative mt-12 lg:mt-16">
-      <div className="container-site mb-4 flex justify-end lg:hidden">
-        <SwipeCue hidden={swiped} />
-      </div>
-      <div className="lg:motion-safe:sticky lg:motion-safe:top-0 lg:motion-safe:z-10 lg:motion-safe:overflow-hidden lg:motion-safe:bg-surface">
-        <div
-          ref={row}
-          className="flex snap-x snap-mandatory items-stretch gap-2.5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:px-8 lg:px-10 [&::-webkit-scrollbar]:hidden lg:motion-safe:w-max lg:motion-safe:snap-none lg:motion-safe:overflow-visible lg:motion-safe:pb-0"
-        >
+    <div ref={track} className="relative">
+      <div className="lg:motion-safe:sticky lg:motion-safe:top-0 lg:motion-safe:z-30 lg:motion-safe:bg-surface">
+        {header ? <div data-intel-header="">{header}</div> : null}
+        <div className="container-site mb-4 flex justify-end lg:hidden">
+          <SwipeCue hidden={swiped} />
+        </div>
+        <div ref={clip} className="mt-8 overflow-hidden lg:mt-10">
+          <div
+            ref={row}
+            className="flex snap-x snap-mandatory items-stretch gap-2.5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:px-8 lg:px-10 [&::-webkit-scrollbar]:hidden lg:motion-safe:w-max lg:motion-safe:snap-none lg:motion-safe:overflow-visible lg:motion-safe:pb-0"
+          >
           <div ref={lead} className="flex w-[82vw] shrink-0 snap-start flex-col justify-end gap-6 rounded-3xl p-2 sm:w-[420px] lg:w-[460px] lg:p-8">
             <span className="label">{eyebrow} →</span>
             <p className="text-xl leading-[1.4] text-ink lg:text-2xl">{intro}</p>
@@ -115,9 +128,10 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
               </div>
             </article>
           ))}
+          </div>
         </div>
       </div>
-      {/* Covers the screen below the cards until the row finishes, without pushing the next section down. */}
+      {/* Hides the next section on tall screens until the row has finished sliding. */}
       <div ref={veil} aria-hidden className="pointer-events-none fixed inset-x-0 bottom-0 z-20 hidden bg-surface" />
     </div>
   );
