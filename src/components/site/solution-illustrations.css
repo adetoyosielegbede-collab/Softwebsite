@@ -117,8 +117,14 @@
 @keyframes ai-scan{from{transform:translate(0,0)}to{transform:translate(0,90px)}}
 @media (prefers-reduced-motion:reduce){.sc-ai .flow,.sc-ai .scan{animation:none}}
 /* pi */
-.sc-pi{display:block}
-.sc-pi > svg{display:block;width:100%;height:auto;overflow:visible}
+.sc-pi{display:block;overflow:visible;transform:translateZ(0);-webkit-transform:translateZ(0)}
+.sc-pi > svg{display:block;width:100%;max-width:100%;height:auto;overflow:visible !important;aspect-ratio:1130 / 670}
+.sc-pi-frame{display:block;overflow:visible;padding-inline:clamp(0px,2.5vw,12px)}
+@media (max-width:767.98px){
+  /* Keep the whole isometric readable: slightly taller touch target, no edge crop */
+  .sc-pi-frame{padding-inline:0}
+  .sc-pi > svg{min-height:13.5rem}
+}
 .sc-pi .th-dark{--bg:#0A0A0A;--panel:#0E1013;--pbd:#1D2025;--ink:#F3F3F1;--mute:#9097A1;--sf:#16191E;--st:#111317;--sl:#0D0F12;--sr:#0A0B0E;--bt:#1F232A;--bl:#171A1F;--br:#111317;--ln:#2C313A;--ln2:#4A515E;--grid:#1B1E24;--zone:#13161B;--road:#0C0D10;--win:#3B424E;--a:#3462FF;--at:#4570FF;--al:#2A4FE0;--ar:#1C38A8;--aln:#93A9FF;--azone:#121C42;--pp:#A7AEB8;--shd:rgba(0,0,0,.5);--tt:#22272E;--tl:#1A1E23;--tr:#14171B;--door:#0B0C0F;--card:#15171B;--cbd:#2A2E36;--crop:#1C2127;--bds:#2A2F37;--ban:#4A515E}
 .sc-pi .th-light{--bg:#F4F3EF;--panel:#FFFFFF;--pbd:#E4E2DC;--ink:#111111;--mute:#5E5C56;--sf:#FBFAF8;--st:#F1EFEA;--sl:#E6E3DD;--sr:#DAD7D0;--bt:#FFFFFF;--bl:#EFEDE8;--br:#E1DED7;--ln:#C4C0B7;--ln2:#8A867E;--grid:#F0EEE9;--zone:#F5F4F0;--road:#ECEAE5;--win:#BDB9B0;--a:#1F4BF5;--at:#4A6DFF;--al:#1F4BF5;--ar:#1739C2;--aln:#1F4BF5;--azone:#E8EDFF;--pp:#4C4A45;--shd:rgba(0,0,0,.12);--tt:#E7E5DF;--tl:#DAD7D0;--tr:#CECAC2;--door:#D2CEC6;--card:#FFFFFF;--cbd:#E4E2DC;--crop:#E4E2DA;--bds:#FFFFFF;--ban:#8A867E}
 .sc-pi .iso rect,.sc-pi .iso path,.sc-pi .iso line,.sc-pi .iso circle,.sc-pi .iso ellipse,.sc-pi .iso polygon{vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round;stroke-width:1}
@@ -161,7 +167,6 @@
 .sc-pi .ckp{fill:var(--card);stroke:var(--a);stroke-width:1.5 !important}
 .sc-pi .tok{fill:var(--a)}
 .sc-pi .tokh{fill:var(--a);opacity:.2}
-.sc-pi .tokm{animation:pi-journey 12s linear infinite}
 .sc-pi .dflow{animation:pi-dflow 1.8s linear infinite}
 .sc-pi .sig{fill:none;stroke:var(--a);animation:pi-pulse 2s ease-in-out infinite}
 .sc-pi .sig.d2{animation-delay:1s}
@@ -173,8 +178,11 @@
 @keyframes pi-dashrun{to{stroke-dashoffset:-22}}
 @keyframes pi-dflow{to{stroke-dashoffset:-12}}
 @keyframes pi-pulse{0%,100%{opacity:1}50%{opacity:.35}}
-@keyframes pi-journey{0%{opacity:0;transform:translate(95px,262px)}2.00%{opacity:1;transform:translate(95px,262px)}12.21%{opacity:1;transform:translate(179px,262px)}25.82%{opacity:1;transform:translate(179px,150px)}27.77%{opacity:1;transform:translate(185.2px,135.2px)}29.72%{opacity:1;transform:translate(200px,129px)}49.16%{opacity:1;transform:translate(360px,129px)}51.11%{opacity:1;transform:translate(374.8px,135.2px)}53.06%{opacity:1;transform:translate(381px,150px)}67.64%{opacity:1;transform:translate(381px,270px)}69.59%{opacity:1;transform:translate(374.8px,284.8px)}71.54%{opacity:1;transform:translate(360px,291px)}81.26%{opacity:1;transform:translate(280px,291px)}86.00%{opacity:1;transform:translate(280px,252px)}95%{opacity:1;transform:translate(280px,252px)}100%{opacity:0;transform:translate(280px,252px)}}
-@media (prefers-reduced-motion:reduce){.sc-pi .flow,.sc-pi .ring,.sc-pi .tokm,.sc-pi .dflow,.sc-pi .sig{animation:none}}
+@media (prefers-reduced-motion:reduce){
+  .sc-pi .flow,.sc-pi .ring,.sc-pi .dflow,.sc-pi .sig{animation:none}
+  .sc-pi .tokm animate,.sc-pi .tokm animateTransform{display:none}
+  .sc-pi .tokm{opacity:1;transform:translate(280px,252px)}
+}
 
 /* bi */
 .sc-bi{display:block}

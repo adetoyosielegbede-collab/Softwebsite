@@ -85,7 +85,7 @@ export default async function SolutionsPage() {
       <section className="border-t border-line bg-paper">
         <div className="container-site">
           <SectionHeader id="powering-initiatives" number={init.number} title={init.title} lead={init.lead} />
-        <div className="mx-auto mt-8 w-full max-w-[1000px] lg:mt-10">
+        <div className="sc-pi-frame mx-auto mt-8 w-full max-w-[1000px] lg:mt-10">
           <SolutionArt id="field" palette="light" />
         </div>
 
