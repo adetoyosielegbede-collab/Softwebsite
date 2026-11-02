@@ -55,13 +55,18 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
       if (!media.matches) {
         scroller.style.transform = "";
         outer.style.height = "";
+        outer.style.marginTop = "";
+        stage.style.top = "";
         if (cover) cover.style.display = "none";
         return;
       }
       const distance = Math.max(0, scroller.scrollWidth - stage.clientWidth);
+      // Sit the cards fully on screen. The extra margin lets the lead leave before they lock.
+      const inset = Math.min(96, Math.max(48, Math.round((window.innerHeight - stage.offsetHeight) / 2)));
+      stage.style.top = `${inset}px`;
+      outer.style.marginTop = `${inset + 40}px`;
       outer.style.height = `${stage.offsetHeight + distance}px`;
-      const stickyTop = parseFloat(getComputedStyle(stage).top) || 0;
-      const progress = Math.max(0, Math.min(1, (stickyTop - outer.getBoundingClientRect().top) / Math.max(1, distance)));
+      const progress = Math.max(0, Math.min(1, (inset - outer.getBoundingClientRect().top) / Math.max(1, distance)));
       scroller.style.transform = `translate3d(${(-distance * progress).toFixed(2)}px,0,0)`;
       if (cover) {
         const bottom = stage.getBoundingClientRect().bottom;
