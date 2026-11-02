@@ -23,7 +23,7 @@ export function LineReveal({
   const ref = useRef<HTMLHeadingElement | HTMLParagraphElement>(null);
   const [lines, setLines] = useState<string[] | null>(null);
   const [shown, setShown] = useState(false);
-  const words = children.split(/\s+/);
+  const rows = children.split("\n").map((row) => row.trim().split(/\s+/).filter(Boolean));
 
   useEffect(() => {
     const el = ref.current;
@@ -76,15 +76,19 @@ export function LineReveal({
   return (
     <Tag ref={ref} className={className}>
       {!lines ? (
-        words.map((word, index) => (
-          <span key={`${word}-${index}`}>
-            <span data-word="">{word}</span>
-            {index < words.length - 1 ? " " : null}
+        rows.map((words, rowIndex) => (
+          <span key={`row-${rowIndex}`} className="block">
+            {words.map((word, index) => (
+              <span key={`${word}-${index}`}>
+                <span data-word="">{word}</span>
+                {index < words.length - 1 ? " " : null}
+              </span>
+            ))}
           </span>
         ))
       ) : (
         <>
-          <span className="sr-only">{children}</span>
+          <span className="sr-only">{children.replace(/\n/g, " ")}</span>
           {lines.map((line, index) => (
             <span key={`${index}-${line}`} aria-hidden className="block overflow-hidden pb-[0.12em]">
               <span
