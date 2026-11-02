@@ -15,6 +15,7 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
   const track = useRef<HTMLDivElement>(null);
   const row = useRef<HTMLDivElement>(null);
   const lead = useRef<HTMLDivElement>(null);
+  const veil = useRef<HTMLDivElement>(null);
   const swiped = useSwipeHint(row);
   useEqualHeights(row, "[data-rail-art]");
 
@@ -50,17 +51,24 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
       const scroller = row.current;
       const stage = scroller?.parentElement;
       if (!outer || !scroller || !stage) return;
+      const cover = veil.current;
       if (!media.matches) {
         scroller.style.transform = "";
         outer.style.height = "";
+        if (cover) cover.style.display = "none";
         return;
       }
       const distance = Math.max(0, scroller.scrollWidth - stage.clientWidth);
-      // The stage fills the screen, so the next section cannot rise until the row has finished sliding.
       outer.style.height = `${stage.offsetHeight + distance}px`;
       const stickyTop = parseFloat(getComputedStyle(stage).top) || 0;
       const progress = Math.max(0, Math.min(1, (stickyTop - outer.getBoundingClientRect().top) / Math.max(1, distance)));
       scroller.style.transform = `translate3d(${(-distance * progress).toFixed(2)}px,0,0)`;
+      if (cover) {
+        const bottom = stage.getBoundingClientRect().bottom;
+        const pinned = progress > 0 && progress < 1 && bottom < window.innerHeight - 8;
+        cover.style.display = pinned ? "block" : "none";
+        cover.style.top = `${Math.max(0, bottom)}px`;
+      }
     };
     update();
     window.addEventListener("scroll", update, { passive: true });
@@ -78,7 +86,7 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
       <div className="container-site mb-4 flex justify-end lg:hidden">
         <SwipeCue hidden={swiped} />
       </div>
-      <div className="lg:motion-safe:sticky lg:motion-safe:top-0 lg:motion-safe:flex lg:motion-safe:h-svh lg:motion-safe:items-start lg:motion-safe:overflow-hidden lg:motion-safe:bg-surface lg:motion-safe:pt-8">
+      <div className="lg:motion-safe:sticky lg:motion-safe:top-0 lg:motion-safe:z-10 lg:motion-safe:overflow-hidden lg:motion-safe:bg-surface">
         <div
           ref={row}
           className="flex snap-x snap-mandatory items-stretch gap-2.5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:px-8 lg:px-10 [&::-webkit-scrollbar]:hidden lg:motion-safe:w-max lg:motion-safe:snap-none lg:motion-safe:overflow-visible lg:motion-safe:pb-0"
@@ -104,6 +112,8 @@ export function IntelligenceRail({ eyebrow, intro, items }: { eyebrow: string; i
           ))}
         </div>
       </div>
+      {/* Covers the screen below the cards until the row finishes, without pushing the next section down. */}
+      <div ref={veil} aria-hidden className="pointer-events-none fixed inset-x-0 bottom-0 z-20 hidden bg-surface" />
     </div>
   );
 }
