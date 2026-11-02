@@ -199,10 +199,12 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
       {product.closePair?.panels.length ? (
         <section className="border-t border-line">
           <div className="container-site py-16 md:py-24 lg:py-28">
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid gap-4 md:grid-cols-2 md:items-stretch">
               {product.closePair.panels.map((panel) => (
-                <article key={panel.title} className="flex flex-col rounded-3xl bg-surface p-6 lg:p-8">
-                  <h2 className="text-headline max-w-[16ch] text-balance">{panel.title}</h2>
+                <article key={panel.title} className="flex h-full flex-col rounded-3xl bg-surface p-6 lg:p-8">
+                  <h2 className="text-title flex min-h-[calc(2*1.15em)] max-w-[20ch] items-end text-balance leading-[1.15]">
+                    {panel.title}
+                  </h2>
                   <p className="text-body mt-5 flex-1 leading-[1.45] text-ink-soft">{panel.text}</p>
                 </article>
               ))}
