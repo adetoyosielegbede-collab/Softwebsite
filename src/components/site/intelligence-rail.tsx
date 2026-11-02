@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 import type { SolutionsContent } from "@/lib/content-types";
+import { PillLink } from "./links";
 import { SolutionArt, type SolutionArtId } from "./solution-art";
 import { SwipeCue } from "./swipe-cue";
 import { useEqualHeights, useSwipeHint } from "./swipe-rail";
@@ -11,7 +12,21 @@ type Item = SolutionsContent["intelligence"]["items"][number];
 const ARTS: SolutionArtId[] = ["audit", "financial", "market", "regulatory", "societal"];
 
 /** Intro panel and five intelligence cards. Large screens pin the section, then slide the row sideways. */
-export function IntelligenceRail({ header, eyebrow, intro, items }: { header?: ReactNode; eyebrow: string; intro: string; items: Item[] }) {
+export function IntelligenceRail({
+  header,
+  eyebrow,
+  intro,
+  items,
+  ctaLabel,
+  ctaHref,
+}: {
+  header?: ReactNode;
+  eyebrow: string;
+  intro: string;
+  items: Item[];
+  ctaLabel?: string;
+  ctaHref?: string;
+}) {
   const track = useRef<HTMLDivElement>(null);
   const clip = useRef<HTMLDivElement>(null);
   const row = useRef<HTMLDivElement>(null);
@@ -109,9 +124,17 @@ export function IntelligenceRail({ header, eyebrow, intro, items }: { header?: R
             ref={row}
             className="flex snap-x snap-mandatory items-stretch gap-2.5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:px-8 lg:px-10 [&::-webkit-scrollbar]:hidden lg:motion-safe:w-max lg:motion-safe:snap-none lg:motion-safe:overflow-visible lg:motion-safe:pb-0"
           >
-          <div ref={lead} className="flex w-[82vw] shrink-0 snap-start flex-col justify-end gap-6 rounded-3xl p-2 sm:w-[420px] lg:w-[460px] lg:p-8">
+          <div
+            ref={lead}
+            className="flex w-[82vw] shrink-0 snap-start flex-col justify-end gap-5 rounded-3xl p-2 sm:w-[420px] lg:w-[460px] lg:justify-center lg:gap-6 lg:p-8 lg:pb-16"
+          >
             <span className="label">{eyebrow} →</span>
             <p className="text-xl leading-[1.4] text-ink lg:text-2xl">{intro}</p>
+            {ctaLabel && ctaHref ? (
+              <div className="pt-1">
+                <PillLink href={ctaHref}>{ctaLabel}</PillLink>
+              </div>
+            ) : null}
           </div>
           {items.map((item, i) => (
             <article

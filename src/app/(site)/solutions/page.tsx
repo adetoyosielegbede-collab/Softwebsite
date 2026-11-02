@@ -79,6 +79,8 @@ export default async function SolutionsPage() {
           eyebrow={intel.eyebrow}
           intro={intel.intro}
           items={intel.items}
+          ctaLabel={intel.ctaLabel}
+          ctaHref={intel.ctaHref}
         />
       </section>
 
