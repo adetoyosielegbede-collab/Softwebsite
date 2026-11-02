@@ -5,6 +5,7 @@ import { ArrowDown, ArrowUp, ImagePlus, Loader2, Plus, Trash2 } from "lucide-rea
 import { toast } from "sonner";
 import { saveContent, uploadImage } from "@/lib/cms/client";
 import { humanize, isImageValue } from "@/lib/cms/paths";
+import { POST_TITLE_MAX, assertPostTitleLimit, isPostTitlePath } from "@/lib/cms/validation";
 import { FIELD_OPTIONS, FONT_FAMILIES, type FontFamilyName } from "@/lib/typography";
 import { cn } from "@/lib/utils";
 
@@ -94,7 +95,9 @@ function Field({
   }
 
   if (typeof value === "string") {
-    const long = value.length > 90 || value.includes("\n");
+    const postTitle = file === "posts" && isPostTitlePath(path);
+    const long = !postTitle && (value.length > 90 || value.includes("\n"));
+    const overLimit = postTitle && value.length > POST_TITLE_MAX;
     const input = long ? (
       <textarea
         value={value}
@@ -105,14 +108,28 @@ function Field({
     ) : (
       <input
         value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="h-10 w-full rounded-xl border border-line bg-paper px-3 text-sm outline-none focus:border-signal"
+        maxLength={postTitle ? POST_TITLE_MAX : undefined}
+        onChange={(e) => onChange(postTitle ? e.target.value.slice(0, POST_TITLE_MAX) : e.target.value)}
+        className={cn(
+          "h-10 w-full rounded-xl border bg-paper px-3 text-sm outline-none focus:border-signal",
+          overLimit ? "border-signal" : "border-line",
+        )}
       />
     );
     return (
       <label className="block">
-        <span className="mb-1.5 block text-xs text-ink-soft">{label}</span>
+        <span className="mb-1.5 flex items-baseline justify-between gap-3 text-xs text-ink-soft">
+          <span>{label}</span>
+          {postTitle ? (
+            <span className={cn("font-mono tabular-nums", overLimit ? "text-signal" : "text-ink-faint")}>
+              {value.length}/{POST_TITLE_MAX}
+            </span>
+          ) : null}
+        </span>
         {input}
+        {postTitle ? (
+          <span className="mt-1.5 block text-xs text-ink-faint">Homepage featured titles stay within {POST_TITLE_MAX} characters.</span>
+        ) : null}
       </label>
     );
   }
@@ -351,6 +368,7 @@ export function ContentEditor({ file, data, focusPath, onSaved }: Props) {
   async function save() {
     setSaving(true);
     try {
+      if (file === "posts") assertPostTitleLimit(draft);
       await saveContent(file, draft);
       onSaved(draft);
       toast.success("Saved", { description: "The live site has been updated." });

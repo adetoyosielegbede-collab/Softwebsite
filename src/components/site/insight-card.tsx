@@ -48,7 +48,7 @@ export function InsightCard({
           </span>
         ) : null}
       </ColorReveal>
-      <div className={cn(!featured && !lead && "@container mt-4", lead && "flex flex-col gap-6")}>
+      <div className={cn("@container", !featured && !lead && "mt-4", lead && "flex flex-col gap-6")}>
         <div
           className={`label flex items-start justify-between gap-4 ${lead ? "text-ink" : "text-ink-soft"}`}
         >
@@ -59,8 +59,12 @@ export function InsightCard({
         </div>
         {lead ? (
           <div className="flex flex-col gap-2.5">
-            <h3 className="text-title transition-colors group-hover:text-accent-ink">{post.title}</h3>
-            <p className="text-body text-ink-soft">{post.excerpt}</p>
+            <h3 className="heading-type text-balance text-[clamp(1.125rem,5.2cqw,1.625rem)] leading-[1.15] transition-colors group-hover:text-accent-ink md:flex md:min-h-[calc(2*1.15em)] md:items-end md:text-[clamp(1.25rem,3.4cqw,1.625rem)]">
+              {post.title}
+            </h3>
+            <p className="text-[clamp(0.8125rem,3.2cqw,1rem)] leading-[1.35] font-[var(--body-weight,400)] [font-style:var(--body-style,normal)] text-ink-soft md:line-clamp-3 md:min-h-[calc(3*1.35em)]">
+              {post.excerpt}
+            </p>
           </div>
         ) : (
           <>

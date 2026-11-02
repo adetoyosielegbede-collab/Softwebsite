@@ -1,6 +1,7 @@
 import { errorResponse, revalidateSite, unauthorized } from "@/lib/cms/api";
 import { isContentFile } from "@/lib/cms/registry";
 import { readEditableContent, writeContent } from "@/lib/cms/storage";
+import { assertPostTitleLimit } from "@/lib/cms/validation";
 
 const FEATURED_LIMIT = 2;
 
@@ -38,7 +39,10 @@ export async function PUT(request: Request) {
   try {
     const data = await request.json();
     if (!data || typeof data !== "object") throw new Error("Content must be a JSON object");
-    if (id === "posts") assertFeaturedLimit(data);
+    if (id === "posts") {
+      assertFeaturedLimit(data);
+      assertPostTitleLimit(data);
+    }
     await writeContent(id, data);
     revalidateSite();
     return Response.json({ ok: true });
