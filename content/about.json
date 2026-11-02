@@ -166,8 +166,13 @@
     ]
   },
   "buildWithUs": {
+<<<<<<< HEAD
     "title": "Built by exceptional people",
     "text": "Softcom has been shaped by people who think independently, take ownership and bring different strengths to difficult work. Join peers who challenge your thinking, complement your expertise and raise the standard of what you can achieve together.",
+=======
+    "title": "Built by exceptional\npeople",
+    "text": "Bring original thinking, an innovator’s mindset and a strong sense of ownership. Work alongside exceptional peers whose expertise complements yours and expands what you can achieve.",
+>>>>>>> 80fef24 (Polish About navigation, section breaks, and alumni CTA.)
     "primaryLabel": "Explore careers at Softcom",
     "primaryHref": "/careers",
     "secondaryLabel": "Explore our alumni community",

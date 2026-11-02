@@ -22,6 +22,10 @@
       "href": "/about",
       "links": [
         {
+          "label": "About Softcom",
+          "href": "/about"
+        },
+        {
           "label": "Leadership",
           "href": "/about#leadership"
         },

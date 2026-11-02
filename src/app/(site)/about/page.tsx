@@ -4,7 +4,7 @@ import { CmsImage } from "@/components/cms/cms-image";
 import { ColorReveal } from "@/components/site/color-reveal";
 import { ArrowLink, PillLink } from "@/components/site/links";
 import { LineReveal } from "@/components/site/line-reveal";
-import { CtaBanner, PageHero } from "@/components/site/sections";
+import { CtaBanner, FrameMarks, PageHero } from "@/components/site/sections";
 import { getContent, getPublishedPosts } from "@/lib/content";
 import { formatMonthYear } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -102,34 +102,37 @@ export default async function AboutPage() {
         </ol>
       </section>
 
-      <section className="container-site pt-24 lg:pt-24">
-        <h2 id="leadership" className="text-headline mb-12 scroll-mt-24 md:mb-20" data-reveal>
-          {leadership.title}
-        </h2>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {leadership.people.map((person, i) => (
-            <figure
-              key={person.name}
-              className="group relative flex aspect-[335/471] flex-col justify-end overflow-clip rounded-2xl bg-neutral-900"
-              data-reveal
-              style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
-            >
-              <ColorReveal className="absolute inset-0">
-                <CmsImage
-                  image={person.photo}
-                  file="about"
-                  path={`leadership.people.${i}.photo`}
-                  sizes="(min-width: 1024px) 420px, 50vw"
-                  className="object-center"
-                  emptyClassName="absolute inset-0"
-                />
-              </ColorReveal>
-              <figcaption className="leader-plate dark relative z-10 flex w-full flex-col gap-1 rounded-md bg-brand p-3">
-                <p className="font-heading text-xl leading-none heading-type text-ink">{person.name}</p>
-                <p className="font-heading text-base leading-[1.2] heading-type text-signal">{person.role}</p>
-              </figcaption>
-            </figure>
-          ))}
+      <section className="flex flex-col gap-8 pt-24 lg:pt-24">
+        <FrameMarks />
+        <div className="container-site">
+          <h2 id="leadership" className="text-headline mb-12 scroll-mt-24 md:mb-20" data-reveal>
+            {leadership.title}
+          </h2>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {leadership.people.map((person, i) => (
+              <figure
+                key={person.name}
+                className="group relative flex aspect-[335/471] flex-col justify-end overflow-clip rounded-2xl bg-neutral-900"
+                data-reveal
+                style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
+              >
+                <ColorReveal className="absolute inset-0">
+                  <CmsImage
+                    image={person.photo}
+                    file="about"
+                    path={`leadership.people.${i}.photo`}
+                    sizes="(min-width: 1024px) 420px, 50vw"
+                    className="object-center"
+                    emptyClassName="absolute inset-0"
+                  />
+                </ColorReveal>
+                <figcaption className="leader-plate dark relative z-10 flex w-full flex-col gap-1 rounded-md bg-brand p-3">
+                  <p className="font-heading text-xl leading-none heading-type text-ink">{person.name}</p>
+                  <p className="font-heading text-base leading-[1.2] heading-type text-signal">{person.role}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -156,32 +159,35 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section className="container-site pt-24 lg:pt-24">
-        <div className="mb-10 grid items-start gap-6 md:grid-cols-12">
-          <div className="md:col-span-7">
-            <p className="label mb-5 text-ink-soft">{news.eyebrow}</p>
-            <h2 className="text-headline">{news.title}</h2>
+      <section className="flex flex-col gap-8 pt-24 lg:pt-24">
+        <FrameMarks />
+        <div className="container-site">
+          <div className="mb-10 grid items-start gap-6 md:grid-cols-12">
+            <div className="md:col-span-7">
+              <p className="label mb-5 text-ink-soft">{news.eyebrow}</p>
+              <h2 className="text-headline">{news.title}</h2>
+            </div>
+            {news.text ? <p className="text-body max-w-md text-ink-soft md:col-span-4 md:col-start-9">{news.text}</p> : null}
           </div>
-          {news.text ? <p className="text-body max-w-md text-ink-soft md:col-span-4 md:col-start-9">{news.text}</p> : null}
-        </div>
-        <ul className="border-t border-line">
-          {posts.slice(0, 5).map((post) => (
-            <li key={post.slug}>
-              <Link
-                href={`/insights/${post.slug}`}
-                className="grid gap-2 border-b border-line py-5 transition-colors hover:text-accent-ink md:grid-cols-12 md:items-center"
-              >
-                <span className="font-heading text-lg heading-type md:col-span-7 lg:text-xl">{post.title}</span>
-                <span className="text-sm text-ink-soft md:col-span-2 md:col-start-9">{post.category}</span>
-                <time dateTime={post.date} className="text-sm whitespace-nowrap text-ink-soft md:col-span-2 md:text-right">
-                  {formatMonthYear(post.date)}
-                </time>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-6">
-          <ArrowLink href={news.ctaHref}>{news.ctaLabel}</ArrowLink>
+          <ul className="border-t border-line">
+            {posts.slice(0, 5).map((post) => (
+              <li key={post.slug}>
+                <Link
+                  href={`/insights/${post.slug}`}
+                  className="grid gap-2 border-b border-line py-5 transition-colors hover:text-accent-ink md:grid-cols-12 md:items-center"
+                >
+                  <span className="font-heading text-lg heading-type md:col-span-7 lg:text-xl">{post.title}</span>
+                  <span className="text-sm text-ink-soft md:col-span-2 md:col-start-9">{post.category}</span>
+                  <time dateTime={post.date} className="text-sm whitespace-nowrap text-ink-soft md:col-span-2 md:text-right">
+                    {formatMonthYear(post.date)}
+                  </time>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6">
+            <ArrowLink href={news.ctaHref}>{news.ctaLabel}</ArrowLink>
+          </div>
         </div>
       </section>
 
