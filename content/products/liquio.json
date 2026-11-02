@@ -96,19 +96,24 @@
         }
       ],
       "figures": []
-    },
-    {
-      "number": "",
-      "title": "A foundation your institution can build on.",
-      "text": "Liquio’s open-source Community Edition, documentation and training options support institutions that want to retain the ability to develop and maintain their services with their chosen teams.",
-      "points": [],
-      "figures": []
     }
   ],
+  "closePair": {
+    "panels": [
+      {
+        "title": "A foundation your institution can build on.",
+        "text": "Liquio’s open-source Community Edition, documentation and training options support institutions that want to retain the ability to develop and maintain their services with their chosen teams."
+      },
+      {
+        "title": "Which public service should work better?",
+        "text": "For ministries, departments, agencies and governments developing individual services or a shared digital-service platform."
+      }
+    ]
+  },
   "audience": {
-    "eyebrow": "Who it is for",
-    "title": "Which public service should work better?",
-    "text": "For ministries, departments, agencies and governments developing individual services or a shared digital-service platform.",
+    "eyebrow": "",
+    "title": "",
+    "text": "",
     "closing": "Tell us what your institution needs to deliver and the systems it must work with.",
     "ctaLabel": "Explore Liquio with Softcom",
     "ctaHref": "/contact"

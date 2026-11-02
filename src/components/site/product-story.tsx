@@ -1,4 +1,5 @@
 import { CmsImage } from "@/components/cms/cms-image";
+import { DeliverTimeline } from "@/components/site/deliver-timeline";
 import { ArrowLink, PillLink } from "@/components/site/links";
 import { isPartnerDiagram } from "@/components/site/partner-diagram-ids";
 import { PartnerDiagram } from "@/components/site/partner-diagrams";
@@ -196,7 +197,25 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
         })}
       </div>
 
-      {product.audience.title && (
+      {product.closePair?.panels.length ? (
+        <section className="border-t border-line">
+          <div className="container-site py-16 md:py-24 lg:py-28">
+            <div className="rounded-3xl bg-brand p-6 text-white sm:p-10">
+              <DeliverTimeline phases={product.closePair.panels} />
+              {(product.audience.closing || product.audience.ctaLabel) && (
+                <div className="mt-12 flex flex-col gap-6 border-t border-white/25 pt-8 sm:flex-row sm:items-center sm:justify-between">
+                  {product.audience.closing ? <p className="text-title max-w-xl">{product.audience.closing}</p> : <span />}
+                  {product.audience.ctaLabel ? (
+                    <PillLink href={product.audience.ctaHref ?? "/contact"} className="bg-white text-black hover:bg-signal">
+                      {product.audience.ctaLabel}
+                    </PillLink>
+                  ) : null}
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      ) : product.audience.title ? (
         <section className="border-t border-line">
           <div className="container-site py-16 md:py-24 lg:py-28">
             {product.audience.eyebrow ? <p className="label text-ink-soft">{product.audience.eyebrow}</p> : null}
@@ -214,7 +233,7 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
             ) : null}
           </div>
         </section>
-      )}
+      ) : null}
 
       {product.references?.links.length ? (
         <section className="border-t border-line">

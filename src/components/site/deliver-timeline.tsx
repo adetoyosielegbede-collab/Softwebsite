@@ -57,7 +57,14 @@ export function DeliverTimeline({ phases }: { phases: Phase[] }) {
   }, [phases.length]);
 
   return (
-    <ol ref={ref} className="relative mt-12 grid gap-12 lg:grid-cols-4 lg:gap-x-10">
+    <ol
+      ref={ref}
+      className={
+        phases.length <= 2
+          ? "relative mt-12 grid gap-12 lg:grid-cols-2 lg:gap-x-16"
+          : "relative mt-12 grid gap-12 lg:grid-cols-4 lg:gap-x-10"
+      }
+    >
       <span aria-hidden className="absolute top-0 bottom-0 left-2.5 w-px bg-white/25 lg:top-0 lg:right-0 lg:bottom-auto lg:left-0 lg:h-px lg:w-auto" />
       <span aria-hidden data-line-y="" className="absolute top-0 bottom-0 left-2.5 w-px origin-top bg-white lg:hidden" style={{ transform: "scaleY(0)" }} />
       <span aria-hidden data-line-x="" className="absolute top-0 right-0 left-0 hidden h-px origin-left bg-white lg:block" style={{ transform: "scaleX(0)" }} />
@@ -68,7 +75,7 @@ export function DeliverTimeline({ phases }: { phases: Phase[] }) {
           </span>
           <div data-phase-body="" className="flex flex-col gap-3" style={{ opacity: 0.25 }}>
             <span className="font-heading text-5xl leading-none heading-type tabular-nums">{String(index + 1).padStart(2, "0")}</span>
-            <h4 className="text-lg font-medium">{phase.title}</h4>
+            <h4 className={phases.length <= 2 ? "text-headline max-w-[16ch]" : "text-lg font-medium"}>{phase.title}</h4>
             <p className="text-body text-white/80">{phase.text}</p>
           </div>
         </li>
