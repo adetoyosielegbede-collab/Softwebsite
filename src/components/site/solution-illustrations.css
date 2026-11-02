@@ -265,4 +265,16 @@
 .sc-di .pd-step-card.on p{color:var(--mute)}
 .sc-di .pd-arrow{display:none;width:28px;height:16px;align-self:center;margin-top:28px;overflow:visible}
 @media (min-width:1024px){.sc-di .pd-arrow{display:block}}
+.sc-di .pd-network{margin:0 auto;width:100%;max-width:52rem}
+.sc-di .pd-network-row{display:grid;gap:12px}
+@media (min-width:1024px){.sc-di .pd-network-row{grid-template-columns:1fr auto 1.15fr auto 1fr;align-items:stretch;gap:10px}}
+.sc-di .pd-network-card{flex-direction:column;align-items:flex-start;justify-content:flex-start;min-height:0;padding:16px 16px 14px;text-align:left}
+.sc-di .pd-network-card p{margin:10px 0 0;font-size:13px;font-weight:400;line-height:1.45;color:var(--mute)}
+.sc-di .pd-network-hub{margin:0;height:100%}
+.sc-di .pd-network-arrow{display:none}
+@media (min-width:1024px){.sc-di .pd-network-arrow{display:block;align-self:center;margin-top:0}}
+.sc-di .pd-network-stem{display:block;width:40px;height:36px;margin:8px auto 0;overflow:visible}
+.sc-di .pd-network-funds{max-width:22rem;margin:0 auto}
+@media (min-width:640px){.sc-di .pd-settlement{grid-template-columns:1fr}}
+@media (min-width:1024px){.sc-di .pd-settlement{grid-template-columns:1fr auto 1fr auto 1fr}}
 @media (prefers-reduced-motion:reduce){.sc-di .pd-flow{animation:none}}

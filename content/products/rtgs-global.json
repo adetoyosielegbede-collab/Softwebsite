@@ -29,8 +29,9 @@
           "label": "RTGS.global / 01",
           "title": "Connect payment operations to shared settlement infrastructure.",
           "caption": "A conceptual view of participating institutions, the network and Funds Controllers.",
+          "diagram": "rtgs-network",
           "image": {
-            "src": "/media/rtgs/figure-01.png",
+            "src": "",
             "alt": "Conceptual network diagram connecting institutions through RTGS.global and Funds Controllers"
           },
           "source": "Concept illustration · Softcom"
@@ -67,8 +68,9 @@
           "label": "RTGS.global / 02",
           "title": "Two payment instructions. One linked FX settlement.",
           "caption": "Payment-versus-payment settlement after counterparties have agreed a trade.",
+          "diagram": "rtgs-settlement",
           "image": {
-            "src": "/media/rtgs/figure-02.png",
+            "src": "",
             "alt": "Three-step flow from agreeing a trade to linking instructions and confirming settlement"
           },
           "source": "Concept illustration · Softcom"
@@ -96,11 +98,23 @@
       "figures": []
     }
   ],
+  "closePair": {
+    "panels": [
+      {
+        "title": "For institutions moving value across borders.",
+        "text": "For banks and other eligible regulated financial institutions seeking to develop cross-border payment and settlement capabilities. Available currencies, corridors and services depend on network participation, counterparties and applicable requirements."
+      },
+      {
+        "title": "Connect your institution to the opportunity.",
+        "text": "Tell us where you need to move value and how your institution operates today."
+      }
+    ]
+  },
   "audience": {
-    "eyebrow": "Who it is for",
-    "title": "For institutions moving value across borders.",
-    "text": "For banks and other eligible regulated financial institutions seeking to develop cross-border payment and settlement capabilities. Available currencies, corridors and services depend on network participation, counterparties and applicable requirements.",
-    "closing": "Tell us where you need to move value and how your institution operates today.",
+    "eyebrow": "",
+    "title": "",
+    "text": "",
+    "closing": "",
     "ctaLabel": "Discuss an implementation",
     "ctaHref": "/contact"
   },

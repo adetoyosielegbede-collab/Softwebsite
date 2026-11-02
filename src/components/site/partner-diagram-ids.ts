@@ -1,4 +1,4 @@
-export const PARTNER_DIAGRAM_IDS = ["liquio-foundation", "liquio-journey"] as const;
+export const PARTNER_DIAGRAM_IDS = ["liquio-foundation", "liquio-journey", "rtgs-network", "rtgs-settlement"] as const;
 
 export type PartnerDiagramId = (typeof PARTNER_DIAGRAM_IDS)[number];
 
