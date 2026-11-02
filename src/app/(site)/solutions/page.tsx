@@ -48,6 +48,18 @@ export default async function SolutionsPage() {
         <div className="container-site">
           <SectionHeader id="digital-infrastructure" number={infra.number} title={infra.title} lead={infra.lead} />
           <DigitalInfrastructureBoard heading={infra.subTitle} intro={infra.subText} steps={infra.steps} />
+          <div className="mx-auto mt-16 grid w-full max-w-[80%] gap-4 md:grid-cols-2 lg:mt-20">
+            {infra.cards.map((card, index) => (
+              <article key={card.title} className="@container flex flex-col rounded-3xl bg-surface p-6 lg:p-8" data-reveal>
+                <div className="mx-auto mb-8 flex aspect-[298/185] w-[60%] items-end">
+                  <SolutionArt id={index === 0 ? "build" : "rails"} palette="light" className="w-full" />
+                </div>
+                <p className="eyebrow">{card.eyebrow}</p>
+                <h3 className="mt-4 font-heading text-[clamp(1.125rem,4.6cqw,1.75rem)] leading-none whitespace-nowrap heading-type">{card.title}</h3>
+                <p className="text-body mt-5 text-ink-soft">{card.text}</p>
+              </article>
+            ))}
+          </div>
           <p className="text-title mx-auto mt-8 max-w-2xl text-center lg:mt-10" data-reveal>
             {infra.statement}
           </p>
@@ -75,19 +87,6 @@ export default async function SolutionsPage() {
           <SectionHeader id="powering-initiatives" number={init.number} title={init.title} lead={init.lead} />
         <div className="mx-auto mt-8 w-full max-w-[1000px] lg:mt-10">
           <SolutionArt id="field" palette="light" />
-        </div>
-
-        <div className="mx-auto mt-16 grid w-full max-w-[80%] gap-4 md:grid-cols-2 lg:mt-20">
-          {infra.cards.map((card, index) => (
-            <article key={card.title} className="@container flex flex-col rounded-3xl bg-surface p-6 lg:p-8" data-reveal>
-              <div className="mx-auto mb-8 flex aspect-[298/185] w-[60%] items-end">
-                <SolutionArt id={index === 0 ? "build" : "rails"} palette="light" className="w-full" />
-              </div>
-              <p className="eyebrow">{card.eyebrow}</p>
-              <h3 className="mt-4 font-heading text-[clamp(1.125rem,4.6cqw,1.75rem)] leading-none whitespace-nowrap heading-type">{card.title}</h3>
-              <p className="text-body mt-5 text-ink-soft">{card.text}</p>
-            </article>
-          ))}
         </div>
 
         <div className="mt-20 rounded-3xl bg-brand p-6 text-white sm:p-10" data-reveal>
