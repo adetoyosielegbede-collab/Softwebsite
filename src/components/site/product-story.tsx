@@ -128,72 +128,88 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
 
   return (
     <>
-      <section className="container-site pt-28 pb-4 md:pt-36">
-        {hero.logo?.src ? (
-          <CmsImage
-            image={hero.logo}
-            file={file}
-            path="hero.logo"
-            fluid
-            className={cn(
-              "mb-6 w-auto",
-              hero.logo.src.includes("useforms-logo") ? "h-8" : "h-14",
-              (/\/(sentinel|reckon)-logo\.png$/.test(hero.logo.src) ||
-                hero.logo.src.includes("useforms-logo-white")) &&
-                "light:brightness-0",
-            )}
-          />
-        ) : null}
-        {hero.eyebrow ? <p className="label text-ink-soft">{hero.eyebrow}</p> : null}
-        <h1
+      <section className="container-site pt-28 pb-10 md:pt-36 md:pb-14">
+        <div
           className={cn(
-            "text-display max-w-4xl whitespace-pre-line text-balance",
-            hero.eyebrow ? "mt-5" : hero.logo?.src ? "mt-0" : null,
+            heroFigures.length > 0 && "grid items-center gap-10 lg:grid-cols-12 lg:gap-x-14",
           )}
         >
-          {hero.title}
-        </h1>
-        <div className="mt-6 flex max-w-xl flex-col gap-4">
-          {hero.text ? <p className="text-lede leading-[1.45] text-ink-soft">{hero.text}</p> : null}
-          {product.overview.map((paragraph) => (
-            <p key={paragraph} className="text-lede leading-[1.45] text-ink-soft">
-              {paragraph}
-            </p>
-          ))}
-        </div>
-        {(hero.primaryLabel || hero.secondaryLabel) && (
-          <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
-            {hero.primaryLabel ? <PillLink href={hero.primaryHref}>{hero.primaryLabel}</PillLink> : null}
-            {hero.secondaryLabel ? <ArrowLink href={hero.secondaryHref}>{hero.secondaryLabel}</ArrowLink> : null}
+          <div className={cn(heroFigures.length > 0 && "lg:col-span-5")}>
+            {hero.logo?.src ? (
+              <CmsImage
+                image={hero.logo}
+                file={file}
+                path="hero.logo"
+                fluid
+                className={cn(
+                  "mb-6 w-auto",
+                  hero.logo.src.includes("useforms-logo") ? "h-8" : "h-14",
+                  (/\/(sentinel|reckon)-logo\.png$/.test(hero.logo.src) ||
+                    hero.logo.src.includes("useforms-logo-white")) &&
+                    "light:brightness-0",
+                )}
+              />
+            ) : null}
+            {hero.eyebrow ? <p className="label text-ink-soft">{hero.eyebrow}</p> : null}
+            <h1
+              className={cn(
+                "text-display max-w-4xl whitespace-pre-line text-balance",
+                hero.eyebrow ? "mt-5" : hero.logo?.src ? "mt-0" : null,
+              )}
+            >
+              {hero.title}
+            </h1>
+            <div className="mt-6 flex max-w-xl flex-col gap-4">
+              {hero.text ? <p className="text-lede leading-[1.45] text-ink-soft">{hero.text}</p> : null}
+              {product.overview.map((paragraph) => (
+                <p key={paragraph} className="text-lede leading-[1.45] text-ink-soft">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+            {(hero.primaryLabel || hero.secondaryLabel) && (
+              <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
+                {hero.primaryLabel ? <PillLink href={hero.primaryHref}>{hero.primaryLabel}</PillLink> : null}
+                {hero.secondaryLabel ? <ArrowLink href={hero.secondaryHref}>{hero.secondaryLabel}</ArrowLink> : null}
+              </div>
+            )}
           </div>
-        )}
-      </section>
-
-      {heroFigures.length > 0 && (
-        <div className="container-site flex flex-col gap-12 pt-10 pb-6 lg:pt-14">
-          {heroFigures.map((fig, f) => (
-            <FigurePlate
-              key={fig.label}
-              fig={fig}
-              file={file}
-              path={`blocks.${heroBlock}.figures.${f}.image`}
-              priority={f === 0}
-            />
-          ))}
+          {heroFigures.length > 0 ? (
+            <div className="flex flex-col gap-10 lg:col-span-7">
+              {heroFigures.map((fig, f) => (
+                <FigurePlate
+                  key={fig.label}
+                  fig={fig}
+                  file={file}
+                  path={`blocks.${heroBlock}.figures.${f}.image`}
+                  priority={f === 0}
+                />
+              ))}
+            </div>
+          ) : null}
         </div>
-      )}
+      </section>
 
       <div id="overview" className="scroll-mt-24">
         {product.blocks.map((block, b) => {
           if (!block.title) return null;
-          const beside = block.figures[0] && isScreen(block.figures[0]) ? block.figures[0] : null;
+          const split = block.layout === "split" || block.layout === "split-reverse";
+          const reverse = block.layout === "split-reverse";
+          const beside =
+            block.figures[0] && (split || isScreen(block.figures[0])) ? block.figures[0] : null;
           const stacked = beside ? block.figures.slice(1) : block.figures;
           const showCaseFrame = caseFrame && caseFrame.beforeBlock === b;
 
           return (
             <div key={`${block.number}-${b}`}>
               {showCaseFrame ? <CaseFrame frame={caseFrame} /> : null}
-              <section id={`chapter-${b}`} className="scroll-mt-28 border-t border-line">
+              <section
+                id={`chapter-${b}`}
+                className={cn(
+                  "scroll-mt-28 border-t border-line",
+                  reverse && "bg-surface/50",
+                )}
+              >
                 <div className="container-site py-16 md:py-24 lg:py-28">
                   {block.points.length > 0 && block.figures.length === 0 ? (
                     <>
@@ -212,10 +228,10 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
                     <>
                       {beside ? (
                         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-x-16">
-                          <div className="lg:col-span-5">
+                          <div className={cn("lg:col-span-5", reverse && "lg:order-2")}>
                             <ChapterCopy number={block.number} title={block.title} text={block.text} />
                           </div>
-                          <div className="lg:col-span-7">
+                          <div className={cn("lg:col-span-7", reverse && "lg:order-1")}>
                             <FigurePlate fig={beside} file={file} path={`blocks.${b}.figures.0.image`} />
                           </div>
                         </div>

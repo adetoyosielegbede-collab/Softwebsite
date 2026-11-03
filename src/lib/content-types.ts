@@ -174,6 +174,13 @@ export type ProductContent = {
     text: string;
     points: { title: string; text: string }[];
     figures: ProductFigure[];
+    /**
+     * Chapter media placement.
+     * - split: copy left, first figure right (HTML chapter-grid)
+     * - split-reverse: first figure left, copy right (HTML chapter.reverse)
+     * Unset keeps the previous behaviour (screens beside; other figures stacked).
+     */
+    layout?: "split" | "split-reverse";
   }[];
   audience: { eyebrow: string; title: string; text: string; closing?: string; ctaLabel?: string; ctaHref?: string };
   /** Two closing panels side by side, in the How we deliver style. */

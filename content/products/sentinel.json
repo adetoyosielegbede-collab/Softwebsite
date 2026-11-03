@@ -76,6 +76,7 @@
       "number": "Account analysis",
       "title": "Begin with the records in hand.",
       "text": "An investigation can begin with one statement or several. Sentinel builds a transaction chronology across the available accounts, showing credits, debits and counterparties. Investigators can compare account holders, isolate transfers and identify destinations supported by the records in hand. PDF, Excel and CSV statements, including scanned records processed through OCR, can be added to the case.",
+      "layout": "split",
       "points": [],
       "figures": [
         {
@@ -94,6 +95,7 @@
       "number": "Across accounts",
       "title": "Compare accounts in one case.",
       "text": "Statements from different people, companies or banks can be analysed together from the start or added as a case develops. Sentinel aligns transactions across sources so investigators can compare inflows, outflows and counterparties, then follow onward transfers where receiving records are available. The trail extends only as far as the available records support.",
+      "layout": "split-reverse",
       "points": [],
       "figures": [
         {
@@ -112,6 +114,7 @@
       "number": "Fund-flow analysis",
       "title": "Trace the flow of funds.",
       "text": "Sentinel organises transactions by date, amount, sending account and receiving account. Pattern tests surface potential structuring, rapid onward transfers, unusual cash activity, high transaction velocity and cross-border flows for review. Link analysis shows counterparties, shared accounts and possible circular movement. Each indicator is an investigative lead, not a finding of misconduct.",
+      "layout": "split",
       "points": [],
       "figures": [
         {
@@ -130,6 +133,7 @@
       "number": "",
       "title": "Examine narrations and entity links.",
       "text": "Transaction narrations, name variants and shared company roles may reveal connections that account numbers alone cannot. AI-assisted analysis can suggest potential entity links and help draft a fund-flow narrative tied to source transactions. Investigators verify identity and context before recording a conclusion.",
+      "layout": "split",
       "points": [],
       "figures": [
         {
@@ -148,6 +152,7 @@
       "number": "Prior case intelligence",
       "title": "Connect current and prior case intelligence.",
       "text": "Accounts, people or companies in a new case may have appeared in earlier investigations. Where authorised case data is available, Sentinel can surface those links to investigators with the appropriate access. Teams can examine relevant prior intelligence without treating an earlier appearance as proof of wrongdoing. Access depends on the permissions and data governance set by the institution.",
+      "layout": "split-reverse",
       "points": [],
       "figures": [
         {
@@ -166,6 +171,7 @@
       "number": "The report",
       "title": "Document the evidential trail.",
       "text": "Sentinel brings transaction timelines, fund-flow charts, link analysis and source records into investigative reports. AI-assisted drafting can help organise the narrative. Investigators review the analysis, record what remains unresolved and decide which leads require further enquiry. Each reported observation stays linked to the transactions or documents behind it.",
+      "layout": "split",
       "points": [],
       "figures": [
         {
