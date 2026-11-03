@@ -287,35 +287,33 @@
 @media (min-width:1024px){.sc-di .pd-settlement{grid-template-columns:1fr auto 1fr auto 1fr}}
 @media (prefers-reduced-motion:reduce){.sc-di .pd-flow{animation:none}}
 
-/* Sentinel connections — full-bleed Solutions isometric art, no labels. */
-.pd-sentinel{display:block;width:100%}
+/* Sentinel hero — original circular-flow diagram as full-bleed isometric art. */
+.pd-sentinel{display:block;width:100%;max-width:none}
 .pd-sentinel .pd-sentinel-svg{display:block;width:100%;height:auto;overflow:visible}
-.pd-sentinel .pd-sentinel-svg .edge{fill:none;stroke:var(--ln2);stroke-width:1.15;opacity:.95}
-.pd-sentinel .pd-sentinel-svg .flow{fill:none;stroke:var(--a);stroke-width:2 !important;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:5 5;animation:ai-dashrun 1.05s linear infinite}
-.pd-sentinel .pd-sentinel-svg .pd-sentinel-flow-loop{opacity:.42;animation-duration:.75s;animation-direction:reverse}
-.pd-sentinel .pd-sentinel-packets .run-ab{animation:pd-packet-ab 2.6s linear infinite}
-.pd-sentinel .pd-sentinel-packets .run-bc{animation:pd-packet-bc 2.6s linear infinite}
-.pd-sentinel .pd-sentinel-packets .run-ca{animation:pd-packet-ca 2.6s linear infinite}
-.pd-sentinel .pd-sentinel-packets .d2{animation-delay:.85s}
-.pd-sentinel .pd-sentinel-packets .d3{animation-delay:1.7s}
+.pd-sentinel .pd-sentinel-svg .edge{fill:none;stroke:var(--ln2);stroke-width:1.35;opacity:.92}
+.pd-sentinel .pd-sentinel-svg .flow{fill:none;stroke:var(--a);stroke-width:2.4 !important;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:7 6;animation:ai-dashrun 1.05s linear infinite}
+.pd-sentinel .pd-sentinel-svg .pd-sentinel-flow-b{opacity:.35;animation-duration:.7s;animation-direction:reverse}
+.pd-sentinel .pd-sentinel-svg .ring{fill:none;stroke:var(--a);stroke-width:1.4 !important;opacity:.55;animation:pd-ring-pulse 2.2s ease-in-out infinite}
+.pd-sentinel .pd-sentinel-packets .run-x{animation:pd-packet-ab 2.8s linear infinite}
+.pd-sentinel .pd-sentinel-packets .run-y{animation:pd-packet-ca 2.8s linear infinite}
+.pd-sentinel .pd-sentinel-packets .d2{animation-delay:.9s}
+.pd-sentinel .pd-sentinel-packets .d3{animation-delay:1.8s}
+@keyframes pd-ring-pulse{0%,100%{opacity:1}50%{opacity:.35}}
 @keyframes pd-packet-ab{
   0%{transform:translate(0,0);opacity:0}
   12%{opacity:1}
-  100%{transform:translate(-28px,48px);opacity:0}
-}
-@keyframes pd-packet-bc{
-  0%{transform:translate(0,0);opacity:0}
-  14%{opacity:1}
-  100%{transform:translate(-32px,32px);opacity:0}
+  45%{transform:translate(100px,-30px);opacity:1}
+  70%{transform:translate(68px,54px);opacity:1}
+  100%{transform:translate(-10px,20px);opacity:0}
 }
 @keyframes pd-packet-ca{
   0%{transform:translate(0,0);opacity:0}
-  14%{opacity:1}
-  100%{transform:translate(60px,-70px);opacity:0}
+  15%{opacity:1}
+  100%{transform:translate(-78px,-56px);opacity:0}
 }
 @media (prefers-reduced-motion:reduce){
   .pd-sentinel .pd-sentinel-svg .flow,
-  .pd-sentinel .pd-sentinel-packets .run-ab,
-  .pd-sentinel .pd-sentinel-packets .run-bc,
-  .pd-sentinel .pd-sentinel-packets .run-ca{animation:none}
+  .pd-sentinel .pd-sentinel-svg .ring,
+  .pd-sentinel .pd-sentinel-packets .run-x,
+  .pd-sentinel .pd-sentinel-packets .run-y{animation:none}
 }

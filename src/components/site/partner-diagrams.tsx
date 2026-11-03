@@ -9,7 +9,7 @@ export type { PartnerDiagramId } from "./partner-diagram-ids";
 export { isPartnerDiagram } from "./partner-diagram-ids";
 
 function useArtTheme() {
-  const [theme, setTheme] = useState<"th-light" | "th-dark">("th-light");
+  const [theme, setTheme] = useState<"th-light" | "th-dark">("th-dark");
   useEffect(() => {
     const root = document.documentElement;
     const read = () => setTheme(root.classList.contains("dark") ? "th-dark" : "th-light");
@@ -250,31 +250,63 @@ export function RtgsSettlementDiagram() {
   );
 }
 
-/** Account tower — same construction as Solutions financial art. */
-function IsoTower({
+/** Account tower in Solutions isometric language — no captions. */
+function IsoAccount({
   x,
   y,
-  d = 12,
   accent,
+  wire,
+  size = 12,
+  rise = 14,
 }: {
   x: number;
   y: number;
-  d?: number;
   accent?: boolean;
+  wire?: boolean;
+  size?: number;
+  rise?: number;
 }) {
+  if (wire) {
+    return (
+      <g transform={`translate(${x},${y})`}>
+        <rect className="win" width={size} height={size} transform={`matrix(1 .5 -1 .5 0 ${-rise})`} />
+        <rect className="win" width={size} height={rise} transform={`matrix(1 .5 0 1 ${-size} ${-(rise / 2)})`} />
+        <rect className="win" width={size} height={rise} transform={`matrix(-1 .5 0 1 ${size} ${-(rise / 2)})`} />
+      </g>
+    );
+  }
   const top = accent ? "at" : "bt";
   const left = accent ? "al" : "bl";
   const right = accent ? "ar" : "br";
   return (
     <g transform={`translate(${x},${y})`}>
-      <rect className={top} width="10" height="10" transform={`matrix(1 .5 -1 .5 0 ${-d})`} />
-      <rect className={left} width="10" height={d} transform={`matrix(1 .5 0 1 -10 ${-d / 2})`} />
-      <rect className={right} width="10" height={d} transform={`matrix(-1 .5 0 1 10 ${-d / 2})`} />
+      <rect
+        className={top}
+        width={size}
+        height={size}
+        transform={`matrix(1 .5 -1 .5 0 ${-rise})`}
+      />
+      <rect
+        className={left}
+        width={size}
+        height={rise}
+        transform={`matrix(1 .5 0 1 ${-size} ${-(rise / 2)})`}
+      />
+      <rect
+        className={right}
+        width={size}
+        height={rise}
+        transform={`matrix(-1 .5 0 1 ${size} ${-(rise / 2)})`}
+      />
+      {accent ? <circle className="ring" cx="0" cy={-(rise / 4)} r={size + 7} /> : null}
     </g>
   );
 }
 
-/** Pure isometric fund-flow — Solutions language, illustration only. */
+/**
+ * Hero figure: circular fund-flow diagram (A→B→C→A amid surrounding accounts)
+ * redrawn as Solutions isometric art sized to fill the hero column.
+ */
 export function SentinelConnectionsDiagram() {
   const theme = useArtTheme();
 
@@ -282,41 +314,49 @@ export function SentinelConnectionsDiagram() {
     <div className="sc-ai pd-sentinel">
       <svg
         className={cn("iso pd-sentinel-svg", theme)}
-        viewBox="0 0 460 280"
+        viewBox="48 8 464 340"
         role="img"
-        aria-label="Isometric network of accounts with funds moving along a circular transfer path"
+        aria-label="Isometric network of accounts with funds circulating on a selected path"
       >
-        <g transform="translate(230,152)">
-          <rect className="sf" width="190" height="170" transform="matrix(1 .5 -1 .5 0 -14)" />
-          <rect className="sl" width="190" height="14" transform="matrix(1 .5 0 1 -170 71)" />
-          <rect className="sr" width="190" height="14" transform="matrix(-1 .5 0 1 190 71)" />
+        <g transform="translate(280,188)">
+          <rect className="sf" width="248" height="220" transform="matrix(1 .5 -1 .5 0 -20)" />
+          <rect className="sl" width="248" height="20" transform="matrix(1 .5 0 1 -220 90)" />
+          <rect className="sr" width="248" height="20" transform="matrix(-1 .5 0 1 248 90)" />
         </g>
 
-        <g transform="translate(230,136)">
+        <g transform="translate(280,160)">
           <g transform="matrix(1 .5 -1 .5 0 0)">
             <path
               className="edge"
-              d="M18 22L54 12M54 12L96 28M18 22L28 58M96 28L118 62M28 58L70 50M70 50L118 62M28 58L42 96M118 62L124 104M42 96L86 90M96 28L70 50M18 22L70 50M42 96L86 90"
+              d="M24 18 L108 6 M108 6 L188 34 M24 18 L40 92 M188 34 L210 116 M40 92 L124 86 M124 86 L210 116 M40 92 L82 164 M210 116 L168 172 M24 18 L124 86 M108 6 L124 86 M82 164 L168 172 M82 164 L24 18"
             />
-            <path className="flow" d="M54 12L70 50L86 90L124 104" />
-            <path className="flow pd-sentinel-flow-loop" d="M54 12L70 50L42 96L54 12" />
+            <path className="flow" d="M24 18 L108 6 L124 86 L24 18" />
+            <path className="flow pd-sentinel-flow-b" d="M24 18 L108 6 L124 86 L24 18" />
           </g>
 
-          <IsoTower x={-12} y={18} d={12} />
-          <IsoTower x={36} y={12} d={18} accent />
-          <IsoTower x={-48} y={42} d={14} />
-          <IsoTower x={68} y={48} d={10} />
-          <IsoTower x={8} y={52} d={20} accent />
-          <IsoTower x={-78} y={66} d={10} />
-          <IsoTower x={48} y={78} d={12} />
-          <IsoTower x={-24} y={84} d={14} accent />
-          <IsoTower x={4} y={108} d={28} accent />
+          {/* Surrounding field — solid + wireframe towers */}
+          <IsoAccount x={-108} y={28} size={11} rise={11} wire />
+          <IsoAccount x={-52} y={-16} size={11} rise={13} />
+          <IsoAccount x={102} y={-14} size={11} rise={11} wire />
+          <IsoAccount x={158} y={42} size={11} rise={12} />
+          <IsoAccount x={-138} y={88} size={10} rise={10} wire />
+          <IsoAccount x={122} y={108} size={10} rise={11} wire />
+          <IsoAccount x={-14} y={138} size={11} rise={12} />
+          <IsoAccount x={64} y={132} size={10} rise={10} wire />
+
+          {/* Selected circular path — A · B · C */}
+          <IsoAccount x={-86} y={6} size={16} rise={20} accent />
+          <IsoAccount x={58} y={-26} size={16} rise={22} accent />
+          <IsoAccount x={22} y={58} size={16} rise={24} accent />
+
+          {/* Neighbours on secondary edges — D · E */}
+          <IsoAccount x={136} y={36} size={13} rise={15} />
+          <IsoAccount x={-34} y={116} size={13} rise={15} />
 
           <g className="pd-sentinel-packets" aria-hidden>
-            <circle className="dot run-ab" cx="36" cy="4" r="3.4" />
-            <circle className="dot run-ab d2" cx="36" cy="4" r="3.4" />
-            <circle className="dot run-bc" cx="8" cy="42" r="3.4" />
-            <circle className="dot run-ca d3" cx="-24" cy="74" r="3.4" />
+            <circle className="dot run-x" cx="-52" cy="-12" r="4" />
+            <circle className="dot run-x d2" cx="16" cy="4" r="4" />
+            <circle className="dot run-y d3" cx="-4" cy="40" r="4" />
           </g>
         </g>
       </svg>
