@@ -32,12 +32,12 @@
         {
           "label": "Sentinel / 01",
           "title": "Follow the money. See the connections.",
-          "caption": "Case view — accounts, findings and relationships in one investigation. Illustrative / fictional data.",
+          "caption": "A connected view of accounts, counterparties and transaction paths.",
           "image": {
-            "src": "/media/sentinel/screen-case-view.png",
-            "alt": "Sentinel case dashboard showing financial intelligence summary, findings and connected parties for an illustrative investigation"
+            "src": "/media/sentinel/figure-hero-connections.png",
+            "alt": "Network of five entities with a circular money-flow path highlighted and a selected-path summary"
           },
-          "source": "Product screen · Illustrative data"
+          "source": "Concept illustration · Illustrative data"
         }
       ]
     },
