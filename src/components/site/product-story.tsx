@@ -2,6 +2,7 @@ import { CmsImage } from "@/components/cms/cms-image";
 import { ArrowLink, PillLink } from "@/components/site/links";
 import { isPartnerDiagram } from "@/components/site/partner-diagram-ids";
 import { PartnerDiagram } from "@/components/site/partner-diagrams";
+import { SentinelEnablesStack } from "@/components/site/sentinel-enables-stack";
 import type { ProductContent, ProductFigure } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
 
@@ -199,6 +200,17 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
             block.figures[0] && (split || isScreen(block.figures[0])) ? block.figures[0] : null;
           const stacked = beside ? block.figures.slice(1) : block.figures;
           const showCaseFrame = caseFrame && caseFrame.beforeBlock === b;
+
+          if (block.feature === "sentinel-enables-stack") {
+            return (
+              <div key={`${block.number}-${b}`}>
+                {showCaseFrame ? <CaseFrame frame={caseFrame} /> : null}
+                <div id={`chapter-${b}`} className="scroll-mt-28 border-t border-line">
+                  <SentinelEnablesStack />
+                </div>
+              </div>
+            );
+          }
 
           return (
             <div key={`${block.number}-${b}`}>

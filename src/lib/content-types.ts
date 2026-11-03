@@ -181,6 +181,8 @@ export type ProductContent = {
      * Unset keeps the previous behaviour (screens beside; other figures stacked).
      */
     layout?: "split" | "split-reverse";
+    /** Special section renderer (e.g. Sentinel enables product stack from the visual brief). */
+    feature?: "sentinel-enables-stack";
   }[];
   audience: { eyebrow: string; title: string; text: string; closing?: string; ctaLabel?: string; ctaHref?: string };
   /** Two closing panels side by side, in the How we deliver style. */
