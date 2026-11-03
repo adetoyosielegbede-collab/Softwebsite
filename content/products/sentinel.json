@@ -33,9 +33,10 @@
           "label": "Sentinel / 01",
           "title": "Follow the money. See the connections.",
           "caption": "A connected view of accounts, counterparties and transaction paths.",
+          "diagram": "sentinel-connections",
           "image": {
-            "src": "/media/sentinel/figure-hero-connections.png",
-            "alt": "Network of five entities with a circular money-flow path highlighted and a selected-path summary"
+            "src": "",
+            "alt": "Animated isometric network of five accounts with a circular fund-flow path and selected-path summary"
           },
           "source": "Concept illustration · Illustrative data"
         }

@@ -250,11 +250,117 @@ export function RtgsSettlementDiagram() {
   );
 }
 
+/** Isometric account block used on the Sentinel connections board. */
+function IsoAccount({
+  x,
+  y,
+  label,
+  sub,
+  accent,
+}: {
+  x: number;
+  y: number;
+  label: string;
+  sub: string;
+  accent?: boolean;
+}) {
+  const top = accent ? "at" : "bt";
+  const left = accent ? "al" : "bl";
+  const right = accent ? "ar" : "br";
+  return (
+    <g transform={`translate(${x},${y})`}>
+      <rect className={top} width="18" height="18" transform="matrix(1 .5 -1 .5 0 -12)" />
+      <rect className={left} width="18" height="14" transform="matrix(1 .5 0 1 -18 -5)" />
+      <rect className={right} width="18" height="14" transform="matrix(-1 .5 0 1 18 -5)" />
+      {accent ? <circle className="ring" cx="0" cy="-4" r="16" /> : null}
+      <text className="pd-sentinel-label" x="0" y="28" textAnchor="middle">
+        {label}
+      </text>
+      <text className="pd-sentinel-sub" x="0" y="42" textAnchor="middle">
+        {sub}
+      </text>
+    </g>
+  );
+}
+
+/** Circular fund-flow case view in the Solutions isometric illustration language. */
+export function SentinelConnectionsDiagram() {
+  return (
+    <DiagramShell
+      eyebrow="Sentinel / Case view"
+      title="Follow the money. See the connections."
+      lead="A selected path across accounts stays tied to its source transactions."
+      note="Concept illustration · Illustrative data"
+    >
+      <div className="pd-sentinel">
+        <div className="pd-sentinel-stage">
+          <svg
+            className="iso pd-sentinel-svg"
+            viewBox="0 0 560 320"
+            role="img"
+            aria-label="Network of five accounts with a circular fund-flow path highlighted from A to B to C and back to A"
+          >
+            <g transform="translate(250,168)">
+              <rect className="sf" width="210" height="160" transform="matrix(1 .5 -1 .5 0 -14)" />
+              <rect className="sl" width="210" height="12" transform="matrix(1 .5 0 1 -210 66)" />
+              <rect className="sr" width="210" height="12" transform="matrix(-1 .5 0 1 210 66)" />
+            </g>
+
+            <g transform="translate(250,150)">
+              <g transform="matrix(1 .5 -1 .5 0 0)">
+                <path className="edge" d="M40 28 L120 18 M120 18 L190 48 M40 28 L55 100 M190 48 L205 120 M55 100 L130 95 M130 95 L205 120 M55 100 L90 165 M205 120 L170 170 M40 28 L130 95 M120 18 L130 95" />
+                <path className="link" d="M90 165 L40 28" />
+                <path className="flow" d="M40 28 L120 18 L130 95 L40 28" />
+                <path className="flow pd-sentinel-flow-b" d="M40 28 L120 18 L130 95 L40 28" />
+              </g>
+
+              <IsoAccount x={-78} y={8} label="A" sub="Account A01" accent />
+              <IsoAccount x={48} y={-18} label="B" sub="Account B01" accent />
+              <IsoAccount x={18} y={58} label="C" sub="Account C01" accent />
+              <IsoAccount x={118} y={38} label="D" sub="Account D01" />
+              <IsoAccount x={-28} y={108} label="E" sub="Account E01" />
+
+              <g className="pd-sentinel-packets" aria-hidden>
+                <circle className="dot run-x" cx="-50" cy="-6" r="3.2" />
+                <circle className="dot run-x d2" cx="10" cy="8" r="3.2" />
+                <circle className="dot run-y d3" cx="-8" cy="40" r="3.2" />
+              </g>
+            </g>
+
+            <g className="pd-sentinel-amounts" aria-hidden>
+              <text className="pd-sentinel-amt" x="188" y="96">
+                01 MAY · ₦12.0M
+              </text>
+              <text className="pd-sentinel-amt" x="318" y="148">
+                02 MAY · ₦11.8M
+              </text>
+              <text className="pd-sentinel-amt" x="168" y="188">
+                03 MAY · ₦11.6M
+              </text>
+            </g>
+          </svg>
+        </div>
+
+        <aside className="pd-sentinel-path">
+          <p className="pd-sentinel-path-label">Selected path</p>
+          <p className="pd-sentinel-path-route">A → B → C → A</p>
+          <p className="pd-sentinel-path-copy">Three linked transfers over two days.</p>
+          <p className="pd-sentinel-path-metric">₦11.6M</p>
+          <p className="pd-sentinel-path-copy">returned to account A01</p>
+          <p className="pd-sentinel-path-finding">Circular flow</p>
+          <p className="pd-sentinel-path-copy">For further examination.</p>
+        </aside>
+      </div>
+    </DiagramShell>
+  );
+}
+
 const DIAGRAMS: Record<PartnerDiagramId, () => ReactNode> = {
   "liquio-foundation": LiquioFoundationDiagram,
   "liquio-journey": LiquioJourneyDiagram,
   "rtgs-network": RtgsNetworkDiagram,
   "rtgs-settlement": RtgsSettlementDiagram,
+  "sentinel-connections": SentinelConnectionsDiagram,
 };
 
 export function PartnerDiagram({ id }: { id: string }) {
