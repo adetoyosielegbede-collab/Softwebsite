@@ -1,17 +1,17 @@
 {
   "seo": {
     "title": "Sentinel",
-    "description": "Sentinel turns financial records into intelligence for complex investigations."
+    "description": "Sentinel brings bank statements and related records into one investigation. Trace fund flows and relationships with each lead linked to its source transactions."
   },
   "name": "Sentinel",
   "hero": {
-    "eyebrow": "",
-    "title": "Follow the money, see the connections",
-    "text": "Turn financial records into intelligence for complex investigations. Sentinel connects transactions across accounts and parties, revealing money flows, relationships and patterns that warrant closer examination.",
-    "primaryLabel": "Request a demonstration",
-    "primaryHref": "/contact",
-    "secondaryLabel": "Explore Sentinel",
-    "secondaryHref": "#overview",
+    "eyebrow": "Sentinel / Financial intelligence",
+    "title": "Follow the money.\nSee the connections.",
+    "text": "Sentinel brings bank statements and related records into one investigation. Analyse one account, compare statements from two different account holders, or examine many accounts across people and organisations from the outset. Trace fund flows and relationships with each lead linked to its source transactions.",
+    "primaryLabel": "Explore Sentinel",
+    "primaryHref": "#the-case",
+    "secondaryLabel": "",
+    "secondaryHref": "",
     "backgroundImage": {
       "src": "",
       "alt": ""
@@ -22,6 +22,17 @@
     }
   },
   "overview": [],
+  "caseFrame": {
+    "label": "Illustrative case",
+    "id": "S-001",
+    "steps": [
+      "Available statements",
+      "Transaction review",
+      "Fund-flow analysis",
+      "Case report"
+    ],
+    "beforeBlock": 2
+  },
   "blocks": [
     {
       "number": "",
@@ -31,106 +42,167 @@
       "figures": [
         {
           "label": "Sentinel / 01",
-          "title": "See the connections, follow the money",
+          "title": "Follow the money. See the connections.",
           "caption": "A connected view of accounts, counterparties and transaction paths.",
           "image": {
-            "src": "/media/sentinel/figure-01.png",
-            "alt": "Network map of five entities with a circular flow highlighted"
+            "src": "",
+            "alt": "Placeholder for Sentinel hero visual"
           },
-          "source": "Concept illustration · Fictional data"
+          "source": "Concept illustration · Illustrative data"
         }
       ]
     },
     {
       "number": "",
-      "title": "An investigation spans more than one statement",
-      "text": "A single investigation can involve multiple accounts, different banks and thousands of transactions. Sentinel brings those records together and automates analysis, helping investigators examine activity across the whole set.",
-      "points": [],
-      "figures": [
-        {
-          "label": "Sentinel / 02",
-          "title": "From financial records to intelligence",
-          "caption": "One connected path from source documents to an investigator’s view.",
-          "image": {
-            "src": "/media/sentinel/figure-02.png",
-            "alt": "Four steps from records to connections, analysis and reporting"
-          },
-          "source": "Concept illustration · Fictional data"
-        }
-      ]
-    },
-    {
-      "number": "",
-      "title": "Start with the records you have",
-      "text": "Examine bank statements and accounting records in PDF, Excel and CSV formats, including scanned documents processed through OCR. Connect records from multiple accounts and parties to investigate them together.",
-      "points": [],
-      "figures": [
-        {
-          "label": "Sentinel / 03",
-          "title": "Bring the records together",
-          "caption": "Different source formats. Accounts and transactions examined together.",
-          "image": {
-            "src": "/media/sentinel/figure-03.png",
-            "alt": "PDF, spreadsheet and scanned statements merged into connected transaction records"
-          },
-          "source": "Concept illustration · Fictional data"
-        }
-      ]
-    },
-    {
-      "number": "",
-      "title": "Understand how the money moves",
+      "title": "Three things Sentinel enables",
       "text": "",
       "points": [
         {
-          "title": "Trace the flow",
-          "text": "Follow transfers between accounts and counterparties to understand where funds originate, how they move and where they arrive."
+          "title": "Transaction review",
+          "text": "Examine activity across the records in the case."
         },
         {
-          "title": "Reveal relationships",
-          "text": "Identify shared counterparties and connections between parties through transaction analysis and network visualisation."
+          "title": "Fund flow",
+          "text": "Follow transfers across accounts and counterparties."
         },
         {
-          "title": "Examine patterns",
-          "text": "Explore recurring transfers, concentrations and circular flows. Compare amounts and timing to identify activity that needs further investigation."
+          "title": "Case record",
+          "text": "Keep each lead tied to its source transactions."
         }
       ],
       "figures": []
     },
     {
-      "number": "",
-      "title": "Make the investigation clear",
-      "text": "Bring transaction analysis into network maps, charts and investigative reports. Show the relationships, movements and patterns behind the findings, giving teams a clearer basis for review and further enquiry.",
+      "number": "Account analysis",
+      "title": "Begin with the records in hand.",
+      "text": "An investigation can begin with one statement or several. Sentinel builds a transaction chronology across the available accounts, showing credits, debits and counterparties. Investigators can compare account holders, isolate transfers and identify destinations supported by the records in hand. PDF, Excel and CSV statements, including scanned records processed through OCR, can be added to the case.",
       "points": [],
       "figures": [
         {
-          "label": "Sentinel / 04",
-          "title": "Make the investigation visible",
-          "caption": "A financial overview alongside the transactions that warrant examination.",
+          "label": "Case S-001",
+          "title": "Account analysis",
+          "caption": "Illustrative data · Concept visual",
           "image": {
-            "src": "/media/sentinel/figure-04.png",
-            "alt": "Money in and out chart beside a circular flow pattern for review"
+            "src": "",
+            "alt": "Placeholder for account analysis visual"
+          },
+          "source": "Concept illustration · Illustrative data"
+        }
+      ]
+    },
+    {
+      "number": "Across accounts",
+      "title": "Compare accounts in one case.",
+      "text": "Statements from different people, companies or banks can be analysed together from the start or added as a case develops. Sentinel aligns transactions across sources so investigators can compare inflows, outflows and counterparties, then follow onward transfers where receiving records are available. The trail extends only as far as the available records support.",
+      "points": [],
+      "figures": [
+        {
+          "label": "Case S-001",
+          "title": "Across accounts",
+          "caption": "One illustrative case with three accounts",
+          "image": {
+            "src": "",
+            "alt": "Placeholder for multi-account comparison visual"
+          },
+          "source": "Concept illustration · Illustrative data"
+        }
+      ]
+    },
+    {
+      "number": "Fund-flow analysis",
+      "title": "Trace the flow of funds.",
+      "text": "Sentinel organises transactions by date, amount, sending account and receiving account. Pattern tests surface potential structuring, rapid onward transfers, unusual cash activity, high transaction velocity and cross-border flows for review. Link analysis shows counterparties, shared accounts and possible circular movement. Each indicator is an investigative lead, not a finding of misconduct.",
+      "points": [],
+      "figures": [
+        {
+          "label": "Case S-001",
+          "title": "Fund-flow analysis",
+          "caption": "A selected route stays tied to its transactions",
+          "image": {
+            "src": "",
+            "alt": "Placeholder for fund-flow analysis visual"
+          },
+          "source": "Concept illustration · Illustrative data"
+        }
+      ]
+    },
+    {
+      "number": "",
+      "title": "Examine narrations and entity links.",
+      "text": "Transaction narrations, name variants and shared company roles may reveal connections that account numbers alone cannot. AI-assisted analysis can suggest potential entity links and help draft a fund-flow narrative tied to source transactions. Investigators verify identity and context before recording a conclusion.",
+      "points": [],
+      "figures": [
+        {
+          "label": "Case S-001 / Potential entity link",
+          "title": "Illustrative assisted-analysis view",
+          "caption": "A transaction narration may suggest a link between accounts, subject to investigator verification. Fictional data.",
+          "image": {
+            "src": "",
+            "alt": "Placeholder for potential entity link clue card"
           },
           "source": "Concept illustration · Fictional data"
         }
       ]
+    },
+    {
+      "number": "Prior case intelligence",
+      "title": "Connect current and prior case intelligence.",
+      "text": "Accounts, people or companies in a new case may have appeared in earlier investigations. Where authorised case data is available, Sentinel can surface those links to investigators with the appropriate access. Teams can examine relevant prior intelligence without treating an earlier appearance as proof of wrongdoing. Access depends on the permissions and data governance set by the institution.",
+      "points": [],
+      "figures": [
+        {
+          "label": "Authorised case knowledge",
+          "title": "Possible prior case link",
+          "caption": "Prior case information appears only where access permits. Fictional cases S-001 and S-027.",
+          "image": {
+            "src": "",
+            "alt": "Placeholder for prior case intelligence visual"
+          },
+          "source": "Concept illustration · Fictional data"
+        }
+      ]
+    },
+    {
+      "number": "The report",
+      "title": "Document the evidential trail.",
+      "text": "Sentinel brings transaction timelines, fund-flow charts, link analysis and source records into investigative reports. AI-assisted drafting can help organise the narrative. Investigators review the analysis, record what remains unresolved and decide which leads require further enquiry. Each reported observation stays linked to the transactions or documents behind it.",
+      "points": [],
+      "figures": [
+        {
+          "label": "Case S-001",
+          "title": "The report",
+          "caption": "Illustrative observation, not a conclusion of wrongdoing",
+          "image": {
+            "src": "",
+            "alt": "Placeholder for investigative report visual"
+          },
+          "source": "Concept illustration · Illustrative data"
+        }
+      ]
+    },
+    {
+      "number": "",
+      "title": "For teams mandated to conduct financial investigations.",
+      "text": "Sentinel is designed for law-enforcement investigators, financial intelligence and AML analysts, regulators, public oversight bodies and forensic audit teams.",
+      "points": [],
+      "figures": []
     }
   ],
   "audience": {
-    "eyebrow": "Who it is for",
-    "title": "Built for those with a mandate to investigate",
-    "text": "For financial investigators, law-enforcement teams, regulators, AML functions, public-sector oversight teams and audit firms examining financial activity.",
-    "closing": "Tell us about the records you examine and the questions you need to answer.",
+    "eyebrow": "See Sentinel at work",
+    "title": "What does your team need to investigate?",
+    "text": "Bring the account records and investigative questions your team works with. See how Sentinel organises transactions, traces funds and documents the source of each lead.",
+    "closing": "",
     "ctaLabel": "Request a demonstration",
     "ctaHref": "/contact"
   },
   "cta": {
     "image": {
-      "src": "/images/market-aerial.jpg",
-      "alt": "Aerial view of a busy open-air market in Lagos"
+      "src": "",
+      "alt": ""
     },
     "title": "See Sentinel at work",
-    "text": "Tell us about the records you examine and the questions you need to answer.",
+    "text": "What does your team need to investigate?",
     "ctaLabel": "Request a demonstration",
     "ctaHref": "/contact",
     "layout": "split"

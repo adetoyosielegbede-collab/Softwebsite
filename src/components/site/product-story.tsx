@@ -37,15 +37,32 @@ function FigurePlate({
     );
   }
 
+  const awaitingImage = !fig.image?.src;
+
   return (
     <figure className={cn("m-0", !wide && screen && "lg:max-w-[920px]")}>
       <div
         className={cn(
-          "overflow-hidden rounded-[1.25rem]",
+          "relative overflow-hidden rounded-[1.25rem]",
           screen ? "bg-white p-1.5 ring-1 ring-black/10 sm:p-2" : "bg-surface ring-1 ring-line",
         )}
       >
-        <CmsImage image={fig.image} file={file} path={path} priority={priority} fluid emptyClassName="min-h-40 w-full" />
+        {awaitingImage ? (
+          <div className="flex min-h-52 w-full flex-col items-center justify-center gap-2 px-6 py-16 text-center">
+            <p className="label text-ink-faint">Illustrative visual</p>
+            <p className="max-w-md text-sm text-ink-soft">
+              {fig.caption || "Final image to follow."}
+            </p>
+          </div>
+        ) : null}
+        <CmsImage
+          image={fig.image}
+          file={file}
+          path={path}
+          priority={priority}
+          fluid
+          emptyClassName={cn("min-h-40 w-full", awaitingImage && "absolute inset-0 min-h-full")}
+        />
       </div>
       <figcaption className="mt-4 flex flex-col gap-1 sm:max-w-3xl">
         <p className="text-sm text-ink">
@@ -55,7 +72,7 @@ function FigurePlate({
           </span>
           {fig.title}
         </p>
-        {fig.caption ? <p className="text-sm text-ink-soft">{fig.caption}</p> : null}
+        {fig.caption && !awaitingImage ? <p className="text-sm text-ink-soft">{fig.caption}</p> : null}
       </figcaption>
     </figure>
   );
@@ -71,10 +88,43 @@ function ChapterCopy({ number, title, text }: { number?: string; title: string; 
   );
 }
 
+function CaseFrame({
+  frame,
+}: {
+  frame: NonNullable<ProductContent["caseFrame"]>;
+}) {
+  return (
+    <div id="the-case" className="scroll-mt-28 border-t border-line bg-surface/60">
+      <div className="container-site flex flex-col gap-3 py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-8 md:py-7">
+        <p className="label text-ink-soft">
+          <span className="uppercase tracking-[0.08em]">{frame.label}</span>
+          <span className="mx-2 text-ink-faint" aria-hidden>
+            ·
+          </span>
+          <span className="text-ink">{frame.id}</span>
+        </p>
+        <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink-soft">
+          {frame.steps.map((step, i) => (
+            <span key={step} className="inline-flex items-center gap-2">
+              {i > 0 ? (
+                <span className="text-ink-faint" aria-hidden>
+                  →
+                </span>
+              ) : null}
+              <span>{step}</span>
+            </span>
+          ))}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export function ProductStory({ product, file }: { product: ProductContent; file: string }) {
   const { hero } = product;
   const heroBlock = product.blocks.findIndex((block) => !block.title && block.figures.length > 0);
   const heroFigures = heroBlock >= 0 ? product.blocks[heroBlock].figures : [];
+  const caseFrame = product.caseFrame;
 
   return (
     <>
@@ -95,7 +145,14 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
           />
         ) : null}
         {hero.eyebrow ? <p className="label text-ink-soft">{hero.eyebrow}</p> : null}
-        <h1 className={cn("text-display max-w-4xl text-balance", hero.eyebrow && "mt-5")}>{hero.title}</h1>
+        <h1
+          className={cn(
+            "text-display max-w-4xl whitespace-pre-line text-balance",
+            hero.eyebrow ? "mt-5" : hero.logo?.src ? "mt-0" : null,
+          )}
+        >
+          {hero.title}
+        </h1>
         <div className="mt-6 flex max-w-xl flex-col gap-4">
           {hero.text ? <p className="text-lede leading-[1.45] text-ink-soft">{hero.text}</p> : null}
           {product.overview.map((paragraph) => (
@@ -131,67 +188,71 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
           if (!block.title) return null;
           const beside = block.figures[0] && isScreen(block.figures[0]) ? block.figures[0] : null;
           const stacked = beside ? block.figures.slice(1) : block.figures;
+          const showCaseFrame = caseFrame && caseFrame.beforeBlock === b;
 
           return (
-            <section key={`${block.number}-${b}`} id={`chapter-${b}`} className="scroll-mt-28 border-t border-line">
-              <div className="container-site py-16 md:py-24 lg:py-28">
-                {block.points.length > 0 && block.figures.length === 0 ? (
-                  <>
-                    <ChapterCopy number={block.number} title={block.title} text={block.text} />
-                    <ul className="mt-12 grid gap-4 md:grid-cols-3">
-                      {block.points.map((point, p) => (
-                        <li key={point.title} className="flex flex-col gap-3 rounded-2xl bg-surface p-6 ring-1 ring-line md:p-8">
-                          <span className="label text-ink-faint">0{p + 1}</span>
-                          <h3 className="text-title text-[1.35rem]">{point.title}</h3>
-                          <p className="text-body leading-[1.45] text-ink-soft">{point.text}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </>
-                ) : (
-                  <>
-                    {beside ? (
-                      <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-x-16">
-                        <div className="lg:col-span-5">
-                          <ChapterCopy number={block.number} title={block.title} text={block.text} />
-                        </div>
-                        <div className="lg:col-span-7">
-                          <FigurePlate fig={beside} file={file} path={`blocks.${b}.figures.0.image`} />
-                        </div>
-                      </div>
-                    ) : (
+            <div key={`${block.number}-${b}`}>
+              {showCaseFrame ? <CaseFrame frame={caseFrame} /> : null}
+              <section id={`chapter-${b}`} className="scroll-mt-28 border-t border-line">
+                <div className="container-site py-16 md:py-24 lg:py-28">
+                  {block.points.length > 0 && block.figures.length === 0 ? (
+                    <>
                       <ChapterCopy number={block.number} title={block.title} text={block.text} />
-                    )}
-                    {stacked.length > 0 && (
-                      <div className="mt-10 flex flex-col gap-12 lg:mt-14 lg:gap-16">
-                        {stacked.map((fig, i) => {
-                          const f = beside ? i + 1 : i;
-                          return (
-                            <FigurePlate
-                              key={fig.label}
-                              fig={fig}
-                              file={file}
-                              path={`blocks.${b}.figures.${f}.image`}
-                              wide={!isScreen(fig)}
-                            />
-                          );
-                        })}
-                      </div>
-                    )}
-                    {block.points.length > 0 && (
                       <ul className="mt-12 grid gap-4 md:grid-cols-3">
-                        {block.points.map((point) => (
-                          <li key={point.title} className="rounded-2xl bg-surface p-6 ring-1 ring-line">
+                        {block.points.map((point, p) => (
+                          <li key={point.title} className="flex flex-col gap-3 rounded-2xl bg-surface p-6 ring-1 ring-line md:p-8">
+                            <span className="label text-ink-faint">0{p + 1}</span>
                             <h3 className="text-title text-[1.35rem]">{point.title}</h3>
-                            <p className="text-body mt-3 leading-[1.45] text-ink-soft">{point.text}</p>
+                            <p className="text-body leading-[1.45] text-ink-soft">{point.text}</p>
                           </li>
                         ))}
                       </ul>
-                    )}
-                  </>
-                )}
-              </div>
-            </section>
+                    </>
+                  ) : (
+                    <>
+                      {beside ? (
+                        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-x-16">
+                          <div className="lg:col-span-5">
+                            <ChapterCopy number={block.number} title={block.title} text={block.text} />
+                          </div>
+                          <div className="lg:col-span-7">
+                            <FigurePlate fig={beside} file={file} path={`blocks.${b}.figures.0.image`} />
+                          </div>
+                        </div>
+                      ) : (
+                        <ChapterCopy number={block.number} title={block.title} text={block.text} />
+                      )}
+                      {stacked.length > 0 && (
+                        <div className="mt-10 flex flex-col gap-12 lg:mt-14 lg:gap-16">
+                          {stacked.map((fig, i) => {
+                            const f = beside ? i + 1 : i;
+                            return (
+                              <FigurePlate
+                                key={fig.label}
+                                fig={fig}
+                                file={file}
+                                path={`blocks.${b}.figures.${f}.image`}
+                                wide={!isScreen(fig)}
+                              />
+                            );
+                          })}
+                        </div>
+                      )}
+                      {block.points.length > 0 && (
+                        <ul className="mt-12 grid gap-4 md:grid-cols-3">
+                          {block.points.map((point) => (
+                            <li key={point.title} className="rounded-2xl bg-surface p-6 ring-1 ring-line">
+                              <h3 className="text-title text-[1.35rem]">{point.title}</h3>
+                              <p className="text-body mt-3 leading-[1.45] text-ink-soft">{point.text}</p>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  )}
+                </div>
+              </section>
+            </div>
           );
         })}
       </div>

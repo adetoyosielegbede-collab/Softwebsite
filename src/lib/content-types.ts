@@ -160,6 +160,14 @@ export type ProductContent = {
     logo?: CmsImage;
   };
   overview: string[];
+  /** Illustrative case route shown before a given block (e.g. Sentinel S-001). */
+  caseFrame?: {
+    label: string;
+    id: string;
+    steps: string[];
+    /** Insert the frame immediately before this blocks[] index. */
+    beforeBlock: number;
+  };
   blocks: {
     number: string;
     title: string;
