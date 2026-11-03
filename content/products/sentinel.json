@@ -9,7 +9,7 @@
     "title": "Follow the money.\nSee the connections.",
     "text": "Sentinel brings bank statements and related records into one investigation. Analyse one account, compare statements from two different account holders, or examine many accounts across people and organisations from the outset. Trace fund flows and relationships with each lead linked to its source transactions.",
     "primaryLabel": "Explore Sentinel",
-    "primaryHref": "#the-case",
+    "primaryHref": "#overview",
     "secondaryLabel": "",
     "secondaryHref": "",
     "backgroundImage": {
@@ -22,17 +22,6 @@
     }
   },
   "overview": [],
-  "caseFrame": {
-    "label": "Illustrative case",
-    "id": "S-001",
-    "steps": [
-      "Available statements",
-      "Transaction review",
-      "Fund-flow analysis",
-      "Case report"
-    ],
-    "beforeBlock": 2
-  },
   "blocks": [
     {
       "number": "",
