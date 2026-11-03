@@ -181,15 +181,12 @@
           "source": "Concept illustration · Illustrative data"
         }
       ]
-    },
-    {
-      "number": "",
-      "title": "For teams mandated to conduct financial investigations.",
-      "text": "Sentinel is designed for law-enforcement investigators, financial intelligence and AML analysts, regulators, public oversight bodies and forensic audit teams.",
-      "points": [],
-      "figures": []
     }
   ],
+  "band": {
+    "title": "For teams mandated to conduct\nfinancial investigations.",
+    "text": "Sentinel is designed for law-enforcement investigators, financial intelligence and AML analysts, regulators, public oversight bodies and forensic audit teams."
+  },
   "audience": {
     "eyebrow": "See Sentinel at work",
     "title": "What does your team need to investigate?",

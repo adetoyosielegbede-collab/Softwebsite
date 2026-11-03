@@ -317,6 +317,17 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
         })}
       </div>
 
+      {product.band?.title ? (
+        <section className="bg-[#10172a] text-white">
+          <div className="container-site flex flex-col gap-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:gap-8 md:py-[43px]">
+            <p className="max-w-[22ch] whitespace-pre-line text-[1.5rem] leading-[1.35] tracking-[-0.02em] text-balance">
+              {product.band.title}
+            </p>
+            <p className="max-w-[420px] text-[15px] leading-[1.5] text-[#b7c5dc]">{product.band.text}</p>
+          </div>
+        </section>
+      ) : null}
+
       {product.closePair?.panels.length ? (
         <section className="border-t border-line">
           <div className="container-site py-16 md:py-24 lg:py-28">

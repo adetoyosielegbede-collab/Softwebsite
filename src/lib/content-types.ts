@@ -189,6 +189,8 @@ export type ProductContent = {
   audience: { eyebrow: string; title: string; text: string; closing?: string; ctaLabel?: string; ctaHref?: string };
   /** Two closing panels side by side, in the How we deliver style. */
   closePair?: { panels: { title: string; text: string }[] };
+  /** Thin split strip before the closing CTA (e.g. Sentinel mandate band). */
+  band?: { title: string; text: string };
   references?: { title: string; links: { label: string; href: string }[] };
   cta: Cta;
 };
