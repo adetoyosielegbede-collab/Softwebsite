@@ -174,6 +174,8 @@ export type ProductContent = {
     text: string;
     points: { title: string; text: string }[];
     figures: ProductFigure[];
+    /** Compact labels under chapter copy (e.g. Fund-flow pattern pills). */
+    tags?: string[];
     /**
      * Chapter media placement.
      * - split: copy left, first figure right (HTML chapter-grid)

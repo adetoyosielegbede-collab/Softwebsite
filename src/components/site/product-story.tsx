@@ -79,12 +79,34 @@ function FigurePlate({
   );
 }
 
-function ChapterCopy({ number, title, text }: { number?: string; title: string; text?: string }) {
+function ChapterCopy({
+  number,
+  title,
+  text,
+  tags,
+}: {
+  number?: string;
+  title: string;
+  text?: string;
+  tags?: string[];
+}) {
   return (
     <header>
       {number ? <p className="label text-signal">{number}</p> : null}
       <h2 className={cn("text-headline max-w-[18ch] text-balance", number && "mt-4")}>{title}</h2>
       {text ? <p className="text-lede mt-5 max-w-xl leading-[1.45] text-ink-soft">{text}</p> : null}
+      {tags && tags.length > 0 ? (
+        <ul className="mt-7 flex flex-wrap gap-2" aria-label="Examples of activity to examine">
+          {tags.map((tag) => (
+            <li
+              key={tag}
+              className="rounded-[3px] border border-line bg-white px-2.5 py-2 text-xs font-bold text-ink-soft"
+            >
+              {tag}
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </header>
   );
 }
@@ -225,7 +247,7 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
                 <div className="container-site py-16 md:py-24 lg:py-28">
                   {block.points.length > 0 && block.figures.length === 0 ? (
                     <>
-                      <ChapterCopy number={block.number} title={block.title} text={block.text} />
+                      <ChapterCopy number={block.number} title={block.title} text={block.text} tags={block.tags} />
                       <ul className="mt-12 grid gap-4 md:grid-cols-3">
                         {block.points.map((point, p) => (
                           <li key={point.title} className="flex flex-col gap-3 rounded-2xl bg-surface p-6 ring-1 ring-line md:p-8">
@@ -241,14 +263,24 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
                       {beside ? (
                         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-x-16">
                           <div className={cn("lg:col-span-5", reverse && "lg:order-2")}>
-                            <ChapterCopy number={block.number} title={block.title} text={block.text} />
+                            <ChapterCopy
+                              number={block.number}
+                              title={block.title}
+                              text={block.text}
+                              tags={block.tags}
+                            />
                           </div>
                           <div className={cn("lg:col-span-7", reverse && "lg:order-1")}>
                             <FigurePlate fig={beside} file={file} path={`blocks.${b}.figures.0.image`} />
                           </div>
                         </div>
                       ) : (
-                        <ChapterCopy number={block.number} title={block.title} text={block.text} />
+                        <ChapterCopy
+                          number={block.number}
+                          title={block.title}
+                          text={block.text}
+                          tags={block.tags}
+                        />
                       )}
                       {stacked.length > 0 && (
                         <div className="mt-10 flex flex-col gap-12 lg:mt-14 lg:gap-16">

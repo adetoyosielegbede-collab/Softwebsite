@@ -105,6 +105,12 @@
       "title": "Trace the flow of funds.",
       "text": "Sentinel organises transactions by date, amount, sending account and receiving account. Pattern tests surface potential structuring, rapid onward transfers, unusual cash activity, high transaction velocity and cross-border flows for review. Link analysis shows counterparties, shared accounts and possible circular movement. Each indicator is an investigative lead, not a finding of misconduct.",
       "layout": "split",
+      "tags": [
+        "Potential structuring",
+        "Rapid onward transfers",
+        "Unusual cash activity",
+        "Circular movement"
+      ],
       "points": [],
       "figures": [
         {
