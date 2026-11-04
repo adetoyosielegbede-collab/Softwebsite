@@ -116,7 +116,7 @@
         {
           "label": "",
           "title": "Fund-flow analysis",
-          "caption": "Transfers ordered by date, amount and account — with pattern and link leads for review.",
+          "caption": "Transfers ordered by date, amount and account with pattern and link leads for review.",
           "image": {
             "src": "/media/sentinel/figure-fund-flow.png",
             "alt": "Fund-flow analysis with transfers by date and pattern leads for review"
