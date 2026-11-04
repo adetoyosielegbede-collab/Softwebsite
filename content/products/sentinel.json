@@ -90,8 +90,8 @@
       "figures": [
         {
           "label": "",
-          "title": "Across accounts",
-          "caption": "Accounts in one case compared side by side — transfers between them aligned by date.",
+          "title": "Compare across accounts",
+          "caption": "Accounts in one case compared side by side.",
           "image": {
             "src": "/media/sentinel/figure-across-accounts.png",
             "alt": "Across-accounts comparison with selected accounts and transfers between them"
