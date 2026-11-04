@@ -134,8 +134,8 @@
       "figures": [
         {
           "label": "Potential entity link",
-          "title": "Illustrative assisted-analysis view",
-          "caption": "A narration may suggest a link between accounts — subject to investigator verification.",
+          "title": "",
+          "caption": "A narration may suggest a link between accounts, subject to investigator verification.",
           "image": {
             "src": "/media/sentinel/figure-entity-link.png",
             "alt": "Link suggestion card matching a counterparty to a company name from transaction narrations"
