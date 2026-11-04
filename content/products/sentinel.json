@@ -31,13 +31,13 @@
       "figures": [
         {
           "label": "Sentinel / 01",
-          "title": "Follow the money. See the connections.",
-          "caption": "A selected round-trip path across accounts, with related findings alongside the graph.",
+          "title": "Follow the money.",
+          "caption": "A selected round-trip path with related findings alongside the graph.",
           "image": {
             "src": "/media/sentinel/figure-hero-network-map.png",
             "alt": "Network map showing a highlighted circular fund-flow path across accounts with related findings"
           },
-          "source": "Concept illustration \u00b7 Illustrative figures"
+          "source": "Concept illustration · Illustrative figures"
         }
       ]
     },
@@ -72,12 +72,12 @@
         {
           "label": "",
           "title": "Account analysis",
-          "caption": "Chronology for one account \u2014 credits, debits and counterparties from the records in hand.",
+          "caption": "Chronology for one account — credits, debits and counterparties from the records in hand.",
           "image": {
             "src": "/media/sentinel/figure-account-analysis.png",
             "alt": "Account analysis view with transaction chronology for a subject account"
           },
-          "source": "Concept illustration \u00b7 Illustrative figures"
+          "source": "Concept illustration · Illustrative figures"
         }
       ]
     },
@@ -91,12 +91,12 @@
         {
           "label": "",
           "title": "Across accounts",
-          "caption": "Accounts in one case compared side by side \u2014 transfers between them aligned by date.",
+          "caption": "Accounts in one case compared side by side — transfers between them aligned by date.",
           "image": {
             "src": "/media/sentinel/figure-across-accounts.png",
             "alt": "Across-accounts comparison with selected accounts and transfers between them"
           },
-          "source": "Concept illustration \u00b7 Illustrative figures"
+          "source": "Concept illustration · Illustrative figures"
         }
       ]
     },
@@ -116,12 +116,12 @@
         {
           "label": "",
           "title": "Fund-flow analysis",
-          "caption": "Transfers ordered by date, amount and account \u2014 with pattern and link leads for review.",
+          "caption": "Transfers ordered by date, amount and account — with pattern and link leads for review.",
           "image": {
             "src": "/media/sentinel/figure-fund-flow.png",
             "alt": "Fund-flow analysis with transfers by date and pattern leads for review"
           },
-          "source": "Concept illustration \u00b7 Illustrative figures"
+          "source": "Concept illustration · Illustrative figures"
         }
       ]
     },
@@ -135,12 +135,12 @@
         {
           "label": "Potential entity link",
           "title": "Illustrative assisted-analysis view",
-          "caption": "A narration may suggest a link between accounts \u2014 subject to investigator verification.",
+          "caption": "A narration may suggest a link between accounts — subject to investigator verification.",
           "image": {
             "src": "/media/sentinel/figure-entity-link.png",
             "alt": "Link suggestion card matching a counterparty to a company name from transaction narrations"
           },
-          "source": "Concept illustration \u00b7 Illustrative figures"
+          "source": "Concept illustration · Illustrative figures"
         }
       ]
     },
@@ -159,7 +159,7 @@
             "src": "/media/sentinel/figure-prior-case.png",
             "alt": "Possible prior case link for account B01 between current and earlier cases"
           },
-          "source": "Concept illustration \u00b7 Illustrative figures"
+          "source": "Concept illustration · Illustrative figures"
         }
       ]
     },
@@ -178,7 +178,7 @@
             "src": "/media/sentinel/figure-case-report.png",
             "alt": "Case report with fund-flow observations linked to source transactions"
           },
-          "source": "Concept illustration \u00b7 Illustrative figures"
+          "source": "Concept illustration · Illustrative figures"
         }
       ]
     }
