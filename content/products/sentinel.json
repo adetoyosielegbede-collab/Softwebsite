@@ -154,12 +154,12 @@
         {
           "label": "Authorised case knowledge",
           "title": "Possible prior case link",
-          "caption": "Prior case information appears only where access permits. Fictional cases S-001 and S-027.",
+          "caption": "Prior case information appears only where access permits.",
           "image": {
-            "src": "",
-            "alt": "Placeholder for prior case intelligence visual"
+            "src": "/media/sentinel/figure-prior-case.png",
+            "alt": "Possible prior case link for account B01 between current and earlier cases"
           },
-          "source": "Concept illustration \u00b7 Fictional data"
+          "source": "Concept illustration \u00b7 Illustrative figures"
         }
       ]
     },
