@@ -173,12 +173,12 @@
         {
           "label": "Case S-001",
           "title": "The report",
-          "caption": "Illustrative observation, not a conclusion of wrongdoing",
+          "caption": "Observations stay linked to the source transactions and documents behind them.",
           "image": {
-            "src": "",
-            "alt": "Placeholder for investigative report visual"
+            "src": "/media/sentinel/figure-case-report.png",
+            "alt": "Case report with fund-flow observations linked to source transactions"
           },
-          "source": "Concept illustration \u00b7 Illustrative data"
+          "source": "Concept illustration \u00b7 Illustrative figures"
         }
       ]
     }
