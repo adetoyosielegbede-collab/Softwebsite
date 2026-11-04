@@ -12,6 +12,7 @@
     "primaryHref": "#overview",
     "secondaryLabel": "",
     "secondaryHref": "",
+    "visual": "sentinel-layers",
     "backgroundImage": {
       "src": "",
       "alt": ""
@@ -28,24 +29,13 @@
       "title": "",
       "text": "",
       "points": [],
-      "figures": [
-        {
-          "label": "Sentinel / 01",
-          "title": "Follow the money. See the connections.",
-          "caption": "A selected round-trip path across accounts, with related findings alongside the graph.",
-          "image": {
-            "src": "/media/sentinel/figure-hero-network-map.png",
-            "alt": "Network map showing a highlighted circular fund-flow path across accounts with related findings"
-          },
-          "source": "Concept illustration \u00b7 Illustrative figures"
-        }
-      ]
+      "figures": []
     },
     {
       "number": "",
       "title": "Three things Sentinel enables",
       "text": "",
-      "feature": "sentinel-enables-stack",
+      "feature": "sentinel-enables",
       "points": [
         {
           "title": "Transaction review",
@@ -71,13 +61,13 @@
       "figures": [
         {
           "label": "",
-          "title": "Account analysis",
-          "caption": "Chronology for one account \u2014 credits, debits and counterparties from the records in hand.",
+          "title": "",
+          "caption": "",
           "image": {
-            "src": "/media/sentinel/figure-account-analysis.png",
-            "alt": "Account analysis view with transaction chronology for a subject account"
+            "src": "/media/sentinel/figure-statements.png",
+            "alt": "Statements in case S-001: seven bank statements added as PDF, Excel, CSV and a scanned file, each reconciled to its printed balance"
           },
-          "source": "Concept illustration \u00b7 Illustrative figures"
+          "source": "Concept illustration · Illustrative figures"
         }
       ]
     },
@@ -90,13 +80,13 @@
       "figures": [
         {
           "label": "",
-          "title": "Across accounts",
-          "caption": "Accounts in one case compared side by side \u2014 transfers between them aligned by date.",
+          "title": "",
+          "caption": "",
           "image": {
-            "src": "/media/sentinel/figure-across-accounts.png",
-            "alt": "Across-accounts comparison with selected accounts and transfers between them"
+            "src": "/media/sentinel/figure-trail-across.png",
+            "alt": "Trail across three accounts: Brightway Capital Ltd to the subject’s GTBank account to Lekki Pearl Properties Ltd, with the two source transactions"
           },
-          "source": "Concept illustration \u00b7 Illustrative figures"
+          "source": "Concept illustration · Illustrative figures"
         }
       ]
     },
@@ -115,13 +105,13 @@
       "figures": [
         {
           "label": "",
-          "title": "Fund-flow analysis",
-          "caption": "Transfers ordered by date, amount and account \u2014 with pattern and link leads for review.",
+          "title": "",
+          "caption": "",
           "image": {
-            "src": "/media/sentinel/figure-fund-flow.png",
-            "alt": "Fund-flow analysis with transfers by date and pattern leads for review"
+            "src": "/media/sentinel/figure-findings.png",
+            "alt": "Findings view with six pattern tests and a selected circular route of ₦18M, tied to the transactions behind the flag"
           },
-          "source": "Concept illustration \u00b7 Illustrative figures"
+          "source": "Concept illustration · Illustrative figures"
         }
       ]
     },
@@ -133,14 +123,14 @@
       "points": [],
       "figures": [
         {
-          "label": "Potential entity link",
-          "title": "Illustrative assisted-analysis view",
-          "caption": "A narration may suggest a link between accounts \u2014 subject to investigator verification.",
+          "label": "",
+          "title": "",
+          "caption": "",
           "image": {
-            "src": "/media/sentinel/figure-entity-link.png",
-            "alt": "Link suggestion card matching a counterparty to a company name from transaction narrations"
+            "src": "/media/sentinel/figure-parties.png",
+            "alt": "Parties view showing the name variants found in narrations, a suggested same-party match awaiting the investigator’s decision, and company roles"
           },
-          "source": "Concept illustration \u00b7 Illustrative figures"
+          "source": "Concept illustration · Illustrative figures"
         }
       ]
     },
@@ -152,14 +142,14 @@
       "points": [],
       "figures": [
         {
-          "label": "Authorised case knowledge",
-          "title": "Possible prior case link",
-          "caption": "Prior case information appears only where access permits.",
+          "label": "",
+          "title": "",
+          "caption": "",
           "image": {
-            "src": "/media/sentinel/figure-prior-case.png",
-            "alt": "Possible prior case link for account B01 between current and earlier cases"
+            "src": "/media/sentinel/figure-seen-before.png",
+            "alt": "Seen-before view linking parties in case S-001 to prior case S-027, with a case held by another unit shown as restricted"
           },
-          "source": "Concept illustration \u00b7 Illustrative figures"
+          "source": "Concept illustration · Illustrative figures"
         }
       ]
     },
@@ -172,13 +162,13 @@
       "figures": [
         {
           "label": "",
-          "title": "The report",
-          "caption": "Observations stay linked to the source transactions and documents behind them.",
+          "title": "",
+          "caption": "",
           "image": {
-            "src": "/media/sentinel/figure-case-report.png",
-            "alt": "Case report with fund-flow observations linked to source transactions"
+            "src": "/media/sentinel/figure-report-page.png",
+            "alt": "Report page with a finding and its source transactions listed by file, page and line"
           },
-          "source": "Concept illustration \u00b7 Illustrative figures"
+          "source": "Concept illustration · Illustrative figures"
         }
       ]
     }

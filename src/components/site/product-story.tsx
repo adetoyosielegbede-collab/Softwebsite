@@ -2,7 +2,9 @@ import { CmsImage } from "@/components/cms/cms-image";
 import { ArrowLink, PillLink } from "@/components/site/links";
 import { isPartnerDiagram } from "@/components/site/partner-diagram-ids";
 import { PartnerDiagram } from "@/components/site/partner-diagrams";
+import { SentinelEnables } from "@/components/site/sentinel-enables";
 import { SentinelEnablesStack } from "@/components/site/sentinel-enables-stack";
+import { SentinelHeroVisual } from "@/components/site/sentinel-hero-visual";
 import type { ProductContent, ProductFigure } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
 
@@ -65,20 +67,24 @@ function FigurePlate({
           emptyClassName={cn("min-h-40 w-full", awaitingImage && "absolute inset-0 min-h-full")}
         />
       </div>
-      <figcaption className="mt-4 flex flex-col gap-1 sm:max-w-3xl">
-        <p className="text-sm text-ink">
-          {fig.label ? (
-            <>
-              <span className="label text-ink-faint">{fig.label}</span>
-              <span className="mx-2 text-ink-faint" aria-hidden>
-                ·
-              </span>
-            </>
+      {fig.label || fig.title || (fig.caption && !awaitingImage) ? (
+        <figcaption className="mt-4 flex flex-col gap-1 sm:max-w-3xl">
+          {fig.label || fig.title ? (
+            <p className="text-sm text-ink">
+              {fig.label ? (
+                <>
+                  <span className="label text-ink-faint">{fig.label}</span>
+                  <span className="mx-2 text-ink-faint" aria-hidden>
+                    ·
+                  </span>
+                </>
+              ) : null}
+              {fig.title}
+            </p>
           ) : null}
-          {fig.title}
-        </p>
-        {fig.caption && !awaitingImage ? <p className="text-sm text-ink-soft">{fig.caption}</p> : null}
-      </figcaption>
+          {fig.caption && !awaitingImage ? <p className="text-sm text-ink-soft">{fig.caption}</p> : null}
+        </figcaption>
+      ) : null}
     </figure>
   );
 }
@@ -149,8 +155,10 @@ function CaseFrame({
 
 export function ProductStory({ product, file }: { product: ProductContent; file: string }) {
   const { hero } = product;
+  const heroLayers = hero.visual === "sentinel-layers";
   const heroBlock = product.blocks.findIndex((block) => !block.title && block.figures.length > 0);
-  const heroFigures = heroBlock >= 0 ? product.blocks[heroBlock].figures : [];
+  const heroFigures = !heroLayers && heroBlock >= 0 ? product.blocks[heroBlock].figures : [];
+  const heroMedia = heroLayers || heroFigures.length > 0;
   const caseFrame = product.caseFrame;
 
   return (
@@ -158,10 +166,15 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
       <section className="container-site pt-28 pb-10 md:pt-36 md:pb-14">
         <div
           className={cn(
-            heroFigures.length > 0 && "grid items-center gap-10 lg:grid-cols-12 lg:gap-x-14",
+            heroMedia && "grid items-center gap-10 lg:grid-cols-12 lg:gap-x-14",
           )}
         >
-          <div className={cn(heroFigures.length > 0 && "lg:col-span-5")}>
+          <div
+            className={cn(
+              heroLayers && "hero-copy lg:col-span-6",
+              !heroLayers && heroFigures.length > 0 && "lg:col-span-5",
+            )}
+          >
             {hero.logo?.src ? (
               <CmsImage
                 image={hero.logo}
@@ -201,7 +214,11 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
               </div>
             )}
           </div>
-          {heroFigures.length > 0 ? (
+          {heroLayers ? (
+            <div className="hero-vis flex flex-col gap-10 lg:col-span-6">
+              <SentinelHeroVisual />
+            </div>
+          ) : heroFigures.length > 0 ? (
             <div className="flex flex-col gap-10 lg:col-span-7">
               {heroFigures.map((fig, f) => (
                 <FigurePlate
@@ -227,12 +244,12 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
           const stacked = beside ? block.figures.slice(1) : block.figures;
           const showCaseFrame = caseFrame && caseFrame.beforeBlock === b;
 
-          if (block.feature === "sentinel-enables-stack") {
+          if (block.feature === "sentinel-enables" || block.feature === "sentinel-enables-stack") {
             return (
               <div key={`${block.number}-${b}`}>
                 {showCaseFrame ? <CaseFrame frame={caseFrame} /> : null}
                 <div id={`chapter-${b}`} className="scroll-mt-28 border-t border-line">
-                  <SentinelEnablesStack />
+                  {block.feature === "sentinel-enables" ? <SentinelEnables /> : <SentinelEnablesStack />}
                 </div>
               </div>
             );

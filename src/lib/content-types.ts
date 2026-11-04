@@ -158,6 +158,8 @@ export type ProductContent = {
     secondaryHref: string;
     backgroundImage: CmsImage;
     logo?: CmsImage;
+    /** Sentinel hero: inline three-layer SVG instead of a raster figure. */
+    visual?: "sentinel-layers";
   };
   overview: string[];
   /** Illustrative case route shown before a given block (e.g. Sentinel S-001). */
@@ -183,8 +185,8 @@ export type ProductContent = {
      * Unset keeps the previous behaviour (screens beside; other figures stacked).
      */
     layout?: "split" | "split-reverse";
-    /** Special section renderer (e.g. Sentinel enables product stack from the visual brief). */
-    feature?: "sentinel-enables-stack";
+    /** Special section renderer (e.g. Sentinel enables strip / legacy stack). */
+    feature?: "sentinel-enables" | "sentinel-enables-stack";
   }[];
   audience: { eyebrow: string; title: string; text: string; closing?: string; ctaLabel?: string; ctaHref?: string };
   /** Two closing panels side by side, in the How we deliver style. */
