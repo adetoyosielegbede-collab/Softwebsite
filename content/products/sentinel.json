@@ -72,12 +72,12 @@
         {
           "label": "Case S-001",
           "title": "Account analysis",
-          "caption": "Illustrative data \u00b7 Concept visual",
+          "caption": "Chronology for one account \u2014 credits, debits and counterparties from the records in hand.",
           "image": {
-            "src": "",
-            "alt": "Placeholder for account analysis visual"
+            "src": "/media/sentinel/figure-account-analysis.png",
+            "alt": "Account analysis view with transaction chronology for a subject account"
           },
-          "source": "Concept illustration \u00b7 Illustrative data"
+          "source": "Concept illustration \u00b7 Illustrative figures"
         }
       ]
     },
