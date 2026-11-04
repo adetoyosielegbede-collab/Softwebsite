@@ -32,12 +32,12 @@
         {
           "label": "Sentinel / 01",
           "title": "Follow the money. See the connections.",
-          "caption": "A connected view of accounts, counterparties and transaction paths.",
+          "caption": "A selected round-trip path across accounts, with related findings alongside the graph.",
           "image": {
-            "src": "/media/sentinel/figure-hero-case-view-sfu.png",
-            "alt": "Case view showing a selected circular fund-flow path across accounts A01, B01 and C01"
+            "src": "/media/sentinel/figure-hero-network-map.png",
+            "alt": "Network map showing a highlighted circular fund-flow path across accounts with related findings"
           },
-          "source": "Concept illustration · Illustrative figures"
+          "source": "Concept illustration \u00b7 Illustrative figures"
         }
       ]
     },
@@ -72,12 +72,12 @@
         {
           "label": "Case S-001",
           "title": "Account analysis",
-          "caption": "Illustrative data · Concept visual",
+          "caption": "Illustrative data \u00b7 Concept visual",
           "image": {
             "src": "",
             "alt": "Placeholder for account analysis visual"
           },
-          "source": "Concept illustration · Illustrative data"
+          "source": "Concept illustration \u00b7 Illustrative data"
         }
       ]
     },
@@ -96,7 +96,7 @@
             "src": "",
             "alt": "Placeholder for multi-account comparison visual"
           },
-          "source": "Concept illustration · Illustrative data"
+          "source": "Concept illustration \u00b7 Illustrative data"
         }
       ]
     },
@@ -121,7 +121,7 @@
             "src": "",
             "alt": "Placeholder for fund-flow analysis visual"
           },
-          "source": "Concept illustration · Illustrative data"
+          "source": "Concept illustration \u00b7 Illustrative data"
         }
       ]
     },
@@ -140,7 +140,7 @@
             "src": "",
             "alt": "Placeholder for potential entity link clue card"
           },
-          "source": "Concept illustration · Fictional data"
+          "source": "Concept illustration \u00b7 Fictional data"
         }
       ]
     },
@@ -159,7 +159,7 @@
             "src": "",
             "alt": "Placeholder for prior case intelligence visual"
           },
-          "source": "Concept illustration · Fictional data"
+          "source": "Concept illustration \u00b7 Fictional data"
         }
       ]
     },
@@ -178,7 +178,7 @@
             "src": "",
             "alt": "Placeholder for investigative report visual"
           },
-          "source": "Concept illustration · Illustrative data"
+          "source": "Concept illustration \u00b7 Illustrative data"
         }
       ]
     }
