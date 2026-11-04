@@ -70,7 +70,7 @@
       "points": [],
       "figures": [
         {
-          "label": "Case S-001",
+          "label": "",
           "title": "Account analysis",
           "caption": "Chronology for one account \u2014 credits, debits and counterparties from the records in hand.",
           "image": {
@@ -89,7 +89,7 @@
       "points": [],
       "figures": [
         {
-          "label": "Case S-001",
+          "label": "",
           "title": "Across accounts",
           "caption": "Accounts in one case compared side by side \u2014 transfers between them aligned by date.",
           "image": {
@@ -114,7 +114,7 @@
       "points": [],
       "figures": [
         {
-          "label": "Case S-001",
+          "label": "",
           "title": "Fund-flow analysis",
           "caption": "Transfers ordered by date, amount and account \u2014 with pattern and link leads for review.",
           "image": {
@@ -133,7 +133,7 @@
       "points": [],
       "figures": [
         {
-          "label": "Case S-001 / Potential entity link",
+          "label": "Potential entity link",
           "title": "Illustrative assisted-analysis view",
           "caption": "A narration may suggest a link between accounts \u2014 subject to investigator verification.",
           "image": {
@@ -171,7 +171,7 @@
       "points": [],
       "figures": [
         {
-          "label": "Case S-001",
+          "label": "",
           "title": "The report",
           "caption": "Observations stay linked to the source transactions and documents behind them.",
           "image": {

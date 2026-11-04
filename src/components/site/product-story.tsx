@@ -67,10 +67,14 @@ function FigurePlate({
       </div>
       <figcaption className="mt-4 flex flex-col gap-1 sm:max-w-3xl">
         <p className="text-sm text-ink">
-          <span className="label text-ink-faint">{fig.label}</span>
-          <span className="mx-2 text-ink-faint" aria-hidden>
-            ·
-          </span>
+          {fig.label ? (
+            <>
+              <span className="label text-ink-faint">{fig.label}</span>
+              <span className="mx-2 text-ink-faint" aria-hidden>
+                ·
+              </span>
+            </>
+          ) : null}
           {fig.title}
         </p>
         {fig.caption && !awaitingImage ? <p className="text-sm text-ink-soft">{fig.caption}</p> : null}
@@ -201,7 +205,7 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
             <div className="flex flex-col gap-10 lg:col-span-7">
               {heroFigures.map((fig, f) => (
                 <FigurePlate
-                  key={fig.label}
+                  key={fig.label || fig.title || f}
                   fig={fig}
                   file={file}
                   path={`blocks.${heroBlock}.figures.${f}.image`}
@@ -288,7 +292,7 @@ export function ProductStory({ product, file }: { product: ProductContent; file:
                             const f = beside ? i + 1 : i;
                             return (
                               <FigurePlate
-                                key={fig.label}
+                                key={fig.label || fig.title || f}
                                 fig={fig}
                                 file={file}
                                 path={`blocks.${b}.figures.${f}.image`}
