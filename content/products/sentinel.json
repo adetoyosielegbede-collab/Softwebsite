@@ -91,12 +91,12 @@
         {
           "label": "Case S-001",
           "title": "Across accounts",
-          "caption": "One illustrative case with three accounts",
+          "caption": "Accounts in one case compared side by side \u2014 transfers between them aligned by date.",
           "image": {
-            "src": "",
-            "alt": "Placeholder for multi-account comparison visual"
+            "src": "/media/sentinel/figure-across-accounts.png",
+            "alt": "Across-accounts comparison with selected accounts and transfers between them"
           },
-          "source": "Concept illustration \u00b7 Illustrative data"
+          "source": "Concept illustration \u00b7 Illustrative figures"
         }
       ]
     },
