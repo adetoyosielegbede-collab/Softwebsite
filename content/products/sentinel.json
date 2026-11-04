@@ -135,12 +135,12 @@
         {
           "label": "Case S-001 / Potential entity link",
           "title": "Illustrative assisted-analysis view",
-          "caption": "A transaction narration may suggest a link between accounts, subject to investigator verification. Fictional data.",
+          "caption": "A narration may suggest a link between accounts \u2014 subject to investigator verification.",
           "image": {
-            "src": "",
-            "alt": "Placeholder for potential entity link clue card"
+            "src": "/media/sentinel/figure-entity-link.png",
+            "alt": "Link suggestion card matching a counterparty to a company name from transaction narrations"
           },
-          "source": "Concept illustration \u00b7 Fictional data"
+          "source": "Concept illustration \u00b7 Illustrative figures"
         }
       ]
     },
