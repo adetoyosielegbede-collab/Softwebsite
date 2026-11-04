@@ -133,8 +133,8 @@
       "points": [],
       "figures": [
         {
-          "label": "Potential entity link",
-          "title": "",
+          "label": "",
+          "title": "Potential entity link",
           "caption": "A narration may suggest a link between accounts, subject to investigator verification.",
           "image": {
             "src": "/media/sentinel/figure-entity-link.png",
@@ -152,12 +152,12 @@
       "points": [],
       "figures": [
         {
-          "label": "Authorised case knowledge",
+          "label": "",
           "title": "Possible prior case link",
           "caption": "Prior case information appears only where access permits.",
           "image": {
             "src": "/media/sentinel/figure-prior-case.png",
-            "alt": "Possible prior case link for account B01 between current and earlier cases"
+            "alt": "Possible prior case link for between current and earlier cases"
           },
           "source": "Concept illustration · Illustrative figures"
         }
