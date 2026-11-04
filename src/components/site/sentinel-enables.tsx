@@ -1,6 +1,6 @@
 import "@/components/site/sentinel-page.css";
 
-const ITEMS = [
+const ITEMS: { n: string; title: string; text: string; link: string; ok?: boolean }[] = [
   {
     n: "01",
     title: "Transaction review",
@@ -20,7 +20,7 @@ const ITEMS = [
     link: "↑ Each lead links back to its rows",
     ok: true,
   },
-] as const;
+];
 
 /** Mobile “three things” strip — desktop uses the hero diagram instead. */
 export function SentinelEnables() {
