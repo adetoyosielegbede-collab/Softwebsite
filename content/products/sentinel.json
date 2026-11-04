@@ -116,12 +116,12 @@
         {
           "label": "Case S-001",
           "title": "Fund-flow analysis",
-          "caption": "A selected route stays tied to its transactions",
+          "caption": "Transfers ordered by date, amount and account \u2014 with pattern and link leads for review.",
           "image": {
-            "src": "",
-            "alt": "Placeholder for fund-flow analysis visual"
+            "src": "/media/sentinel/figure-fund-flow.png",
+            "alt": "Fund-flow analysis with transfers by date and pattern leads for review"
           },
-          "source": "Concept illustration \u00b7 Illustrative data"
+          "source": "Concept illustration \u00b7 Illustrative figures"
         }
       ]
     },
