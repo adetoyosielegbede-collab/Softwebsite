@@ -125,7 +125,17 @@ export type EnterpriseProductsContent = {
   hero: Hero;
   products: {
     title: string;
-    items: { name: string; tagline: string; summary: string; href: string; color: string; logo: CmsImage; image: CmsImage }[];
+    items: {
+      name: string;
+      tagline: string;
+      summary: string;
+      href: string;
+      color: string;
+      logo: CmsImage;
+      image: CmsImage;
+      /** When true, the card stays visible but is not clickable (inner page withheld). */
+      disabled?: boolean;
+    }[];
   };
   partners: {
     title: string;
