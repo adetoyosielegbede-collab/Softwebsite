@@ -38,7 +38,7 @@
         "tagline": "Audit beyond the limits of manual review",
         "summary": "Audit beyond the limits of manual review.",
         "href": "/enterprise-products/reckon",
-        "published": true,
+        "published": false,
         "color": "#991b1b",
         "logo": {
           "src": "/media/products/reckon-logo.png",
