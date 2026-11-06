@@ -69,9 +69,12 @@ html.light .useforms-page{--uf:#e0a100;--uf-soft:rgba(224,161,0,.12);--uf-ink:#8
 .useforms-page .frame.uiframe{padding:0;background:transparent;box-shadow:none;border-radius:0;overflow:visible}
 .useforms-page .scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .useforms-page figure{margin:0}
-.useforms-page figcaption{margin-top:16px;display:grid;gap:4px;max-width:52rem}
+.useforms-page figcaption{margin-top:16px;display:grid;gap:4px;max-width:52rem;justify-items:start}
 .useforms-page .cap-t{margin:0;font-size:14px}.useforms-page .cap-s{margin:0;font-size:14px;color:var(--soft)}
 .useforms-page .cap-t .label{display:inline;margin-right:10px}
+.useforms-page .cap-t .label:empty{display:none;margin:0}
+/* Centered UI shots (e.g. field phones): keep the caption under the visual */
+.useforms-page figure:has([data-center]) > figcaption{justify-items:center;max-width:none;text-align:center}
 
 .useforms-page .sec{padding-block:clamp(64px,8vw,112px);border-top:1px solid var(--line)}
 .useforms-page .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px clamp(24px,5vw,72px);align-items:start;margin-bottom:clamp(32px,4vw,48px)}

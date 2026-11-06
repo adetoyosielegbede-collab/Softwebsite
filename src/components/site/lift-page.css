@@ -65,9 +65,10 @@ html.light .lift-page{--lb:#1f4ef5;--lb-soft:rgba(31,78,245,.08);--tl:#0d8577;--
 .lift-page .lift-logo{display:block;width:64px;height:auto;border-radius:6px}
 .lift-page .display{max-width:18ch}
 .lift-page figure{margin:0}
-.lift-page figcaption{margin-top:16px;display:grid;gap:4px;max-width:52rem}
+.lift-page figcaption{margin-top:16px;display:grid;gap:4px;max-width:52rem;justify-items:start}
 .lift-page .cap-t{margin:0;font-size:14px}.lift-page .cap-s{margin:0;font-size:14px;color:var(--soft)}
 .lift-page .cap-t .label{display:inline;margin-right:10px}
+.lift-page .cap-t .label:empty{display:none;margin:0}
 .lift-page .shot{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--line),0 24px 60px -30px rgba(0,0,0,.6)}
 .lift-page .shot img{display:block;width:100%;height:auto}
 .lift-page .sec{padding-block:clamp(64px,8vw,112px);border-top:1px solid var(--line)}
