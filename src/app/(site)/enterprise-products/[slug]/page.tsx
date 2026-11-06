@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { LiftStory } from "@/components/site/lift-story";
 import { ProductStory } from "@/components/site/product-story";
+import { UseformsStory } from "@/components/site/useforms-story";
 import { getContent } from "@/lib/content";
 import { PRODUCT_SLUGS } from "@/lib/cms/registry";
 import type { ContentMap, ProductContent } from "@/lib/content-types";
@@ -43,5 +44,6 @@ export default async function ProductPage({ params }: PageProps<"/enterprise-pro
   const product = await load(slug);
   if (!product) notFound();
   if (slug === "lift") return <LiftStory />;
+  if (slug === "useforms") return <UseformsStory />;
   return <ProductStory product={product} file={`products/${slug}`} />;
 }
