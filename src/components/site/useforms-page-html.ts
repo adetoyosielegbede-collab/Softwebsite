@@ -5,7 +5,6 @@ export const USEFORMS_PAGE_HTML = `<section class="wrap hero">
     <h1 class="display">Ask anything, anywhere, easily</h1>
     <p class="lede">Useforms collects the information an institution needs to make a decision, from the field or from the organisations it oversees. Every answer arrives with the evidence behind it, and is checked before it counts.</p>
     <div class="actions"><a class="btn" href="#contact">Request a demonstration</a><a class="tlink" href="#collect">Explore Useforms <span aria-hidden="true">→</span></a></div>
-    <div style="margin-top:clamp(28px,4vw,48px)">
       </div>
       <div class="hero-vis">
         <figure><div class="frame uiframe"><div class="uifit ufui" data-w="1200" data-h="760"><div class="ufw u-builder">

@@ -64,7 +64,9 @@ html.light .useforms-page{--uf:#e0a100;--uf-soft:rgba(224,161,0,.12);--uf-ink:#8
 }
 
 .useforms-page .uf-logo{display:block;height:28px;width:auto;color:var(--ink)}
-.useforms-page .frame{border-radius:20px;background:var(--surface);box-shadow:0 0 0 1px var(--line);overflow:hidden}
+.useforms-page .frame{border-radius:14px;background:var(--surface);box-shadow:0 0 0 1px var(--line),0 24px 60px -30px rgba(0,0,0,.6);overflow:hidden}
+/* Platform UI shots (01–03): no mat/padding — the UI chrome stands alone, like Lift .shot */
+.useforms-page .frame.uiframe{padding:0;background:transparent;box-shadow:none;border-radius:0;overflow:visible}
 .useforms-page .scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .useforms-page figure{margin:0}
 .useforms-page figcaption{margin-top:16px;display:grid;gap:4px;max-width:52rem}
@@ -79,7 +81,7 @@ html.light .useforms-page{--uf:#e0a100;--uf-soft:rgba(224,161,0,.12);--uf-ink:#8
 
 .useforms-page .row{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,4.5vw,72px);align-items:center}
 .useforms-page .row > *{min-width:0}
-.useforms-page .row.flip{grid-template-columns:minmax(0,8fr) minmax(0,4fr)}.useforms-page \n.row .uiframe{padding:clamp(10px,2vw,28px)}
+.useforms-page .row.flip{grid-template-columns:minmax(0,8fr) minmax(0,4fr)}
 .useforms-page .row.flip .txt{order:2}
 .useforms-page .txt{display:grid;gap:18px;align-content:center}
 .useforms-page .txt .headline{max-width:14ch}
@@ -114,7 +116,7 @@ html.light .useforms-page{--uf:#e0a100;--uf-soft:rgba(224,161,0,.12);--uf-ink:#8
   .useforms-page .vq-card{animation:none!important;opacity:1;transform:translate(640px,128px)}.useforms-page .vq-card ~ .vq-card{display:none}.useforms-page .vq-ov{display:none}
   .useforms-page .uj-ring circle, .useforms-page .vq-back{animation:none}
 }
-.useforms-page .uiframe{padding:clamp(12px,3.4vw,52px);background:var(--surface)}
+.useforms-page .uiframe{padding:0;background:transparent}
 
 .useforms-page .uifit{position:relative;width:100%}
 .useforms-page .uifit > *{position:absolute;left:0;top:0;transform-origin:0 0}
