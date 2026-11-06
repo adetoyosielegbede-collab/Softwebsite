@@ -33,11 +33,11 @@
       "figures": [
         {
           "label": "Useforms / 01",
-          "title": "Every form in one place",
-          "caption": "Folders, workspaces, and the responses already coming in.",
+          "title": "The form builder.",
+          "caption": "Questions are built from elements: text, choices, uploads, locations and payments, each with its own rules.",
           "image": {
-            "src": "/media/useforms/forms-library.jpg",
-            "alt": "Useforms library of folders and forms"
+            "src": "/media/useforms/form-builder.jpg",
+            "alt": "Useforms form builder"
           },
           "source": "Product screen · Useforms"
         }
@@ -48,7 +48,18 @@
       "title": "A form for the thing you need to know",
       "text": "Collect guest details and take payment for an event. Lease a property. Sell and receive orders on social media. Ask for feedback and learn who the customer is. Put the form on a website, on Facebook, LinkedIn, Instagram, or X, or send it as a link. It also works where there is no connection.",
       "points": [],
-      "figures": []
+      "figures": [
+        {
+          "label": "Useforms / 02",
+          "title": "Collecting in the field.",
+          "caption": "Each photo carries the place and time it was taken. Entries wait on the phone until there is a connection.",
+          "image": {
+            "src": "/media/useforms/forms-library.jpg",
+            "alt": "Useforms collecting in the field"
+          },
+          "source": "Product screen · Useforms"
+        }
+      ]
     },
     {
       "number": "",
@@ -57,12 +68,12 @@
       "points": [],
       "figures": [
         {
-          "label": "Useforms / 02",
-          "title": "The question, on the form",
-          "caption": "Write it, set the limits, and say whether an answer is required.",
+          "label": "Useforms / 03",
+          "title": "The review desk.",
+          "caption": "Each entry is read against its photo, place and time, then accepted, returned with a note, or rejected.",
           "image": {
-            "src": "/media/useforms/form-builder.jpg",
-            "alt": "Useforms question editor"
+            "src": "/media/useforms/payment.jpg",
+            "alt": "Useforms review desk"
           },
           "source": "Product screen · Useforms"
         }
@@ -75,12 +86,12 @@
       "points": [],
       "figures": [
         {
-          "label": "Useforms / 03",
-          "title": "A payment on the form",
-          "caption": "The amount, the currency, and the question that sits with them.",
+          "label": "Useforms / 04",
+          "title": "A project in the field.",
+          "caption": "Coverage fills in by area as entries are accepted.",
           "image": {
-            "src": "/media/useforms/payment.jpg",
-            "alt": "Useforms payment question with an amount in naira"
+            "src": "",
+            "alt": "Useforms project map"
           },
           "source": "Product screen · Useforms"
         }

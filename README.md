@@ -22,7 +22,7 @@ Two ways to change an image:
 - **On the page.** While you are signed in, a bar sits at the bottom left of the public site. Hover any image and choose **Replace**. Empty slots (a hero with no photo, a case study with no picture) show up when you turn on **Show image slots**.
 - **All at once.** In the CMS, **All images** lists every image on the site. Click one to upload a replacement, and edit its alt text in the field underneath.
 
-Text, lists, stats, open roles and articles are edited from the page list in the same CMS. **Save changes** writes the JSON and the live site updates immediately. Insight articles are the **Insight articles** entry: set `published` to show one, and `featured` to pin it. Softcom products on **Enterprise Products** each have a **Published on the site** checkbox: turn it off to hide the card and product URL without deleting the content.
+Text, lists, stats, open roles and articles are edited from the page list in the same CMS. **Save changes** writes the JSON and the live site updates immediately. Insight articles are the **Insight articles** entry: set `published` to show one, and `featured` to pin it. Softcom products on **Enterprise Products** each have a **Published on the site** checkbox: turn it off to hide the card and product URL without deleting the content. Screenshot captions on **Lift** and **Useforms** (label, title, and caption under each figure) are edited under those product entries in the CMS, same as Sentinel and Reckon.
 
 The homepage hero has an **Image mode** switch under **Home → Hero**. Off, the portal opens onto the Progress for Society headline and sentence. On, it opens onto the **Background image** uploaded just below the switch.
 

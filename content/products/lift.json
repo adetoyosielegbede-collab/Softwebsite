@@ -32,8 +32,8 @@
       "points": [],
       "figures": [
         {
-          "label": "LIFT / 01",
-          "title": "A member’s home",
+          "label": "Lift / 01",
+          "title": "A member’s home.",
           "caption": "Profile, standing, recommendations and what is new, in one view.",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-15-52-38-7efbdb.png",
@@ -50,8 +50,8 @@
       "points": [],
       "figures": [
         {
-          "label": "LIFT / 02",
-          "title": "Four tiers",
+          "label": "Lift / 02",
+          "title": "Four tiers.",
           "caption": "Each level of verification unlocks a set of tools. Trusted status is earned, and can be lost.",
           "image": {
             "src": "/media/lift/figure-02.png",
@@ -60,9 +60,9 @@
           "source": "Concept illustration"
         },
         {
-          "label": "LIFT / 03",
-          "title": "Where a new member starts",
-          "caption": "Every module is visible; locked ones say what it takes to open them.",
+          "label": "Lift / 03",
+          "title": "A new member’s home.",
+          "caption": "Tier 0, with the path to Tier 1 at the top.",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-16-33-54-2fb797.png",
             "alt": "Lift new member dashboard"
@@ -78,8 +78,8 @@
       "points": [],
       "figures": [
         {
-          "label": "LIFT / 04",
-          "title": "One member, six modules",
+          "label": "Lift / 04",
+          "title": "One member, six modules.",
           "caption": "Learn, Connect, Trade, Finance, Register, Grow. Each reads the same profile and tier.",
           "image": {
             "src": "/media/lift/figure-04.png",
@@ -96,8 +96,8 @@
       "points": [],
       "figures": [
         {
-          "label": "LIFT / 05",
-          "title": "From sign-up to Trusted",
+          "label": "Lift / 05",
+          "title": "From sign-up to Trusted.",
           "caption": "Each step unlocks the next tier.",
           "image": {
             "src": "/media/lift/figure-05.png",
@@ -114,8 +114,8 @@
       "points": [],
       "figures": [
         {
-          "label": "LIFT / 06",
-          "title": "Loans and grants",
+          "label": "Lift / 06",
+          "title": "Loans and grants.",
           "caption": "One list of programs. Eligibility, amount and deadline on every card.",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-16-40-13-1179c5.png",
@@ -124,8 +124,8 @@
           "source": "Product screen · Illustrative data"
         },
         {
-          "label": "LIFT / 07",
-          "title": "A soft gate on a funding program",
+          "label": "Lift / 07",
+          "title": "A soft gate on a funding program.",
           "caption": "What a verified individual sees, and what each tier can do on the same page.",
           "image": {
             "src": "/media/lift/figure-07.png",
@@ -142,8 +142,8 @@
       "points": [],
       "figures": [
         {
-          "label": "LIFT / 08",
-          "title": "Order to payout",
+          "label": "Lift / 08",
+          "title": "Order to payout.",
           "caption": "Verified member buys, verified business sells, platform in between.",
           "image": {
             "src": "/media/lift/figure-08.png",
@@ -160,8 +160,8 @@
       "points": [],
       "figures": [
         {
-          "label": "LIFT / 09",
-          "title": "Business directory",
+          "label": "Lift / 09",
+          "title": "Business directory.",
           "caption": "Filter by sector, location and stage. Featured section for Trusted members.",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-16-45-17-451b22.png",
@@ -178,9 +178,9 @@
       "points": [],
       "figures": [
         {
-          "label": "LIFT / 10",
-          "title": "Events",
-          "caption": "Featured event with capacity, then everything upcoming.",
+          "label": "Lift / 10",
+          "title": "Events.",
+          "caption": "A featured event with capacity and RSVP.",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-16-48-22-56821a.png",
             "alt": "Lift events screen"
@@ -216,8 +216,8 @@
       "points": [],
       "figures": [
         {
-          "label": "LIFT / 11",
-          "title": "One product, many initiatives",
+          "label": "Lift / 11",
+          "title": "One product, many initiatives.",
           "caption": "The platform is the same. The front is yours.",
           "image": {
             "src": "/media/lift/figure-11.png",
