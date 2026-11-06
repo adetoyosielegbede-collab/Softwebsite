@@ -133,8 +133,8 @@ export type EnterpriseProductsContent = {
       color: string;
       logo: CmsImage;
       image: CmsImage;
-      /** When true, the card stays visible but is not clickable (inner page withheld). */
-      disabled?: boolean;
+      /** When false, the product is hidden from the public grid, menu, sitemap, and product URL. */
+      published: boolean;
     }[];
   };
   partners: {

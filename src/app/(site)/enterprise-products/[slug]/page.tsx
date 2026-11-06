@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { LiftStory } from "@/components/site/lift-story";
 import { ProductStory } from "@/components/site/product-story";
 import { UseformsStory } from "@/components/site/useforms-story";
-import { getContent } from "@/lib/content";
+import { getContent, isProductSlugPublished } from "@/lib/content";
 import { PRODUCT_SLUGS } from "@/lib/cms/registry";
 import type { ContentMap, ProductContent } from "@/lib/content-types";
 
 type Slug = (typeof PRODUCT_SLUGS)[number];
-
-/** Product inner pages temporarily withheld from the public site. */
-const BLOCKED_PRODUCT_SLUGS = new Set<Slug>(["reckon"]);
 
 export const dynamicParams = false;
 
@@ -29,7 +26,7 @@ async function load(slug: string): Promise<ProductContent | null> {
 
 export async function generateMetadata({ params }: PageProps<"/enterprise-products/[slug]">): Promise<Metadata> {
   const slug = (await params).slug;
-  if (isSlug(slug) && BLOCKED_PRODUCT_SLUGS.has(slug)) {
+  if (!isSlug(slug) || !(await isProductSlugPublished(slug))) {
     return { title: "Enterprise Products", robots: { index: false, follow: false } };
   }
   const product = await load(slug);
@@ -38,9 +35,7 @@ export async function generateMetadata({ params }: PageProps<"/enterprise-produc
 
 export default async function ProductPage({ params }: PageProps<"/enterprise-products/[slug]">) {
   const { slug } = await params;
-  if (isSlug(slug) && BLOCKED_PRODUCT_SLUGS.has(slug)) {
-    redirect("/enterprise-products");
-  }
+  if (!isSlug(slug) || !(await isProductSlugPublished(slug))) notFound();
   const product = await load(slug);
   if (!product) notFound();
   if (slug === "lift") return <LiftStory />;

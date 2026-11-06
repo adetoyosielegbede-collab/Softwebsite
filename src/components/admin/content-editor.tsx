@@ -136,13 +136,25 @@ function Field({
 
   if (typeof value === "boolean") {
     const homepageFeature = file === "posts" && path.endsWith(".featured");
+    const productPublished = file === "enterprise-products" && /^products\.items\.\d+\.published$/.test(path);
+    const insightPublished = file === "posts" && /^items\.\d+\.published$/.test(path);
+    const title = homepageFeature
+      ? "Featured on the homepage"
+      : productPublished
+        ? "Published on the site"
+        : insightPublished
+          ? "Published"
+          : label;
+    const hint = homepageFeature
+      ? "Two at a time. Only a published insight appears on the homepage."
+      : productPublished
+        ? "Off hides this product from the enterprise products page, sitemap, and its public URL. Content stays editable here."
+        : null;
     return (
       <label className="flex items-center justify-between gap-4 rounded-xl border border-line bg-paper px-3 py-2.5 text-sm">
         <span>
-          {homepageFeature ? "Featured on the homepage" : label}
-          {homepageFeature ? (
-            <span className="mt-1 block text-xs font-normal text-ink-faint">Two at a time. Only a published insight appears on the homepage.</span>
-          ) : null}
+          {title}
+          {hint ? <span className="mt-1 block text-xs font-normal text-ink-faint">{hint}</span> : null}
         </span>
         <input type="checkbox" checked={value} onChange={(e) => onChange(e.target.checked)} className="size-4 accent-signal" />
       </label>

@@ -22,6 +22,7 @@
         "tagline": "Financial intelligence for complex investigations",
         "summary": "Financial intelligence for complex investigations.",
         "href": "/enterprise-products/sentinel",
+        "published": true,
         "color": "#2a2b30",
         "logo": {
           "src": "/media/products/sentinel-logo.png",
@@ -37,7 +38,7 @@
         "tagline": "Audit beyond the limits of manual review",
         "summary": "Audit beyond the limits of manual review.",
         "href": "/enterprise-products/reckon",
-        "disabled": true,
+        "published": false,
         "color": "#991b1b",
         "logo": {
           "src": "/media/products/reckon-logo.png",
@@ -53,6 +54,7 @@
         "tagline": "Collect data in all its forms",
         "summary": "Collect data in all its forms.",
         "href": "/enterprise-products/useforms",
+        "published": true,
         "color": "#ffffff",
         "logo": {
           "src": "/media/products/useforms-logo.svg",
@@ -68,6 +70,7 @@
         "tagline": "An integrated platform for entrepreneurial growth",
         "summary": "An integrated platform for entrepreneurial growth.",
         "href": "/enterprise-products/lift",
+        "published": true,
         "color": "#004dfe",
         "logo": {
           "src": "/media/products/lift-logo.png",
