@@ -32,9 +32,9 @@
       "points": [],
       "figures": [
         {
-          "label": "Lift / 01",
+          "label": "",
           "title": "A member’s home.",
-          "caption": "Profile, standing, recommendations and what is new, in one view.",
+          "caption": "",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-15-52-38-7efbdb.png",
             "alt": "Lift member home screen"
@@ -50,9 +50,9 @@
       "points": [],
       "figures": [
         {
-          "label": "Lift / 02",
-          "title": "Four tiers.",
-          "caption": "Each level of verification unlocks a set of tools. Trusted status is earned, and can be lost.",
+          "label": "",
+          "title": "Member tiers overview.",
+          "caption": "",
           "image": {
             "src": "/media/lift/figure-02.png",
             "alt": "Diagram of Lift's four verification tiers"
@@ -60,9 +60,9 @@
           "source": "Concept illustration"
         },
         {
-          "label": "Lift / 03",
-          "title": "A new member’s home.",
-          "caption": "Tier 0, with the path to Tier 1 at the top.",
+          "label": "",
+          "title": "Greater access unlocked at higher tiers.",
+          "caption": "",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-16-33-54-2fb797.png",
             "alt": "Lift new member dashboard"
@@ -78,9 +78,9 @@
       "points": [],
       "figures": [
         {
-          "label": "Lift / 04",
+          "label": "",
           "title": "One member, six modules.",
-          "caption": "Learn, Connect, Trade, Finance, Register, Grow. Each reads the same profile and tier.",
+          "caption": "",
           "image": {
             "src": "/media/lift/figure-04.png",
             "alt": "Diagram of one member profile connected to six modules"
@@ -96,9 +96,9 @@
       "points": [],
       "figures": [
         {
-          "label": "Lift / 05",
-          "title": "From sign-up to Trusted.",
-          "caption": "Each step unlocks the next tier.",
+          "label": "",
+          "title": "Each step unlocks the next tier.",
+          "caption": "",
           "image": {
             "src": "/media/lift/figure-05.png",
             "alt": "Five-step verification flow from account to standing"
@@ -114,9 +114,9 @@
       "points": [],
       "figures": [
         {
-          "label": "Lift / 06",
+          "label": "",
           "title": "Loans and grants.",
-          "caption": "One list of programs. Eligibility, amount and deadline on every card.",
+          "caption": "",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-16-40-13-1179c5.png",
             "alt": "Lift loans and grants screen"
@@ -124,9 +124,9 @@
           "source": "Product screen · Illustrative data"
         },
         {
-          "label": "Lift / 07",
-          "title": "A soft gate on a funding program.",
-          "caption": "What a verified individual sees, and what each tier can do on the same page.",
+          "label": "",
+          "title": "Verification unlocks more.",
+          "caption": "",
           "image": {
             "src": "/media/lift/figure-07.png",
             "alt": "Funding program detail with a soft gate for Tier 1 members"
@@ -142,9 +142,9 @@
       "points": [],
       "figures": [
         {
-          "label": "Lift / 08",
-          "title": "Order to payout.",
-          "caption": "Verified member buys, verified business sells, platform in between.",
+          "label": "",
+          "title": "Trusted deals between entrepreneurs.",
+          "caption": "",
           "image": {
             "src": "/media/lift/figure-08.png",
             "alt": "Escrow flow from order to payout"
@@ -160,9 +160,9 @@
       "points": [],
       "figures": [
         {
-          "label": "Lift / 09",
-          "title": "Business directory.",
-          "caption": "Filter by sector, location and stage. Featured section for Trusted members.",
+          "label": "",
+          "title": "Searchable Business directory.",
+          "caption": "",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-16-45-17-451b22.png",
             "alt": "Lift business directory screen"
@@ -178,9 +178,9 @@
       "points": [],
       "figures": [
         {
-          "label": "Lift / 10",
-          "title": "Events.",
-          "caption": "A featured event with capacity and RSVP.",
+          "label": "",
+          "title": "Join featured events.",
+          "caption": "",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-16-48-22-56821a.png",
             "alt": "Lift events screen"
@@ -216,9 +216,9 @@
       "points": [],
       "figures": [
         {
-          "label": "Lift / 11",
-          "title": "One product, many initiatives.",
-          "caption": "The platform is the same. The front is yours.",
+          "label": "",
+          "title": "Customisable to fit many initiatives.",
+          "caption": "",
           "image": {
             "src": "/media/lift/figure-11.png",
             "alt": "One Lift codebase powering multiple branded deployments"
