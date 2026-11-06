@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { LiftStory } from "@/components/site/lift-story";
 import { ProductStory } from "@/components/site/product-story";
 import { getContent } from "@/lib/content";
 import { PRODUCT_SLUGS } from "@/lib/cms/registry";
@@ -31,5 +32,6 @@ export default async function ProductPage({ params }: PageProps<"/enterprise-pro
   const { slug } = await params;
   const product = await load(slug);
   if (!product) notFound();
+  if (slug === "lift") return <LiftStory />;
   return <ProductStory product={product} file={`products/${slug}`} />;
 }
