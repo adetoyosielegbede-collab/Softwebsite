@@ -49,6 +49,19 @@ html.light .lift-page{--paper:#f6f5f1;--surface:#ffffff;--raised:#ecebe6;--ink:#
 html.light .lift-page{--lb:#1f4ef5;--lb-soft:rgba(31,78,245,.08);--tl:#0d8577;--tl-soft:rgba(13,133,119,.09);--gold:#a87400}
 .lift-page .hero > *{min-width:0}
 .lift-page .hero{padding-top:calc(env(safe-area-inset-top,0px) + clamp(112px,12vw,150px));padding-bottom:clamp(56px,7vw,96px);display:grid;gap:22px}
+.lift-page .hero-grid{display:grid;gap:clamp(28px,4vw,48px);align-items:center}
+.lift-page .hero-copy{display:grid;gap:22px;min-width:0}
+.lift-page .hero-vis{min-width:0}
+.lift-page .hero-vis figure{margin:0}
+.lift-page .hero-vis .cap-t,.lift-page .hero-vis .cap-s{max-width:none}
+@media (min-width:1000px){
+  .lift-page .hero-grid{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(36px,4vw,64px);align-items:center}
+  .lift-page .hero .display{max-width:14ch}
+}
+@media (max-width:999px){
+  .lift-page .hero-grid{grid-template-columns:minmax(0,1fr)}
+}
+
 .lift-page .lift-logo{display:block;width:64px;height:auto;border-radius:6px}
 .lift-page .display{max-width:18ch}
 .lift-page figure{margin:0}
