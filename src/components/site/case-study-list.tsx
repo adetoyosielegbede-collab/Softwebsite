@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import Link from "next/link";
 import { CmsImage } from "@/components/cms/cms-image";
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
+import { caseStudyPath } from "@/lib/case-studies";
 import type { CaseStudiesContent } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
 
@@ -36,11 +37,9 @@ function ClientLogo({ item, index }: { item: Item; index: number }) {
 export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["items"]; filters: string[] }) {
   const [filter, setFilter] = useState("All");
   const [current, setCurrent] = useState(0);
-  const [selected, setSelected] = useState<number | null>(null);
   const listRef = useRef<HTMLOListElement>(null);
   const total = String(items.length).padStart(2, "0");
   const visible = items.map((item, index) => ({ item, index })).filter(({ item }) => filter === "All" || item.tag === filter);
-  const openItem = selected !== null ? items[selected] : null;
 
   useEffect(() => {
     const root = listRef.current;
@@ -82,19 +81,13 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
       const first = items.findIndex((entry) => filter === "All" || entry.tag === filter);
       return first === -1 ? value : first;
     });
-    setSelected((value) => {
-      if (value === null) return value;
-      const item = items[value];
-      if (item && (filter === "All" || item.tag === filter)) return value;
-      return null;
-    });
   }, [filter, items]);
 
   function jumpTo(index: number) {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const card = document.getElementById(studyId(index));
     card?.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
-    card?.querySelector<HTMLButtonElement>("[data-open-study]")?.focus({ preventScroll: true });
+    card?.querySelector<HTMLAnchorElement>("a[data-open-study]")?.focus({ preventScroll: true });
     setCurrent(index);
   }
 
@@ -151,87 +144,11 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
             <li className="text-body text-ink-soft">No case studies in this category yet.</li>
           ) : (
             visible.map(({ item, index }) => (
-              <StudyCard
-                key={item.title}
-                item={item}
-                index={index}
-                total={total}
-                onOpen={() => setSelected(index)}
-              />
+              <StudyCard key={item.slug || item.title} item={item} index={index} total={total} />
             ))
           )}
         </ol>
       </div>
-
-      <Sheet open={selected !== null} onOpenChange={(open) => !open && setSelected(null)}>
-        <SheetContent
-          side="right"
-          showCloseButton={false}
-          className="data-[side=right]:w-full data-[side=right]:sm:max-w-[640px] gap-0 overflow-y-auto bg-paper p-5 sm:p-8"
-        >
-          {openItem && selected !== null ? (
-            <article>
-              <div className="flex items-start justify-between gap-6">
-                <p className="label text-ink-faint">
-                  {String(selected + 1).padStart(2, "0")} / {total}
-                </p>
-                <SheetClose className="label rounded-full px-3 py-1 text-ink ring-1 ring-line">Close</SheetClose>
-              </div>
-              <SheetTitle className="mt-4 max-w-[18ch] font-heading text-[1.75rem] leading-none heading-type">{openItem.title}</SheetTitle>
-              <SheetDescription className="sr-only">{excerpt(openItem.text)}</SheetDescription>
-              <div className={cn("relative mt-6 aspect-[16/8] overflow-hidden rounded-2xl bg-neutral-900", !openItem.image.src && "hidden [.cms-editing_&]:block")}>
-                <CmsImage image={openItem.image} file="case-studies" path={`items.${selected}.image`} sizes="640px" emptyClassName="absolute inset-0" />
-              </div>
-              <dl className="mt-6 grid grid-cols-2 overflow-hidden rounded-2xl bg-surface ring-1 ring-line sm:grid-cols-3">
-                <div className="border-b border-line p-4 sm:border-r">
-                  <dt className="label text-ink-faint">Outcome</dt>
-                  <dd className="mt-2 font-heading text-2xl leading-none heading-type">{openItem.metric}</dd>
-                  <dd className="text-body mt-2 text-ink-soft">{openItem.metricLabel}</dd>
-                </div>
-                <div className="border-b border-line p-4 sm:border-r">
-                  <dt className="label text-ink-faint">Sector</dt>
-                  <dd className="text-body mt-2">{openItem.tag}</dd>
-                </div>
-                <div className="col-span-2 border-line p-4 sm:col-span-1 sm:border-b-0">
-                  <dt className="label text-ink-faint">Client</dt>
-                  <dd className="text-body mt-2">{openItem.client}</dd>
-                </div>
-              </dl>
-              <div className="mt-8 space-y-6">
-                <section>
-                  <h3 className="label text-ink-faint">Challenge</h3>
-                  <p className="text-body mt-2 text-ink-soft">{openItem.text}</p>
-                </section>
-                {openItem.solution ? (
-                  <section>
-                    <h3 className="label text-ink-faint">Solution</h3>
-                    <p className="text-body mt-2 text-ink-soft">{openItem.solution}</p>
-                  </section>
-                ) : null}
-                {openItem.impact?.length ? (
-                  <section>
-                    <h3 className="label text-ink-faint">Impact</h3>
-                    <ul className="mt-3 space-y-2.5">
-                      {openItem.impact.map((point) => (
-                        <li key={point} className="text-body flex gap-3 text-ink-soft">
-                          <span aria-hidden className="mt-[0.55em] size-1.5 shrink-0 rounded-full bg-signal" />
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
-                ) : null}
-                {openItem.takeaway ? (
-                  <section className="rounded-2xl bg-surface p-4 ring-1 ring-line">
-                    <h3 className="label text-ink-faint">Takeaway</h3>
-                    <p className="text-body mt-2">{openItem.takeaway}</p>
-                  </section>
-                ) : null}
-              </div>
-            </article>
-          ) : null}
-        </SheetContent>
-      </Sheet>
     </>
   );
 }
@@ -287,8 +204,9 @@ function PinnedMark({ children }: { children: ReactNode }) {
   );
 }
 
-function StudyCard({ item, index, total, onOpen }: { item: Item; index: number; total: string; onOpen: () => void }) {
+function StudyCard({ item, index, total }: { item: Item; index: number; total: string }) {
   const number = `${String(index + 1).padStart(2, "0")} / ${total}`;
+  const href = item.slug ? caseStudyPath(item.slug) : "/case-studies";
   return (
     <li
       id={studyId(index)}
@@ -314,18 +232,21 @@ function StudyCard({ item, index, total, onOpen }: { item: Item; index: number; 
 
       <div className="relative flex h-full flex-col p-4 text-white md:p-6">
         <div className="flex items-start justify-between gap-4">
-          <h2 className="line-clamp-3 max-w-[24ch] font-heading text-xl leading-none heading-type md:text-2xl">{item.title}</h2>
+          <h2 className="line-clamp-3 max-w-[24ch] font-heading text-xl leading-none heading-type md:text-2xl">
+            <Link href={href} className="hover:text-signal">
+              {item.title}
+            </Link>
+          </h2>
           <span className="label shrink-0 text-white/70">{number}</span>
         </div>
         <p className="mt-3 line-clamp-3 max-w-[36ch] border-t border-white/25 pt-3 text-[0.8125rem] leading-[1.35] text-white/70">{excerpt(item.text)}</p>
-        <button
-          type="button"
+        <Link
+          href={href}
           data-open-study=""
-          onClick={onOpen}
           className="mt-4 inline-flex h-10 w-fit items-center rounded-full bg-white px-4 text-sm font-medium text-black transition-colors hover:bg-signal"
         >
-          Read the study
-        </button>
+          Read the {item.client} study
+        </Link>
 
         <PinnedMark>
           <p

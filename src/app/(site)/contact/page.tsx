@@ -4,11 +4,17 @@ import { CmsImage } from "@/components/cms/cms-image";
 import { ContactForm } from "@/components/site/contact-form";
 import { CrossField } from "@/components/site/dot-canvas";
 import { getContent } from "@/lib/content";
+import { publicPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { seo } = await getContent("contact");
-  return { title: seo.title, description: seo.description };
+  const page = await getContent("contact");
+  return publicPageMetadata({
+    title: page.seo.title,
+    description: page.seo.description,
+    path: "/contact",
+    image: page.image.src ? page.image : undefined,
+  });
 }
 
 export default async function ContactPage() {

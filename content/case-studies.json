@@ -23,6 +23,7 @@
   ],
   "items": [
     {
+      "slug": "bank-of-industry-youth",
       "title": "Empowering the Nigerian Youth",
       "text": "Nigeria faced an urgent youth unemployment crisis. Nearly 50% of graduates were unemployed or unemployable, and earlier interventions struggled with inefficiency, poor reach, and weak accountability. The task was to recruit, train, deploy, and pay 500,000 young people fairly and on time, across all 36 states.",
       "solution": "Softcom designed and deployed a nationwide digital platform for recruitment, training, work tracking, and payments. Digital identity, mobile access, and real-time data kept the programme transparent and inclusive in every state.",
@@ -46,6 +47,7 @@
       }
     },
     {
+      "slug": "national-cash-transfer-office",
       "title": "Delivering Conditional Cash Transfers to Nigeria's Poorest Households",
       "text": "More than 100 million Nigerians are multidimensionally poor, according to the World Bank. The Federal Government, through the National Cash Transfer Office, needed to deliver cash, products, and incentives to the poorest households, and to encourage education, immunisation, and family planning, including in riverine and hard-to-reach communities.",
       "solution": "Softcom built a digital disbursement platform and ran it in more than four states. The system handled enrolment, identity verification, and payment, so support reached the right households. Community agents were hired and trained in each location, which created local jobs and trust.",
@@ -70,6 +72,7 @@
       }
     },
     {
+      "slug": "bank-of-industry-micro-traders",
       "title": "Enabling Financial Support and Inclusion for Nigeria's Micro Traders",
       "text": "Through the Government Enterprise and Empowerment Programme (GEEP), the Bank of Industry set out to lend from NGN 10,000 to informal traders, then raise the amount when a loan was repaid. Most of those traders worked in open markets, without bank accounts or access to formal finance.",
       "solution": "Softcom powered TraderMoni fulfilment on Eyowo. After a trader was identified and enumerated, the loan was paid to their mobile number. Dropping the first zero turned that number into a NUBAN, so an unbanked trader had a working account.",
@@ -93,6 +96,7 @@
       }
     },
     {
+      "slug": "gb-foods",
       "title": "Digitising Agricultural Value Chains for Sustainable Sourcing",
       "text": "GB Foods runs the largest tomato processing factory in West Africa, in Kebbi State. The plant draws on a 1,500-hectare farm and more than 5,000 out-growers. Before that network could scale, the company needed to identify and verify farmers and map their farms.",
       "solution": "Softcom identified more than 13,000 farmers and recorded biodata, farm size, family situation, and proximity to water and roads. GB Foods could see who could supply the factory, and where.",
@@ -117,6 +121,7 @@
       }
     },
     {
+      "slug": "sebore-farms",
       "title": "Automating Dairy Farmer Management and Payments",
       "text": "Sebore International Farms, makers of Admiral'A Yoghurt, wanted to onboard and pay thousands of rural smallholder dairy farmers. Most had limited access to finance and no digital identity.",
       "solution": "Softcom deployed a Farm Management System covering biodata, BVN, biometrics, and household location. Eyowo paid farmers instantly when milk was collected. Agents used DataBeaver to enrol, verify, and capture data in the field, and Hausa training materials explained the platform to farmers.",
@@ -142,6 +147,7 @@
       }
     },
     {
+      "slug": "coca-cola-nigeria",
       "title": "Connecting with 12 Million Consumers through Digital Engagement",
       "text": "Millions of Nigerians drank Coca-Cola every day, but the company could not see who they were or reach them beyond retail. It needed a consumer database, and a way to reward loyalty at scale.",
       "solution": "Softcom built the infrastructure for Coca-Cola's Under-the-Crown campaign. A unique code sat under the crown. The drinker dialled a USSD short code, entered the crown code, answered a short survey, and received airtime immediately. The platform tied into manufacturing data and every mobile network.",
@@ -166,6 +172,7 @@
       }
     },
     {
+      "slug": "ab-inbev",
       "title": "Driving Consumer Insight and Loyalty through Digital Engagement",
       "text": "AB InBev, makers of Trophy Beer, had nationwide sales and little visibility of who was buying. The company needed to identify drinkers, reward loyalty, and turn that into insight for marketing and distribution.",
       "solution": "Softcom implemented Under-the-Crown for Trophy. Each bottle carried a unique code under the crown. A drinker dialled a USSD code, entered it, answered a short survey, and received airtime or another incentive at once. The system sat on the manufacturing workflow, processed millions of entries, and paid incentives on every network.",
@@ -190,6 +197,7 @@
       }
     },
     {
+      "slug": "ardova",
       "title": "Reconnecting Consumers to Legacy Lubricant Brands through Digital Engagement",
       "text": "After acquiring lubricant businesses, Ardova Plc found legacy brands such as Visco 2000 and Super V disconnected from the people who bought them. The company needed to reintroduce those brands, incentivise purchase, and see who was buying and where.",
       "solution": "Softcom ran a nationwide engagement platform. Unique codes were printed on labels and generated inside the manufacturing flow. Buyers dialled a USSD code and received airtime or cash at once. The system validated codes, paid the incentives, and reported engagement and location in real time.",

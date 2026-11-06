@@ -2,10 +2,16 @@ import type { Metadata } from "next";
 import { CaseStudyList } from "@/components/site/case-study-list";
 import { CtaBanner, PageHero } from "@/components/site/sections";
 import { getContent } from "@/lib/content";
+import { publicPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { seo } = await getContent("case-studies");
-  return { title: seo.title, description: seo.description };
+  const page = await getContent("case-studies");
+  return publicPageMetadata({
+    title: page.seo.title,
+    description: page.seo.description,
+    path: "/case-studies",
+    image: page.band.src ? page.band : page.cta.image,
+  });
 }
 
 export default async function CaseStudiesPage() {

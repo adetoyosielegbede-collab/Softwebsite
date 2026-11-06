@@ -208,6 +208,8 @@ export type ProductContent = {
 };
 
 export type CaseStudyItem = {
+  /** Stable URL segment, /case-studies/[slug]. */
+  slug: string;
   title: string;
   /** The challenge, shown on the card and at the top of the study. */
   text: string;

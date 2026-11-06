@@ -5,10 +5,16 @@ import { CtaBanner, FrameMarks, PageHero } from "@/components/site/sections";
 import { PillLink } from "@/components/site/links";
 import { ScrollWords } from "@/components/site/scroll-words";
 import { getContent } from "@/lib/content";
+import { publicPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { seo } = await getContent("careers");
-  return { title: seo.title, description: seo.description };
+  const page = await getContent("careers");
+  return publicPageMetadata({
+    title: page.seo.title,
+    description: page.seo.description,
+    path: "/careers",
+    image: page.image.src ? page.image : page.cta.image,
+  });
 }
 
 export default async function CareersPage() {

@@ -3,10 +3,16 @@ import { CmsImage } from "@/components/cms/cms-image";
 import { AlumniForm } from "@/components/site/alumni-form";
 import { PillLink } from "@/components/site/links";
 import { getContent } from "@/lib/content";
+import { publicPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { seo } = await getContent("alumni");
-  return { title: seo.title, description: seo.description };
+  const page = await getContent("alumni");
+  return publicPageMetadata({
+    title: page.seo.title,
+    description: page.seo.description,
+    path: "/alumni",
+    image: page.hero.backgroundImage,
+  });
 }
 
 export default async function AlumniPage() {

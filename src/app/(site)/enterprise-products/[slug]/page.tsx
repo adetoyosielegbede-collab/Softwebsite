@@ -5,7 +5,8 @@ import { ProductStory } from "@/components/site/product-story";
 import { UseformsStory } from "@/components/site/useforms-story";
 import { getContent, isProductSlugPublished } from "@/lib/content";
 import { PRODUCT_SLUGS } from "@/lib/cms/registry";
-import type { ContentMap, ProductContent } from "@/lib/content-types";
+import type { CmsImage, ContentMap, ProductContent } from "@/lib/content-types";
+import { publicPageMetadata } from "@/lib/seo";
 
 type Slug = (typeof PRODUCT_SLUGS)[number];
 
@@ -24,13 +25,31 @@ async function load(slug: string): Promise<ProductContent | null> {
   return getContent(`products/${slug}` as keyof ContentMap) as Promise<ProductContent>;
 }
 
+function productShareImage(product: ProductContent): CmsImage | undefined {
+  for (const block of product.blocks) {
+    for (const figure of block.figures) {
+      if (figure.image?.src) return figure.image;
+    }
+  }
+  if (product.cta.image?.src) return product.cta.image;
+  if (product.hero.backgroundImage?.src) return product.hero.backgroundImage;
+  if (product.hero.logo?.src) return product.hero.logo;
+  return undefined;
+}
+
 export async function generateMetadata({ params }: PageProps<"/enterprise-products/[slug]">): Promise<Metadata> {
   const slug = (await params).slug;
   if (!isSlug(slug) || !(await isProductSlugPublished(slug))) {
     return { title: "Enterprise Products", robots: { index: false, follow: false } };
   }
   const product = await load(slug);
-  return product ? { title: product.seo.title, description: product.seo.description } : {};
+  if (!product) return {};
+  return publicPageMetadata({
+    title: product.seo.title,
+    description: product.seo.description,
+    path: `/enterprise-products/${slug}`,
+    image: productShareImage(product),
+  });
 }
 
 export default async function ProductPage({ params }: PageProps<"/enterprise-products/[slug]">) {

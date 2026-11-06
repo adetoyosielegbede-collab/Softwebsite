@@ -7,11 +7,18 @@ import { LineReveal } from "@/components/site/line-reveal";
 import { CtaBanner, FrameMarks, PageHero } from "@/components/site/sections";
 import { getContent, getPublishedPosts } from "@/lib/content";
 import { formatMonthYear } from "@/lib/format";
+import { publicPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { seo } = await getContent("about");
-  return { title: seo.title, description: seo.description };
+  const about = await getContent("about");
+  const photo = about.leadership.people.find((person) => person.photo.src)?.photo;
+  return publicPageMetadata({
+    title: about.seo.title,
+    description: about.seo.description,
+    path: "/about",
+    image: photo ?? about.cta.image,
+  });
 }
 
 export default async function AboutPage() {

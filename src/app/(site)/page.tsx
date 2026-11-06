@@ -7,7 +7,19 @@ import { ArrowLink, PillLink } from "@/components/site/links";
 import { PortalHero } from "@/components/site/portal-hero";
 import { CtaBanner, FrameMarks, PartnerMarquee, Stats } from "@/components/site/sections";
 import { getContent, getPublishedPosts } from "@/lib/content";
+import { publicPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
+
+export async function generateMetadata() {
+  const site = await getContent("site");
+  return publicPageMetadata({
+    title: site.seo.title,
+    description: site.seo.description,
+    path: "/",
+    image: site.seo.shareImage,
+    absoluteTitle: true,
+  });
+}
 
 /** Shared rhythm between homepage bands. Later bands sit closer where the scroll already provides the pause. */
 const band = "flex scroll-mt-24 flex-col gap-8 pt-20 md:gap-12 lg:pt-28";

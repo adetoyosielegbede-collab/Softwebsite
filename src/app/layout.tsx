@@ -2,21 +2,19 @@ import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { getContent } from "@/lib/content";
+import { metadataBaseUrl } from "@/lib/seo";
 import { typographyStyle } from "@/lib/typography";
 import { fontVariables } from "./fonts";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   const site = await getContent("site");
+  const google = process.env.GOOGLE_SITE_VERIFICATION?.trim();
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:4317"),
+    metadataBase: metadataBaseUrl(),
     title: { default: site.seo.title, template: `%s — ${site.brand.name}` },
     description: site.seo.description,
-    openGraph: {
-      title: site.seo.title,
-      description: site.seo.description,
-      images: site.seo.shareImage.src ? [site.seo.shareImage.src] : undefined,
-    },
+    ...(google ? { verification: { google } } : {}),
   };
 }
 

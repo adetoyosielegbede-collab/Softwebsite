@@ -7,12 +7,19 @@ import { CtaBanner, SectionNumber } from "@/components/site/sections";
 import { DigitalInfrastructureBoard, SolutionArt } from "@/components/site/solution-art";
 import { SolutionsHero } from "@/components/site/solutions-hero";
 import { getContent } from "@/lib/content";
+import { publicPageMetadata } from "@/lib/seo";
 import { fontSizeVars, textStyleClass } from "@/lib/typography";
 import { cn } from "@/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { seo } = await getContent("solutions");
-  return { title: seo.title, description: seo.description };
+  const page = await getContent("solutions");
+  const image = page.infrastructure.steps.find((step) => step.image.src)?.image ?? page.cta.image;
+  return publicPageMetadata({
+    title: page.seo.title,
+    description: page.seo.description,
+    path: "/solutions",
+    image,
+  });
 }
 
 function SectionHeader({ id, number, title, lead }: { id: string; number: string; title: string; lead: string }) {

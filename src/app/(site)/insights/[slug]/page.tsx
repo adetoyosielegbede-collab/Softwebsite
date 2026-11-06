@@ -4,9 +4,11 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { CmsImage } from "@/components/cms/cms-image";
 import { CtaBanner } from "@/components/site/sections";
+import { JsonLd } from "@/components/site/json-ld";
 import { getContent } from "@/lib/content";
 import type { CmsImage as CmsImageValue, Post, PostFigure } from "@/lib/content-types";
 import { formatMonthYear } from "@/lib/format";
+import { articleStructuredData, publicPageMetadata } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const { items } = await getContent("posts");
@@ -20,12 +22,15 @@ export async function generateMetadata({ params }: PageProps<"/insights/[slug]">
   const { items } = await getContent("posts");
   const post = items.find((p) => p.slug === slug && p.published);
   if (!post) return {};
-  const share = post.heroImage?.src || post.image.src;
-  return {
+  const share = post.heroImage?.src ? post.heroImage : post.image;
+  return publicPageMetadata({
     title: post.title,
     description: post.excerpt,
-    openGraph: { images: share ? [share] : undefined },
-  };
+    path: `/insights/${post.slug}`,
+    image: share.src ? share : undefined,
+    type: "article",
+    publishedTime: post.date,
+  });
 }
 
 function readingMinutes(post: Post) {
@@ -78,9 +83,20 @@ export default async function InsightArticlePage({ params }: PageProps<"/insight
   const sections = post.sections ?? [];
   const hero = post.heroImage?.src ? post.heroImage : post.image;
   const minutes = readingMinutes(post);
+  const site = await getContent("site");
 
   return (
     <>
+      <JsonLd
+        data={articleStructuredData({
+          site,
+          title: post.title,
+          description: post.excerpt,
+          path: `/insights/${post.slug}`,
+          date: post.date,
+          image: hero.src ? hero : undefined,
+        })}
+      />
       <article>
         <header className="container-site flex flex-col items-center pt-32 text-center md:pt-44">
           <p className="label text-ink-soft">

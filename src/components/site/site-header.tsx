@@ -18,7 +18,8 @@ function pathOf(href: string) {
 
 function isCurrent(pathname: string, href: string) {
   const path = pathOf(href);
-  return path === "/" ? pathname === "/" : pathname === path;
+  if (path === "/") return pathname === "/";
+  return pathname === path || pathname.startsWith(`${path}/`);
 }
 
 function sectionId(href: string) {
