@@ -32,9 +32,9 @@
       "points": [],
       "figures": [
         {
-          "label": "Useforms / 01",
-          "title": "The form builder.",
-          "caption": "Questions are built from elements: text, choices, uploads, locations and payments, each with its own rules.",
+          "label": "",
+          "title": "Form builder",
+          "caption": "",
           "image": {
             "src": "/media/useforms/form-builder.jpg",
             "alt": "Useforms form builder"
@@ -50,9 +50,9 @@
       "points": [],
       "figures": [
         {
-          "label": "Useforms / 02",
-          "title": "Collecting in the field.",
-          "caption": "Each photo carries the place and time it was taken. Entries wait on the phone until there is a connection.",
+          "label": "",
+          "title": "Field data collection",
+          "caption": "",
           "image": {
             "src": "/media/useforms/forms-library.jpg",
             "alt": "Useforms collecting in the field"
@@ -68,9 +68,9 @@
       "points": [],
       "figures": [
         {
-          "label": "Useforms / 03",
-          "title": "The review desk.",
-          "caption": "Each entry is read against its photo, place and time, then accepted, returned with a note, or rejected.",
+          "label": "",
+          "title": "The review desk",
+          "caption": "",
           "image": {
             "src": "/media/useforms/payment.jpg",
             "alt": "Useforms review desk"
@@ -86,9 +86,9 @@
       "points": [],
       "figures": [
         {
-          "label": "Useforms / 04",
-          "title": "A project in the field.",
-          "caption": "Coverage fills in by area as entries are accepted.",
+          "label": "",
+          "title": "A project in the field",
+          "caption": "",
           "image": {
             "src": "",
             "alt": "Useforms project map"
