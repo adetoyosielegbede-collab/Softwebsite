@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { CmsImage } from "@/components/cms/cms-image";
-import { CaseStudyDetail } from "@/components/site/case-study-detail";
+import { CaseStudyDetail, CaseStudyLogo } from "@/components/site/case-study-detail";
 import { CtaBanner } from "@/components/site/sections";
 import { caseStudyPath } from "@/lib/case-studies";
 import { getContent } from "@/lib/content";
@@ -49,7 +49,10 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
           <span aria-hidden> · </span>
           {item.tag}
         </p>
-        <h1 className="text-display mt-4 max-w-[16ch] text-balance">{item.title}</h1>
+        <div className="mt-4 flex items-start justify-between gap-6">
+          <h1 className="text-display min-w-0 max-w-[16ch] flex-1 text-balance">{item.title}</h1>
+          <CaseStudyLogo item={item} index={index} />
+        </div>
 
         {item.image.src ? (
           <div className="relative mt-10 aspect-[16/8] overflow-hidden rounded-2xl bg-neutral-900">

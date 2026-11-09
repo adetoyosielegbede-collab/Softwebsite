@@ -5,7 +5,8 @@ import { cn } from "@/lib/utils";
 
 type Item = CaseStudiesContent["items"][number];
 
-function ClientMark({ item, index, compact }: { item: Item; index: number; compact?: boolean }) {
+/** Client mark for the study header (opposite the title), not the Client meta cell. */
+export function CaseStudyLogo({ item, index, compact }: { item: Item; index: number; compact?: boolean }) {
   if (!item.logo?.src) return null;
   return (
     <span
@@ -55,10 +56,7 @@ export function CaseStudyDetail({
         </div>
         <div className={cn(compact ? "col-span-2 border-line p-4 sm:col-span-1" : "p-5")}>
           <dt className="label text-ink-faint">Client</dt>
-          <dd className="mt-2 flex min-w-0 flex-nowrap items-center gap-3 overflow-hidden">
-            <ClientMark item={item} index={index} compact={compact} />
-            <span className="text-body min-w-0 truncate whitespace-nowrap">{item.client}</span>
-          </dd>
+          <dd className="text-body mt-2">{item.client}</dd>
         </div>
       </dl>
 

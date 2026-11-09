@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { CmsImage } from "@/components/cms/cms-image";
-import { CaseStudyDetail } from "@/components/site/case-study-detail";
+import { CaseStudyDetail, CaseStudyLogo } from "@/components/site/case-study-detail";
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
 import type { CaseStudiesContent } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
@@ -172,7 +172,10 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
                 </p>
                 <SheetClose className="label rounded-full px-3 py-1 text-ink ring-1 ring-line">Close</SheetClose>
               </div>
-              <SheetTitle className="mt-4 max-w-[18ch] font-heading text-[1.75rem] leading-none heading-type">{openItem.title}</SheetTitle>
+              <div className="mt-4 flex items-start justify-between gap-6">
+                <SheetTitle className="min-w-0 max-w-[18ch] flex-1 font-heading text-[1.75rem] leading-none heading-type">{openItem.title}</SheetTitle>
+                <CaseStudyLogo item={openItem} index={selected} compact />
+              </div>
               <SheetDescription className="sr-only">{excerpt(openItem.text)}</SheetDescription>
               <div className={cn("relative mt-6 aspect-[16/8] overflow-hidden rounded-2xl bg-neutral-900", !openItem.image.src && "hidden [.cms-editing_&]:block")}>
                 <CmsImage image={openItem.image} file="case-studies" path={`items.${selected}.image`} sizes="640px" emptyClassName="absolute inset-0" />
