@@ -57,13 +57,11 @@ export const LIFT_PAGE_HTML = `<section class="wrap hero">
 
   <section class="sec"><div class="wrap"><div class="row flip"><div class="txt"><p class="label">Deployment</p><h2 class="headline">One product, your initiative’s name on it</h2><p class="body">The tiers, modules and rules are shared across every deployment. The brand, colour, type and content are configuration.</p><p class="body">A state ministry, a national agency and a development partner can each run LIFT as their own initiative.</p></div><div class="vis"><figure><div class="dg fronts"><div class="fr-row"><div class="fr" style="--c:#0f8a5f"><div class="fr-bar"><i></i><span>State initiative</span></div><div class="fr-body"><span></span><span></span><span class="s"></span></div><p>Ministry of commerce</p></div><div class="fr" style="--c:#1f4ef5"><div class="fr-bar"><i></i><span>National agency</span></div><div class="fr-body"><span></span><span></span><span class="s"></span></div><p>Enterprise development</p></div><div class="fr" style="--c:#b5541c"><div class="fr-bar"><i></i><span>Partner program</span></div><div class="fr-body"><span></span><span></span><span class="s"></span></div><p>Foundation or development bank</p></div></div><div class="fr-links" aria-hidden="true"><i></i><i></i><i></i></div><div class="core"><p class="label">The same LIFT underneath</p><div class="core-l"><span>Tiers</span><span>Modules</span><span>Verification</span><span>Payments</span><span>One data model</span></div></div><p class="dg-foot">Brand, colour, type and content are configuration. The rules and the record are shared.</p></div><figcaption><p class="cap-t"><span class="label">Lift / 11</span>One product, many initiatives.</p><p class="cap-s">The platform is the same. The front is yours.</p></figcaption></figure></div></div></div></section>
 
-  <section class="sec">
-    <div class="wrap">
-      <div class="head who-head">
-        <p class="label">Who it is for</p>
-        <h2 class="headline">Built for those with a mandate to grow small businesses.</h2>
-        <ul class="who"><li>State ministries of commerce and industry</li><li>National enterprise development agencies</li><li>Development banks and MSME funds</li><li>Foundations and development partners running entrepreneurship programs</li><li>Industry associations with members to serve</li></ul>
-      </div>
+  <section class="who-band">
+    <div class="wrap who-band-inner">
+      <p class="who-band-label">Who it is for</p>
+      <h2 class="who-band-title">Built for those with a mandate to grow small businesses.</h2>
+      <ul class="who-band-list"><li>State ministries of commerce and industry</li><li>National enterprise development agencies</li><li>Development banks and MSME funds</li><li>Foundations and development partners running entrepreneurship programs</li><li>Industry associations with members to serve</li></ul>
     </div>
   </section>
 

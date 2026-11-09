@@ -181,12 +181,14 @@ html.light .lift-page{--lb:#1f4ef5;--lb-soft:rgba(31,78,245,.08);--tl:#0d8577;--
 .lift-page .org{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .lift-page .org div{border-top:2px solid var(--lb);padding-top:16px;display:grid;gap:8px;align-content:start}
 .lift-page .org .label{color:var(--lb)}.lift-page .org h3{margin:0;font-size:20px;font-weight:500}.lift-page .org p{margin:0;color:var(--soft);font-size:15.5px}
-.lift-page .who{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;list-style:none;margin:0;padding:0}
-.lift-page .who li{border-top:1px solid var(--line2);padding-top:14px;font-size:16px;line-height:1.4}
-/* Who it is for: headline left, audience categories right — same side-by-side pattern as Sentinel’s closing band */
-.lift-page .who-head{align-items:start;margin-bottom:0}
-.lift-page .who-head .headline{max-width:18ch}
-.lift-page .who-head .who{grid-template-columns:minmax(0,1fr);gap:0;align-self:start}
+/* Who it is for: slim contrast band matching Sentinel’s “For teams mandated…” treatment */
+.lift-page .who-band{background:#10172a;color:#fff}
+.lift-page .who-band-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px clamp(24px,5vw,72px);align-items:center;padding-block:40px}
+@media (min-width:768px){.lift-page .who-band-inner{padding-block:43px}}
+.lift-page .who-band-label{grid-column:1/-1;font-family:var(--f-mono);font-size:11px;line-height:15px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:#8b9bb5;margin:0}
+.lift-page .who-band-title{margin:0;max-width:22ch;font-size:1.5rem;line-height:1.35;font-weight:500;letter-spacing:-.02em;text-wrap:balance;color:#fff}
+.lift-page .who-band-list{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-width:420px;justify-self:stretch}
+.lift-page .who-band-list li{margin:0;font-size:15px;line-height:1.5;color:#b7c5dc}
 .lift-page .cta{padding-block:clamp(72px,9vw,128px);border-top:1px solid var(--line);display:grid;gap:22px}
 
 .lift-page footer{background:var(--surface);border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px);padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
@@ -196,13 +198,12 @@ html.light .lift-page{--lb:#1f4ef5;--lb-soft:rgba(31,78,245,.08);--tl:#0d8577;--
 .lift-page .addr{font-size:14px;color:var(--soft);line-height:1.6;margin:0}
 .lift-page .legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--soft)}
 
-@media (max-width:1100px){.lift-page .who{grid-template-columns:repeat(2,minmax(0,1fr))}.lift-page .who-head .who{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:1000px){.lift-page .foot{grid-template-columns:repeat(2,minmax(0,1fr))}.lift-page .foot > div:first-child{grid-column:1/-1}}
-@media (max-width:900px){.lift-page .row, .lift-page .row.flip{grid-template-columns:minmax(0,1fr);gap:28px}.lift-page .row.flip .txt{order:0}.lift-page .org, .lift-page .head{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:900px){.lift-page .row, .lift-page .row.flip{grid-template-columns:minmax(0,1fr);gap:28px}.lift-page .row.flip .txt{order:0}.lift-page .org, .lift-page .head{grid-template-columns:minmax(0,1fr)}.lift-page .who-band-inner{grid-template-columns:minmax(0,1fr);padding-block:36px}}
 @media (max-width:640px){
   .lift-page .tiers{grid-template-columns:minmax(0,1fr)}.lift-page .tr{padding-top:0}.lift-page .tr-card{min-height:0}
   .lift-page .prof{grid-template-columns:minmax(0,1fr)}.lift-page .pf-arrow{height:26px}.lift-page .pf-arrow i{left:50%;right:auto;top:0;bottom:6px;width:1.5px;height:auto}
   .lift-page .pf-arrow i::after{right:-5px;top:auto;bottom:-6px;border:6px solid transparent;border-top-color:var(--tl);border-bottom:0}
   .lift-page .mods{padding-left:0;border-left:0}.lift-page .gate{grid-template-columns:minmax(0,1fr)}
-  .lift-page .fr-row, .lift-page .fr-links{grid-template-columns:minmax(0,1fr)}.lift-page .fr-links{display:none}.lift-page .fr-row{margin-bottom:12px}.lift-page .who{grid-template-columns:minmax(0,1fr)}}
+  .lift-page .fr-row, .lift-page .fr-links{grid-template-columns:minmax(0,1fr)}.lift-page .fr-links{display:none}.lift-page .fr-row{margin-bottom:12px}}
 
