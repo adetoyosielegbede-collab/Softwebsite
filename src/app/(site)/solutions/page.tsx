@@ -63,7 +63,17 @@ export default async function SolutionsPage() {
                 </div>
                 <p className="eyebrow">{card.eyebrow}</p>
                 <h3 className="mt-4 font-heading text-[clamp(1.125rem,4.6cqw,1.75rem)] leading-none whitespace-nowrap heading-type">{card.title}</h3>
-                <p className="text-body mt-5 text-ink-soft">{card.text}</p>
+                <div className="mt-5 flex flex-col gap-4">
+                  {card.text
+                    .split(/\n+/)
+                    .map((paragraph) => paragraph.trim())
+                    .filter(Boolean)
+                    .map((paragraph) => (
+                      <p key={paragraph} className="text-body text-ink-soft">
+                        {paragraph}
+                      </p>
+                    ))}
+                </div>
               </article>
             ))}
           </div>

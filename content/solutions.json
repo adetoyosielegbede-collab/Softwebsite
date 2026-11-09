@@ -66,13 +66,13 @@
       {
         "eyebrow": "Build",
         "title": "Built Here, For Here",
-        "text": "Where existing systems cannot support what an organisation needs to do, we design and build the infrastructure that can. We bring together our own technology, partner platforms and custom-built systems, shaped around the organisation’s requirements, the people who will use them and the conditions in which they must operate.",
+        "text": "Where existing systems cannot support what an organisation needs to do, we design and build the infrastructure that can.\n\nWe ideate, design, and build custom systems shaped around the organisation’s requirements, the people who will use them and the conditions in which they must operate.",
         "highlight": true
       },
       {
         "eyebrow": "Implement",
         "title": "Global Rails, Local Expertise",
-        "text": "Where world-class infrastructure already exists, we bring the expertise to put it to work locally. Working with our technology partners, we integrate platforms into institutions’ existing systems and adapt their implementation to local requirements, workflows and operating conditions.",
+        "text": "Where world-class infrastructure already exists, we bring the expertise to put it to work locally.\n\nWorking with our technology partners, we integrate platforms into institutions’ existing systems and adapt their implementation to local requirements, workflows and operating conditions.",
         "highlight": false
       }
     ],
