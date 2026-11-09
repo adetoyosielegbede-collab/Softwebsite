@@ -112,7 +112,7 @@ export function Stats({ stats, count = false, lined = true }: { stats: SiteConte
   return (
     <dl className={cn("grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4", lined && "border-t border-line pt-10")}>
       {stats.map((s, i) => (
-        <div key={s.label} data-reveal style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}>
+        <div key={s.label} className="text-center" data-reveal style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}>
           <dd className="font-heading text-[2.25rem] leading-[0.95] heading-type md:text-[3.75rem]">
             {count ? <CountUp value={s.value} delay={i * 120} /> : s.value}
           </dd>
