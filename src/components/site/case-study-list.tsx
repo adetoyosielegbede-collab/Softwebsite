@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import Link from "next/link";
 import { CmsImage } from "@/components/cms/cms-image";
-import { caseStudyPath } from "@/lib/case-studies";
+import { CaseStudyDetail } from "@/components/site/case-study-detail";
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
 import type { CaseStudiesContent } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +21,7 @@ function studyId(index: number) {
 function ClientLogo({ item, index }: { item: Item; index: number }) {
   if (!item.logo?.src) return null;
   return (
-    <span className="inline-flex max-w-[9.75rem] items-center justify-center">
+    <span className="inline-flex max-w-[9.75rem] shrink-0 items-center justify-center">
       <CmsImage
         image={item.logo}
         file="case-studies"
@@ -37,9 +37,11 @@ function ClientLogo({ item, index }: { item: Item; index: number }) {
 export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["items"]; filters: string[] }) {
   const [filter, setFilter] = useState("All");
   const [current, setCurrent] = useState(0);
+  const [selected, setSelected] = useState<number | null>(null);
   const listRef = useRef<HTMLOListElement>(null);
   const total = String(items.length).padStart(2, "0");
   const visible = items.map((item, index) => ({ item, index })).filter(({ item }) => filter === "All" || item.tag === filter);
+  const openItem = selected !== null ? items[selected] : null;
 
   useEffect(() => {
     const root = listRef.current;
@@ -81,13 +83,19 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
       const first = items.findIndex((entry) => filter === "All" || entry.tag === filter);
       return first === -1 ? value : first;
     });
+    setSelected((value) => {
+      if (value === null) return value;
+      const item = items[value];
+      if (item && (filter === "All" || item.tag === filter)) return value;
+      return null;
+    });
   }, [filter, items]);
 
   function jumpTo(index: number) {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const card = document.getElementById(studyId(index));
     card?.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
-    card?.querySelector<HTMLAnchorElement>("a[data-open-study]")?.focus({ preventScroll: true });
+    card?.querySelector<HTMLButtonElement>("[data-open-study]")?.focus({ preventScroll: true });
     setCurrent(index);
   }
 
@@ -139,16 +147,43 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
           </div>
         </aside>
 
-        <ol ref={listRef} className="mt-6 flex min-w-0 flex-1 flex-col gap-3 lg:mt-0 lg:mr-20">
+        <ol ref={listRef} className="mt-6 flex min-w-0 flex-1 flex-col gap-3 lg:mt-0 lg:max-w-[42rem]">
           {visible.length === 0 ? (
             <li className="text-body text-ink-soft">No case studies in this category yet.</li>
           ) : (
             visible.map(({ item, index }) => (
-              <StudyCard key={item.slug || item.title} item={item} index={index} total={total} />
+              <StudyCard key={item.slug || item.title} item={item} index={index} total={total} onOpen={() => setSelected(index)} />
             ))
           )}
         </ol>
       </div>
+
+      <Sheet open={selected !== null} onOpenChange={(open) => !open && setSelected(null)}>
+        <SheetContent
+          side="right"
+          showCloseButton={false}
+          className="data-[side=right]:w-full data-[side=right]:sm:max-w-[640px] gap-0 overflow-y-auto bg-paper p-5 sm:p-8"
+        >
+          {openItem && selected !== null ? (
+            <article>
+              <div className="flex items-start justify-between gap-6">
+                <p className="label text-ink-faint">
+                  {String(selected + 1).padStart(2, "0")} / {total}
+                </p>
+                <SheetClose className="label rounded-full px-3 py-1 text-ink ring-1 ring-line">Close</SheetClose>
+              </div>
+              <SheetTitle className="mt-4 max-w-[18ch] font-heading text-[1.75rem] leading-none heading-type">{openItem.title}</SheetTitle>
+              <SheetDescription className="sr-only">{excerpt(openItem.text)}</SheetDescription>
+              <div className={cn("relative mt-6 aspect-[16/8] overflow-hidden rounded-2xl bg-neutral-900", !openItem.image.src && "hidden [.cms-editing_&]:block")}>
+                <CmsImage image={openItem.image} file="case-studies" path={`items.${selected}.image`} sizes="640px" emptyClassName="absolute inset-0" />
+              </div>
+              <div className="mt-6">
+                <CaseStudyDetail item={openItem} index={selected} compact />
+              </div>
+            </article>
+          ) : null}
+        </SheetContent>
+      </Sheet>
     </>
   );
 }
@@ -204,9 +239,8 @@ function PinnedMark({ children }: { children: ReactNode }) {
   );
 }
 
-function StudyCard({ item, index, total }: { item: Item; index: number; total: string }) {
+function StudyCard({ item, index, total, onOpen }: { item: Item; index: number; total: string; onOpen: () => void }) {
   const number = `${String(index + 1).padStart(2, "0")} / ${total}`;
-  const href = item.slug ? caseStudyPath(item.slug) : "/case-studies";
   return (
     <li
       id={studyId(index)}
@@ -219,7 +253,7 @@ function StudyCard({ item, index, total }: { item: Item; index: number; total: s
           image={item.image}
           file="case-studies"
           path={`items.${index}.image`}
-          sizes="(min-width: 1024px) 70vw, 100vw"
+          sizes="(min-width: 1024px) 42rem, 100vw"
           className="opacity-70"
           emptyClassName="hidden"
         />
@@ -232,21 +266,18 @@ function StudyCard({ item, index, total }: { item: Item; index: number; total: s
 
       <div className="relative flex h-full flex-col p-4 text-white md:p-6">
         <div className="flex items-start justify-between gap-4">
-          <h2 className="line-clamp-3 max-w-[24ch] font-heading text-xl leading-none heading-type md:text-2xl">
-            <Link href={href} className="hover:text-signal">
-              {item.title}
-            </Link>
-          </h2>
+          <h2 className="line-clamp-3 max-w-[24ch] font-heading text-xl leading-none heading-type md:text-2xl">{item.title}</h2>
           <span className="label shrink-0 text-white/70">{number}</span>
         </div>
         <p className="mt-3 line-clamp-3 max-w-[36ch] border-t border-white/25 pt-3 text-[0.8125rem] leading-[1.35] text-white/70">{excerpt(item.text)}</p>
-        <Link
-          href={href}
+        <button
+          type="button"
           data-open-study=""
+          onClick={onOpen}
           className="mt-4 inline-flex h-10 w-fit items-center rounded-full bg-white px-4 text-sm font-medium text-black transition-colors hover:bg-signal"
         >
-          Read the {item.client} study
-        </Link>
+          Read the study
+        </button>
 
         <PinnedMark>
           <p
@@ -262,9 +293,9 @@ function StudyCard({ item, index, total }: { item: Item; index: number; total: s
 
         <div className="mt-auto flex items-end justify-between gap-4">
           <p className="label text-white/55">{item.tag}</p>
-          <div className="flex max-w-[11rem] shrink-0 flex-col items-end gap-1.5">
+          <div className="flex min-w-0 max-w-[14rem] shrink-0 flex-nowrap items-center justify-end gap-2.5">
             <ClientLogo item={item} index={index} />
-            <p className="text-right font-mono text-[0.7rem] leading-snug text-white/75">{item.client}</p>
+            <p className="truncate text-right font-mono text-[0.7rem] leading-snug whitespace-nowrap text-white/75">{item.client}</p>
           </div>
         </div>
       </div>

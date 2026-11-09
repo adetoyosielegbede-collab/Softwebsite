@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { CmsImage } from "@/components/cms/cms-image";
+import { CaseStudyDetail } from "@/components/site/case-study-detail";
 import { CtaBanner } from "@/components/site/sections";
 import { caseStudyPath } from "@/lib/case-studies";
 import { getContent } from "@/lib/content";
@@ -63,63 +64,8 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
           </div>
         ) : null}
 
-        <dl className="mt-8 grid overflow-hidden rounded-2xl bg-surface ring-1 ring-line sm:grid-cols-3">
-          <div className="border-b border-line p-5 sm:border-r sm:border-b-0">
-            <dt className="label text-ink-faint">Outcome</dt>
-            <dd className="mt-2 font-heading text-3xl leading-none heading-type">{item.metric}</dd>
-            <dd className="text-body mt-2 text-ink-soft">{item.metricLabel}</dd>
-          </div>
-          <div className="border-b border-line p-5 sm:border-r sm:border-b-0">
-            <dt className="label text-ink-faint">Client</dt>
-            <dd className="text-body mt-2">{item.client}</dd>
-            {item.logo.src ? (
-              <dd className="mt-4 inline-flex max-w-[9.5rem] rounded-xl bg-neutral-950 px-3 py-2">
-                <CmsImage
-                  image={item.logo}
-                  file="case-studies"
-                  path={`items.${index}.logo`}
-                  fluid
-                  className="h-10 w-auto object-contain brightness-0 invert"
-                />
-              </dd>
-            ) : null}
-          </div>
-          <div className="p-5">
-            <dt className="label text-ink-faint">Sector</dt>
-            <dd className="text-body mt-2">{item.tag}</dd>
-          </div>
-        </dl>
-
-        <div className="mt-14 flex max-w-[68ch] flex-col gap-12">
-          <section>
-            <h2 className="label text-ink-faint">Challenge</h2>
-            <p className="text-body mt-3 text-ink-soft">{item.text}</p>
-          </section>
-          {item.solution ? (
-            <section>
-              <h2 className="label text-ink-faint">Solution</h2>
-              <p className="text-body mt-3 text-ink-soft">{item.solution}</p>
-            </section>
-          ) : null}
-          {item.impact.length ? (
-            <section>
-              <h2 className="label text-ink-faint">Impact</h2>
-              <ul className="mt-4 space-y-3">
-                {item.impact.map((point) => (
-                  <li key={point} className="text-body flex gap-3 text-ink-soft">
-                    <span aria-hidden className="mt-[0.55em] size-1.5 shrink-0 rounded-full bg-signal" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
-          {item.takeaway ? (
-            <section className="rounded-2xl bg-surface p-6 ring-1 ring-line">
-              <h2 className="label text-ink-faint">Takeaway</h2>
-              <p className="text-lede mt-3">{item.takeaway}</p>
-            </section>
-          ) : null}
+        <div className="mt-8 max-w-[68ch]">
+          <CaseStudyDetail item={item} index={index} />
         </div>
       </article>
       <CtaBanner cta={page.cta} file="case-studies" />

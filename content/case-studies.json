@@ -44,7 +44,9 @@
       "logo": {
         "src": "/partners/bank-of-industry.png",
         "alt": "Bank of Industry"
-      }
+      },
+      "aboutClient": "The Bank of Industry Limited is Nigeria’s oldest, largest and most successful development finance institution. It provides financial and advisory support for establishing, expanding and modernising industrial enterprises across the country, with offices in most states and programmes that reach large, medium and small businesses.",
+      "clientUrl": "https://www.boi.ng/"
     },
     {
       "slug": "national-cash-transfer-office",
@@ -69,7 +71,9 @@
       "logo": {
         "src": "/media/clients/ncto-mono.png",
         "alt": "National Cash Transfer Office"
-      }
+      },
+      "aboutClient": "The National Cash Transfer Office is the federal agency that runs Nigeria’s Household Uplifting Programme. Working within the National Social Safety-Nets system launched with the World Bank in 2016, it delivers regular cash transfers and livelihood support to poor and vulnerable households selected from the national social register.",
+      "clientUrl": "https://ncto.gov.ng/"
     },
     {
       "slug": "bank-of-industry-micro-traders",
@@ -93,7 +97,9 @@
       "logo": {
         "src": "/partners/bank-of-industry.png",
         "alt": "Bank of Industry"
-      }
+      },
+      "aboutClient": "The Bank of Industry Limited is Nigeria’s oldest, largest and most successful development finance institution. It provides financial and advisory support for establishing, expanding and modernising industrial enterprises across the country, with offices in most states and programmes that reach large, medium and small businesses.",
+      "clientUrl": "https://www.boi.ng/"
     },
     {
       "slug": "gb-foods",
@@ -118,7 +124,9 @@
       "logo": {
         "src": "/partners/gb-foods.svg",
         "alt": "GB Foods"
-      }
+      },
+      "aboutClient": "GB Foods is part of GBfoods Africa, producing everyday pantry brands such as Gino tomato products and seasonings for Nigerian households. In Nigeria it operates factories and sourcing networks that include West Africa’s largest tomato processing plant in Kebbi State, supported by a large out-grower base.",
+      "clientUrl": "https://www.thegbfoodsafrica.com/"
     },
     {
       "slug": "sebore-farms",
@@ -144,7 +152,9 @@
       "logo": {
         "src": "/media/clients/sebore-mono.png",
         "alt": "Sebore Farms"
-      }
+      },
+      "aboutClient": "Sebore International Farms Limited is an integrated dairy producer based in Adamawa State and known for the Admiral’A yoghurt range, alongside milk, cheese and butter. It works with rural smallholder dairy farmers and combines farm production with processing and cold-chain distribution.",
+      "clientUrl": "https://seborefarms.ng/"
     },
     {
       "slug": "coca-cola-nigeria",
@@ -169,7 +179,9 @@
       "logo": {
         "src": "/media/clients/coca-cola.svg",
         "alt": "Coca-Cola"
-      }
+      },
+      "aboutClient": "Coca-Cola Nigeria markets soft drinks to Nigerian consumers through the Coca-Cola system’s local operations, with a long-standing presence that reaches households nationwide through bottling, distribution and brand campaigns.",
+      "clientUrl": "https://www.coca-cola.com/ng/en"
     },
     {
       "slug": "ab-inbev",
@@ -194,7 +206,9 @@
       "logo": {
         "src": "/media/clients/ab-inbev.svg",
         "alt": "AB InBev"
-      }
+      },
+      "aboutClient": "AB InBev’s Nigerian brewing business, International Breweries Plc, produces and markets beer and malt brands including Trophy for the Nigerian market. It is part of the world’s leading brewer and operates as a listed company with nationwide distribution.",
+      "clientUrl": "https://www.international-breweries.com/"
     },
     {
       "slug": "ardova",
@@ -219,7 +233,9 @@
       "logo": {
         "src": "/partners/ardova.png",
         "alt": "Ardova Plc"
-      }
+      },
+      "aboutClient": "Ardova Plc is a Nigerian downstream energy company that distributes fuels and manufactures lubricants such as Visco 2000 and Super V. It operates a nationwide retail network and storage facilities, serving motorists and industrial customers across the country.",
+      "clientUrl": "https://www.ardovaplc.com/"
     }
   ],
   "band": {

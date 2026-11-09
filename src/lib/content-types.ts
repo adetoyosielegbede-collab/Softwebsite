@@ -220,6 +220,10 @@ export type CaseStudyItem = {
   metric: string;
   metricLabel: string;
   client: string;
+  /** Short factual intro shown before Challenge. */
+  aboutClient: string;
+  /** Public website for the Visit Client Site button. */
+  clientUrl: string;
   image: CmsImage;
   logo: CmsImage;
   /** "light" sets the mark on a white plate so dark ink stays readable on the dark card. */
