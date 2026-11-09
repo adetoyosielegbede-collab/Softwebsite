@@ -187,8 +187,9 @@ html.light .lift-page{--lb:#1f4ef5;--lb-soft:rgba(31,78,245,.08);--tl:#0d8577;--
 @media (min-width:768px){.lift-page .who-band-inner{padding-block:43px}}
 .lift-page .who-band-label{grid-column:1/-1;font-family:var(--f-mono);font-size:11px;line-height:15px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:#8b9bb5;margin:0}
 .lift-page .who-band-title{margin:0;max-width:22ch;font-size:1.5rem;line-height:1.35;font-weight:500;letter-spacing:-.02em;text-wrap:balance;color:#fff}
-.lift-page .who-band-list{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-width:420px;justify-self:stretch}
-.lift-page .who-band-list li{margin:0;font-size:15px;line-height:1.5;color:#b7c5dc}
+.lift-page .who-band-list{list-style:none;margin:0;padding:0;display:grid;gap:0;max-width:420px;justify-self:stretch}
+.lift-page .who-band-list li{margin:0;border-top:1px solid rgba(183,197,220,.28);padding:10px 0 0;margin-bottom:10px;font-size:15px;line-height:1.5;color:#b7c5dc}
+.lift-page .who-band-list li:last-child{margin-bottom:0}
 .lift-page .cta{padding-block:clamp(72px,9vw,128px);border-top:1px solid var(--line);display:grid;gap:22px}
 
 .lift-page footer{background:var(--surface);border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px);padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
