@@ -183,6 +183,10 @@ html.light .lift-page{--lb:#1f4ef5;--lb-soft:rgba(31,78,245,.08);--tl:#0d8577;--
 .lift-page .org .label{color:var(--lb)}.lift-page .org h3{margin:0;font-size:20px;font-weight:500}.lift-page .org p{margin:0;color:var(--soft);font-size:15.5px}
 .lift-page .who{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;list-style:none;margin:0;padding:0}
 .lift-page .who li{border-top:1px solid var(--line2);padding-top:14px;font-size:16px;line-height:1.4}
+/* Who it is for: headline left, audience categories right — same side-by-side pattern as Sentinel’s closing band */
+.lift-page .who-head{align-items:start;margin-bottom:0}
+.lift-page .who-head .headline{max-width:18ch}
+.lift-page .who-head .who{grid-template-columns:minmax(0,1fr);gap:0;align-self:start}
 .lift-page .cta{padding-block:clamp(72px,9vw,128px);border-top:1px solid var(--line);display:grid;gap:22px}
 
 .lift-page footer{background:var(--surface);border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px);padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
@@ -192,7 +196,7 @@ html.light .lift-page{--lb:#1f4ef5;--lb-soft:rgba(31,78,245,.08);--tl:#0d8577;--
 .lift-page .addr{font-size:14px;color:var(--soft);line-height:1.6;margin:0}
 .lift-page .legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--soft)}
 
-@media (max-width:1100px){.lift-page .who{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1100px){.lift-page .who{grid-template-columns:repeat(2,minmax(0,1fr))}.lift-page .who-head .who{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:1000px){.lift-page .foot{grid-template-columns:repeat(2,minmax(0,1fr))}.lift-page .foot > div:first-child{grid-column:1/-1}}
 @media (max-width:900px){.lift-page .row, .lift-page .row.flip{grid-template-columns:minmax(0,1fr);gap:28px}.lift-page .row.flip .txt{order:0}.lift-page .org, .lift-page .head{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:640px){

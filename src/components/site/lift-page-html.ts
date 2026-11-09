@@ -59,8 +59,11 @@ export const LIFT_PAGE_HTML = `<section class="wrap hero">
 
   <section class="sec">
     <div class="wrap">
-      <div class="head"><p class="label">Who it is for</p><h2 class="headline">Built for those with a mandate to grow small businesses</h2></div>
-      <ul class="who"><li>State ministries of commerce and industry</li><li>National enterprise development agencies</li><li>Development banks and MSME funds</li><li>Foundations and development partners running entrepreneurship programs</li><li>Industry associations with members to serve</li></ul>
+      <div class="head who-head">
+        <p class="label">Who it is for</p>
+        <h2 class="headline">Built for those with a mandate to grow small businesses.</h2>
+        <ul class="who"><li>State ministries of commerce and industry</li><li>National enterprise development agencies</li><li>Development banks and MSME funds</li><li>Foundations and development partners running entrepreneurship programs</li><li>Industry associations with members to serve</li></ul>
+      </div>
     </div>
   </section>
 
