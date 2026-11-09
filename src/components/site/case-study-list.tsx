@@ -147,7 +147,7 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
           </div>
         </aside>
 
-        <ol ref={listRef} className="mt-6 flex min-w-0 flex-1 flex-col gap-3 lg:mt-0 lg:max-w-[42rem]">
+        <ol ref={listRef} className="mt-6 flex min-w-0 flex-1 flex-col gap-3 lg:mt-0 lg:mr-28 lg:max-w-[56rem]">
           {visible.length === 0 ? (
             <li className="text-body text-ink-soft">No case studies in this category yet.</li>
           ) : (
