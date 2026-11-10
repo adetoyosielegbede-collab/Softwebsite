@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LiftStory } from "@/components/site/lift-story";
 import { ProductStory } from "@/components/site/product-story";
+import { RtgsStory } from "@/components/site/rtgs-story";
 import { UseformsStory } from "@/components/site/useforms-story";
 import { getContent, isProductSlugPublished } from "@/lib/content";
 import { PRODUCT_SLUGS } from "@/lib/cms/registry";
@@ -59,5 +60,6 @@ export default async function ProductPage({ params }: PageProps<"/enterprise-pro
   if (!product) notFound();
   if (slug === "lift") return <LiftStory />;
   if (slug === "useforms") return <UseformsStory />;
+  if (slug === "rtgs-global") return <RtgsStory />;
   return <ProductStory product={product} file={`products/${slug}`} />;
 }

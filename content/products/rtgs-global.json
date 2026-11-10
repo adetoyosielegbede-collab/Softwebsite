@@ -1,17 +1,17 @@
 {
   "seo": {
     "title": "RTGS.global",
-    "description": "Connect your institution to infrastructure for cross-border payments and foreign-exchange settlement. Softcom works with RTGS.global to support implementation for financial institutions in Nigeria and across Africa."
+    "description": "RTGS.global, real-time cross-border settlement in seconds, implemented by Softcom for institutions in Nigeria and across Africa."
   },
   "name": "RTGS.global",
   "hero": {
-    "eyebrow": "Partner platform · Digital Infrastructure",
-    "title": "Cross-border payments. Real-time settlement.",
-    "text": "Connect your institution to infrastructure for cross-border payments and foreign-exchange settlement. Softcom works with RTGS.global to support implementation for financial institutions in Nigeria and across Africa.",
+    "eyebrow": "Partner platform · For regulated financial institutions",
+    "title": "Cross-border settlement in seconds.",
+    "text": "RTGS.global is a closed network for cross-border settlement between regulated financial institutions. Banks and licensed payment and money transfer institutions use it to settle cross-border trades and payments in seconds, around the clock, through one API.",
     "primaryLabel": "Discuss an implementation",
-    "primaryHref": "/contact",
-    "secondaryLabel": "Explore the platform",
-    "secondaryHref": "https://developers.rtgs.global/participant-integration-guide/overview/",
+    "primaryHref": "/contact?product=rtgs-global",
+    "secondaryLabel": "Who can participate",
+    "secondaryHref": "#participation",
     "backgroundImage": {
       "src": "",
       "alt": ""
@@ -27,14 +27,14 @@
       "figures": [
         {
           "label": "RTGS.global / 01",
-          "title": "Connect payment operations to shared settlement infrastructure.",
-          "caption": "A conceptual view of participating institutions, the network and Funds Controllers.",
-          "diagram": "rtgs-network",
+          "title": "–From days to seconds",
+          "caption": "A payment through a chain of correspondent banks waits at each hop and pays at each hop. On RTGS.global, two participating institutions settle through the network and their Funds Controllers. Illustrative comparison.",
+          "diagram": "",
           "image": {
             "src": "",
-            "alt": "Conceptual network diagram connecting institutions through RTGS.global and Funds Controllers"
+            "alt": "Comparison: a payment moving through three correspondent banks over days, against the same payment settling in seconds through the RTGS.global network"
           },
-          "source": "Concept illustration · Softcom"
+          "source": ""
         }
       ]
     },
@@ -66,14 +66,14 @@
       "figures": [
         {
           "label": "RTGS.global / 02",
-          "title": "Two payment instructions. One linked FX settlement.",
-          "caption": "Payment-versus-payment settlement after counterparties have agreed a trade.",
-          "diagram": "rtgs-settlement",
+          "title": "–Access is limited to regulated institutions",
+          "caption": "Conceptual view. Participation, corridors and services depend on onboarding, licensing and each participant’s regulator.",
+          "diagram": "",
           "image": {
             "src": "",
-            "alt": "Three-step flow from agreeing a trade to linking instructions and confirming settlement"
+            "alt": "Closed network: licensed banks, payment service providers, money transfer operators and Funds Controllers inside the network boundary; members of the public and unlicensed entities cannot connect"
           },
-          "source": "Concept illustration · Softcom"
+          "source": ""
         }
       ]
     },
