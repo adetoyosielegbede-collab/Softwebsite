@@ -53,6 +53,7 @@ html.light .rtgs-page{--paper:#f6f5f1;--surface:#ffffff;--raised:#ecebe6;--ink:#
 .rtgs-page .hero-vis figure{margin:0;min-width:0;max-width:100%}
 .rtgs-page .hero-vis .frame{overflow:hidden;max-width:100%}
 .rtgs-page .hero-vis .rv{display:block;width:100%;max-width:100%;min-width:0;height:auto;padding:12px}
+.rtgs-page .hero-vis figcaption{width:100%;max-width:none;text-align:center;justify-items:center}
 .rtgs-page .hero-vis .cap-t,.rtgs-page .hero-vis .cap-s{max-width:none}
 @media (min-width:1000px){
   .rtgs-page .hero-grid{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(36px,4vw,64px);align-items:center}
