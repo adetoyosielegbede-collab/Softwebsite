@@ -1,17 +1,17 @@
 {
   "seo": {
-    "title": "Liquio by Kitsoft",
-    "description": "Design, launch and evolve digital public services on a shared low-code foundation. Softcom works with Kitsoft to implement Liquio for ministries, departments and agencies."
+    "title": "Liquio",
+    "description": "Liquio by Kitsoft, the low-code platform behind Diia, implemented by Softcom for public institutions."
   },
   "name": "Liquio by Kitsoft",
   "hero": {
-    "eyebrow": "Partner platform · Digital Infrastructure",
-    "title": "Public services, built to work together.",
-    "text": "Design, launch and evolve digital public services on a shared low-code foundation. Softcom works with Kitsoft to implement Liquio for ministries, departments and agencies, connecting service delivery with the systems and workflows behind it.",
-    "primaryLabel": "Explore Liquio with Softcom",
-    "primaryHref": "/contact",
-    "secondaryLabel": "Explore the platform",
-    "secondaryHref": "https://www.liquio.tech/",
+    "eyebrow": "Partner platform · Liquio by Kitsoft, implemented by Softcom",
+    "title": "Digital public services, live in weeks.",
+    "text": "Softcom implements Liquio for ministries, departments and agencies. Liquio is Kitsoft’s low-code platform for government services, and the platform behind Diia, a national digital-services portal used by more than 23 million citizens. We bring the local mandate, systems and teams; Liquio brings a platform proven at national scale.",
+    "primaryLabel": "Discuss a service",
+    "primaryHref": "/contact?product=liquio",
+    "secondaryLabel": "See how Liquio works",
+    "secondaryHref": "#anatomy",
     "backgroundImage": {
       "src": "",
       "alt": ""
@@ -26,15 +26,15 @@
       "points": [],
       "figures": [
         {
-          "label": "Liquio / 01",
-          "title": "One foundation. Services across departments.",
-          "caption": "Shared platform capabilities connect the public-facing service with the work behind it.",
-          "diagram": "liquio-foundation",
+          "label": "",
+          "title": "From modules to a live service.",
+          "caption": "",
+          "diagram": "",
           "image": {
             "src": "",
-            "alt": "Conceptual diagram connecting citizens, businesses and public-service teams to Liquio"
+            "alt": "A licence-renewal service being assembled from reusable modules in the Service Builder"
           },
-          "source": "Concept illustration · Softcom"
+          "source": ""
         }
       ]
     },
@@ -65,15 +65,15 @@
       "points": [],
       "figures": [
         {
-          "label": "Liquio / 02",
-          "title": "Connect every stage of a public service.",
-          "caption": "An illustrative application journey, configured around the institution’s requirements.",
-          "diagram": "liquio-journey",
+          "label": "",
+          "title": "",
+          "caption": "",
+          "diagram": "",
           "image": {
             "src": "",
-            "alt": "Four-step public service journey from apply and check to review and deliver"
+            "alt": ""
           },
-          "source": "Concept illustration · Softcom"
+          "source": ""
         }
       ]
     },

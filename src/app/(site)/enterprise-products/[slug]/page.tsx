@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LiftStory } from "@/components/site/lift-story";
+import { LiquioStory } from "@/components/site/liquio-story";
 import { ProductStory } from "@/components/site/product-story";
 import { RtgsStory } from "@/components/site/rtgs-story";
 import { UseformsStory } from "@/components/site/useforms-story";
@@ -60,6 +61,7 @@ export default async function ProductPage({ params }: PageProps<"/enterprise-pro
   if (!product) notFound();
   if (slug === "lift") return <LiftStory />;
   if (slug === "useforms") return <UseformsStory />;
+  if (slug === "liquio") return <LiquioStory />;
   if (slug === "rtgs-global") return <RtgsStory />;
   return <ProductStory product={product} file={`products/${slug}`} />;
 }
