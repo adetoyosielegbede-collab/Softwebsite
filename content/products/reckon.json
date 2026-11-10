@@ -32,14 +32,14 @@
       "points": [],
       "figures": [
         {
-          "label": "Reckon / 01",
-          "title": "Declared against owed",
-          "caption": "One taxpayer, one tax, every line tested. Three differences surfaced for review.",
+          "label": "",
+          "title": "",
+          "caption": "",
           "image": {
-            "src": "/media/reckon/figure-01.png",
-            "alt": "Table of declared versus owed VAT lines with three exceptions"
+            "src": "/media/reckon/figure-01.webp",
+            "alt": "Tax computation: what was filed and paid against what Reckon found, ₦11.9bn surfaced and ₦8.9bn raised as findings"
           },
-          "source": "Concept illustration · Illustrative figures"
+          "source": ""
         }
       ]
     },
@@ -50,14 +50,14 @@
       "points": [],
       "figures": [
         {
-          "label": "Reckon / 02",
-          "title": "Three records, one rule, one exception",
-          "caption": "An offshore licence in the ledger and the bank statement; no reverse-charge VAT on the return.",
+          "label": "",
+          "title": "",
+          "caption": "",
           "image": {
-            "src": "/media/reckon/figure-02.png",
-            "alt": "General ledger, VAT return and bank statement compared against one rule"
+            "src": "/media/reckon/figure-02.webp",
+            "alt": "Checks comparing each figure with a second, independent record: ledger against return, trial balance against financial statements"
           },
-          "source": "Concept illustration · Illustrative figures"
+          "source": ""
         }
       ]
     },
@@ -68,14 +68,14 @@
       "points": [],
       "figures": [
         {
-          "label": "Reckon / 03",
-          "title": "One chart of accounts",
-          "caption": "Every line tagged to the taxes it attracts: CIT, VAT, WHT, PAYE, CGT, stamp duty, transfer pricing.",
+          "label": "",
+          "title": "",
+          "caption": "",
           "image": {
-            "src": "/media/reckon/figure-03.png",
-            "alt": "Source documents harmonised into one chart of accounts"
+            "src": "/media/reckon/figure-03.webp",
+            "alt": "Coverage map: 54 examination areas mapped to the tax heads that apply, from trial balance review to fee income"
           },
-          "source": "Concept illustration · Illustrative figures"
+          "source": ""
         }
       ]
     },
@@ -86,14 +86,14 @@
       "points": [],
       "figures": [
         {
-          "label": "Reckon / 04",
-          "title": "An exception, as the officer sees it",
-          "caption": "Figure, source, rule, and where AI was used to read the input.",
+          "label": "",
+          "title": "",
+          "caption": "",
           "image": {
-            "src": "/media/reckon/figure-04.png",
-            "alt": "Exception detail showing figure, source, rule and status"
+            "src": "/media/reckon/figure-04.webp",
+            "alt": "Exception: ₦4.2bn of fees booked to interest income should have carried VAT, with the lines and the rule behind it"
           },
-          "source": "Concept illustration · Illustrative figures"
+          "source": ""
         }
       ]
     },
@@ -104,14 +104,14 @@
       "points": [],
       "figures": [
         {
-          "label": "Reckon / 05",
-          "title": "Three years, papered as 364 days",
-          "caption": "The series is the instrument.",
+          "label": "",
+          "title": "",
+          "caption": "",
           "image": {
-            "src": "/media/reckon/figure-05.png",
-            "alt": "Timeline of three renewed 364-day facilities read as one borrowing"
+            "src": "/media/reckon/figure-05.webp",
+            "alt": "Exception: a ₦45bn facility renewed back-to-back as 364-day agreements, read as one borrowing, stamp duty unpaid"
           },
-          "source": "Concept illustration · Illustrative case"
+          "source": ""
         }
       ]
     },
@@ -122,14 +122,14 @@
       "points": [],
       "figures": [
         {
-          "label": "Reckon / 06",
-          "title": "Rules, then judgement",
-          "caption": "The administration sets the rules. Reckon applies them. The officer decides.",
+          "label": "",
+          "title": "",
+          "caption": "",
           "image": {
-            "src": "/media/reckon/figure-06.png",
-            "alt": "Three columns: the administration sets, Reckon applies, the officer decides"
+            "src": "/media/reckon/figure-06.webp",
+            "alt": "Exceptions awaiting the officer: raise a finding, query the taxpayer or dismiss with a reason"
           },
-          "source": "Concept illustration · Fictional data"
+          "source": ""
         }
       ]
     },
@@ -140,14 +140,14 @@
       "points": [],
       "figures": [
         {
-          "label": "Reckon / 07",
-          "title": "One finding, traced",
-          "caption": "Every object in the chain is versioned.",
+          "label": "",
+          "title": "",
+          "caption": "",
           "image": {
-            "src": "/media/reckon/figure-07.png",
-            "alt": "Versioned chain from document to finding"
+            "src": "/media/reckon/figure-07.webp",
+            "alt": "Finding F-01: ₦24.6bn of treasury bill interest wrongly treated as exempt, tied to the ledger line and the rule version"
           },
-          "source": "Concept illustration · Fictional data"
+          "source": ""
         }
       ]
     },
@@ -158,14 +158,14 @@
       "points": [],
       "figures": [
         {
-          "label": "Reckon / 08",
-          "title": "Three uses of one engine",
-          "caption": "Each tier has its own trigger, scope, officer and output, and draws on the modules it needs.",
+          "label": "",
+          "title": "",
+          "caption": "",
           "image": {
-            "src": "/media/reckon/figure-08.png",
-            "alt": "Desk review, audit and investigation tiers sharing one engine"
+            "src": "/media/reckon/figure-08.webp",
+            "alt": "Cases across desk review, audit and investigation on one engine, with rules, stage, officer and variance"
           },
-          "source": "Concept illustration · Fictional data"
+          "source": ""
         }
       ]
     }
