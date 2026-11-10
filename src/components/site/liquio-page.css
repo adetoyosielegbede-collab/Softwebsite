@@ -47,7 +47,21 @@ html.light .liquio-page{--paper:#f6f5f1;--surface:#ffffff;--raised:#ecebe6;--ink
 /* hero */
 .liquio-page .hero > *, .liquio-page .split > *, .liquio-page .diia > *, .liquio-page .anat > *, .liquio-page .own > *, .liquio-page .local > *{min-width:0}
 .liquio-page .hero{padding-top:calc(env(safe-area-inset-top,0px) + clamp(112px,12vw,150px));padding-bottom:clamp(56px,7vw,96px);display:grid;gap:22px}
+.liquio-page .hero-grid{display:grid;gap:clamp(28px,4vw,48px);align-items:center}
+.liquio-page .hero-copy{display:grid;gap:22px;min-width:0}
+.liquio-page .hero-vis{min-width:0}
+.liquio-page .hero-vis figure{margin:0}
+.liquio-page .hero-vis .cap-t,.liquio-page .hero-vis .cap-s{max-width:none}
+@media (min-width:1000px){
+  .liquio-page .hero-grid{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(36px,4vw,64px);align-items:center}
+  .liquio-page .hero .display{max-width:14ch}
+}
+@media (max-width:999px){
+  .liquio-page .hero-grid{grid-template-columns:minmax(0,1fr)}
+}
 .liquio-page .partner{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.liquio-page .partner-mark{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
+.liquio-page .partner-mark b{width:7px;height:7px;border-radius:50%;background:var(--partner);flex:0 0 auto}
 .liquio-page .chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:7px 12px;border-radius:999px;box-shadow:0 0 0 1px var(--line2);color:var(--soft)}
 .liquio-page .chip b{width:7px;height:7px;border-radius:50%;background:var(--partner)}
 .liquio-page .frame{border-radius:20px;background:var(--surface);box-shadow:0 0 0 1px var(--line);overflow:hidden}
@@ -69,9 +83,9 @@ html.light .liquio-page{--paper:#f6f5f1;--surface:#ffffff;--raised:#ecebe6;--ink
 .liquio-page .hv-rail{stroke:var(--line2);stroke-dasharray:3 6}
 .liquio-page .hv-slot rect{fill:none;stroke:var(--line2);stroke-dasharray:4 4}
 .liquio-page .hv-slot text{font-size:13px;fill:var(--soft)}
-.liquio-page .hv-fly{opacity:0;animation:12s linear infinite}
+.liquio-page .hv-fly{opacity:0;transform-box:fill-box;transform-origin:center;animation-duration:12s;animation-timing-function:linear;animation-iteration-count:infinite}
 .liquio-page .hv-fly rect{fill:var(--partner-soft);stroke:var(--partner)}.liquio-page .hv-fly circle{fill:var(--partner)}.liquio-page .hv-fly path{stroke:var(--partner);stroke-width:2;stroke-linecap:round}
-.liquio-page .hv-link{stroke:var(--acc);stroke-width:2;stroke-dasharray:24;stroke-dashoffset:24;animation:12s linear infinite}
+.liquio-page .hv-link{stroke:var(--acc);stroke-width:2;stroke-dasharray:24;stroke-dashoffset:24;animation-duration:12s;animation-timing-function:linear;animation-iteration-count:infinite}
 .liquio-page .hv-regi rect{fill:var(--surface);stroke:var(--line2)}.liquio-page .hv-regi text{font-size:11px;fill:var(--soft)}
 .liquio-page .hv-api{fill:none;stroke:var(--acc);stroke-width:2;stroke-dasharray:4 6;animation:hvapi .9s linear infinite}
 .liquio-page .hv-pub{fill:none;stroke:var(--acc);stroke-width:2;stroke-dasharray:6 6;opacity:0;animation:hvpub 12s linear infinite}

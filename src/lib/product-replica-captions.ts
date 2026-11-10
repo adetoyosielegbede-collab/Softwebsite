@@ -54,8 +54,11 @@ function figcaptionHtml(fig: ProductFigure): string {
 export function applyCmsCaptions(html: string, product: ProductContent): string {
   const figures = flattenProductFigures(product);
   let index = 0;
-  return html.replace(/<figcaption>[\s\S]*?<\/figcaption>/g, (match) => {
+  return html.replace(/<figcaption([^>]*)>[\s\S]*?<\/figcaption>/g, (match, attrs: string) => {
     const fig = figures[index++];
-    return fig ? figcaptionHtml(fig) : match;
+    if (!fig) return match;
+    const inner = figcaptionHtml(fig).replace(/^<figcaption>|<\/figcaption>$/g, "");
+    if (!inner) return attrs.trim() ? `<figcaption${attrs}></figcaption>` : "";
+    return `<figcaption${attrs}>${inner}</figcaption>`;
   });
 }
