@@ -49,8 +49,11 @@ html.light .liquio-page{--paper:#f6f5f1;--surface:#ffffff;--raised:#ecebe6;--ink
 .liquio-page .hero{padding-top:calc(env(safe-area-inset-top,0px) + clamp(112px,12vw,150px));padding-bottom:clamp(56px,7vw,96px);display:grid;gap:22px}
 .liquio-page .hero-grid{display:grid;gap:clamp(28px,4vw,48px);align-items:center}
 .liquio-page .hero-copy{display:grid;gap:22px;min-width:0}
-.liquio-page .hero-vis{min-width:0}
-.liquio-page .hero-vis figure{margin:0}
+.liquio-page .hero-vis{min-width:0;max-width:100%}
+.liquio-page .hero-vis figure{margin:0;min-width:0;max-width:100%}
+.liquio-page .hero-vis .frame{overflow:visible;max-width:100%;display:flex;justify-content:center}
+.liquio-page .hero-vis .hv{display:block;width:100%;max-width:100%;min-width:0;height:auto;padding:0}
+.liquio-page .hero-vis figcaption{width:100%;max-width:none;text-align:center;justify-items:center}
 .liquio-page .hero-vis .cap-t,.liquio-page .hero-vis .cap-s{max-width:none}
 @media (min-width:1000px){
   .liquio-page .hero-grid{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(36px,4vw,64px);align-items:center}
@@ -83,7 +86,7 @@ html.light .liquio-page{--paper:#f6f5f1;--surface:#ffffff;--raised:#ecebe6;--ink
 .liquio-page .hv-rail{stroke:var(--line2);stroke-dasharray:3 6}
 .liquio-page .hv-slot rect{fill:none;stroke:var(--line2);stroke-dasharray:4 4}
 .liquio-page .hv-slot text{font-size:13px;fill:var(--soft)}
-.liquio-page .hv-fly{opacity:0;transform-box:fill-box;transform-origin:center;animation-duration:12s;animation-timing-function:linear;animation-iteration-count:infinite}
+.liquio-page .hv-fly{opacity:0;transform-box:view-box;transform-origin:0 0;animation-duration:12s;animation-timing-function:linear;animation-iteration-count:infinite}
 .liquio-page .hv-fly rect{fill:var(--partner-soft);stroke:var(--partner)}.liquio-page .hv-fly circle{fill:var(--partner)}.liquio-page .hv-fly path{stroke:var(--partner);stroke-width:2;stroke-linecap:round}
 .liquio-page .hv-link{stroke:var(--acc);stroke-width:2;stroke-dasharray:24;stroke-dashoffset:24;animation-duration:12s;animation-timing-function:linear;animation-iteration-count:infinite}
 .liquio-page .hv-regi rect{fill:var(--surface);stroke:var(--line2)}.liquio-page .hv-regi text{font-size:11px;fill:var(--soft)}
