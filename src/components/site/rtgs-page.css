@@ -130,7 +130,8 @@ html.light .rtgs-page{--paper:#f6f5f1;--surface:#ffffff;--raised:#ecebe6;--ink:#
 .rtgs-page .copy{display:grid;gap:20px;min-width:0}
 .rtgs-page #participation .split > figure{min-width:0;justify-self:stretch}
 .rtgs-page #participation .split > figure .cn{display:block;width:100%;height:auto}
-.rtgs-page #participation .split > figure figcaption{margin-top:16px;width:100%;max-width:none;justify-items:center;text-align:center;justify-self:stretch;padding-left:2.75rem}
+/* Caption sits under the dashed network, not the full SVG (the public box sits to the left). */
+.rtgs-page #participation .split > figure figcaption{margin-top:16px;margin-left:26.8%;width:69.6%;max-width:none;justify-items:center;text-align:center;justify-self:start;padding-left:0}
 .rtgs-page .head{display:grid;gap:16px;margin-bottom:clamp(28px,4vw,48px);max-width:56rem}
 
 /* diia */
