@@ -26,9 +26,9 @@
       "points": [],
       "figures": [
         {
-          "label": "RTGS.global / 01",
-          "title": "–From days to seconds",
-          "caption": "A payment through a chain of correspondent banks waits at each hop and pays at each hop. On RTGS.global, two participating institutions settle through the network and their Funds Controllers. Illustrative comparison.",
+          "label": "",
+          "title": "From days to seconds.",
+          "caption": "",
           "diagram": "",
           "image": {
             "src": "",
@@ -65,9 +65,9 @@
       "points": [],
       "figures": [
         {
-          "label": "RTGS.global / 02",
-          "title": "–Access is limited to regulated institutions",
-          "caption": "Conceptual view. Participation, corridors and services depend on onboarding, licensing and each participant’s regulator.",
+          "label": "",
+          "title": "Access for regulated institutions.",
+          "caption": "",
           "diagram": "",
           "image": {
             "src": "",
