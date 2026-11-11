@@ -63,6 +63,7 @@ html.light .liquio-page{--paper:#f6f5f1;--surface:#ffffff;--raised:#ecebe6;--ink
   .liquio-page .hero-grid{grid-template-columns:minmax(0,1fr)}
 }
 .liquio-page .partner{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.liquio-page .hero .partner{flex-direction:column;align-items:flex-start;gap:6px}
 .liquio-page .partner-mark{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
 .liquio-page .partner-mark b{width:7px;height:7px;border-radius:50%;background:var(--partner);flex:0 0 auto}
 .liquio-page .chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:7px 12px;border-radius:999px;box-shadow:0 0 0 1px var(--line2);color:var(--soft)}
