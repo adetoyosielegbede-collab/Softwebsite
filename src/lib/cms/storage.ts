@@ -136,6 +136,7 @@ export type ContactMessage = {
   phone?: string;
   company?: string;
   reason?: string;
+  product?: string;
   message: string;
 };
 

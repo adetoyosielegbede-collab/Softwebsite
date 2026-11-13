@@ -116,7 +116,7 @@
     "text": "",
     "closing": "",
     "ctaLabel": "Discuss an implementation",
-    "ctaHref": "/contact"
+    "ctaHref": "/contact?product=rtgs-global"
   },
   "references": {
     "title": "Platform references",
@@ -147,7 +147,7 @@
     "title": "Proud partner of potential",
     "text": "What can we achieve together?",
     "ctaLabel": "Start a conversation",
-    "ctaHref": "/contact",
+    "ctaHref": "/contact?product=rtgs-global",
     "layout": "center"
   }
 }

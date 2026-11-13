@@ -9,7 +9,7 @@
     "title": "What was declared vs what is owed, spot the difference",
     "text": "A tax return says what a company declared; however, the documents filed show what is owed.",
     "primaryLabel": "Request a demonstration",
-    "primaryHref": "/contact",
+    "primaryHref": "/contact?product=reckon",
     "secondaryLabel": "Explore Reckon",
     "secondaryHref": "#overview",
     "backgroundImage": {
@@ -176,7 +176,7 @@
     "text": "Revenue administrations and large-taxpayer offices, state internal revenue services, tax audit and investigation units, and the audit firms acting for them. Reckon reads from existing systems of record; write-back is approved by a person and logged.",
     "closing": "Tell us which filings you review and what your audits need to establish. We will run Reckon on records you select, against criteria you set.",
     "ctaLabel": "Request a demonstration",
-    "ctaHref": "/contact"
+    "ctaHref": "/contact?product=reckon"
   },
   "cta": {
     "image": {
@@ -186,7 +186,7 @@
     "title": "See Reckon on your records",
     "text": "Tell us which filings you review and what your audits need to establish. We will run Reckon on records you select, against criteria you set.",
     "ctaLabel": "Request a demonstration",
-    "ctaHref": "/contact",
+    "ctaHref": "/contact?product=reckon",
     "layout": "split"
   }
 }

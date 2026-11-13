@@ -3,7 +3,7 @@ import { contactMailConfigured, sendContactEmail } from "@/lib/contact-mail";
 import { appendMessage, readBundledContent, storageMode } from "@/lib/cms/storage";
 import type { ContactContent } from "@/lib/content-types";
 
-type Body = Partial<Record<"name" | "email" | "phone" | "company" | "reason" | "message", string>>;
+type Body = Partial<Record<"name" | "email" | "phone" | "company" | "reason" | "product" | "message", string>>;
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -13,8 +13,26 @@ export async function POST(request: Request) {
   const email = body.email?.trim() ?? "";
   const reason = body.reason?.trim() ?? "";
   const message = body.message?.trim() ?? "";
-  const contact = await readBundledContent<ContactContent>("contact");
+  const [contact, catalogue] = await Promise.all([
+    readBundledContent<ContactContent>("contact"),
+    readBundledContent<{
+      products: { items: { name: string; href: string; published?: boolean }[] };
+      partners: { items: { name: string; href: string }[] };
+    }>("enterprise-products"),
+  ]);
   const allowed = new Set(contact.form.reasons);
+  const productNames = new Map<string, string>();
+  for (const item of catalogue.products.items) {
+    if (item.published === false) continue;
+    const slug = item.href.split("?")[0].replace(/\/$/, "").split("/")[2];
+    if (slug) productNames.set(slug, item.name);
+  }
+  for (const item of catalogue.partners.items) {
+    const slug = item.href.split("?")[0].replace(/\/$/, "").split("/")[2];
+    if (slug) productNames.set(slug, item.name);
+  }
+  const productSlug = body.product?.trim() ?? "";
+  const product = productNames.get(productSlug);
   const errors: Record<string, string> = {};
   if (!name) errors.name = "Please tell us your name.";
   if (!EMAIL.test(email)) errors.email = "Please enter a valid email address.";
@@ -30,6 +48,7 @@ export async function POST(request: Request) {
     phone: body.phone?.trim().slice(0, 50) || undefined,
     company: body.company?.trim().slice(0, 200) || undefined,
     reason,
+    product,
     message: message.slice(0, 5000),
   };
 

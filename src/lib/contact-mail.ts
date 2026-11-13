@@ -6,6 +6,7 @@ export type ContactMail = {
   phone?: string;
   company?: string;
   reason: string;
+  product?: string;
   message: string;
 };
 
@@ -34,6 +35,7 @@ export async function sendContactEmail(entry: ContactMail, fallbackTo: string) {
     `Email: ${entry.email}`,
     entry.phone ? `Phone: ${entry.phone}` : "",
     entry.company ? `Company: ${entry.company}` : "",
+    entry.product ? `Product: ${entry.product}` : "",
   ].filter(Boolean);
 
   const res = await fetch("https://api.resend.com/emails", {

@@ -116,7 +116,7 @@
     "text": "",
     "closing": "Tell us what your institution needs to deliver and the systems it must work with.",
     "ctaLabel": "Explore Liquio with Softcom",
-    "ctaHref": "/contact"
+    "ctaHref": "/contact?product=liquio"
   },
   "references": {
     "title": "Platform references",
@@ -139,7 +139,7 @@
     "title": "Proud partner of potential",
     "text": "What can we achieve together?",
     "ctaLabel": "Start a conversation",
-    "ctaHref": "/contact",
+    "ctaHref": "/contact?product=liquio",
     "layout": "center"
   }
 }

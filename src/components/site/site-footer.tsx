@@ -14,7 +14,7 @@ export async function SiteFooter({ site }: { site: SiteContent }) {
               {site.contact.email}
             </a>
             <address className="mt-6 text-sm leading-6 text-neutral-400 not-italic">
-              {site.contact.company}
+              <span className="block">{site.contact.company}</span>
               {site.contact.addressLines.map((line) => (
                 <span key={line} className="block">
                   {line}

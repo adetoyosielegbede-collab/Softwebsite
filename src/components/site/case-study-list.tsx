@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { CmsImage } from "@/components/cms/cms-image";
 import { CaseStudyDetail, CaseStudyLogo } from "@/components/site/case-study-detail";
+import { caseStudyPath } from "@/lib/case-studies";
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
 import type { CaseStudiesContent } from "@/lib/content-types";
 import { cn } from "@/lib/utils";
@@ -16,6 +17,11 @@ function excerpt(text: string) {
 
 function studyId(index: number) {
   return `study-${index}`;
+}
+
+function slugFromPath(path: string) {
+  const match = path.match(/^\/case-studies\/([^/]+)\/?$/);
+  return match ? decodeURIComponent(match[1]) : null;
 }
 
 function ClientLogo({ item, index }: { item: Item; index: number }) {
@@ -34,10 +40,22 @@ function ClientLogo({ item, index }: { item: Item; index: number }) {
   );
 }
 
-export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["items"]; filters: string[] }) {
+export function CaseStudyList({
+  items,
+  filters,
+  initialSlug,
+}: {
+  items: CaseStudiesContent["items"];
+  filters: string[];
+  initialSlug?: string;
+}) {
   const [filter, setFilter] = useState("All");
   const [current, setCurrent] = useState(0);
-  const [selected, setSelected] = useState<number | null>(null);
+  const [selected, setSelected] = useState<number | null>(() => {
+    if (!initialSlug) return null;
+    const index = items.findIndex((item) => item.slug === initialSlug);
+    return index === -1 ? null : index;
+  });
   const listRef = useRef<HTMLOListElement>(null);
   const total = String(items.length).padStart(2, "0");
   const visible = items.map((item, index) => ({ item, index })).filter(({ item }) => filter === "All" || item.tag === filter);
@@ -83,13 +101,48 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
       const first = items.findIndex((entry) => filter === "All" || entry.tag === filter);
       return first === -1 ? value : first;
     });
-    setSelected((value) => {
-      if (value === null) return value;
-      const item = items[value];
-      if (item && (filter === "All" || item.tag === filter)) return value;
-      return null;
-    });
   }, [filter, items]);
+
+  useEffect(() => {
+    if (selected === null) return;
+    const item = items[selected];
+    if (item && (filter === "All" || item.tag === filter)) return;
+    if (slugFromPath(window.location.pathname)) window.history.replaceState(window.history.state, "", "/case-studies");
+    setSelected(null);
+  }, [filter, items, selected]);
+
+  useEffect(() => {
+    const sync = () => {
+      const slug = slugFromPath(window.location.pathname);
+      if (!slug) {
+        setSelected(null);
+        return;
+      }
+      const index = items.findIndex((item) => item.slug === slug);
+      setSelected(index === -1 ? null : index);
+    };
+    window.addEventListener("popstate", sync);
+    return () => window.removeEventListener("popstate", sync);
+  }, [items]);
+
+  function openStudy(index: number) {
+    const slug = items[index]?.slug;
+    if (!slug) return;
+    const path = caseStudyPath(slug);
+    if (window.location.pathname !== path) window.history.pushState({ caseStudy: true }, "", path);
+    setSelected(index);
+  }
+
+  function closeStudy() {
+    if (slugFromPath(window.location.pathname) && window.history.state?.caseStudy) {
+      window.history.back();
+      return;
+    }
+    if (slugFromPath(window.location.pathname)) {
+      window.history.replaceState(window.history.state, "", "/case-studies");
+    }
+    setSelected(null);
+  }
 
   function jumpTo(index: number) {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -152,13 +205,13 @@ export function CaseStudyList({ items, filters }: { items: CaseStudiesContent["i
             <li className="text-body text-ink-soft">No case studies in this category yet.</li>
           ) : (
             visible.map(({ item, index }) => (
-              <StudyCard key={item.slug || item.title} item={item} index={index} total={total} onOpen={() => setSelected(index)} />
+              <StudyCard key={item.slug || item.title} item={item} index={index} total={total} onOpen={() => openStudy(index)} />
             ))
           )}
         </ol>
       </div>
 
-      <Sheet open={selected !== null} onOpenChange={(open) => !open && setSelected(null)}>
+      <Sheet open={selected !== null} onOpenChange={(open) => !open && closeStudy()}>
         <SheetContent
           side="right"
           showCloseButton={false}
@@ -273,14 +326,22 @@ function StudyCard({ item, index, total, onOpen }: { item: Item; index: number; 
           <span className="label shrink-0 text-white/70">{number}</span>
         </div>
         <p className="mt-3 line-clamp-3 max-w-[36ch] border-t border-white/25 pt-3 text-[0.8125rem] leading-[1.35] text-white/70">{excerpt(item.text)}</p>
-        <button
-          type="button"
+        <a
+          href={item.slug ? caseStudyPath(item.slug) : "/case-studies"}
+          data-case-study=""
           data-open-study=""
-          onClick={onOpen}
-          className="mt-4 inline-flex h-10 w-fit items-center rounded-full bg-white px-4 text-sm font-medium text-black transition-colors hover:bg-signal"
+          onClick={(event) => {
+            if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+            event.preventDefault();
+            onOpen();
+          }}
+          className="absolute inset-0 z-20 rounded-[20px]"
         >
+          <span className="sr-only">Read the study: {item.client}, {item.title}</span>
+        </a>
+        <span className="pointer-events-none mt-4 inline-flex h-10 w-fit items-center rounded-full bg-white px-4 text-sm font-medium text-black">
           Read the study
-        </button>
+        </span>
 
         <PinnedMark>
           <p

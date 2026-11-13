@@ -9,7 +9,7 @@
     "title": "Ask anything, anywhere, easily",
     "text": "A simple way to create a form and get a response. Faster than pen and paper.",
     "primaryLabel": "Request a demonstration",
-    "primaryHref": "/contact",
+    "primaryHref": "/contact?product=useforms",
     "secondaryLabel": "Explore Useforms",
     "secondaryHref": "#overview",
     "backgroundImage": {
@@ -131,7 +131,7 @@
     "text": "Individuals and businesses asking a personal question or a commercial one. Events, property, sales, customer feedback, orders, hiring, and research.",
     "closing": "Tell us what you need to ask, and where the answers should land. We will show you Useforms set up for that work.",
     "ctaLabel": "Request a demonstration",
-    "ctaHref": "/contact"
+    "ctaHref": "/contact?product=useforms"
   },
   "cta": {
     "image": {
@@ -141,7 +141,7 @@
     "title": "Want to know more about Useforms?",
     "text": "Tell us what you need to ask, and where the answers should land. We will show you Useforms set up for that work.",
     "ctaLabel": "Request a demonstration",
-    "ctaHref": "/contact",
+    "ctaHref": "/contact?product=useforms",
     "layout": "split"
   }
 }

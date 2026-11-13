@@ -8,6 +8,7 @@ function internalPath(event: MouseEvent) {
   if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return null;
   const anchor = (event.target as Element | null)?.closest?.("a[href]");
   if (!(anchor instanceof HTMLAnchorElement) || (anchor.target && anchor.target !== "_self") || anchor.hasAttribute("download")) return null;
+  if (anchor.hasAttribute("data-case-study")) return null;
   const url = new URL(anchor.href, window.location.href);
   if (url.origin !== window.location.origin || url.pathname === window.location.pathname) return null;
   if (url.pathname.startsWith("/admin")) return null;

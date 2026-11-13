@@ -5,7 +5,7 @@ import { ColorReveal } from "@/components/site/color-reveal";
 import { ArrowLink, PillLink } from "@/components/site/links";
 import { LineReveal } from "@/components/site/line-reveal";
 import { CtaBanner, FrameMarks, PageHero } from "@/components/site/sections";
-import { getContent, getPublishedPosts, requirePublishedPage } from "@/lib/content";
+import { getContent, getPublishedPosts, isPagePublished, requirePublishedPage } from "@/lib/content";
 import { formatMonthYear } from "@/lib/format";
 import { publicPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
@@ -24,7 +24,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function AboutPage() {
   await requirePublishedPage("about");
-  const [about, posts] = await Promise.all([getContent("about"), getPublishedPosts()]);
+  const [about, posts, alumniPublished] = await Promise.all([
+    getContent("about"),
+    getPublishedPosts(),
+    isPagePublished("alumni"),
+  ]);
   const { hero, story, journey, values, leadership, buildWithUs, news } = about;
 
   return (
@@ -157,12 +161,14 @@ export default async function AboutPage() {
               >
                 {buildWithUs.primaryLabel}
               </PillLink>
-              <PillLink
-                href={buildWithUs.secondaryHref}
-                className="h-10 justify-center px-2 text-[11px] whitespace-nowrap sm:w-72 sm:px-4 sm:text-sm"
-              >
-                {buildWithUs.secondaryLabel}
-              </PillLink>
+              {alumniPublished ? (
+                <PillLink
+                  href={buildWithUs.secondaryHref}
+                  className="h-10 justify-center px-2 text-[11px] whitespace-nowrap sm:w-72 sm:px-4 sm:text-sm"
+                >
+                  {buildWithUs.secondaryLabel}
+                </PillLink>
+              ) : null}
             </div>
           </div>
         </div>

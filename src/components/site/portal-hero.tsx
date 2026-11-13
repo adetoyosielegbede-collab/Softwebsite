@@ -271,8 +271,12 @@ export function PortalHero({
             </>
           )}
           <h2 ref={headline} className="text-display relative max-w-[9em] opacity-0 motion-reduce:opacity-100">
-            <span className="block">{lead}</span>
-            {tail ? <span className="block">{tail}</span> : null}
+            {lead}
+            {tail ? (
+              <>
+                <br /> {tail}
+              </>
+            ) : null}
           </h2>
           <div className="relative mt-10 h-11 w-full max-w-[34rem]">
             <p ref={sub} className="text-lede absolute inset-x-0 top-0 text-ink/80">
@@ -284,6 +288,7 @@ export function PortalHero({
                     (index < words.length - 1 ? " pr-[0.32em]" : "")
                   }
                 >
+                  {index > 0 ? " " : null}
                   {word}
                 </span>
               ))}
@@ -303,7 +308,7 @@ export function PortalHero({
             {runs.map((run) =>
               [...run.text].map((char, index) =>
                 char === " " ? (
-                  " "
+                  <span key={`${run.text}-space-${index}`}> </span>
                 ) : (
                   <span
                     key={`${run.text}-${index}`}

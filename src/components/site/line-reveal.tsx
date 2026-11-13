@@ -81,7 +81,7 @@ export function LineReveal({
             {words.map((word, index) => (
               <span key={`${word}-${index}`}>
                 <span data-word="">{word}</span>
-                {index < words.length - 1 ? " " : null}
+                {index < words.length - 1 ? <span> </span> : null}
               </span>
             ))}
           </span>

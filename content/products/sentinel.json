@@ -183,7 +183,7 @@
     "text": "Bring the account records and investigative questions your team works with. See how Sentinel organises transactions, traces funds and documents the source of each lead.",
     "closing": "",
     "ctaLabel": "Request a demonstration",
-    "ctaHref": "/contact"
+    "ctaHref": "/contact?product=sentinel"
   },
   "cta": {
     "image": {
@@ -193,7 +193,7 @@
     "title": "See Sentinel at work",
     "text": "What does your team need to investigate?",
     "ctaLabel": "Request a demonstration",
-    "ctaHref": "/contact",
+    "ctaHref": "/contact?product=sentinel",
     "layout": "split"
   }
 }

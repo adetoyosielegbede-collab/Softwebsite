@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Mail, MapPin } from "lucide-react";
 import { CmsImage } from "@/components/cms/cms-image";
-import { ContactForm } from "@/components/site/contact-form";
 import { CrossField } from "@/components/site/dot-canvas";
+import { ContactForm } from "@/components/site/contact-form";
 import { getContent, requirePublishedPage } from "@/lib/content";
 import { publicPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
@@ -18,9 +18,25 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
-export default async function ContactPage() {
+function productSlug(href: string) {
+  const path = href.split("?")[0].replace(/\/$/, "");
+  const parts = path.split("/");
+  return parts[1] === "enterprise-products" && parts[2] ? parts[2] : "";
+}
+
+export default async function ContactPage({ searchParams }: PageProps<"/contact">) {
   await requirePublishedPage("contact");
-  const [page, site] = await Promise.all([getContent("contact"), getContent("site")]);
+  const [page, site, productsPage] = await Promise.all([
+    getContent("contact"),
+    getContent("site"),
+    getContent("enterprise-products"),
+  ]);
+  const products = [
+    ...productsPage.products.items.filter((item) => item.published).map((item) => ({ value: productSlug(item.href), label: item.name })),
+    ...productsPage.partners.items.map((item) => ({ value: productSlug(item.href), label: item.name })),
+  ].filter((item) => item.value);
+  const requested = (await searchParams).product;
+  const initialProduct = typeof requested === "string" ? requested : "";
 
   return (
     <section className="relative isolate min-h-[80svh]">
@@ -39,13 +55,13 @@ export default async function ContactPage() {
           </div>
         </div>
         <div className="flex flex-col gap-6">
-          <ContactForm form={page.form} />
+          <ContactForm form={page.form} products={products} initialProduct={initialProduct} />
           <div className="grid gap-8 rounded-3xl bg-surface p-8 sm:grid-cols-[auto_1fr_1fr] sm:items-start lg:p-[47px]">
             <h2 className="text-title max-w-[142px]">{page.getInTouchTitle}</h2>
             <address className="flex items-start gap-4 text-sm leading-[1.6] text-ink not-italic">
               <MapPin className="size-6 shrink-0" aria-hidden />
               <span className="w-[167px]">
-                <span className="font-medium">{site.contact.company}</span>
+                <span className="block font-medium">{site.contact.company}</span>
                 {site.contact.addressLines.map((line) => (
                   <span key={line} className="block">
                     {line}

@@ -24,6 +24,8 @@
     "reasonLabel": "Reason",
     "reasonPlaceholder": "What is this about?",
     "reasons": ["Business / Partnership", "Job Application", "General Enquiry", "Other"],
+    "productLabel": "Product",
+    "productPlaceholder": "No specific product",
     "messageLabel": "Message",
     "messagePlaceholder": "Your message...",
     "submitLabel": "Send Message",

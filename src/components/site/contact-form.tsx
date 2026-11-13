@@ -8,8 +8,17 @@ import { Textarea } from "@/components/ui/textarea";
 import type { ContactContent } from "@/lib/content-types";
 
 type Fields = ContactContent["form"];
+export type ContactProductOption = { value: string; label: string };
 
-export function ContactForm({ form }: { form: Fields }) {
+export function ContactForm({
+  form,
+  products,
+  initialProduct = "",
+}: {
+  form: Fields;
+  products: ContactProductOption[];
+  initialProduct?: string;
+}) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -91,6 +100,27 @@ export function ContactForm({ form }: { form: Fields }) {
           <ChevronDown className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-ink-soft" aria-hidden />
         </div>
         {errors.reason && <p className="text-xs text-destructive">{errors.reason}</p>}
+      </div>
+      <div className="mt-5 space-y-2">
+        <Label htmlFor="product" className="text-sm font-medium">
+          {form.productLabel} <span className="font-normal text-ink-soft">(optional)</span>
+        </Label>
+        <div className="relative">
+          <select
+            id="product"
+            name="product"
+            defaultValue={products.some((product) => product.value === initialProduct) ? initialProduct : ""}
+            className="h-12 w-full appearance-none rounded-full border border-line-strong bg-line-strong/30 px-4 pr-10 text-sm text-ink outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+          >
+            <option value="">{form.productPlaceholder}</option>
+            {products.map((product) => (
+              <option key={product.value} value={product.value}>
+                {product.label}
+              </option>
+            ))}
+          </select>
+          <ChevronDown className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-ink-soft" aria-hidden />
+        </div>
       </div>
       <div className="mt-5 space-y-2">
         <Label htmlFor="message" className="text-sm font-medium">

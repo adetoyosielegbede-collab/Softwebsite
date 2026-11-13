@@ -96,6 +96,8 @@ html.light .lift-page{--lb:#1f4ef5;--lb-soft:rgba(31,78,245,.08);--tl:#0d8577;--
 .lift-page .tiers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;align-items:end}
 .lift-page .tr{display:grid;gap:8px;padding-top:calc(var(--i) * 34px)}
 .lift-page .tr-gate{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);min-height:15px}
+.lift-page a.tr-gate{color:var(--ink);text-decoration:none}
+.lift-page a.tr-gate:hover{color:var(--signal)}
 .lift-page .tr-card{border-radius:12px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line2);padding:14px;display:grid;gap:6px;align-content:start;min-height:calc(230px + var(--i) * 22px)}
 .lift-page .tr.t1 .tr-card{box-shadow:inset 0 0 0 1px var(--lb)}.lift-page .tr.t2 .tr-card{box-shadow:inset 0 0 0 1px var(--tl)}
 .lift-page .tr.t3 .tr-card{box-shadow:inset 0 0 0 1.5px var(--gold);background:linear-gradient(var(--paper),var(--paper)) padding-box}

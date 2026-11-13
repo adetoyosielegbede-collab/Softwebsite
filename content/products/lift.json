@@ -9,9 +9,9 @@
     "title": "The platform behind entrepreneurial development initiatives",
     "text": "States, national agencies and development partners run initiatives to help small businesses start, formalise and grow. LIFT is the platform those initiatives run on.",
     "primaryLabel": "Request a demonstration",
-    "primaryHref": "/contact",
-    "secondaryLabel": "Explore LIFT",
-    "secondaryHref": "#overview",
+    "primaryHref": "/contact?product=lift",
+    "secondaryLabel": "",
+    "secondaryHref": "",
     "backgroundImage": {
       "src": "",
       "alt": ""
@@ -234,7 +234,7 @@
     "text": "State ministries of commerce and industry, national enterprise development agencies, development banks and MSME funds, foundations and development partners running entrepreneurship programs, and industry associations with members to serve.",
     "closing": "Tell us who your members are and what you want them to reach. We will show you LIFT configured for your initiative.",
     "ctaLabel": "Request a demonstration",
-    "ctaHref": "/contact"
+    "ctaHref": "/contact?product=lift"
   },
   "cta": {
     "image": {
@@ -244,7 +244,7 @@
     "title": "See LIFT with your initiative on it",
     "text": "Tell us who your members are and what you want them to reach. We will show you LIFT configured for your initiative.",
     "ctaLabel": "Request a demonstration",
-    "ctaHref": "/contact",
+    "ctaHref": "/contact?product=lift",
     "layout": "split"
   }
 }

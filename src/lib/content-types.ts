@@ -317,6 +317,8 @@ export type ContactContent = {
     reasonLabel: string;
     reasonPlaceholder: string;
     reasons: string[];
+    productLabel: string;
+    productPlaceholder: string;
     messageLabel: string;
     messagePlaceholder: string;
     submitLabel: string;
