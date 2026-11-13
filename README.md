@@ -65,7 +65,7 @@ Vercel's filesystem is read-only, so the CMS cannot save files there on its own.
 | `GITHUB_TOKEN` | A token with permission to write file contents. |
 | `GITHUB_REPO` | `owner/name` |
 | `GITHUB_BRANCH` | Branch to commit to, usually `main` |
-| `NEXT_PUBLIC_SITE_URL` | The public URL, used for links and social cards. |
+| `NEXT_PUBLIC_SITE_URL` | `https://www.softcom.xyz` with no trailing slash. Canonical links, Open Graph, JSON-LD, robots.txt, and the sitemap use it. |
 
 With those set, every save and upload is committed to the repository, and the next deployment serves it. Without them the CMS still opens, but a banner explains that saves will not persist.
 
