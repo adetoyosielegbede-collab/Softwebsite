@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: page.seo.title,
     description: page.seo.description,
     path: "/alumni",
-    image: page.hero.backgroundImage,
+    image: page.seo.shareImage,
   });
 }
 

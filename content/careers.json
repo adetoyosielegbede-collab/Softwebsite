@@ -1,8 +1,12 @@
 {
   "published": true,
   "seo": {
-    "title": "Careers",
-    "description": "Softcom is for people who question assumptions, see possibilities and take responsibility for turning ideas into working solutions."
+    "title": "Careers — open roles at Softcom",
+    "description": "Roles for people who question assumptions and take work from an idea to a system that institutions can run.",
+    "shareImage": {
+      "src": "/uploads/partner-2-hf-20261030-112953-aba8ff8a-9069-41ae--05bafb.jpg",
+      "alt": "People working together"
+    }
   },
   "hero": {
     "eyebrow": "Careers",

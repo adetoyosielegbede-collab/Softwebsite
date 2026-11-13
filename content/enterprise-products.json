@@ -1,8 +1,12 @@
 {
   "published": true,
   "seo": {
-    "title": "Enterprise Products",
-    "description": "Explore the proprietary products Softcom has built and the global platforms we implement."
+    "title": "Enterprise products — Softcom software and partner platforms",
+    "description": "Softcom’s own products for investigation, tax, field data, and entrepreneurship, plus the partner platforms we implement.",
+    "shareImage": {
+      "src": "/media/products/sentinel-card.png",
+      "alt": "Sentinel, a Softcom enterprise product"
+    }
   },
   "hero": {
     "eyebrow": "",

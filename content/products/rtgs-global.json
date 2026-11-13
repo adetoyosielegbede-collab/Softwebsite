@@ -1,7 +1,11 @@
 {
   "seo": {
-    "title": "RTGS.global",
-    "description": "RTGS.global, real-time cross-border settlement in seconds, implemented by Softcom for institutions in Nigeria and across Africa."
+    "title": "RTGS.global — settlement integration for regulated institutions",
+    "description": "Softcom integrates RTGS.global so regulated institutions can settle cross-border trades and payments in seconds.",
+    "shareImage": {
+      "src": "/uploads/partner-2-hf-20261030-112953-aba8ff8a-9069-41ae--856d49.jpg",
+      "alt": "Settlement for regulated financial institutions"
+    }
   },
   "name": "RTGS.global",
   "hero": {

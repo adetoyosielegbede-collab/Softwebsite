@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: page.seo.title,
     description: page.seo.description,
     path: "/case-studies",
-    image: page.band.src ? page.band : page.cta.image,
+    image: page.seo.shareImage,
   });
 }
 

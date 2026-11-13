@@ -28,9 +28,8 @@ export function publishedIso(value: string | undefined) {
   return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
 }
 
-function chooseImage(preferred: CmsImage | null | undefined, share: CmsImage) {
+function chooseImage(preferred: CmsImage | null | undefined) {
   if (preferred?.src) return { url: preferred.src, alt: preferred.alt || "" };
-  if (share.src) return { url: share.src, alt: share.alt || "" };
   return undefined;
 }
 
@@ -46,14 +45,16 @@ export async function publicPageMetadata(options: {
 }): Promise<Metadata> {
   const site = await getContent("site");
   const description = metaDescription(options.description);
-  const socialTitle = options.absoluteTitle ? options.title : `${options.title} — ${site.brand.name}`;
+  // A title that already says what the page does is used as written. Short titles still take “%s — Softcom”.
+  const carriesTheJob = options.absoluteTitle || options.title.includes(" — ");
+  const socialTitle = carriesTheJob ? options.title : `${options.title} — ${site.brand.name}`;
   const url = absoluteUrl(options.path);
-  const image = chooseImage(options.image, site.seo.shareImage);
+  const image = chooseImage(options.image);
   const publishedTime = publishedIso(options.publishedTime);
   const images = image ? [{ url: image.url, alt: image.alt }] : undefined;
 
   return {
-    title: options.absoluteTitle ? { absolute: options.title } : options.title,
+    title: carriesTheJob ? { absolute: options.title } : options.title,
     description,
     alternates: { canonical: url },
     openGraph: {

@@ -1,7 +1,11 @@
 {
   "seo": {
-    "title": "Useforms",
-    "description": "Useforms collects the information an institution needs to make a decision, from the field or from the organisations it oversees."
+    "title": "Useforms — offline field data collection and verification",
+    "description": "Collect and verify information in the field, including where the connection drops, and send it back for a decision.",
+    "shareImage": {
+      "src": "/media/useforms/form-builder.jpg",
+      "alt": "Useforms form builder"
+    }
   },
   "name": "Useforms",
   "hero": {

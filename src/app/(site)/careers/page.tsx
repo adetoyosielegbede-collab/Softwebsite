@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: page.seo.title,
     description: page.seo.description,
     path: "/careers",
-    image: page.image.src ? page.image : page.cta.image,
+    image: page.seo.shareImage,
   });
 }
 

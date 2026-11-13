@@ -1,7 +1,11 @@
 {
   "seo": {
-    "title": "Sentinel",
-    "description": "Sentinel brings bank statements and related records into one investigation. Trace fund flows and relationships with each lead linked to its source transactions."
+    "title": "Sentinel — financial investigation and fund-tracing software",
+    "description": "Bring bank statements and related records into one investigation and trace fund flows back to the source transactions.",
+    "shareImage": {
+      "src": "/media/sentinel/figure-statements.png",
+      "alt": "Sentinel investigation of bank statements"
+    }
   },
   "name": "Sentinel",
   "hero": {

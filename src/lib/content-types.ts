@@ -5,7 +5,7 @@ export type { CmsImage };
 
 export type Link = { label: string; href: string };
 
-export type Seo = { title: string; description: string };
+export type Seo = { title: string; description: string; shareImage?: CmsImage };
 
 export type Cta = {
   image: CmsImage;
@@ -233,6 +233,8 @@ export type CaseStudyItem = {
   logo: CmsImage;
   /** "light" sets the mark on a white plate so dark ink stays readable on the dark card. */
   logoPlate?: "light";
+  /** Title, description, and share image for this study’s URL. */
+  seo?: Seo;
 };
 
 export type CaseStudiesContent = {

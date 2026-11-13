@@ -1,8 +1,12 @@
 {
   "published": true,
   "seo": {
-    "title": "About",
-    "description": "Softcom is a technology and innovation company with 19 years of experience building digital products, enterprise systems and large-scale initiatives."
+    "title": "About — Softcom’s record of delivery since 2007",
+    "description": "How Softcom has designed and delivered digital products, enterprise systems, and national-scale initiatives for public institutions and companies.",
+    "shareImage": {
+      "src": "/uploads/yomi-49878abe-446a-4206-8a46-454e01978321-2ffce1.jpg",
+      "alt": "Softcom leadership"
+    }
   },
   "hero": {
     "eyebrow": "About Softcom",

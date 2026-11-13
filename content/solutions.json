@@ -1,8 +1,12 @@
 {
   "published": true,
   "seo": {
-    "title": "Solutions",
-    "description": "Technology and expertise for your most important work, across digital infrastructure, applied intelligence and powering initiatives."
+    "title": "Solutions — digital infrastructure, applied intelligence, and initiatives",
+    "description": "How Softcom designs digital infrastructure, applies intelligence to decisions, and runs large initiatives with public institutions and enterprises.",
+    "shareImage": {
+      "src": "/media/solutions/infrastructure-services.png",
+      "alt": "Digital services built on shared infrastructure"
+    }
   },
   "hero": {
     "eyebrow": "",

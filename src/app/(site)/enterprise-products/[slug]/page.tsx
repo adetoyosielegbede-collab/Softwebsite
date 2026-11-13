@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: PageProps<"/enterprise-produc
     title: product.seo.title,
     description: product.seo.description,
     path: `/enterprise-products/${slug}`,
-    image: productShareImage(product),
+    image: product.seo.shareImage?.src ? product.seo.shareImage : productShareImage(product),
   });
 }
 

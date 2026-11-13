@@ -1,8 +1,12 @@
 {
   "published": true,
   "seo": {
-    "title": "Contact",
-    "description": "Talk to Softcom about what you want to achieve."
+    "title": "Contact — talk to Softcom about a project",
+    "description": "Write to Softcom about a product, a partner platform, or a programme you want to put in place.",
+    "shareImage": {
+      "src": "/uploads/partner-2-hf-20261030-112953-aba8ff8a-9069-41ae--856d49.jpg",
+      "alt": "Two people shaking hands over a city at night"
+    }
   },
   "badge": "Contact",
   "title": "Let’s talk",

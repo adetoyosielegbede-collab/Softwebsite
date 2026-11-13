@@ -13,12 +13,11 @@ import { cn } from "@/lib/utils";
 export async function generateMetadata(): Promise<Metadata> {
   await requirePublishedPage("about");
   const about = await getContent("about");
-  const photo = about.leadership.people.find((person) => person.photo.src)?.photo;
   return publicPageMetadata({
     title: about.seo.title,
     description: about.seo.description,
     path: "/about",
-    image: photo ?? about.cta.image,
+    image: about.seo.shareImage,
   });
 }
 

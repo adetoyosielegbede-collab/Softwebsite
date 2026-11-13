@@ -1,7 +1,11 @@
 {
   "seo": {
-    "title": "Reckon",
-    "description": "Reckon compares what was declared with what is owed, line by line."
+    "title": "Reckon — tax audit and revenue-intelligence software",
+    "description": "Compare what a taxpayer declared with what the records show is owed, line by line.",
+    "shareImage": {
+      "src": "/media/reckon/figure-01.webp",
+      "alt": "Reckon comparing a declaration with what is owed"
+    }
   },
   "name": "Reckon",
   "hero": {

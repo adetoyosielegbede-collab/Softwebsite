@@ -1,8 +1,12 @@
 {
   "published": false,
   "seo": {
-    "title": "Alumni",
-    "description": "The Softcom Alumni Network invites former colleagues to reconnect and stay part of the Softcom story."
+    "title": "Alumni — reconnect with the Softcom community",
+    "description": "A place for former Softcom colleagues to find one another and stay part of the work that follows.",
+    "shareImage": {
+      "src": "/images/alumni-group.jpg",
+      "alt": "Softcom alumni together"
+    }
   },
   "hero": {
     "title": "You are part of the Softcom story.",

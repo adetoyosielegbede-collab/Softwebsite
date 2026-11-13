@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: page.seo.title,
     description: page.seo.description,
     path: "/contact",
-    image: page.image.src ? page.image : undefined,
+    image: page.seo.shareImage,
   });
 }
 

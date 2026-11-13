@@ -1,8 +1,12 @@
 {
   "published": true,
   "seo": {
-    "title": "Insights",
-    "description": "Research, analysis, & perspectives from the field."
+    "title": "Insights — research and perspectives from Softcom’s work",
+    "description": "Essays and field notes on building technology with public institutions, enterprises, and development organisations.",
+    "shareImage": {
+      "src": "/images/market-trader-phone.jpg",
+      "alt": "A market trader using a phone"
+    }
   },
   "hero": {
     "eyebrow": "",

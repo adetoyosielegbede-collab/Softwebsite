@@ -6,14 +6,12 @@ import { publicPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   await requirePublishedPage("insights");
-  const [page, posts] = await Promise.all([getContent("insights"), getPublishedPosts()]);
-  const featured = posts.find((post) => post.heroImage?.src || post.image.src);
-  const image = featured?.heroImage?.src ? featured.heroImage : featured?.image;
+  const page = await getContent("insights");
   return publicPageMetadata({
     title: page.seo.title,
     description: page.seo.description,
     path: "/insights",
-    image: image ?? page.cta.image,
+    image: page.seo.shareImage,
   });
 }
 

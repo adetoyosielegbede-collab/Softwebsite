@@ -1,7 +1,11 @@
 {
   "seo": {
-    "title": "LIFT",
-    "description": "LIFT by Softcom: the platform behind entrepreneurial development initiatives."
+    "title": "LIFT — Whitelabled entrepreneurship programme platform",
+    "description": "The platform states, agencies, and development partners use to run programmes that help small businesses start, formalise, and grow.",
+    "shareImage": {
+      "src": "/media/lift/figure-02.png",
+      "alt": "LIFT entrepreneurship programme platform"
+    }
   },
   "name": "Lift",
   "hero": {

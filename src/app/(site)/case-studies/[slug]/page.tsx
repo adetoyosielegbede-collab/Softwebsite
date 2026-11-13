@@ -19,10 +19,10 @@ export async function generateMetadata({ params }: PageProps<"/case-studies/[slu
   const item = items.find((entry) => entry.slug === slug);
   if (!item) return {};
   return publicPageMetadata({
-    title: `${item.client}: ${item.title}`,
-    description: item.text,
+    title: item.seo?.title || `${item.client} — public sector, enterprise, and development work`,
+    description: item.seo?.description || item.text,
     path: caseStudyPath(item.slug),
-    image: item.image.src ? item.image : undefined,
+    image: item.seo?.shareImage?.src ? item.seo.shareImage : item.image.src ? item.image : undefined,
   });
 }
 

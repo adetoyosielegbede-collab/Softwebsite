@@ -10,12 +10,11 @@ import { cn } from "@/lib/utils";
 export async function generateMetadata(): Promise<Metadata> {
   await requirePublishedPage("enterprise-products");
   const page = await getContent("enterprise-products");
-  const card = page.products.items.find((item) => item.published && item.image.src)?.image;
   return publicPageMetadata({
     title: page.seo.title,
     description: page.seo.description,
     path: "/enterprise-products",
-    image: card ?? page.cta.image,
+    image: page.seo.shareImage,
   });
 }
 
