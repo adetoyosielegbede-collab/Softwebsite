@@ -62,7 +62,7 @@ export function CaseStudyDetail({
 
       {(item.aboutClient || item.clientUrl) && (
         <section>
-          <h3 className="label text-ink-faint">About the Client</h3>
+          <h2 className="label text-ink-faint">About the Client</h2>
           {item.aboutClient ? <p className={cn("text-body text-ink-soft", compact ? "mt-2" : "mt-3")}>{item.aboutClient}</p> : null}
           {item.clientUrl ? (
             <a
@@ -79,18 +79,18 @@ export function CaseStudyDetail({
       )}
 
       <section>
-        <h3 className="label text-ink-faint">Challenge</h3>
+        <h2 className="label text-ink-faint">Challenge</h2>
         <p className={cn("text-body text-ink-soft", compact ? "mt-2" : "mt-3")}>{item.text}</p>
       </section>
       {item.solution ? (
         <section>
-          <h3 className="label text-ink-faint">Solution</h3>
+          <h2 className="label text-ink-faint">Solution</h2>
           <p className={cn("text-body text-ink-soft", compact ? "mt-2" : "mt-3")}>{item.solution}</p>
         </section>
       ) : null}
       {item.impact.length ? (
         <section>
-          <h3 className="label text-ink-faint">Impact</h3>
+          <h2 className="label text-ink-faint">Impact</h2>
           <ul className={cn(compact ? "mt-3 space-y-2.5" : "mt-4 space-y-3")}>
             {item.impact.map((point) => (
               <li key={point} className="text-body flex gap-3 text-ink-soft">
@@ -103,7 +103,7 @@ export function CaseStudyDetail({
       ) : null}
       {item.takeaway ? (
         <section className={cn("rounded-2xl bg-surface ring-1 ring-line", compact ? "p-4" : "p-6")}>
-          <h3 className="label text-ink-faint">Takeaway</h3>
+          <h2 className="label text-ink-faint">Takeaway</h2>
           <p className={cn(compact ? "text-body mt-2" : "text-lede mt-3")}>{item.takeaway}</p>
         </section>
       ) : null}

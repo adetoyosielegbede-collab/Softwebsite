@@ -7,7 +7,7 @@
       "alt": "LIFT entrepreneurship programme platform"
     }
   },
-  "name": "Lift",
+  "name": "LIFT",
   "hero": {
     "eyebrow": "",
     "title": "The platform behind entrepreneurial development initiatives",
@@ -41,7 +41,7 @@
           "caption": "",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-15-52-38-7efbdb.png",
-            "alt": "Lift member home screen"
+            "alt": "LIFT member home screen"
           },
           "source": "Product screen · Illustrative data"
         }
@@ -59,7 +59,7 @@
           "caption": "",
           "image": {
             "src": "/media/lift/figure-02.png",
-            "alt": "Diagram of Lift's four verification tiers"
+            "alt": "Diagram of LIFT's four verification tiers"
           },
           "source": "Concept illustration"
         },
@@ -69,7 +69,7 @@
           "caption": "",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-16-33-54-2fb797.png",
-            "alt": "Lift new member dashboard"
+            "alt": "LIFT new member dashboard"
           },
           "source": "Product screen · Illustrative data"
         }
@@ -114,7 +114,7 @@
     {
       "number": "",
       "title": "Funding that members can see, and reach",
-      "text": "Grant and loan programs from government agencies, development banks and financial institutions are listed in one place, with amounts, eligibility and closing dates. A verified individual can read and save a program and see whether they qualify. A verified business applies, with most of the form already filled from the profile. Trusted members enter a priority review queue.",
+      "text": "Grant and loan programmes from government agencies, development banks and financial institutions are listed in one place, with amounts, eligibility and closing dates. A verified individual can read and save a programme and see whether they qualify. A verified business applies, with most of the form already filled from the profile. Trusted members enter a priority review queue.",
       "points": [],
       "figures": [
         {
@@ -123,7 +123,7 @@
           "caption": "",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-16-40-13-1179c5.png",
-            "alt": "Lift loans and grants screen"
+            "alt": "LIFT loans and grants screen"
           },
           "source": "Product screen · Illustrative data"
         },
@@ -133,7 +133,7 @@
           "caption": "",
           "image": {
             "src": "/media/lift/figure-07.png",
-            "alt": "Funding program detail with a soft gate for Tier 1 members"
+            "alt": "Funding programme detail with a soft gate for Tier 1 members"
           },
           "source": "Concept illustration · Fictional data"
         }
@@ -169,7 +169,7 @@
           "caption": "",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-16-45-17-451b22.png",
-            "alt": "Lift business directory screen"
+            "alt": "LIFT business directory screen"
           },
           "source": "Product screen · Illustrative data"
         }
@@ -187,7 +187,7 @@
           "caption": "",
           "image": {
             "src": "/uploads/screenshot-2026-10-27-at-16-48-22-56821a.png",
-            "alt": "Lift events screen"
+            "alt": "LIFT events screen"
           },
           "source": "Product screen · Illustrative data"
         }
@@ -196,11 +196,11 @@
     {
       "number": "",
       "title": "For the organisation running the initiative",
-      "text": "LIFT is built to be run, not just launched. The sponsoring organisation publishes programs, events and resources, reviews business verifications, sees applications as they arrive, and places sponsored content in front of the right tier. Every member action is on one record, so reporting on reach, verification rates and funding disbursed is a query, not a survey.",
+      "text": "LIFT is built to be run, not just launched. The sponsoring organisation publishes programmes, events and resources, reviews business verifications, sees applications as they arrive, and places sponsored content in front of the right tier. Every member action is on one record, so reporting on reach, verification rates and funding disbursed is a query, not a survey.",
       "points": [
         {
           "title": "Publish",
-          "text": "Courses, events, grant and loan programs, government service guides, news and sponsored placements, each targeted by tier, sector and location."
+          "text": "Courses, events, grant and loan programmes, government service guides, news and sponsored placements, each targeted by tier, sector and location."
         },
         {
           "title": "Review",
@@ -208,7 +208,7 @@
         },
         {
           "title": "Report",
-          "text": "Members by tier, sector and state. Applications by program. Marketplace volume. Who moved from new member to verified business, and how long it took."
+          "text": "Members by tier, sector and state. Applications by programme. Marketplace volume. Who moved from new member to verified business, and how long it took."
         }
       ],
       "figures": []
@@ -225,7 +225,7 @@
           "caption": "",
           "image": {
             "src": "/media/lift/figure-11.png",
-            "alt": "One Lift codebase powering multiple branded deployments"
+            "alt": "One LIFT codebase powering multiple branded deployments"
           },
           "source": "Concept illustration"
         }
@@ -235,7 +235,7 @@
   "audience": {
     "eyebrow": "Who it is for",
     "title": "Built for those with a mandate to grow small businesses",
-    "text": "State ministries of commerce and industry, national enterprise development agencies, development banks and MSME funds, foundations and development partners running entrepreneurship programs, and industry associations with members to serve.",
+    "text": "State ministries of commerce and industry, national enterprise development agencies, development banks and MSME funds, foundations and development partners running entrepreneurship programmes, and industry associations with members to serve.",
     "closing": "Tell us who your members are and what you want them to reach. We will show you LIFT configured for your initiative.",
     "ctaLabel": "Request a demonstration",
     "ctaHref": "/contact?product=lift"

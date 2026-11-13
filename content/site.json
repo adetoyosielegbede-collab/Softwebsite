@@ -54,6 +54,30 @@
         {
           "label": "Case Studies",
           "href": "/case-studies"
+        },
+        {
+          "label": "Sentinel",
+          "href": "/enterprise-products/sentinel"
+        },
+        {
+          "label": "Reckon",
+          "href": "/enterprise-products/reckon"
+        },
+        {
+          "label": "Useforms",
+          "href": "/enterprise-products/useforms"
+        },
+        {
+          "label": "LIFT",
+          "href": "/enterprise-products/lift"
+        },
+        {
+          "label": "Liquio",
+          "href": "/enterprise-products/liquio"
+        },
+        {
+          "label": "RTGS.global",
+          "href": "/enterprise-products/rtgs-global"
         }
       ]
     },
@@ -105,16 +129,28 @@
       "title": "Products",
       "links": [
         {
-          "label": "Lift",
-          "href": "/enterprise-products/lift"
-        },
-        {
           "label": "Sentinel",
           "href": "/enterprise-products/sentinel"
         },
         {
+          "label": "Reckon",
+          "href": "/enterprise-products/reckon"
+        },
+        {
           "label": "Useforms",
           "href": "/enterprise-products/useforms"
+        },
+        {
+          "label": "LIFT",
+          "href": "/enterprise-products/lift"
+        },
+        {
+          "label": "Liquio",
+          "href": "/enterprise-products/liquio"
+        },
+        {
+          "label": "RTGS.global",
+          "href": "/enterprise-products/rtgs-global"
         }
       ]
     },

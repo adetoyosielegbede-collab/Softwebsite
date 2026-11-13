@@ -18,6 +18,7 @@ export function InsightList({
   moreTitle: string;
   emptyText: string;
 }) {
+  const available = categories.filter((category) => posts.some((post) => post.category === category));
   const [active, setActive] = useState("All");
   const matching = posts.filter((p) => active === "All" || p.category === active);
   const featured = matching.find((p) => p.featured) ?? (active === "All" ? matching[0] : undefined);
@@ -27,7 +28,7 @@ export function InsightList({
   return (
     <>
       <div role="tablist" aria-label="Filter insights" className="no-scrollbar flex gap-2 overflow-x-auto">
-        {["All", ...categories].map((option) => (
+        {["All", ...available].map((option) => (
           <button
             key={option}
             type="button"

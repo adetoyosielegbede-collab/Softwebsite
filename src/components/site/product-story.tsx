@@ -83,6 +83,7 @@ function FigurePlate({
             </p>
           ) : null}
           {fig.caption && !awaitingImage ? <p className="text-sm text-ink-soft">{fig.caption}</p> : null}
+          {fig.source ? <p className="text-sm text-ink-faint">{fig.source}</p> : null}
         </figcaption>
       ) : null}
     </figure>

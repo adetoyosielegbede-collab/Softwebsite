@@ -71,7 +71,7 @@
         }
       },
       {
-        "name": "Lift",
+        "name": "LIFT",
         "tagline": "An integrated platform for entrepreneurial growth",
         "summary": "An integrated platform for entrepreneurial growth.",
         "href": "/enterprise-products/lift",
@@ -83,7 +83,7 @@
         },
         "image": {
           "src": "/media/products/lift-card.png",
-          "alt": "Lift dot-matrix artwork"
+          "alt": "LIFT dot-matrix artwork"
         }
       }
     ]

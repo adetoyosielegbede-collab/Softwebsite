@@ -96,7 +96,7 @@ export function CtaBanner({ cta, file, path = "cta", className }: { cta: Cta; fi
           )}
         >
           <div className={cn("flex flex-col gap-6", split ? "max-w-md" : "items-center")}>
-            <h2 className="text-headline max-w-[598px] text-center">{cta.title}</h2>
+            <p className="text-headline max-w-[598px] text-center">{cta.title}</p>
           </div>
           <div className={cn("flex flex-col gap-6", split ? "max-w-sm" : "items-center")}>
             {cta.text && <p className="text-lede max-w-[576px] text-center text-ink-soft">{cta.text}</p>}
@@ -132,7 +132,7 @@ export async function PartnerMarquee({ partners }: { partners: SiteContent["part
         {p.logo.src && (
           <Image
             src={p.logo.src}
-            alt={hidden ? "" : p.logo.alt || p.name}
+            alt={p.logo.alt || p.name}
             title={p.name}
             width={p.width}
             height={p.height}

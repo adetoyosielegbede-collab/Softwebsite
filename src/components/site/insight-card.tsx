@@ -59,23 +59,23 @@ export function InsightCard({
         </div>
         {lead ? (
           <div className="flex flex-col gap-2.5">
-            <h3 className="heading-type text-balance text-[clamp(1.125rem,5.2cqw,1.625rem)] leading-[1.15] transition-colors group-hover:text-accent-ink md:flex md:min-h-[calc(2*1.15em)] md:items-end md:text-[clamp(1.25rem,3.4cqw,1.625rem)]">
+            <h2 className="heading-type text-balance text-[clamp(1.125rem,5.2cqw,1.625rem)] leading-[1.15] transition-colors group-hover:text-accent-ink md:flex md:min-h-[calc(2*1.15em)] md:items-end md:text-[clamp(1.25rem,3.4cqw,1.625rem)]">
               {post.title}
-            </h3>
+            </h2>
             <p className="text-[clamp(0.8125rem,3.2cqw,1rem)] leading-[1.35] font-[var(--body-weight,400)] [font-style:var(--body-style,normal)] text-ink-soft md:line-clamp-3 md:min-h-[calc(3*1.35em)]">
               {post.excerpt}
             </p>
           </div>
         ) : (
           <>
-            <h3
+            <h2
               className={cn(
                 "mt-3 transition-colors group-hover:text-accent-ink",
                 featured ? "text-headline" : "text-title md:text-[clamp(0.875rem,3.6cqw,1.375rem)] md:leading-none",
               )}
             >
               {post.title}
-            </h3>
+            </h2>
             <p className="text-body mt-3 text-ink-soft">{post.excerpt}</p>
           </>
         )}
