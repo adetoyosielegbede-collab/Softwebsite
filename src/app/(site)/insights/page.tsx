@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { InsightList } from "@/components/site/insight-list";
 import { CtaBanner, PageHero } from "@/components/site/sections";
-import { getContent, getPublishedPosts } from "@/lib/content";
+import { getContent, getPublishedPosts, requirePublishedPage } from "@/lib/content";
 import { publicPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
+  await requirePublishedPage("insights");
   const [page, posts] = await Promise.all([getContent("insights"), getPublishedPosts()]);
   const featured = posts.find((post) => post.heroImage?.src || post.image.src);
   const image = featured?.heroImage?.src ? featured.heroImage : featured?.image;
@@ -17,6 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function InsightsPage() {
+  await requirePublishedPage("insights");
   const [page, posts] = await Promise.all([getContent("insights"), getPublishedPosts()]);
   const { hero } = page;
 

@@ -6,7 +6,7 @@ import { CmsImage } from "@/components/cms/cms-image";
 import { CaseStudyDetail, CaseStudyLogo } from "@/components/site/case-study-detail";
 import { CtaBanner } from "@/components/site/sections";
 import { caseStudyPath } from "@/lib/case-studies";
-import { getContent } from "@/lib/content";
+import { getContent, requirePublishedPage } from "@/lib/content";
 import { publicPageMetadata } from "@/lib/seo";
 
 export async function generateStaticParams() {
@@ -17,6 +17,7 @@ export async function generateStaticParams() {
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }: PageProps<"/case-studies/[slug]">): Promise<Metadata> {
+  await requirePublishedPage("case-studies");
   const { slug } = await params;
   const { items } = await getContent("case-studies");
   const item = items.find((entry) => entry.slug === slug);
@@ -30,6 +31,7 @@ export async function generateMetadata({ params }: PageProps<"/case-studies/[slu
 }
 
 export default async function CaseStudyPage({ params }: PageProps<"/case-studies/[slug]">) {
+  await requirePublishedPage("case-studies");
   const { slug } = await params;
   const page = await getContent("case-studies");
   const index = page.items.findIndex((item) => item.slug === slug);

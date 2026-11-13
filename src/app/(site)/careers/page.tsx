@@ -4,10 +4,11 @@ import { CmsImage } from "@/components/cms/cms-image";
 import { CtaBanner, FrameMarks, PageHero } from "@/components/site/sections";
 import { PillLink } from "@/components/site/links";
 import { ScrollWords } from "@/components/site/scroll-words";
-import { getContent } from "@/lib/content";
+import { getContent, requirePublishedPage } from "@/lib/content";
 import { publicPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
+  await requirePublishedPage("careers");
   const page = await getContent("careers");
   return publicPageMetadata({
     title: page.seo.title,
@@ -18,6 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function CareersPage() {
+  await requirePublishedPage("careers");
   const page = await getContent("careers");
   const { hero, openRoles } = page;
 

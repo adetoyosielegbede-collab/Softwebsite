@@ -6,12 +6,13 @@ import { ScrollWords } from "@/components/site/scroll-words";
 import { CtaBanner, SectionNumber } from "@/components/site/sections";
 import { DigitalInfrastructureBoard, SolutionArt } from "@/components/site/solution-art";
 import { SolutionsHero } from "@/components/site/solutions-hero";
-import { getContent } from "@/lib/content";
+import { getContent, requirePublishedPage } from "@/lib/content";
 import { publicPageMetadata } from "@/lib/seo";
 import { fontSizeVars, textStyleClass } from "@/lib/typography";
 import { cn } from "@/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
+  await requirePublishedPage("solutions");
   const page = await getContent("solutions");
   const image = page.infrastructure.steps.find((step) => step.image.src)?.image ?? page.cta.image;
   return publicPageMetadata({
@@ -33,6 +34,7 @@ function SectionHeader({ id, number, title, lead }: { id: string; number: string
 }
 
 export default async function SolutionsPage() {
+  await requirePublishedPage("solutions");
   const s = await getContent("solutions");
   const { hero, intro, infrastructure: infra, intelligence: intel, initiatives: init } = s;
 

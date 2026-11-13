@@ -4,11 +4,11 @@ import { PageTransition } from "@/components/site/page-transition";
 import { RevealProvider } from "@/components/site/reveal-provider";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
-import { getContent } from "@/lib/content";
+import { getPublicSite } from "@/lib/content";
 import { siteStructuredData } from "@/lib/seo";
 
 export default async function SiteLayout({ children }: LayoutProps<"/">) {
-  const site = await getContent("site");
+  const site = await getPublicSite();
   return (
     <>
       <JsonLd data={siteStructuredData(site)} />

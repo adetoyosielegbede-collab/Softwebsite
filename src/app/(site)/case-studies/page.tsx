@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { CaseStudyList } from "@/components/site/case-study-list";
 import { CtaBanner, PageHero } from "@/components/site/sections";
-import { getContent } from "@/lib/content";
+import { getContent, requirePublishedPage } from "@/lib/content";
 import { publicPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
+  await requirePublishedPage("case-studies");
   const page = await getContent("case-studies");
   return publicPageMetadata({
     title: page.seo.title,
@@ -15,6 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function CaseStudiesPage() {
+  await requirePublishedPage("case-studies");
   const page = await getContent("case-studies");
   const { hero } = page;
 

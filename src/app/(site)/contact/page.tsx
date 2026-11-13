@@ -3,11 +3,12 @@ import { Mail, MapPin } from "lucide-react";
 import { CmsImage } from "@/components/cms/cms-image";
 import { ContactForm } from "@/components/site/contact-form";
 import { CrossField } from "@/components/site/dot-canvas";
-import { getContent } from "@/lib/content";
+import { getContent, requirePublishedPage } from "@/lib/content";
 import { publicPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
+  await requirePublishedPage("contact");
   const page = await getContent("contact");
   return publicPageMetadata({
     title: page.seo.title,
@@ -18,6 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ContactPage() {
+  await requirePublishedPage("contact");
   const [page, site] = await Promise.all([getContent("contact"), getContent("site")]);
 
   return (

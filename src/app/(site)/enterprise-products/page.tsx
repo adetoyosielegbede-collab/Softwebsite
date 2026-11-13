@@ -3,11 +3,12 @@ import { CmsImage } from "@/components/cms/cms-image";
 import { PillLink } from "@/components/site/links";
 import { ProductGrid } from "@/components/site/product-grid";
 import { CtaBanner, PageHero } from "@/components/site/sections";
-import { getContent } from "@/lib/content";
+import { getContent, requirePublishedPage } from "@/lib/content";
 import { publicPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
+  await requirePublishedPage("enterprise-products");
   const page = await getContent("enterprise-products");
   const card = page.products.items.find((item) => item.published && item.image.src)?.image;
   return publicPageMetadata({
@@ -19,6 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function EnterpriseProductsPage() {
+  await requirePublishedPage("enterprise-products");
   const page = await getContent("enterprise-products");
   const { hero, products, partners } = page;
 

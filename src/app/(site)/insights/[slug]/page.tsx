@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import { CmsImage } from "@/components/cms/cms-image";
 import { CtaBanner } from "@/components/site/sections";
 import { JsonLd } from "@/components/site/json-ld";
-import { getContent } from "@/lib/content";
+import { getContent, requirePublishedPage } from "@/lib/content";
 import type { CmsImage as CmsImageValue, Post, PostFigure } from "@/lib/content-types";
 import { formatMonthYear } from "@/lib/format";
 import { articleStructuredData, publicPageMetadata } from "@/lib/seo";
@@ -18,6 +18,7 @@ export async function generateStaticParams() {
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }: PageProps<"/insights/[slug]">): Promise<Metadata> {
+  await requirePublishedPage("insights");
   const { slug } = await params;
   const { items } = await getContent("posts");
   const post = items.find((p) => p.slug === slug && p.published);
@@ -75,6 +76,7 @@ function Prose({
 }
 
 export default async function InsightArticlePage({ params }: PageProps<"/insights/[slug]">) {
+  await requirePublishedPage("insights");
   const { slug } = await params;
   const [{ items }, insights] = await Promise.all([getContent("posts"), getContent("insights")]);
   const index = items.findIndex((p) => p.slug === slug && p.published);

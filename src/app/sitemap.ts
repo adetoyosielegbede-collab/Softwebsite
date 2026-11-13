@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getContent, getPublishedPosts, isProductSlugPublished } from "@/lib/content";
+import { getContent, getPublishedPosts, isHrefPublished, isProductSlugPublished } from "@/lib/content";
 import { contentDate, contentLastModified } from "@/lib/content-modified";
 import { PRODUCT_SLUGS } from "@/lib/cms/registry";
 import { caseStudyPath } from "@/lib/case-studies";
@@ -35,8 +35,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/contact", files: ["content/contact.json"] },
   ];
 
+  const visible = [];
+  for (const page of pages) {
+    if (await isHrefPublished(page.path)) visible.push(page);
+  }
+
   return Promise.all(
-    pages.map(async (page) => {
+    visible.map(async (page) => {
       const lastModified = page.lastModified ?? (await contentLastModified(...page.files));
       return { url: absoluteUrl(page.path), ...(lastModified ? { lastModified } : {}) };
     }),

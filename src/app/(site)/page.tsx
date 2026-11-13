@@ -6,11 +6,12 @@ import { LineReveal } from "@/components/site/line-reveal";
 import { ArrowLink, PillLink } from "@/components/site/links";
 import { PortalHero } from "@/components/site/portal-hero";
 import { CtaBanner, FrameMarks, PartnerMarquee, Stats } from "@/components/site/sections";
-import { getContent, getPublishedPosts } from "@/lib/content";
+import { getContent, getPublishedPosts, requirePublishedPage } from "@/lib/content";
 import { publicPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export async function generateMetadata() {
+  await requirePublishedPage("home");
   const site = await getContent("site");
   return publicPageMetadata({
     title: site.seo.title,
@@ -25,6 +26,7 @@ export async function generateMetadata() {
 const band = "flex scroll-mt-24 flex-col gap-8 pt-20 md:gap-12 lg:pt-28";
 
 export default async function HomePage() {
+  await requirePublishedPage("home");
   const [home, site, posts] = await Promise.all([getContent("home"), getContent("site"), getPublishedPosts()]);
   const articles = posts.filter((post) => post.featured).slice(0, 2);
 

@@ -136,19 +136,22 @@ function Field({
 
   if (typeof value === "boolean") {
     const homepageFeature = file === "posts" && path.endsWith(".featured");
+    const pagePublished = path === "published" && file !== "posts" && file !== "site";
     const productPublished = file === "enterprise-products" && /^products\.items\.\d+\.published$/.test(path);
     const insightPublished = file === "posts" && /^items\.\d+\.published$/.test(path);
     const title = homepageFeature
       ? "Featured on the homepage"
-      : productPublished
+      : pagePublished || productPublished
         ? "Published on the site"
         : insightPublished
           ? "Published"
           : label;
     const hint = homepageFeature
       ? "Two at a time. Only a published insight appears on the homepage."
-      : productPublished
-        ? "Off hides this product from the enterprise products page, sitemap, and its public URL. Content stays editable here."
+      : pagePublished
+        ? "Off hides this page from navigation, the sitemap, and its public URL. The editor stays available so you can publish it again."
+        : productPublished
+          ? "Off hides this product from the enterprise products page, sitemap, and its public URL. Content stays editable here."
         : null;
     return (
       <label className="flex items-center justify-between gap-4 rounded-xl border border-line bg-paper px-3 py-2.5 text-sm">

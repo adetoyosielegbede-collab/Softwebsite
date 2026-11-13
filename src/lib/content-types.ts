@@ -39,6 +39,8 @@ export type SiteContent = {
 };
 
 export type HomeContent = {
+  /** When false, the page is hidden from nav, sitemap, and its public URL. */
+  published?: boolean;
   hero: { titleLine1: string; titleLine2: string; imageMode?: boolean; backgroundImage: CmsImage };
   intro: { text: string; primaryLabel: string; primaryHref: string; secondaryLabel: string; secondaryHref: string };
   mission: { image: CmsImage; title: string; text: string; ctaLabel: string; ctaHref: string };
@@ -61,6 +63,7 @@ export type HomeContent = {
 };
 
 export type AboutContent = {
+  published?: boolean;
   seo: Seo;
   hero: Hero;
   story: { title: string; paragraphs: string[]; image: CmsImage };
@@ -73,6 +76,7 @@ export type AboutContent = {
 };
 
 export type SolutionsContent = {
+  published?: boolean;
   seo: Seo;
   hero: Hero;
   intro: { badge: string; paragraphs: string[]; textStyle?: TextStyleLabel; fontSize?: Partial<FontSize> };
@@ -121,6 +125,7 @@ export type SolutionsContent = {
 };
 
 export type EnterpriseProductsContent = {
+  published?: boolean;
   seo: Seo;
   hero: Hero;
   products: {
@@ -231,6 +236,7 @@ export type CaseStudyItem = {
 };
 
 export type CaseStudiesContent = {
+  published?: boolean;
   seo: Seo;
   hero: Hero;
   filters: string[];
@@ -240,6 +246,7 @@ export type CaseStudiesContent = {
 };
 
 export type InsightsContent = {
+  published?: boolean;
   seo: Seo;
   hero: Hero;
   categories: string[];
@@ -274,6 +281,7 @@ export type Post = {
 export type PostsContent = { items: Post[] };
 
 export type CareersContent = {
+  published?: boolean;
   seo: Seo;
   hero: Hero;
   intro: string[];
@@ -290,6 +298,7 @@ export type CareersContent = {
 };
 
 export type ContactContent = {
+  published?: boolean;
   seo: Seo;
   badge: string;
   title: string;
@@ -318,6 +327,7 @@ export type ContactContent = {
 };
 
 export type AlumniContent = {
+  published?: boolean;
   seo: Seo;
   hero: {
     title: string;

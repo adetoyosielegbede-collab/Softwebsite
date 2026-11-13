@@ -5,12 +5,13 @@ import { ColorReveal } from "@/components/site/color-reveal";
 import { ArrowLink, PillLink } from "@/components/site/links";
 import { LineReveal } from "@/components/site/line-reveal";
 import { CtaBanner, FrameMarks, PageHero } from "@/components/site/sections";
-import { getContent, getPublishedPosts } from "@/lib/content";
+import { getContent, getPublishedPosts, requirePublishedPage } from "@/lib/content";
 import { formatMonthYear } from "@/lib/format";
 import { publicPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
+  await requirePublishedPage("about");
   const about = await getContent("about");
   const photo = about.leadership.people.find((person) => person.photo.src)?.photo;
   return publicPageMetadata({
@@ -22,6 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function AboutPage() {
+  await requirePublishedPage("about");
   const [about, posts] = await Promise.all([getContent("about"), getPublishedPosts()]);
   const { hero, story, journey, values, leadership, buildWithUs, news } = about;
 

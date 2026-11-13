@@ -5,7 +5,7 @@ import { LiquioStory } from "@/components/site/liquio-story";
 import { ProductStory } from "@/components/site/product-story";
 import { RtgsStory } from "@/components/site/rtgs-story";
 import { UseformsStory } from "@/components/site/useforms-story";
-import { getContent, isProductSlugPublished } from "@/lib/content";
+import { getContent, isProductSlugPublished, requirePublishedPage } from "@/lib/content";
 import { PRODUCT_SLUGS } from "@/lib/cms/registry";
 import type { CmsImage, ContentMap, ProductContent } from "@/lib/content-types";
 import { publicPageMetadata } from "@/lib/seo";
@@ -40,6 +40,7 @@ function productShareImage(product: ProductContent): CmsImage | undefined {
 }
 
 export async function generateMetadata({ params }: PageProps<"/enterprise-products/[slug]">): Promise<Metadata> {
+  await requirePublishedPage("enterprise-products");
   const slug = (await params).slug;
   if (!isSlug(slug) || !(await isProductSlugPublished(slug))) {
     return { title: "Enterprise Products", robots: { index: false, follow: false } };
@@ -55,6 +56,7 @@ export async function generateMetadata({ params }: PageProps<"/enterprise-produc
 }
 
 export default async function ProductPage({ params }: PageProps<"/enterprise-products/[slug]">) {
+  await requirePublishedPage("enterprise-products");
   const { slug } = await params;
   if (!isSlug(slug) || !(await isProductSlugPublished(slug))) notFound();
   const product = await load(slug);
