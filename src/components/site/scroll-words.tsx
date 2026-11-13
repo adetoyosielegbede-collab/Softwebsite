@@ -66,8 +66,10 @@ export function ScrollWords({
       {paragraphs.map((paragraph) => (
         <p key={paragraph} className={cn("text-ink", paragraphClassName ?? "text-title")} style={paragraphStyle}>
           {paragraph.split(" ").map((word, index, all) => (
-            <span key={`${word}-${index}`} data-word="" style={{ opacity: 0.16 }}>
-              {word}
+            <span key={`${word}-${index}`}>
+              <span data-word="" style={{ opacity: 0.16 }}>
+                {word}
+              </span>
               {index < all.length - 1 ? " " : ""}
             </span>
           ))}

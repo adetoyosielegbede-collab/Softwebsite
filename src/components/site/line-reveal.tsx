@@ -88,9 +88,8 @@ export function LineReveal({
         ))
       ) : (
         <>
-          <span className="sr-only">{children.replace(/\n/g, " ")}</span>
           {lines.map((line, index) => (
-            <span key={`${index}-${line}`} aria-hidden className="block overflow-hidden pb-[0.12em]">
+            <span key={`${index}-${line}`} className="block overflow-hidden pb-[0.12em]">
               <span
                 className={cn("block", shown && "line-revealed")}
                 style={{

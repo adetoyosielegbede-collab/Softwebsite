@@ -391,6 +391,12 @@ header[data-hidden] {
   }
 }
 
+/* Count-up sizer holds the final width without a second copy of the number in the HTML. */
+.count-up-sizer::before {
+  content: attr(data-count);
+  visibility: hidden;
+}
+
 /* On-page CMS editing */
 .cms-empty-slot {
   display: none;

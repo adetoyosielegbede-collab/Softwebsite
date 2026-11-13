@@ -63,14 +63,9 @@ export function CountUp({ value, delay = 0 }: { value: string; delay?: number })
   }, [value, delay]);
 
   return (
-    <span ref={ref} className="inline-grid">
-      <span className="sr-only">{value}</span>
-      <span aria-hidden className="invisible col-start-1 row-start-1">
-        {value}
-      </span>
-      <span aria-hidden className="col-start-1 row-start-1 tabular-nums">
-        {text}
-      </span>
+    <span ref={ref} className="count-up inline-grid">
+      <span className="count-up-sizer col-start-1 row-start-1" data-count={value} />
+      <span className="col-start-1 row-start-1 tabular-nums">{text}</span>
     </span>
   );
 }

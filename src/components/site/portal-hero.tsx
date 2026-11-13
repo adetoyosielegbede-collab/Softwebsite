@@ -28,6 +28,50 @@ function statementRuns(text: string): Run[] {
     );
 }
 
+/** Real spaces stay text nodes so a tag-stripping crawler cannot glue the words. */
+function splitWords(el: HTMLElement | null) {
+  if (!el || el.dataset.split === "words") return [...(el?.querySelectorAll<HTMLElement>(":scope > span") ?? [])];
+  const text = el.textContent ?? "";
+  const parts = text.trim().split(/\s+/).filter(Boolean);
+  el.replaceChildren();
+  parts.forEach((word, index) => {
+    const span = document.createElement("span");
+    span.className = "inline-block";
+    span.textContent = word;
+    el.append(span);
+    if (index < parts.length - 1) el.append(document.createTextNode(" "));
+  });
+  el.dataset.split = "words";
+  return [...el.querySelectorAll<HTMLElement>(":scope > span")];
+}
+
+function splitStatement(el: HTMLElement | null, runs: Run[]) {
+  if (!el) return [] as HTMLElement[];
+  if (el.dataset.split !== "chars") {
+    const plain = document.createElement("span");
+    plain.className = "sr-only";
+    plain.textContent = runs.map((run) => run.text).join("");
+    const visual = document.createElement("span");
+    visual.setAttribute("aria-hidden", "true");
+    runs.forEach((run) => {
+      for (const char of run.text) {
+        if (char === " ") {
+          visual.append(document.createTextNode(" "));
+          continue;
+        }
+        const span = document.createElement("span");
+        span.dataset.ch = "";
+        if (run.accent) span.className = "text-signal";
+        span.textContent = char;
+        visual.append(span);
+      }
+    });
+    el.replaceChildren(plain, visual);
+    el.dataset.split = "chars";
+  }
+  return [...el.querySelectorAll<HTMLElement>("[data-ch]")];
+}
+
 function splitTitle(title: string) {
   const parts = title.trim().split(/\s+/);
   if (parts.length < 2) return [title.trim(), ""] as const;
@@ -86,8 +130,8 @@ export function PortalHero({
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const field = wash.current ? createDitherWash(wash.current, 2) : null;
-    const chars = [...(statement.current?.querySelectorAll<HTMLElement>("[data-ch]") ?? [])];
-    const wordEls = [...(sub.current?.children ?? [])] as HTMLElement[];
+    const chars = reduced.matches ? [] : splitStatement(statement.current, runs);
+    const wordEls = reduced.matches ? [] : splitWords(sub.current);
     let raf = 0;
     document.documentElement.classList.remove("play-intro");
 
@@ -280,18 +324,7 @@ export function PortalHero({
           </h2>
           <div className="relative mt-10 h-11 w-full max-w-[34rem]">
             <p ref={sub} className="text-lede absolute inset-x-0 top-0 text-ink/80">
-              {words.map((word, index) => (
-                <span
-                  key={`${word}-${index}`}
-                  className={
-                    "inline-block opacity-0 motion-reduce:opacity-100" +
-                    (index < words.length - 1 ? " pr-[0.32em]" : "")
-                  }
-                >
-                  {index > 0 ? " " : null}
-                  {word}
-                </span>
-              ))}
+              {mission.text}
             </p>
           </div>
         </section>
@@ -299,27 +332,11 @@ export function PortalHero({
         <canvas ref={wash} aria-hidden className="pointer-events-none absolute inset-0 z-40 size-full motion-reduce:hidden" />
 
         <div className="pointer-events-none absolute inset-0 z-50 flex flex-col items-start justify-center gap-10 px-6 pt-24 pb-12 text-white motion-reduce:pointer-events-auto motion-reduce:relative motion-reduce:min-h-[70vh] motion-reduce:bg-brand motion-reduce:py-16 md:px-[7vw]">
-          <p className="sr-only">{runs.map((run) => run.text).join("")}</p>
           <p
             ref={statement}
-            aria-hidden
             className="max-w-[1140px] font-heading text-[clamp(1.625rem,4.2vw,3.75rem)] leading-[1.05] heading-type md:leading-[0.95]"
           >
-            {runs.map((run) =>
-              [...run.text].map((char, index) =>
-                char === " " ? (
-                  <span key={`${run.text}-space-${index}`}> </span>
-                ) : (
-                  <span
-                    key={`${run.text}-${index}`}
-                    data-ch=""
-                    className={"opacity-0 motion-reduce:opacity-100 " + (run.accent ? "text-signal" : "")}
-                  >
-                    {char}
-                  </span>
-                ),
-              ),
-            )}
+            {runs.map((run) => run.text).join("")}
           </p>
           <div ref={actions} className="pointer-events-auto flex flex-wrap items-center gap-x-8 gap-y-4 opacity-0 motion-reduce:opacity-100">
             <PillLink href={intro.primaryHref} className="bg-white text-black hover:bg-signal">
