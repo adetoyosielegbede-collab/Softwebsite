@@ -23,7 +23,7 @@ export const LIQUIO_PAGE_HTML = `<section class="wrap hero">
       <div class="stat"><strong>~1.5</strong><span>Months to a first live service</span></div>
       <div class="stat"><strong>ISO</strong><span>27001-certified information security management</span></div>
     </div>
-    <p class="note">Figures published by Kitsoft for the Liquio platform.</p>
+    <p class="note">Figures published by Kitsoft for the Liquio platform (2026).</p>
   </div>
 
   <section class="sec">
