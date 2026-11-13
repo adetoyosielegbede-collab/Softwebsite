@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createDitherWash } from "./dither-wash";
 
 function internalPath(event: MouseEvent) {
@@ -12,6 +12,16 @@ function internalPath(event: MouseEvent) {
   if (url.origin !== window.location.origin || url.pathname === window.location.pathname) return null;
   if (url.pathname.startsWith("/admin")) return null;
   return url.pathname + url.search + url.hash;
+}
+
+/** History restoration must not animate. A smooth scroll from 0 replays as a hero flash, then a jump. */
+function scrollInstantly(top: number) {
+  const html = document.documentElement;
+  const previous = html.style.scrollBehavior;
+  html.style.scrollBehavior = "auto";
+  html.getClientRects();
+  window.scrollTo(0, top);
+  html.style.scrollBehavior = previous;
 }
 
 /** Cyan pixel wipe between pages. */
@@ -28,6 +38,8 @@ export function PageTransition() {
   const travelling = useRef(false);
   const seen = useRef(pathname);
   const destination = useRef<string | null>(null);
+  const popped = useRef(false);
+  const positions = useRef(new Map<string, number>());
 
   const draw = useCallback((value: number) => {
     progress.current = value;
@@ -82,7 +94,7 @@ export function PageTransition() {
     let dropped = false;
     animate(1, 340, 0, () => {
       if (dropped) return;
-      if (destination.current) router.push(destination.current, { scroll: !destination.current.includes("#") });
+      if (destination.current) router.push(destination.current, { scroll: false });
       window.setTimeout(close, 4000);
     });
     return () => {
@@ -92,9 +104,42 @@ export function PageTransition() {
   }, [active, paint, animate, close, router]);
 
   useEffect(() => {
+    const previous = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+    positions.current.set(window.location.pathname + window.location.search, window.scrollY);
+    const onScroll = () => {
+      if (travelling.current) return;
+      positions.current.set(window.location.pathname + window.location.search, window.scrollY);
+    };
+    const onPop = () => {
+      popped.current = true;
+      document.documentElement.style.scrollBehavior = "auto";
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("popstate", onPop);
+    return () => {
+      window.history.scrollRestoration = previous;
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("popstate", onPop);
+    };
+  }, []);
+
+  useLayoutEffect(() => {
     if (seen.current === pathname) return;
+    const fromHistory = popped.current;
+    popped.current = false;
     seen.current = pathname;
+    const key = pathname + window.location.search;
+    if (fromHistory) {
+      scrollInstantly(window.location.hash ? window.scrollY : (positions.current.get(key) ?? 0));
+      document.documentElement.style.scrollBehavior = "";
+      return;
+    }
+    if (!window.location.hash) scrollInstantly(0);
     if (travelling.current) close();
+  }, [pathname, close]);
+
+  useEffect(() => {
     const hash = window.location.hash;
     if (!hash) return;
     const id = decodeURIComponent(hash.slice(1));
