@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { isAuthenticated } from "@/lib/cms/auth";
 import type { SiteContent } from "@/lib/content-types";
 import { ThemeSwitcher } from "./theme-toggle";
 
-export function SiteFooter({ site }: { site: SiteContent }) {
+export async function SiteFooter({ site }: { site: SiteContent }) {
+  const editing = await isAuthenticated();
   return (
     <footer className="dark relative z-20 overflow-hidden border-t border-line bg-surface px-6 pt-14 pb-6 text-ink md:px-10 lg:h-[min(700px,85svh)] lg:px-[3.2%] lg:pt-[60px] lg:pb-0">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_2fr]">
@@ -47,9 +49,11 @@ export function SiteFooter({ site }: { site: SiteContent }) {
           <p>{site.footer.copyright}</p>
           <div className="flex items-center gap-4">
             <ThemeSwitcher />
-            <Link href="/admin" className="transition-colors hover:text-ink">
-              Edit site
-            </Link>
+            {editing ? (
+              <Link href="/admin" className="transition-colors hover:text-ink">
+                Edit site
+              </Link>
+            ) : null}
           </div>
         </div>
     </footer>

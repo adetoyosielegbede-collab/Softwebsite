@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import { ImagePlus } from "lucide-react";
 import type { CmsImage as CmsImageValue } from "@/lib/cms/paths";
 import { cn } from "@/lib/utils";
+import { useCmsEditing } from "./cms-editing";
 
 type Props = {
   image: CmsImageValue | undefined;
@@ -21,9 +24,11 @@ type Props = {
 };
 
 export function CmsImage({ image, file, path, className, sizes = "100vw", priority, width, height, emptyClassName, fluid }: Props) {
-  const slot = { "data-cms-file": file, "data-cms-path": path };
+  const editing = useCmsEditing();
+  const slot = editing ? { "data-cms-file": file, "data-cms-path": path } : {};
 
   if (!image?.src) {
+    if (!editing) return null;
     return (
       <span
         {...slot}

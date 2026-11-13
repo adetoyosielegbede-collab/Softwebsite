@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { isAuthenticated } from "@/lib/cms/auth";
 import { CmsImage } from "@/components/cms/cms-image";
 import type { Cta, SiteContent } from "@/lib/content-types";
 import type { CmsImage as CmsImageValue } from "@/lib/cms/paths";
@@ -123,7 +124,8 @@ export function Stats({ stats, count = false, lined = true }: { stats: SiteConte
   );
 }
 
-export function PartnerMarquee({ partners }: { partners: SiteContent["partners"] }) {
+export async function PartnerMarquee({ partners }: { partners: SiteContent["partners"] }) {
+  const editing = await isAuthenticated();
   const row = (hidden: boolean) =>
     partners.map((p, i) => (
       <li key={`${p.name}-${hidden}`} aria-hidden={hidden || undefined} className="flex shrink-0 items-center">
@@ -135,8 +137,7 @@ export function PartnerMarquee({ partners }: { partners: SiteContent["partners"]
             width={p.width}
             height={p.height}
             unoptimized={p.logo.src.endsWith(".svg")}
-            data-cms-file={hidden ? undefined : "site"}
-            data-cms-path={hidden ? undefined : `partners.${i}.logo`}
+            {...(editing && !hidden ? { "data-cms-file": "site", "data-cms-path": `partners.${i}.logo` } : {})}
             className="block object-contain opacity-55 brightness-0 transition-opacity hover:opacity-100 dark:invert"
             style={{ width: p.width, height: p.height }}
           />
