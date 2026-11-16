@@ -256,13 +256,13 @@ export function PortalHero({
     };
   }, [words.length]);
 
-  const scrollOn = () => {
+  const scrollTo = (fraction: number) => {
     const root = track.current;
     if (!root) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const top = window.scrollY + root.getBoundingClientRect().top;
     const span = root.offsetHeight - window.innerHeight;
-    window.scrollTo({ top: reduced ? top + root.offsetHeight : top + span * 0.34, behavior: reduced ? "instant" : "smooth" });
+    window.scrollTo({ top: reduced ? top + root.offsetHeight : top + span * fraction, behavior: reduced ? "instant" : "smooth" });
   };
 
   return (
@@ -282,7 +282,7 @@ export function PortalHero({
             ref={cue}
             type="button"
             aria-label="Scroll"
-            onClick={scrollOn}
+            onClick={() => scrollTo(0.34)}
             className="absolute bottom-6 left-1/2 z-40 -translate-x-1/2 rounded-full p-2 text-ink/70 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal motion-reduce:hidden"
           >
             <span className="softcom-nudge block">
@@ -327,6 +327,16 @@ export function PortalHero({
               {mission.text}
             </p>
           </div>
+          <button
+            type="button"
+            aria-label="Scroll"
+            onClick={() => scrollTo(0.82)}
+            className="pointer-events-auto absolute bottom-6 left-1/2 z-40 -translate-x-1/2 rounded-full p-2 text-ink/70 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal motion-reduce:hidden"
+          >
+            <span className="softcom-nudge block">
+              <ArrowDown className="size-5" />
+            </span>
+          </button>
         </section>
 
         <canvas ref={wash} aria-hidden className="pointer-events-none absolute inset-0 z-40 size-full motion-reduce:hidden" />

@@ -10,8 +10,6 @@ import { PillLink } from "./links";
 import { MenuPlate } from "./menu-plate";
 import { ThemeSwitcher, ThemeToggleDot } from "./theme-toggle";
 
-const CUE_KEY = "softcom-menu-cue";
-
 function pathOf(href: string) {
   return href.split("#")[0] || "/";
 }
@@ -33,11 +31,9 @@ export function SiteHeader({ site }: { site: SiteContent }) {
   const [active, setActive] = useState<string | null>(null);
   const [mobileSection, setMobileSection] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
-  const [cue, setCue] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [focused, setFocused] = useState(false);
   const closeTimer = useRef(0);
-  const expanded = open && !mobile;
   const sheet = open && mobile;
   const activeItem = items.find((item) => item.href === active && item.links && item.links.length > 0);
 
@@ -80,23 +76,6 @@ export function SiteHeader({ site }: { site: SiteContent }) {
   }, []);
 
   useEffect(() => {
-    if (open) return;
-    try {
-      if (sessionStorage.getItem(CUE_KEY)) return;
-      sessionStorage.setItem(CUE_KEY, "1");
-    } catch {
-      return;
-    }
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const show = window.setTimeout(() => setCue(true), 1000);
-    const hide = window.setTimeout(() => setCue(false), 1900);
-    return () => {
-      window.clearTimeout(show);
-      window.clearTimeout(hide);
-    };
-  }, [open]);
-
-  useEffect(() => {
     let last = window.scrollY;
     let frame = 0;
     const onScroll = () => {
@@ -106,10 +85,8 @@ export function SiteHeader({ site }: { site: SiteContent }) {
         const y = window.scrollY;
         const delta = y - last;
         if (y < 96) setHidden(false);
-        else if (delta > 6) {
-          setHidden(true);
-          close();
-        } else if (delta < -6) setHidden(false);
+        else if (delta > 6) setHidden(true);
+        else if (delta < -6) setHidden(false);
         last = y;
       });
     };
@@ -126,7 +103,7 @@ export function SiteHeader({ site }: { site: SiteContent }) {
   }, []);
 
   useEffect(() => {
-    if (!open) return;
+    if (!open && !active) return;
     const onKey = (event: KeyboardEvent) => {
       if (event.key !== "Escape") return;
       if (active) setActive(null);
@@ -200,80 +177,31 @@ export function SiteHeader({ site }: { site: SiteContent }) {
                 ))}
               </span>
             </button>
-            <div
-              id="site-menu"
-              className={cn(
-                "relative hidden h-10 items-center justify-between overflow-hidden px-1 transition-[width] duration-300 ease-out motion-reduce:transition-none md:flex",
-                expanded ? "w-[480px]" : cue ? "w-28" : "w-14",
-              )}
-            >
-              <button
-                type="button"
-                aria-label="Open menu"
-                aria-expanded={open}
-                aria-controls={mobile ? "mobile-menu" : "site-menu"}
-                tabIndex={expanded ? -1 : 0}
-                onClick={() => setOpen(true)}
-                className="size-6 shrink-0 rounded-full bg-signal outline-none focus-visible:ring-[3px] focus-visible:ring-signal/50"
-              />
-              {expanded ? (
-                <nav aria-label="Main" className="flex items-center gap-[22px] px-3">
-                  {items.map((item) => {
-                    const current = isCurrent(pathname, item.href) || item.links?.some((link) => isCurrent(pathname, link.href));
-                    return (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onPointerEnter={() => setActive(item.links?.length ? item.href : null)}
-                        onFocus={() => setActive(item.links?.length ? item.href : null)}
-                        onClick={close}
-                        aria-current={current ? "page" : undefined}
-                        className={cn(
-                          "text-xs leading-none font-medium whitespace-nowrap transition-colors hover:text-signal",
-                          current || active === item.href ? "text-signal" : "text-ink",
-                        )}
-                      >
-                        {item.label}
-                      </Link>
-                    );
-                  })}
-                  <ThemeToggleDot />
-                </nav>
-              ) : (
-                <span
-                  aria-hidden
-                  className={cn(
-                    "pointer-events-none absolute left-1/2 -translate-x-1/2 text-xs leading-none font-medium whitespace-nowrap text-ink/80 transition-opacity duration-300",
-                    cue ? "opacity-100 delay-150" : "opacity-0",
-                  )}
-                >
-                  Menu
-                </span>
-              )}
-              <button
-                type="button"
-                aria-label={open ? "Close menu" : "Open menu"}
-                aria-expanded={open}
-                aria-controls={mobile ? "mobile-menu" : "site-menu"}
-                onClick={() => (open ? close() : setOpen(true))}
-                className="grid size-6 shrink-0 place-items-center rounded-full bg-brand outline-none focus-visible:ring-[3px] focus-visible:ring-signal/50"
-              >
-                <svg
-                  viewBox="0 0 9.5 9.5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  aria-hidden
-                  className={cn("size-[9.5px] text-signal transition-opacity duration-200", open ? "opacity-100" : "opacity-0")}
-                >
-                  <path d="M0.5 0.5L9 9" />
-                  <path d="M9 0.5L0.5 9" />
-                </svg>
-              </button>
-            </div>
+            <nav id="site-menu" aria-label="Main" className="hidden h-10 items-center gap-[22px] pr-3 pl-1 md:flex">
+              {items.map((item) => {
+                const current = isCurrent(pathname, item.href) || item.links?.some((link) => isCurrent(pathname, link.href));
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onPointerEnter={() => setActive(item.links?.length ? item.href : null)}
+                    onFocus={() => setActive(item.links?.length ? item.href : null)}
+                    onClick={close}
+                    aria-current={current ? "page" : undefined}
+                    className={cn(
+                      "text-xs leading-none font-medium whitespace-nowrap transition-colors hover:text-signal",
+                      current || active === item.href ? "text-signal" : "text-ink",
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+              <ThemeToggleDot />
+            </nav>
           </div>
 
-          {expanded && activeItem?.links ? (
+          {!mobile && activeItem?.links ? (
             <div className="absolute inset-x-0 top-full pt-3">
               <div data-nav-plate-root="" className="flex h-52 overflow-hidden rounded-3xl bg-black ring-1 ring-white/10">
                 <MenuPlate seed={activeItem.href === "/solutions" ? 7 : 3} className="w-44 shrink-0" />
